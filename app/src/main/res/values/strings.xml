@@ -1,0 +1,54 @@
+<resources>
+    <string name="app_name">Avallie</string>
+    <string name="menu_products">Produtos</string>
+    <string name="menu_cart">Carrinho</string>
+    <string name="server_error">Sem conexão com a internet</string>
+    <string name="productsFragment_search_products">Buscar produto</string>
+    <string name="menu_search_title">Buscar</string>
+    <string name="productAddDialog_manufacturer_hint">Marca de preferência</string>
+    <string name="productAddDialog_unity">Quantidade em</string>
+    <string name="productAddDialog_add">Adicionar</string>
+    <string name="cancel">Cancelar</string>
+    <string name="productAddDialog_observations_hint">Observações</string>
+    <string name="try_again">Tentar novamente</string>
+    <string name="required_field">Campo obrigatório</string>
+    <string name="productAddCart_no_observation">Sem observação</string>
+    <string name="productAddDialog_product_added_to_cart">Produto adicionado ao carrinho</string>
+    <string name="productAddDialog_no_manufacturer">Sem fabricante de preferência</string>
+    <string name="cartFragment_title">produtos selecionados</string>
+    <string name="cartFragment_single_item_cart">1 produto selecionado</string>
+    <string name="cartInfo_email">Email</string>
+    <string name="cartInfo_name">Nome</string>
+    <string name="cartInfo_cpf">CPF</string>
+    <string name="cartInfo_phone">Telefone</string>
+    <string name="cartInfo_address_hint">Endereço</string>
+    <string name="cartInfo_city_hint">Cidade</string>
+    <string name="cartInfo_number_hint">Número</string>
+    <string name="cartInfo_deadline_info">Prazo de entrega</string>
+    <string name="cartInfo_request_budget">Solicitar orçamento</string>
+    <string name="cartInfo_confirmation">Confirmação</string>
+    <string name="cartInfo_generalInfos">Informações gerais</string>
+    <string name="cartInfo_delivery_infos">Entrega</string>
+    <string name="update">Atualizar</string>
+    <string name="emptyCart_select_products_button">Selecionar produtos</string>
+    <string name="emptyCart_message">Parece que você ainda não selecionou nenhum produto ainda...</string>
+    <string name="emptyCart_title">Seu carrinho está vazio!</string>
+    <string name="productNotFound_title">Nenhum produto encontrado</string>
+    <string name="productNotFound_message">Tente pesquisar por outro nome ;)</string>
+    <string name="successContent_title">Solicitação realizada!</string>
+    <string name="succesContent_message">Em breve você receberá um email com todas as informações da sua solicitação.
+    </string>
+    <string name="addBudgetRequest_sending_request">Enviando solicitação</string>
+    <string name="response_fail">Falha na solicitação</string>
+    <string name="response_fail_content">Não foi possível realizar sua solicitação neste momento, tente novamente mais
+        tarde.
+    </string>
+    <string name="categoriesDialog_apply">Aplicar</string>
+    <string name="categoriesDialog_title">Selecione as categorias desejadas</string>
+    <string name="categoriesDialog_neutraltext">Remover</string>
+    <string name="filter_categories">Categorias</string>
+    <string name="filter_construction_phase">Fases de obra</string>
+    <string name="filter_select_categorie">Selecione pelo menos uma categoria</string>
+    <string name="budget">Orçamentos</string>
+    <string name="account">Conta</string>
+</resources>

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    android:orientation="vertical"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:id="@+id/v_phase_background"
+        android:layout_marginTop="11dp"
+        android:layout_marginLeft="25dp"
+        android:layout_marginRight="25dp"
+        android:layout_marginBottom="22dp"
+        android:gravity="center"
+        android:translationZ="4dp"
+        android:elevation="4dp"
+        android:background="@drawable/phase_item_selected_background"
+        android:layout_width="84dp"
+        android:layout_height="84dp">
+
+        <ImageView
+            android:alpha="0.8"
+            android:id="@+id/v_phase_icon"
+            android:layout_width="41dp"
+            android:layout_height="41dp" />
+
+    </LinearLayout>
+
+    <!--demi bold-->
+    <TextView
+        android:gravity="center"
+        android:id="@+id/v_phase_name"
+        android:textAllCaps="true"
+        android:textSize="13sp"
+        fontPath="Regular.otf"
+        android:layout_gravity="center"
+        android:layout_width="120dp"
+        android:layout_height="wrap_content" />
+
+</LinearLayout>
