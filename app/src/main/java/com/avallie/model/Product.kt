@@ -1,8 +1,9 @@
 package com.avallie.model
 
 import com.google.gson.annotations.SerializedName
+import java.io.Serializable
 
-class Product {
+class Product : Serializable {
 
     @SerializedName("_id")
     var id: String? = null
