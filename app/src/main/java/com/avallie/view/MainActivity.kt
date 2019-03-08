@@ -4,9 +4,9 @@ import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import com.avallie.R
 import com.avallie.view.fragment.ProductsFragment
 import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper
+
 
 class MainActivity : AppCompatActivity() {
 
@@ -14,7 +14,7 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        setContentView(com.avallie.R.layout.activity_main)
 
         goToProducts()
     }
@@ -26,7 +26,7 @@ class MainActivity : AppCompatActivity() {
         bundle.putStringArrayList("categories", categories)
         fragment.arguments = bundle
 
-        supportFragmentManager.beginTransaction().replace(R.id.container, fragment).commit()
+        supportFragmentManager.beginTransaction().replace(com.avallie.R.id.container, fragment).commit()
     }
 
     override fun attachBaseContext(newBase: Context) {

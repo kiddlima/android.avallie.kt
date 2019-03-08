@@ -13,7 +13,7 @@
         <item name="windowNoTitle">true</item>
     </style>
 
-    <style name="AppThemeFilter"  parent="AppTheme.NoActionBar">
+    <style name="AppThemeFilter" parent="AppTheme.NoActionBar">
         <item name="colorPrimaryDark">@color/grayLight</item>
     </style>
 
@@ -26,6 +26,35 @@
         <item name="android:textColor">@android:color/white</item>
         <item name="android:textColorHint">@android:color/white</item>
         <item name="android:textCursorDrawable">@drawable/search_view_cursor</item>
+    </style>
+
+    <style name="AppTheme.TextErrorAppearance" parent="TextAppearance.Design.Error">
+        <!-- Error message appearance here -->
+        <item name="android:textColor">#ff0000</item>
+        <item name="android:textSize">20sp</item>
+    </style>
+
+    <style name="FullScreenDialogStyle" parent="Theme.AppCompat.Dialog">
+        <item name="android:windowNoTitle">true</item>
+        <!--<item name="colorPrimaryDark">@color/colorPrimaryDark</item>-->
+        <!--<item name="colorPrimary">@color/colorPrimary</item>-->
+
+        <!-- Set this to true if you want Full Screen without status bar -->
+        <item name="android:windowFullscreen">false</item>
+
+        <item name="android:windowIsFloating">false</item>
+
+        <item name="android:windowCloseOnTouchOutside">true</item>
+
+        <item name="colorControlNormal">@color/grayPrimary</item>
+        <item name="colorControlActivated">@color/grayPrimary</item>
+
+        <!-- This is important! Don't forget to set window background -->
+        <item name="android:windowBackground">@android:color/transparent</item>
+
+        <!-- Additionally if you want animations when dialog opening -->
+        <!--<item name="android:windowEnterAnimation">@anim/slide_up</item>-->
+        <!--<item name="android:windowExitAnimation">@anim/slide_down</item>-->
     </style>
 
 </resources>

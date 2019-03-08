@@ -11,7 +11,7 @@ class PaperHelper {
         }
 
         fun getPhases() : ArrayList<ConstructionPhase>{
-            return Paper.book().read("phases")
+            return Paper.book().read("phases", ArrayList())
         }
 
         fun hasPhases(): Boolean{

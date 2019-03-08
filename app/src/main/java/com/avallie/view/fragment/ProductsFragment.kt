@@ -98,10 +98,11 @@ class ProductsFragment : Fragment() {
         v_active_filter_recycler.layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
     }
 
+
     private fun setProductAdapter() {
         v_products_recycler.adapter = productsAdapter
         productsAdapter.onProductClick = {
-            //TODO OPEN PRODUCT MODAL
+            AddProductDialog(context!!, it).showDialog()
         }
 
         v_products_recycler.layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)

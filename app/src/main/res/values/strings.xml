@@ -51,4 +51,7 @@
     <string name="filter_select_categorie">Selecione pelo menos uma categoria</string>
     <string name="budget">Orçamentos</string>
     <string name="account">Conta</string>
+    <string name="quantity">Quantidade</string>
+    <string name="specs">Especificações</string>
+    <string name="add_products">Adicionar produto</string>
 </resources>
