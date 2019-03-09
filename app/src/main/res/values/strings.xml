@@ -54,4 +54,6 @@
     <string name="quantity">Quantidade</string>
     <string name="specs">Especificações</string>
     <string name="add_products">Adicionar produto</string>
+    <string name="products">Produtos</string>
+    <string name="cart">Carrinho</string>
 </resources>
