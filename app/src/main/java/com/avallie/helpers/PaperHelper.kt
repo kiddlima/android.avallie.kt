@@ -1,21 +1,32 @@
 package com.avallie.helpers
 
 import com.avallie.model.ConstructionPhase
+import com.avallie.model.SelectedProduct
 import io.paperdb.Paper
 
 class PaperHelper {
 
     companion object {
-        fun savePhases(phases: ArrayList<ConstructionPhase>){
+        fun savePhases(phases: ArrayList<ConstructionPhase>) {
             Paper.book().write("phases", phases)
         }
 
-        fun getPhases() : ArrayList<ConstructionPhase>{
+        fun getPhases(): ArrayList<ConstructionPhase> {
             return Paper.book().read("phases", ArrayList())
         }
 
-        fun hasPhases(): Boolean{
+        fun hasPhases(): Boolean {
             return Paper.book().contains("phases")
+        }
+
+        fun updateCart(selectedProduct: SelectedProduct) {
+            val cart = getCart()
+            cart.add(selectedProduct)
+            Paper.book().write("cart", cart)
+        }
+
+        fun getCart(): ArrayList<SelectedProduct> {
+            return Paper.book().read("cart", ArrayList())
         }
     }
 
