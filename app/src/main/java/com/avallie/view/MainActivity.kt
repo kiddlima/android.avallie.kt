@@ -6,10 +6,13 @@ import android.graphics.Color
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
+import androidx.fragment.app.Fragment
+import com.aurelhubert.ahbottomnavigation.AHBottomNavigation
 import com.aurelhubert.ahbottomnavigation.AHBottomNavigationItem
 import com.aurelhubert.ahbottomnavigation.notification.AHNotification
 import com.avallie.R
 import com.avallie.helpers.PaperHelper.Companion.getCart
+import com.avallie.view.fragment.CartFragment
 import com.avallie.view.fragment.ProductsFragment
 import kotlinx.android.synthetic.main.activity_main.*
 import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper
@@ -19,23 +22,37 @@ class MainActivity : AppCompatActivity() {
 
     private var categories: ArrayList<String> = ArrayList()
 
+    var lastItemSelected: Int? = null
+
+    var productsFragment: ProductsFragment? = null
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(com.avallie.R.layout.activity_main)
 
         createMenu()
-
-        goToProducts()
     }
 
     private fun goToProducts() {
+        lastItemSelected = 0
+
         val bundle = Bundle()
-        val fragment = ProductsFragment()
+        productsFragment = ProductsFragment()
 
         bundle.putStringArrayList("categories", categories)
-        fragment.arguments = bundle
+        productsFragment?.arguments = bundle
 
-        supportFragmentManager.beginTransaction().replace(com.avallie.R.id.container, fragment).commit()
+        supportFragmentManager.beginTransaction().replace(com.avallie.R.id.container, productsFragment!!).commit()
+    }
+
+    private fun openCartSheet() {
+        val cartFragment = CartFragment()
+
+        cartFragment.show(supportFragmentManager, "cartSheet")
+    }
+
+    fun updateSelectedItem() {
+        bottom_navigation.currentItem = lastItemSelected!!
     }
 
     override fun attachBaseContext(newBase: Context) {
@@ -66,18 +83,39 @@ class MainActivity : AppCompatActivity() {
 
             setUseElevation(true)
 
+            setOnTabSelectedListener(object : AHBottomNavigation.OnTabSelectedListener {
+                override fun onTabSelected(position: Int, wasSelected: Boolean): Boolean {
+                    when (position) {
+                        0 -> {
+                            if (!isFragmentVisible(productsFragment)) {
+                                goToProducts()
+                            }
+                        }
+                        1 -> openCartSheet()
+                    }
+
+                    return true
+                }
+            })
+
             currentItem = 0
         }
 
         updateCartBadge()
     }
 
+    fun isFragmentVisible(fragment: Fragment?): Boolean {
+        return fragment != null && fragment.isVisible
+    }
+
     fun updateCartBadge() {
         val cartSize = getCart().size
         if (cartSize == 0) {
             bottom_navigation.setNotification(AHNotification(), 1)
+            bottom_navigation.disableItemAtPosition(1)
         } else {
             bottom_navigation.setNotification(getCart().size.toString(), 1)
+            bottom_navigation.enableItemAtPosition(1)
         }
     }
 }

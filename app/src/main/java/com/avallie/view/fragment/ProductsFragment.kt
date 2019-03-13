@@ -16,7 +16,7 @@ import com.avallie.view.adapter.ActiveFiltersAdapter
 import com.avallie.view.adapter.ProductsAdapter
 import com.avallie.webservice.ConnectionListener
 import com.avallie.webservice.HttpService
-import kotlinx.android.synthetic.main.products_fragment.*
+import kotlinx.android.synthetic.main.fragment_products.*
 
 class ProductsFragment : Fragment() {
 
@@ -35,7 +35,7 @@ class ProductsFragment : Fragment() {
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        return inflater.inflate(R.layout.products_fragment, container, false)
+        return inflater.inflate(R.layout.fragment_products, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
