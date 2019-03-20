@@ -18,7 +18,7 @@ class LoginActivity : AppCompatActivity() {
         }
 
         btn_login.setOnClickListener {
-            ProgressDialog(this, "Autenticando seu usuário, por favor aguarde.").show()
+            ProgressDialog(this, "Autenticando seus dados, por favor aguarde.").show()
         }
     }
 
