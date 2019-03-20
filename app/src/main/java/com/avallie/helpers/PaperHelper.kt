@@ -19,7 +19,7 @@ class PaperHelper {
             return Paper.book().contains("phases")
         }
 
-        fun updateCart(selectedProduct: SelectedProduct) {
+        fun addProduct(selectedProduct: SelectedProduct) {
             val cart = getCart()
             cart.add(selectedProduct)
             Paper.book().write("cart", cart)
@@ -27,6 +27,10 @@ class PaperHelper {
 
         fun getCart(): ArrayList<SelectedProduct> {
             return Paper.book().read("cart", ArrayList())
+        }
+
+        fun updateCart(selectedProducts: ArrayList<SelectedProduct>){
+            Paper.book().write("cart", selectedProducts)
         }
     }
 

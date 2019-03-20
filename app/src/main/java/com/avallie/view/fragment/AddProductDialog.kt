@@ -12,7 +12,7 @@ import android.widget.TextView
 import com.avallie.R
 import com.avallie.helpers.AppHelper
 import com.avallie.helpers.PaperHelper.Companion.getPhases
-import com.avallie.helpers.PaperHelper.Companion.updateCart
+import com.avallie.helpers.PaperHelper.Companion.addProduct
 import com.avallie.model.Product
 import com.avallie.model.SelectedProduct
 import com.avallie.view.MainActivity
@@ -55,7 +55,7 @@ class AddProductDialog(private val context: Context, private val product: Produc
 
         btnAddProduct?.setOnClickListener {
             if (hasValidField(quantity) && hasValidField(observations)) {
-                updateCart(SelectedProduct(quantity?.text.toString().toInt(), observations?.text.toString(), product))
+                addProduct(SelectedProduct(quantity?.text.toString().toInt(), observations?.text.toString(), product))
 
                 (context as MainActivity).updateCartBadge()
 
