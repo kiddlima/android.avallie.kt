@@ -1,8 +1,13 @@
 package com.avallie.helpers
 
 import android.content.Context
+import android.graphics.Color
 import android.util.DisplayMetrics
+import android.view.View
+import androidx.core.content.ContextCompat
+import com.avallie.R
 import com.avallie.model.ConstructionPhase
+import com.google.android.material.snackbar.Snackbar
 
 open class AppHelper {
 
@@ -20,6 +25,16 @@ open class AppHelper {
             }
 
             return ""
+        }
+
+        fun getSnackbar(context: Context, view: View, message: String): Snackbar{
+            val snackbar = Snackbar.make(view, message, Snackbar.LENGTH_LONG)
+
+            snackbar.view.setBackgroundColor(ContextCompat.getColor(context, R.color.colorError))
+
+            snackbar.setActionTextColor(Color.WHITE)
+
+            return snackbar
         }
     }
 }

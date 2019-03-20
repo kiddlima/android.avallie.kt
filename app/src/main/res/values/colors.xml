@@ -18,9 +18,10 @@
     <color name="grayPrimaryDark">#606060</color>
     <color name="grayPrimaryDarker">#4f4f4f</color>
 
-
     <color name="redPrimary">#e94f4f</color>
     <color name="redDark">#af3131</color>
+
+    <color name="colorError">#E77A4D</color>
 
     <color name="blackTransparent55">#8C000000</color>
 </resources>
