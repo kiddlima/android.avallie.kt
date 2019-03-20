@@ -1,6 +1,7 @@
 package com.avallie.view.fragment
 
 import android.content.DialogInterface
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -9,6 +10,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.avallie.R
 import com.avallie.helpers.PaperHelper
 import com.avallie.helpers.PaperHelper.Companion.getCart
+import com.avallie.view.LoginActivity
 import com.avallie.view.MainActivity
 import com.avallie.view.adapter.CartAdapter
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
@@ -48,6 +50,10 @@ class CartFragment : BottomSheetDialogFragment() {
 
             override fun onConfirmProducts() {
                 //TODO CHECK IF IS LOGGED AND DO LOGIC
+                activity?.let{
+                    val intent = Intent (it, LoginActivity::class.java)
+                    it.startActivity(intent)
+                }
             }
         })
 

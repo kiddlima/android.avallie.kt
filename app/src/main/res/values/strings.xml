@@ -58,4 +58,8 @@
     <string name="cart">Carrinho</string>
     <string name="confirm_products">Confirmar produtos</string>
     <string name="password">Senha</string>
+    <string name="enter">Entrar</string>
+    <string name="forgot_password">Esqueci minha senha</string>
+    <string name="no_account_question">Não possui cadastro?</string>
+    <string name="create_account">Criar conta</string>
 </resources>
