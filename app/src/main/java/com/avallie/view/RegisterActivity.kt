@@ -5,9 +5,12 @@ import android.os.Bundle
 import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat
 import com.avallie.R
+import com.avallie.helpers.AppHelper
 import com.avallie.view.fragment.ProgressDialog
 import kotlinx.android.synthetic.main.activity_register.*
+import kotlinx.android.synthetic.main.register_tracking.*
 import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper
 
 class RegisterActivity : AppCompatActivity() {
@@ -49,10 +52,30 @@ class RegisterActivity : AppCompatActivity() {
                 }
             }
         }
+
+        first_step_circle.setOnClickListener {
+            goToFirstScreen()
+        }
+
+        second_step_circle.setOnClickListener {
+            if (isSecondScreenValidate() || isFirstScreenValidate()) {
+                goToSecondScreen()
+            }
+        }
+
+        thrid_step_circle.setOnClickListener {
+            if (isThirdScreenValidate() || (isFirstScreenValidate() && isSecondScreenValidate())) {
+                goToThridScreen()
+            }
+        }
     }
 
-    override fun attachBaseContext(newBase: Context) {
-        super.attachBaseContext(CalligraphyContextWrapper.wrap(newBase))
+    private fun isCurrentScreenValidate(): Boolean {
+        return when (currentScreen) {
+            RegisterActivity.RegisterScreen.FIRST -> isFirstScreenValidate()
+            RegisterActivity.RegisterScreen.SECOND -> isSecondScreenValidate()
+            else -> isThirdScreenValidate()
+        }
     }
 
     private fun isFirstScreenValidate(): Boolean {
@@ -76,6 +99,17 @@ class RegisterActivity : AppCompatActivity() {
         }
     }
 
+    private fun goToFirstScreen() {
+        register_first_screen.visibility = View.VISIBLE
+        register_second_screen.visibility = View.GONE
+        register_third_screen.visibility = View.GONE
+
+        currentScreen = RegisterScreen.FIRST
+        register_subtitle.text = getString(R.string.personal_info)
+
+        updateTracking()
+    }
+
     private fun goToSecondScreen() {
         register_first_screen.visibility = View.GONE
         register_second_screen.visibility = View.VISIBLE
@@ -83,6 +117,8 @@ class RegisterActivity : AppCompatActivity() {
 
         currentScreen = RegisterScreen.SECOND
         register_subtitle.text = getString(R.string.company_info)
+
+        updateTracking()
     }
 
     private fun goToThridScreen() {
@@ -92,6 +128,38 @@ class RegisterActivity : AppCompatActivity() {
 
         currentScreen = RegisterScreen.THIRD
         register_subtitle.text = getString(R.string.access_info)
+
+        updateTracking()
+    }
+
+    private fun updateTracking() {
+        val accentDrawable = ContextCompat.getDrawable(this, R.drawable.accent_circle)
+        val grayDrawable = ContextCompat.getDrawable(this, R.drawable.gray_circle)
+        val accentColor = ContextCompat.getColor(this, R.color.colorAccent)
+        val grayColor = ContextCompat.getColor(this, R.color.grayPrimary)
+
+        when (currentScreen) {
+            RegisterScreen.FIRST -> {
+                first_step_line.setBackgroundColor(grayColor)
+                second_step_line.setBackgroundColor(grayColor)
+
+                thrid_step_circle.background = grayDrawable
+                second_step_circle.background = grayDrawable
+                first_step_circle.background = accentDrawable
+            }
+            RegisterScreen.SECOND -> {
+                first_step_line.setBackgroundColor(accentColor)
+                second_step_line.setBackgroundColor(grayColor)
+
+                thrid_step_circle.background = grayDrawable
+                second_step_circle.background = accentDrawable
+
+            }
+            else -> {
+                thrid_step_circle.background = accentDrawable
+                second_step_line.setBackgroundColor(accentColor)
+            }
+        }
     }
 
     private fun finishRegister() {
@@ -100,5 +168,13 @@ class RegisterActivity : AppCompatActivity() {
 
     private fun showError(errorMessage: String) {
         Toast.makeText(this, errorMessage, Toast.LENGTH_LONG).show()
+    }
+
+    private fun showRequestError(errorMessage: String) {
+        AppHelper.getSnackbar(this, register_root, errorMessage).show()
+    }
+
+    override fun attachBaseContext(newBase: Context) {
+        super.attachBaseContext(CalligraphyContextWrapper.wrap(newBase))
     }
 }

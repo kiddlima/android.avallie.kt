@@ -7,8 +7,8 @@
 
     <View
         android:id="@+id/first_step_circle"
-        android:layout_width="10dp"
-        android:layout_height="10dp"
+        android:layout_width="15dp"
+        android:layout_height="15dp"
         android:background="@drawable/accent_circle"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -17,16 +17,16 @@
         android:id="@+id/first_step_line"
         android:layout_width="2dp"
         android:layout_height="100dp"
-        android:background="@color/colorAccent"
+        android:background="@color/grayPrimary"
         app:layout_constraintEnd_toEndOf="@id/first_step_circle"
         app:layout_constraintStart_toStartOf="@id/first_step_circle"
         app:layout_constraintTop_toBottomOf="@id/first_step_circle" />
 
     <View
         android:id="@+id/second_step_circle"
-        android:layout_width="10dp"
-        android:layout_height="10dp"
-        android:background="@drawable/accent_circle"
+        android:layout_width="15dp"
+        android:layout_height="15dp"
+        android:background="@drawable/gray_circle"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/first_step_line" />
@@ -36,16 +36,16 @@
         android:id="@+id/second_step_line"
         android:layout_width="2dp"
         android:layout_height="100dp"
-        android:background="@color/colorAccent"
+        android:background="@color/grayPrimary"
         app:layout_constraintEnd_toEndOf="@id/second_step_circle"
         app:layout_constraintStart_toStartOf="@id/second_step_circle"
         app:layout_constraintTop_toBottomOf="@id/second_step_circle" />
 
     <View
         android:id="@+id/thrid_step_circle"
-        android:layout_width="10dp"
-        android:layout_height="10dp"
-        android:background="@drawable/accent_circle"
+        android:layout_width="15dp"
+        android:layout_height="15dp"
+        android:background="@drawable/gray_circle"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/second_step_line" />

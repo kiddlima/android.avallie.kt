@@ -21,10 +21,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f8a6c184-7317-4a08-8180-05af7171ae88" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/avallie/view/RegisterActivity.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/accent_circle.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_register.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/register_tracking.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/gray_circle.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/5.1.1/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.1.1/executionHistory/executionHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/5.1.1/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.1.1/executionHistory/executionHistory.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/5.1.1/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.1.1/fileHashes/fileHashes.bin" afterDir="false" />
@@ -35,16 +32,10 @@
       <change beforePath="$PROJECT_DIR$/.gradle/5.1.1/javaCompile/javaCompile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.1.1/javaCompile/javaCompile.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/5.1.1/javaCompile/taskHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.1.1/javaCompile/taskHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/avallie/view/LoginActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/avallie/view/LoginActivity.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/avallie/view/fragment/AddProductDialog.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/avallie/view/fragment/AddProductDialog.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/avallie/view/fragment/CartFragment.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/avallie/view/fragment/CartFragment.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/btn_green_background.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/btn_green_background.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/avallie/view/RegisterActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/avallie/view/RegisterActivity.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_register.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_register.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/register_tracking.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/register_tracking.xml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -84,7 +75,7 @@
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/avallie/view/LoginActivity.kt">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="480">
-              <caret line="32" lean-forward="true" selection-start-line="32" selection-end-line="32" />
+              <caret line="32" selection-start-line="32" selection-end-line="32" />
               <folding>
                 <element signature="e#26#403#0" expanded="true" />
               </folding>
@@ -95,16 +86,18 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/avallie/view/RegisterActivity.kt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="641">
-              <caret line="52" lean-forward="true" selection-start-line="52" selection-end-line="52" />
+            <state relative-caret-position="133">
+              <caret line="133" lean-forward="true" selection-start-line="133" selection-end-line="133" />
               <folding>
-                <element signature="e#998#1033#1" expanded="true" />
-                <element signature="e#1275#1310#1" expanded="true" />
-                <element signature="e#1533#1568#1" expanded="true" />
-                <element signature="e#2563#2605#1" expanded="true" />
-                <element signature="e#3049#3081#0" expanded="true" />
-                <element signature="e#3367#3398#0" expanded="true" />
-                <element signature="e#3470#3508#1" expanded="true" />
+                <element signature="e#26#508#0" expanded="true" />
+                <element signature="e#1099#1134#1" expanded="true" />
+                <element signature="e#1376#1411#1" expanded="true" />
+                <element signature="e#1634#1669#1" expanded="true" />
+                <element signature="e#3327#3369#1" expanded="true" />
+                <element signature="e#3811#3844#0" expanded="true" />
+                <element signature="e#4158#4190#0" expanded="true" />
+                <element signature="e#4502#4533#0" expanded="true" />
+                <element signature="e#5864#5902#1" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -113,8 +106,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_register.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="828">
-              <caret line="274" column="16" selection-start-line="274" selection-start-column="16" selection-end-line="274" selection-end-column="16" />
+            <state relative-caret-position="60">
+              <caret line="4" column="34" selection-start-line="4" selection-start-column="34" selection-end-line="4" selection-end-column="34" />
               <folding>
                 <element signature="e#1219#1236#0" expanded="true" />
                 <element signature="e#1706#1729#0" expanded="true" />
@@ -147,6 +140,34 @@
           </provider>
         </entry>
       </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/register_tracking.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="345">
+              <caret line="23" selection-start-line="23" selection-end-line="23" />
+            </state>
+          </provider>
+          <provider editor-type-id="android-designer2" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable/accent_circle.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state>
+              <caret selection-end-line="7" selection-end-column="8" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable/gray_circle.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="30">
+              <caret line="2" selection-start-line="2" selection-end-line="2" />
+            </state>
+          </provider>
+        </entry>
+      </file>
     </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
@@ -167,6 +188,7 @@
       <find>Intent</find>
       <find>register_email</find>
       <find>email_container</find>
+      <find>Snack</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -218,19 +240,18 @@
         <option value="$PROJECT_DIR$/app/src/main/java/com/avallie/view/fragment/CartFragment.kt" />
         <option value="$PROJECT_DIR$/app/src/main/res/values/register_tracking.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/drawable/accent_circle.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/register_tracking.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/avallie/view/LoginActivity.kt" />
         <option value="$PROJECT_DIR$/app/src/main/res/drawable/btn_green_background.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/avallie/view/RegisterActivity.kt" />
+        <option value="$PROJECT_DIR$/app/src/main/res/drawable/gray_circle.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/register_tracking.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_register.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/avallie/view/RegisterActivity.kt" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" fullScreen="true">
-    <option name="x" value="-422" />
-    <option name="y" value="-1440" />
-    <option name="width" value="2560" />
-    <option name="height" value="1440" />
+    <option name="width" value="1680" />
+    <option name="height" value="1050" />
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
@@ -261,6 +282,17 @@
               <item name="java" type="edd41e36:AndroidSourceTypeNode" />
               <item name="avallie" type="cbb59c9e:AndroidPsiDirectoryNode" />
               <item name="view" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="android.avallie.kt" type="1abcf292:AndroidViewProjectNode" />
+              <item name="app" type="feadf853:AndroidModuleNode" />
+              <item name="res" type="d4f16f75:AndroidResFolderNode" />
+            </path>
+            <path>
+              <item name="android.avallie.kt" type="1abcf292:AndroidViewProjectNode" />
+              <item name="app" type="feadf853:AndroidModuleNode" />
+              <item name="res" type="d4f16f75:AndroidResFolderNode" />
+              <item name="drawable" type="ddeffd01:AndroidResFolderTypeNode" />
             </path>
           </expand>
           <select />
@@ -386,11 +418,11 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-422" y="-1440" width="2560" height="1440" extended-state="0" />
+    <frame x="0" y="0" width="1680" height="1050" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Captures" order="0" side_tool="true" weight="0.25" />
-      <window_info content_ui="combo" id="Project" order="1" sideWeight="0.49854228" visible="true" weight="0.13741064" />
+      <window_info content_ui="combo" id="Project" order="1" sideWeight="0.49854228" visible="true" weight="0.21123321" />
       <window_info id="Structure" order="2" side_tool="true" />
       <window_info id="Build Variants" order="3" sideWeight="0.50145775" side_tool="true" weight="0.32967034" />
       <window_info id="Image Layers" order="4" />
@@ -403,8 +435,8 @@
       <window_info anchor="bottom" id="Logcat" order="1" weight="0.35306123" />
       <window_info anchor="bottom" id="DB Execution Console" order="2" />
       <window_info anchor="bottom" id="TODO" order="3" weight="0.329927" />
-      <window_info anchor="bottom" id="Android Profiler" order="4" />
-      <window_info anchor="bottom" id="Debug" order="5" weight="0.54379565" />
+      <window_info anchor="bottom" id="Android Profiler" order="4" weight="0.329927" />
+      <window_info anchor="bottom" id="Debug" order="5" weight="0.47737226" />
       <window_info anchor="bottom" id="Event Log" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Version Control" order="7" />
       <window_info anchor="bottom" id="Build" order="8" weight="0.30656934" />
@@ -415,7 +447,7 @@
       <window_info anchor="right" id="Gradle" order="2" />
       <window_info anchor="right" id="Theme Preview" order="3" />
       <window_info anchor="right" id="Palette&#9;" order="4" />
-      <window_info anchor="right" id="Preview" order="5" weight="0.19737887" />
+      <window_info anchor="right" id="Preview" order="5" weight="0.1971917" />
       <window_info anchor="right" id="Assistant" order="6" weight="0.32967034" />
     </layout>
     <layout-to-restore>
@@ -498,13 +530,6 @@
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/values-xxhdpi/dimens.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="1" column="11" selection-start-line="1" selection-start-column="11" selection-end-line="1" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable/notification_badge.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="45">
@@ -737,21 +762,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/values/register_tracking.xml" />
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable/accent_circle.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="38" lean-forward="true" selection-start-column="38" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/register_tracking.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="14" selection-start-line="14" selection-end-line="14" />
-        </state>
-      </provider>
-      <provider editor-type-id="android-designer2" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/avallie/view/FiltersActivity.kt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1050">
@@ -798,13 +808,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable/btn_green_background.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="7" column="33" selection-start-line="7" selection-start-column="33" selection-end-line="7" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_login.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="353">
@@ -816,10 +819,49 @@
       </provider>
       <provider editor-type-id="android-designer2" />
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/avallie/view/LoginActivity.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="480">
+          <caret line="32" selection-start-line="32" selection-end-line="32" />
+          <folding>
+            <element signature="e#26#403#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable/accent_circle.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret selection-end-line="7" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable/gray_circle.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" selection-start-line="2" selection-end-line="2" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable/btn_green_background.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="7" column="33" selection-start-line="7" selection-start-column="33" selection-end-line="7" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/register_tracking.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="345">
+          <caret line="23" selection-start-line="23" selection-end-line="23" />
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer2" />
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_register.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="828">
-          <caret line="274" column="16" selection-start-line="274" selection-start-column="16" selection-end-line="274" selection-end-column="16" />
+        <state relative-caret-position="60">
+          <caret line="4" column="34" selection-start-line="4" selection-start-column="34" selection-end-line="4" selection-end-column="34" />
           <folding>
             <element signature="e#1219#1236#0" expanded="true" />
             <element signature="e#1706#1729#0" expanded="true" />
@@ -842,28 +884,20 @@
       </provider>
       <provider editor-type-id="android-designer2" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/avallie/view/LoginActivity.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="480">
-          <caret line="32" lean-forward="true" selection-start-line="32" selection-end-line="32" />
-          <folding>
-            <element signature="e#26#403#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/avallie/view/RegisterActivity.kt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="641">
-          <caret line="52" lean-forward="true" selection-start-line="52" selection-end-line="52" />
+        <state relative-caret-position="133">
+          <caret line="133" lean-forward="true" selection-start-line="133" selection-end-line="133" />
           <folding>
-            <element signature="e#998#1033#1" expanded="true" />
-            <element signature="e#1275#1310#1" expanded="true" />
-            <element signature="e#1533#1568#1" expanded="true" />
-            <element signature="e#2563#2605#1" expanded="true" />
-            <element signature="e#3049#3081#0" expanded="true" />
-            <element signature="e#3367#3398#0" expanded="true" />
-            <element signature="e#3470#3508#1" expanded="true" />
+            <element signature="e#26#508#0" expanded="true" />
+            <element signature="e#1099#1134#1" expanded="true" />
+            <element signature="e#1376#1411#1" expanded="true" />
+            <element signature="e#1634#1669#1" expanded="true" />
+            <element signature="e#3327#3369#1" expanded="true" />
+            <element signature="e#3811#3844#0" expanded="true" />
+            <element signature="e#4158#4190#0" expanded="true" />
+            <element signature="e#4502#4533#0" expanded="true" />
+            <element signature="e#5864#5902#1" expanded="true" />
           </folding>
         </state>
       </provider>
