@@ -13,6 +13,9 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
+            android:name=".view.RegisterActivity"
+            android:theme="@style/AppThemeFilter" />
+        <activity
             android:name=".view.LoginActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppThemeFilter"
