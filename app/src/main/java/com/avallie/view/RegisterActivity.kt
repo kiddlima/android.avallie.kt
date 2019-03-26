@@ -58,7 +58,7 @@ class RegisterActivity : AppCompatActivity() {
         }
 
         second_step_circle.setOnClickListener {
-            if (isSecondScreenValidate() || isFirstScreenValidate()) {
+            if (isFirstScreenValidate()) {
                 goToSecondScreen()
             }
         }
