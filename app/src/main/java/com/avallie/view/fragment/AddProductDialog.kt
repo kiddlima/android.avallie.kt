@@ -17,6 +17,7 @@ import com.avallie.model.Product
 import com.avallie.model.SelectedProduct
 import com.avallie.view.MainActivity
 import com.google.android.material.textfield.TextInputEditText
+import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper
 
 
 class AddProductDialog(private val context: Context, private val product: Product) {

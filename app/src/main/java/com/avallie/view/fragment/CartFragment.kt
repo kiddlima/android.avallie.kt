@@ -1,5 +1,6 @@
 package com.avallie.view.fragment
 
+import android.content.Context
 import android.content.DialogInterface
 import android.content.Intent
 import android.os.Bundle
@@ -15,6 +16,7 @@ import com.avallie.view.MainActivity
 import com.avallie.view.adapter.CartAdapter
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import kotlinx.android.synthetic.main.fragment_cart.*
+import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper
 
 class CartFragment : BottomSheetDialogFragment() {
 
