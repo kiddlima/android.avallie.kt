@@ -7,6 +7,7 @@ import android.os.Handler
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.avallie.R
@@ -98,14 +99,22 @@ class CartFragment : BottomSheetDialogFragment() {
         delivery_address_two.text = ""
 
         btn_request_budget.setOnClickListener {
-            cartScreen = CartScreen.LOADING
-            reloadFragmentView()
+            if (isFinishScreenValidate()) {
+                cartScreen = CartScreen.LOADING
+                reloadFragmentView()
+            } else {
+                Toast.makeText(context!!, getString(R.string.fill_the_fileds), Toast.LENGTH_LONG).show()
+            }
         }
 
         back_button_finish.setOnClickListener {
             cartScreen = CartScreen.PRODUCTS
             reloadFragmentView()
         }
+    }
+
+    private fun isFinishScreenValidate(): Boolean {
+        return !confirm_request_name.text.isNullOrBlank() && !confirm_dead_line.text.isNullOrBlank()
     }
 
     private fun requestBudget() {
