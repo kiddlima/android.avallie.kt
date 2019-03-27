@@ -78,4 +78,14 @@
     <string name="fill_the_fileds">Preencha os campos acima</string>
     <string name="finishing_register">Finalizando cadastro</string>
     <string name="standar_delivery_address">Endereço de entrega padrão</string>
+    <string name="finish_request">Finalizar orçamento</string>
+    <string name="request_name">Nome da solicitação</string>
+    <string name="delivery_address">Endereço de entrega</string>
+    <string name="change_address">Alterar endereço</string>
+    <string name="order_budget_request">Solicitar orçamento</string>
+    <string name="waiting_message">Finalizando solicitação, por favor aguarde</string>
+    <string name="success_exclamation">Sucesso!</string>
+    <string name="request_budget_success">Sua solicitação de orçamento foi realizada.</string>
+    <string name="follow_request">Acompanhar solicitação</string>
+    <string name="ops_exclamation">Ops!</string>
 </resources>

@@ -101,7 +101,7 @@
 
         <Button
             android:id="@+id/add_selected_product"
-            fontPath="Demi-bold-otf"
+            fontPath="Medium.otf"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
