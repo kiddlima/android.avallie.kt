@@ -12,6 +12,7 @@ import com.aurelhubert.ahbottomnavigation.AHBottomNavigationItem
 import com.aurelhubert.ahbottomnavigation.notification.AHNotification
 import com.avallie.R
 import com.avallie.helpers.PaperHelper.Companion.getCart
+import com.avallie.view.fragment.BudgetRequestsFragment
 import com.avallie.view.fragment.CartFragment
 import com.avallie.view.fragment.ProductsFragment
 import kotlinx.android.synthetic.main.activity_main.*
@@ -92,6 +93,7 @@ class MainActivity : AppCompatActivity() {
                             }
                         }
                         1 -> openCartSheet()
+                        2 -> openBudgetsSheet()
                     }
 
                     return true
@@ -102,6 +104,12 @@ class MainActivity : AppCompatActivity() {
         }
 
         updateCartBadge()
+    }
+
+    fun openBudgetsSheet(){
+        val budgetRequestsFragment = BudgetRequestsFragment()
+
+        budgetRequestsFragment.show(supportFragmentManager, "budgetSheet")
     }
 
     fun isFragmentVisible(fragment: Fragment?): Boolean {
@@ -118,4 +126,5 @@ class MainActivity : AppCompatActivity() {
             bottom_navigation.enableItemAtPosition(1)
         }
     }
+
 }

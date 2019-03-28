@@ -88,4 +88,5 @@
     <string name="request_budget_success">Sua solicitação de orçamento foi realizada.</string>
     <string name="follow_request">Acompanhar solicitação</string>
     <string name="ops_exclamation">Ops!</string>
+    <string name="budget_requests">Solicitações de orçamento</string>
 </resources>
