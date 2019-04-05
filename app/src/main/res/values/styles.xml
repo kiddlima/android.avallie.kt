@@ -18,6 +18,10 @@
         <item name="colorPrimaryDark">@color/grayLight</item>
     </style>
 
+    <style name="AppThemePrimary" parent="AppTheme.NoActionBar">
+        <item name="colorPrimaryDark">#5C99D0</item>
+    </style>
+
     <!-- Full screen mode without actionbar -->
     <style name="AppTheme.FullScreen" parent="AppTheme.NoActionBar">
         <item name="android:windowFullscreen">true</item>
@@ -58,13 +62,11 @@
         <!--<item name="android:windowExitAnimation">@anim/slide_down</item>-->
     </style>
 
-    <style name="AppBottomSheetDialogTheme"
-        parent="Theme.Design.Light.BottomSheetDialog">
+    <style name="AppBottomSheetDialogTheme" parent="Theme.Design.Light.BottomSheetDialog">
         <item name="bottomSheetStyle">@style/AppModalStyle</item>
     </style>
 
-    <style name="AppModalStyle"
-        parent="Widget.Design.BottomSheet.Modal">
+    <style name="AppModalStyle" parent="Widget.Design.BottomSheet.Modal">
         <item name="android:background">@drawable/infinity_border_top</item>
     </style>
 

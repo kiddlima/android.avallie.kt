@@ -1,6 +1,7 @@
 package com.avallie.view.fragment
 
 import android.content.DialogInterface
+import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
 import android.view.LayoutInflater
@@ -12,6 +13,7 @@ import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.avallie.R
 import com.avallie.model.BudgetRequested
+import com.avallie.view.BudgetDetailActivity
 import com.avallie.view.MainActivity
 import com.avallie.view.adapter.BudgetRequestsAdapter
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
@@ -100,6 +102,13 @@ class BudgetRequestsFragment : BottomSheetDialogFragment() {
 
     private fun setAdapter() {
         budgetRequestedAdapter = BudgetRequestsAdapter(context!!, budgetsRequested)
+        budgetRequestedAdapter.onBudgetSelected = {
+            activity?.let {
+                val intent = Intent(it, BudgetDetailActivity::class.java)
+                it.startActivity(intent)
+            }
+        }
+
         requests_recycler.adapter = budgetRequestedAdapter
         requests_recycler.layoutManager = LinearLayoutManager(context!!, LinearLayoutManager.VERTICAL, false)
     }

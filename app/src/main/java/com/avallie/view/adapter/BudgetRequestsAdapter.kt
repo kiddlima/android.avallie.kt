@@ -9,10 +9,14 @@ import androidx.recyclerview.widget.RecyclerView
 import com.avallie.R
 import com.avallie.model.BudgetRequested
 
+typealias OnBudgetSelected = (budget: BudgetRequested) -> Unit
+
 class BudgetRequestsAdapter(private val context: Context, private val budgetsRequested: ArrayList<BudgetRequested>) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
     private val item = 0
     private val header = 1
+
+    var onBudgetSelected: OnBudgetSelected? = null
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         return when (viewType) {
@@ -70,6 +74,12 @@ class BudgetRequestsAdapter(private val context: Context, private val budgetsReq
         val requestName = itemView.findViewById<TextView>(R.id.request_name)
         val requestDate = itemView.findViewById<TextView>(R.id.request_date)
         val requestQuantity = itemView.findViewById<TextView>(R.id.request_budget_size)
+
+        init {
+            itemView.setOnClickListener {
+                onBudgetSelected?.invoke(budgetsRequested[adapterPosition - 1])
+            }
+        }
     }
 
     inner class BudgetRequestedHeaderViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
