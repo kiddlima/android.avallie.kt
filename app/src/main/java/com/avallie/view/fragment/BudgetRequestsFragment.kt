@@ -97,7 +97,7 @@ class BudgetRequestsFragment : BottomSheetDialogFragment() {
         Handler().postDelayed({
             requestsScreen = RequestsScreen.BUDGETS
             reloadBudgetsView()
-        }, 3000)
+        }, 500)
     }
 
     private fun setAdapter() {
@@ -115,7 +115,7 @@ class BudgetRequestsFragment : BottomSheetDialogFragment() {
 
     private fun mockRequests() {
         for (i in 0..10) {
-            val budgetRequested = BudgetRequested("Orçamento", Date(), 7)
+            val budgetRequested = BudgetRequested("Orçamento", Date(), 7, null)
 
             budgetsRequested.add(budgetRequested)
         }

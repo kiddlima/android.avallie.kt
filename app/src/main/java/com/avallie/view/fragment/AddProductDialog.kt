@@ -11,13 +11,12 @@ import android.widget.ImageView
 import android.widget.TextView
 import com.avallie.R
 import com.avallie.helpers.AppHelper
-import com.avallie.helpers.PaperHelper.Companion.getPhases
 import com.avallie.helpers.PaperHelper.Companion.addProduct
+import com.avallie.helpers.PaperHelper.Companion.getPhases
 import com.avallie.model.Product
 import com.avallie.model.SelectedProduct
 import com.avallie.view.MainActivity
 import com.google.android.material.textfield.TextInputEditText
-import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper
 
 
 class AddProductDialog(private val context: Context, private val product: Product) {
@@ -47,16 +46,16 @@ class AddProductDialog(private val context: Context, private val product: Produc
         window.findViewById<TextView>(R.id.product_specs)?.text = product.category
 
         window.findViewById<ImageView>(R.id.phase_icon)?.setImageResource(
-            context.resources.getIdentifier(
-                "ic_phase_" + AppHelper.getPhaseByCategory(
-                    product.category, getPhases()
-                ), "drawable", context.packageName
-            )
+                context.resources.getIdentifier(
+                        "ic_phase_" + AppHelper.getPhaseByCategory(
+                                product.category, getPhases()
+                        ), "drawable", context.packageName
+                )
         )
 
         btnAddProduct?.setOnClickListener {
             if (hasValidField(quantity) && hasValidField(observations)) {
-                addProduct(SelectedProduct(quantity?.text.toString().toInt(), observations?.text.toString(), product))
+                addProduct(SelectedProduct(quantity?.text.toString().toInt(), observations?.text.toString(), product, 0))
 
                 (context as MainActivity).updateCartBadge()
 

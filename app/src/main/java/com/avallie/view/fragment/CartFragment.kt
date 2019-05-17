@@ -123,7 +123,7 @@ class CartFragment : BottomSheetDialogFragment() {
         Handler().postDelayed({
             cartScreen = CartScreen.SUCCESS
             reloadFragmentView()
-        }, 3000)
+        }, 500)
     }
 
     private fun showSuccess() {

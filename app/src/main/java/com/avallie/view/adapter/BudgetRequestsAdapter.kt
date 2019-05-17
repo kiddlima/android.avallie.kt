@@ -26,7 +26,7 @@ class BudgetRequestsAdapter(private val context: Context, private val budgetsReq
             }
             else -> {
                 val view = LayoutInflater.from(context).inflate(R.layout.budget_requested_header, parent, false)
-                BudgetRequestedViewHolder(view)
+                BudgetRequestedHeaderViewHolder(view)
             }
         }
     }
