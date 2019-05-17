@@ -29,7 +29,7 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(com.avallie.R.layout.activity_main)
+        setContentView(R.layout.activity_main)
 
         createMenu()
     }
@@ -43,7 +43,7 @@ class MainActivity : AppCompatActivity() {
         bundle.putStringArrayList("categories", categories)
         productsFragment?.arguments = bundle
 
-        supportFragmentManager.beginTransaction().replace(com.avallie.R.id.container, productsFragment!!).commit()
+        supportFragmentManager.beginTransaction().replace(R.id.container, productsFragment!!).commit()
     }
 
     private fun openCartSheet() {
@@ -106,7 +106,7 @@ class MainActivity : AppCompatActivity() {
         updateCartBadge()
     }
 
-    fun openBudgetsSheet(){
+    fun openBudgetsSheet() {
         val budgetRequestsFragment = BudgetRequestsFragment()
 
         budgetRequestsFragment.show(supportFragmentManager, "budgetSheet")

@@ -13,6 +13,10 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
+            android:name=".view.BudgetDetailActivity"
+            android:parentActivityName=".view.MainActivity"
+            android:theme="@style/AppThemePrimary" />
+        <activity
             android:name=".view.RegisterActivity"
             android:theme="@style/AppThemeFilter" />
         <activity

@@ -89,4 +89,6 @@
     <string name="follow_request">Acompanhar solicitação</string>
     <string name="ops_exclamation">Ops!</string>
     <string name="budget_requests">Solicitações de orçamento</string>
+    <string name="requested_products">Produtos solicitados</string>
+    <string name="no_avaiable_budgets">Nenhum orçamento disponível até agora.</string>
 </resources>
