@@ -1,6 +1,7 @@
 package com.avallie.view
 
 import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -12,6 +13,7 @@ import com.avallie.view.adapter.BudgetProductsAdapter
 import kotlinx.android.synthetic.main.activity_budget_detail.*
 import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper
 import java.util.*
+import kotlin.collections.ArrayList
 
 class BudgetDetailActivity : AppCompatActivity() {
 
@@ -34,16 +36,12 @@ class BudgetDetailActivity : AppCompatActivity() {
         }
     }
 
-    private fun setInfos(){
-
-    }
-
     private fun mockProducts() {
         budgetDetail?.products = ArrayList()
 
         for (i in 0..4) {
             val product = Product("2", "Barra de aço", "AÇO", "Espessura e comprimento", "un", false)
-            val selectedProduct = SelectedProduct(2, "Sem correia", product, 10)
+            val selectedProduct = SelectedProduct(2, "Sem correia", product, 10, ArrayList())
 
             budgetDetail?.products?.add(selectedProduct)
         }
@@ -52,6 +50,10 @@ class BudgetDetailActivity : AppCompatActivity() {
     private fun setAdapter() {
         budget_products_recycler.adapter = productsAdapter
         budget_products_recycler.layoutManager = LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
+
+        productsAdapter.onProductSelectedProduct = {
+            startActivity(Intent(this, BudgetProductDetailActivity::class.java).putExtra("selected-product", it))
+        }
     }
 
 

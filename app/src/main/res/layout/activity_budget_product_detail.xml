@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        
+        <variable
+            name="model"
+            type="com.avallie.view.BudgetProductDetailActivity" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".view.BudgetProductDetailActivity">
+
+        <ImageView
+            android:id="@+id/back_button"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="36dp"
+            android:src="@drawable/ic_arrow_back"
+            android:tint="@color/grayPrimary"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/product_detail_header"
+            fontPath="Demi-bold.otf"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:textColor="@color/grayPrimaryDarker"
+            android:textSize="24sp"
+            app:layout_constraintBottom_toTopOf="@id/product_detail_subtitle"
+            app:layout_constraintStart_toEndOf="@id/back_button"
+            app:layout_constraintTop_toTopOf="@id/back_button"
+            tools:text="Barra de aço" />
+
+        <TextView
+            android:id="@+id/product_detail_subtitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="@id/back_button"
+            app:layout_constraintStart_toStartOf="@id/product_detail_header"
+            app:layout_constraintTop_toBottomOf="@id/product_detail_header"
+            tools:text="7 unidades" />
+
+        <TextView
+            android:id="@+id/product_detail_category_label"
+            fontPath="Medium.otf"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="36dp"
+            android:text="@string/category_label"
+            android:textColor="@color/grayPrimary"
+            android:textSize="13sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/product_detail_subtitle" />
+
+        <TextView
+            android:id="@+id/product_detail_category_value"
+            fontPath="Medium.otf"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/grayPrimaryDarker"
+            android:textSize="16sp"
+            app:layout_constraintStart_toStartOf="@id/product_detail_category_label"
+            app:layout_constraintTop_toBottomOf="@id/product_detail_category_label"
+            tools:text="Aço" />
+
+        <ImageView
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginEnd="16dp"
+            android:src="@drawable/ic_phase_esquadrias"
+            android:tint="@color/grayPrimary"
+            app:layout_constraintBottom_toBottomOf="@id/product_detail_category_value"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/product_detail_category_label" />
+
+        <include
+            android:id="@+id/separator"
+            layout="@layout/separator_layout"
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_margin="16dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/product_detail_category_value" />
+
+        <TextView
+            android:id="@+id/product_detail_description"
+            fontPath="Regular.otf"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="16dp"
+            android:textColor="@color/grayPrimary"
+            android:textSize="13sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/separator"
+            tools:text="Barra de aço com acabamento tal nas dimensões 70m x 90m x 2mm na cor preta. " />
+
+        <TextView
+            android:id="@+id/product_detail_budgets_title"
+            fontPath="Medium.otf"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:text="@string/budgets"
+            android:textColor="@color/grayPrimaryDarker"
+            android:textSize="18sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/product_detail_description" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginTop="16dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/product_detail_budgets_title" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

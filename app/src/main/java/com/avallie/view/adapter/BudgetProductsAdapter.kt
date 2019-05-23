@@ -11,11 +11,15 @@ import com.avallie.R
 import com.avallie.model.SelectedProduct
 import java.util.*
 
+typealias OnProductSelected = (selectedProduct: SelectedProduct) -> Unit
+
 class BudgetProductsAdapter(private val context: Context, private val products: ArrayList<SelectedProduct>) :
-    RecyclerView.Adapter<RecyclerView.ViewHolder>() {
+        RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
     private val header = 0
     private val item = 1
+
+    var onProductSelectedProduct: OnProductSelected? = null
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         return when (viewType) {
@@ -65,8 +69,13 @@ class BudgetProductsAdapter(private val context: Context, private val products: 
         var productName = itemView.findViewById<TextView>(R.id.budget_product_name)
         var productQuantity = itemView.findViewById<TextView>(R.id.budget_product_quantity)
         var productBudgetAvaiable = itemView.findViewById<TextView>(R.id.budget_product_budget_avaiable)
+
+        init {
+            itemView.setOnClickListener {
+                onProductSelectedProduct?.invoke(products[adapterPosition - 1])
+            }
+        }
     }
 
-    inner class BudgetProductHeaderViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-    }
+    inner class BudgetProductHeaderViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView)
 }
