@@ -27,7 +27,7 @@
         <compilerSettings />
         <compilerArguments>
           <option name="destination" value="$MODULE_DIR$/build/tmp/kotlin-classes/localDebug" />
-          <option name="classpath" value="$USER_HOME$/.gradle/caches/transforms-2/files-2.1/6934ce39de5fa37a538637f019542398/jars/classes.jar:/Users/viniciuslima/.gradle/caches/transforms-2/files-2.1/f1d0501072e58b7e1b20497f899948ba/jars/classes.jar:/Users/viniciuslima/.gradle/caches/transforms-2/files-2.1/794a3661a9c0cc1828049a8922147420/jars/classes.jar:/Users/viniciuslima/.gradle/caches/modules-2/files-2.1/androidx.databinding/databinding-common/3.5.0-alpha03/355bc2c290319de540dcb780c93a93c4681d6e0e/databinding-common-3.5.0-alpha03.jar:/Users/viniciuslima/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib-jdk7/1.3.11/4839661cf6ce3c14b65ed7dcf5b9249b44ecca16/kotlin-stdlib-jdk7-1.3.11.jar:/Users/viniciuslima/.gradle/caches/transforms-2/files-2.1/7071972ddb3b0c1a284f2c2b969aecc9/jars/classes.jar:/Users/viniciuslima/.gradle/caches/transforms-2/files-2.1/9cdbd1abc9ed49b094fdd4cb251e9ccd/jars/classes.jar:/Users/viniciuslima/.gradle/caches/transforms-2/files-2.1/b4d24f832bec1fa86cd9d5ca096e354f/jars/classes.jar:/Users/viniciuslima/.gradle/caches/transforms-2/files-2.1/0c995a373a00ece4a9f04354e0c0789d/jars/classes.jar:/Users/viniciuslima/.gradle/caches/transforms-2/files-2.1/ef694f942ff2d690c7efde9938835a97/jars/classes.jar:/Users/viniciuslima/.gradle/caches/transforms-2/files-2.1/640c68359123dd2e8e319e82be40da4a/jetified-converter-gson-2.5.0.jar:/Users/viniciuslima/.gradle/caches/transforms-2/files-2.1/a4e39c190c73ad1fea2b9c22a9cdd1a6/jetified-retrofit-2.5.0.jar:/Users/viniciuslima/.gradle/caches/transforms-2/files-2.1/608737fddebfa2731b13bcaac6d32c1f/jars/classes.jar:/Users/viniciuslima/.gradle/caches/transforms-2/files-2.1/821c6678f416d29140a63ebfe7b56ba2/jars/classes.jar:/Users/viniciuslima/.gradle/caches/transforms-2/files-2.1/ced23ead0f79a9d3e7afb174d5cecd3d/jars/classes.jar:/Users/viniciuslima/.gradle/caches/modules-2/files-2.1/de.greenrobot/androidsvg/1.2.2-beta-1-tweaked-2/8f38bd2ecc13b4950bfa2aea1b813dd1c6b507b2/androidsvg-1.2.2-beta-1-tweaked-2.jar:/Users/viniciuslima/.gradle/caches/modules-2/files-2.1/com.annimon/stream/1.1.9/b1365da87e980af3277ad4264989a2d9cb37041a/stream-1.1.9.jar:/Users/viniciuslima/.gradle/caches/transforms-2/files-2.1/9e1e648028562ca0885f41e305cad126/jars/classes.jar:/Users/viniciuslima/.gradle/caches/transforms-2/files-2.1/ea50b858a6820dd8279a09c0dd03023d/jars/classes.jar:/Users/viniciuslima/.gradle/caches/transforms-2/files-2.1/eeda1b0a1f0166678370d692425059be/jars/classes.jar:/Users/viniciuslima/.gradle/caches/transforms-2/files-2.1/b07169cf4aa735c054c400c66b9e8421/jars/classes.jar:/Users/viniciuslima/.gradle/caches/transforms-2/files-2.1/fd19831653a30cd66689073a37bfbe87/jars/classes.jar:/Users/viniciuslima/.gradle/caches/transforms-2/files-2.1/de0e9741b719efab1429dfc51bd7fc6b/jars/classes.jar:/Users/viniciuslima/.gradle/caches/transforms-2/files-2.1/1d02a6250a3b615f6becfc36a3babfac/jars/classes.jar:/Users/viniciuslima/.gradle/caches/transforms-2/files-2.1/4218259d9643f0a473c8307b7434bfe7/jars/classes.jar:/Users/viniciuslima/.gradle/caches/transforms-2/files-2.1/1e575baad6dc20e563c53184f3933a90/jars/classes.jar:/Users/viniciuslima/.gradle/caches/transforms-2/files-2.1/6e76e4079ad8d62554161501b954f71d/jars/classes.jar:/Users/viniciuslima/.gradle/caches/transforms-2/files-2.1/cf03b4a51317ecad5659d4e8bace7e58/jars/classes.jar:/Users/viniciuslima/.gradle/caches/transforms-2/files-2.1/eb13c5ad8f4110f7049e6d4b8be83a58/jars/classes.jar:/Users/viniciuslima/.gradle/caches/transforms-2/files-2.1/038e931ccc34a06fc24feadd0bf5152e/jars/classes.jar:/Users/viniciuslima/.gradle/caches/transforms-2/files-2.1/de49a0615836b1a30842dd327b9e7469/jars/classes.jar:/Users/viniciuslima/.gradle/caches/transforms-2/files-2.1/7a7b7b04605dbed25466bccda7ee81f6/jars/classes.jar:/Users/viniciuslima/.gradle/caches/transforms-2/files-2.1/50ad8644fdf76d2a4bd316becdd376f6/jars/classes.jar:/Users/viniciuslima/.gradle/caches/transforms-2/files-2.1/5dd0013381acd88d13c9f11d4c5a2282/jars/classes.jar:/Users/viniciuslima/.gradle/caches/transforms-2/files-2.1/fa5eaa5f0ae8045a8f4d753b1ca2f3df/jars/classes.jar:/Users/viniciuslima/.gradle/caches/modules-2/files-2.1/androidx.collection/collection/1.0.0/42858b26cafdaa69b6149f45dfc2894007bc2c7a/collection-1.0.0.jar:/Users/viniciuslima/.gradle/caches/transforms-2/files-2.1/ebf07e68085807afee1eb1149a45e67a/jars/classes.jar:/Users/viniciuslima/.gradle/caches/transforms-2/files-2.1/d84c9ed0d35331f0e72a9e3838e084ce/jars/classes.jar:/Users/viniciuslima/.gradle/caches/transforms-2/files-2.1/b1a5ff6b96f810b5340452e05bb87842/jars/classes.jar:/Users/viniciuslima/.gradle/caches/transforms-2/files-2.1/26240b7d0875aeae5656c38435d1117f/jars/classes.jar:/Users/viniciuslima/.gradle/caches/modules-2/files-2.1/androidx.lifecycle/lifecycle-common/2.0.0/e070ffae07452331bc5684734fce6831d531785c/lifecycle-common-2.0.0.jar:/Users/viniciuslima/.gradle/caches/transforms-2/files-2.1/00f0e8c571170760744cc54113156023/jars/classes.jar:/Users/viniciuslima/.gradle/caches/modules-2/files-2.1/androidx.arch.core/core-common/2.0.0/bb21b9a11761451b51624ac428d1f1bb5deeac38/core-common-2.0.0.jar:/Users/viniciuslima/.gradle/caches/transforms-2/files-2.1/fd60063468bb819029e732fa84cb8267/jars/classes.jar:/Users/viniciuslima/.gradle/caches/transforms-2/files-2.1/befa4e20a9227f87ced698b794b6ff7c/jars/classes.jar:/Users/viniciuslima/.gradle/caches/transforms-2/files-2.1/8a543b30cebbf85da9e4c9355b4dde41/jars/classes.jar:/Users/viniciuslima/.gradle/caches/transforms-2/files-2.1/7ca23b59f14b99da6883c1add0d2de16/jars/classes.jar:/Users/viniciuslima/.gradle/caches/transforms-2/files-2.1/d05ea8f7ccad6ad5ec42ab9b6c57087a/jars/classes.jar:/Users/viniciuslima/.gradle/caches/modules-2/files-2.1/androidx.annotation/annotation/1.0.0/45599f2cd5965ac05a1488fa2a5c0cdd7c499ead/annotation-1.0.0.jar:/Users/viniciuslima/.gradle/caches/modules-2/files-2.1/androidx.constraintlayout/constraintlayout-solver/1.1.3/54abe9ffb22cc9019b0b6fcc10f185cc4e67b34e/constraintlayout-solver-1.1.3.jar:/Users/viniciuslima/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib/1.3.11/4cbc5922a54376018307a731162ccaf3ef851a39/kotlin-stdlib-1.3.11.jar:/Users/viniciuslima/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib-common/1.3.11/d8b8e746e279f1c4f5e08bc14a96b82e6bb1de02/kotlin-stdlib-common-1.3.11.jar:/Users/viniciuslima/.gradle/caches/modules-2/files-2.1/org.jetbrains/annotations/13.0/919f0dfe192fb4e063e7dacadee7f8bb9a2672a9/annotations-13.0.jar:/Users/viniciuslima/.gradle/caches/transforms-2/files-2.1/53cf1965eaab7a35f97da9774ef2e29f/jetified-okhttp-3.12.0.jar:/Users/viniciuslima/.gradle/caches/transforms-2/files-2.1/c6d6e7efdcd04c4d3da703d60410fba0/jetified-okio-1.15.0.jar:/Users/viniciuslima/.gradle/caches/transforms-2/files-2.1/03d9325ae8d0b1ecc0fa9ef935668219/jetified-gson-2.8.2.jar:/Users/viniciuslima/.gradle/caches/transforms-2/files-2.1/57184b3269771dfee2c7e84d7324711e/jetified-kryo-serializers-0.40.jar:/Users/viniciuslima/.gradle/caches/transforms-2/files-2.1/e336168a6b4d3264143b47f212dc6637/jetified-kryo-4.0.1.jar:/Users/viniciuslima/.gradle/caches/transforms-2/files-2.1/528606d274cfa8f872e61b58905b5a1d/jetified-reflectasm-1.11.3.jar:/Users/viniciuslima/.gradle/caches/modules-2/files-2.1/org.ow2.asm/asm/5.0.4/da08b8cce7bbf903602a25a3a163ae252435795/asm-5.0.4.jar:/Users/viniciuslima/.gradle/caches/transforms-2/files-2.1/44446a89675cc2b3dc78832b19312c97/jetified-minlog-1.3.0.jar:/Users/viniciuslima/.gradle/caches/modules-2/files-2.1/org.objenesis/objenesis/2.5.1/272bab9a4e5994757044d1fc43ce480c8cb907a4/objenesis-2.5.1.jar:/Users/viniciuslima/Library/Android/sdk/platforms/android-28/android.jar:/Users/viniciuslima/Library/Android/sdk/build-tools/28.0.3/core-lambda-stubs.jar" />
+          <option name="classpath" value="$USER_HOME$/.gradle/caches/transforms-2/files-2.1/b4966b05f7a4a448428ccc8a4ee870db/jetified-carbon-0.15.3/jars/classes.jar:/Users/viniciuslima/Desktop/GitHub/android.avallie.kt/widgets/build/intermediates/compile_library_classes/debug/classes.jar:/Users/viniciuslima/.gradle/caches/transforms-2/files-2.1/f896cff4c0320204e9187a514b92161d/databinding-adapters-3.5.0-beta02/jars/classes.jar:/Users/viniciuslima/.gradle/caches/transforms-2/files-2.1/407c3ebc79264828d062c5fddb7fb3f4/databinding-runtime-3.5.0-beta02/jars/classes.jar:/Users/viniciuslima/.gradle/caches/modules-2/files-2.1/androidx.databinding/databinding-common/3.5.0-beta02/fae864ec9bc7576b87b9df737b675eebc2f53f1/databinding-common-3.5.0-beta02.jar:/Users/viniciuslima/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-android-extensions-runtime/1.3.31/721b62ccbafe51a284ca0d1c5dcfdce8cedd4255/kotlin-android-extensions-runtime-1.3.31.jar:/Users/viniciuslima/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib-jdk7/1.3.31/e652770b6416c6d85934086899ffed3eccd35813/kotlin-stdlib-jdk7-1.3.31.jar:/Users/viniciuslima/.gradle/caches/transforms-2/files-2.1/616a4b9c629e9c0f1dc91875c2576652/jetified-calligraphy-2.3.0/jars/classes.jar:/Users/viniciuslima/.gradle/caches/transforms-2/files-2.1/54c24a1fed6882e01d8694c81d45948d/material-1.0.0/jars/classes.jar:/Users/viniciuslima/.gradle/caches/transforms-2/files-2.1/8ed88e922646eee3cb676b5ae7250d20/appcompat-1.0.2/jars/classes.jar:/Users/viniciuslima/.gradle/caches/transforms-2/files-2.1/781ec5002fe1da5c2822e7ef48715407/core-ktx-1.0.2/jars/classes.jar:/Users/viniciuslima/.gradle/caches/transforms-2/files-2.1/d509b99a72d57b9a934a7829d5d373f6/constraintlayout-1.1.3/jars/classes.jar:/Users/viniciuslima/.gradle/caches/modules-2/files-2.1/com.squareup.retrofit2/converter-gson/2.5.0/1c96fc5d0230f57d36cd09e2541d10829a3352a7/converter-gson-2.5.0.jar:/Users/viniciuslima/.gradle/caches/modules-2/files-2.1/com.squareup.retrofit2/retrofit/2.5.0/713ce36037bf24a76a3974c05cb85c3f754b1cc3/retrofit-2.5.0.jar:/Users/viniciuslima/.gradle/caches/transforms-2/files-2.1/d06634a3fc1550d8f76bb90ab44afcec/recyclerview-1.0.0/jars/classes.jar:/Users/viniciuslima/.gradle/caches/transforms-2/files-2.1/388bcda6efb103b13dddf8e2591fd653/paperdb-2.6/jars/classes.jar:/Users/viniciuslima/.gradle/caches/transforms-2/files-2.1/fd44e76a05b999a4aa93099b00ccac3e/ahbottomnavigation-2.3.4/jars/classes.jar:/Users/viniciuslima/.gradle/caches/modules-2/files-2.1/de.greenrobot/androidsvg/1.2.2-beta-1-tweaked-2/8f38bd2ecc13b4950bfa2aea1b813dd1c6b507b2/androidsvg-1.2.2-beta-1-tweaked-2.jar:/Users/viniciuslima/.gradle/caches/modules-2/files-2.1/com.annimon/stream/1.1.9/b1365da87e980af3277ad4264989a2d9cb37041a/stream-1.1.9.jar:/Users/viniciuslima/.gradle/caches/transforms-2/files-2.1/0218ce29f20a237bbc7c74daf4d3e793/gridlayout-1.0.0/jars/classes.jar:/Users/viniciuslima/.gradle/caches/transforms-2/files-2.1/7b527d1db9664a44c2b8874310af7b2e/fragment-1.0.0/jars/classes.jar:/Users/viniciuslima/.gradle/caches/transforms-2/files-2.1/f02a07f60fef87ef9bd3c4388f11b526/vectordrawable-animated-1.0.0/jars/classes.jar:/Users/viniciuslima/.gradle/caches/transforms-2/files-2.1/a5aaaff16ab14484b15ccffb90e0189b/legacy-support-core-ui-1.0.0/jars/classes.jar:/Users/viniciuslima/.gradle/caches/transforms-2/files-2.1/5b15e4bf65e50e6f7780d8e21672df8b/legacy-support-core-utils-1.0.0/jars/classes.jar:/Users/viniciuslima/.gradle/caches/transforms-2/files-2.1/dbd8eda96eac939d1cec7fdf79961b16/vectordrawable-1.0.1/jars/classes.jar:/Users/viniciuslima/.gradle/caches/transforms-2/files-2.1/3297d658d4a2415e1d41c42f86677b93/transition-1.0.0/jars/classes.jar:/Users/viniciuslima/.gradle/caches/transforms-2/files-2.1/7ab15b5a45e1d16ebf684978a9291e6f/loader-1.0.0/jars/classes.jar:/Users/viniciuslima/.gradle/caches/transforms-2/files-2.1/adedb20cad94d13287c59103278e7a0d/viewpager-1.0.0/jars/classes.jar:/Users/viniciuslima/.gradle/caches/transforms-2/files-2.1/06e2edb55d472ccc2d95fd16c36c485d/coordinatorlayout-1.0.0/jars/classes.jar:/Users/viniciuslima/.gradle/caches/transforms-2/files-2.1/0efba6021808e42edafb05b2f66ad854/drawerlayout-1.0.0/jars/classes.jar:/Users/viniciuslima/.gradle/caches/transforms-2/files-2.1/3cead3151320e0ceca878af6a3188167/slidingpanelayout-1.0.0/jars/classes.jar:/Users/viniciuslima/.gradle/caches/transforms-2/files-2.1/1069cfc06b29648d8bcc352cbbf77848/customview-1.0.0/jars/classes.jar:/Users/viniciuslima/.gradle/caches/transforms-2/files-2.1/3d182123630ad28eb53c0e9cfb639654/swiperefreshlayout-1.0.0/jars/classes.jar:/Users/viniciuslima/.gradle/caches/transforms-2/files-2.1/853f2d40c17081ac97d52ce641f90a6d/asynclayoutinflater-1.0.0/jars/classes.jar:/Users/viniciuslima/.gradle/caches/transforms-2/files-2.1/f2e2f77706b6b4b757b3cc8d1acdb595/core-1.0.2/jars/classes.jar:/Users/viniciuslima/.gradle/caches/transforms-2/files-2.1/1c5fa70b8b08b377d3833e4c59144b3e/lifecycle-runtime-2.0.0/jars/classes.jar:/Users/viniciuslima/.gradle/caches/transforms-2/files-2.1/2503c1c0c4f10531f842f11cc81f7396/versionedparcelable-1.0.0/jars/classes.jar:/Users/viniciuslima/.gradle/caches/modules-2/files-2.1/androidx.collection/collection/1.0.0/42858b26cafdaa69b6149f45dfc2894007bc2c7a/collection-1.0.0.jar:/Users/viniciuslima/.gradle/caches/transforms-2/files-2.1/d57b44989ced0bd6140007b187578026/cursoradapter-1.0.0/jars/classes.jar:/Users/viniciuslima/.gradle/caches/transforms-2/files-2.1/fa2bfebc17fe0d291e56cb643a36e6cb/cardview-1.0.0/jars/classes.jar:/Users/viniciuslima/.gradle/caches/transforms-2/files-2.1/b00fa4764790b242bd3cd898b3fdfade/lifecycle-livedata-2.0.0/jars/classes.jar:/Users/viniciuslima/.gradle/caches/transforms-2/files-2.1/0113a33017275d6d7e55f5f89755a8f4/lifecycle-livedata-core-2.0.0/jars/classes.jar:/Users/viniciuslima/.gradle/caches/modules-2/files-2.1/androidx.lifecycle/lifecycle-common/2.0.0/e070ffae07452331bc5684734fce6831d531785c/lifecycle-common-2.0.0.jar:/Users/viniciuslima/.gradle/caches/transforms-2/files-2.1/f0f3d8869e0106234529d495408e2780/core-runtime-2.0.0/jars/classes.jar:/Users/viniciuslima/.gradle/caches/modules-2/files-2.1/androidx.arch.core/core-common/2.0.0/bb21b9a11761451b51624ac428d1f1bb5deeac38/core-common-2.0.0.jar:/Users/viniciuslima/.gradle/caches/transforms-2/files-2.1/69a626e6b8e52db25db1bcb98368742e/documentfile-1.0.0/jars/classes.jar:/Users/viniciuslima/.gradle/caches/transforms-2/files-2.1/063c727fcbdb845b339927e5640629ef/localbroadcastmanager-1.0.0/jars/classes.jar:/Users/viniciuslima/.gradle/caches/transforms-2/files-2.1/d68695b274470564b53cd4f2c15a62c3/print-1.0.0/jars/classes.jar:/Users/viniciuslima/.gradle/caches/transforms-2/files-2.1/3ee29788bc67d21204dc9b97081a3cf4/lifecycle-viewmodel-2.0.0/jars/classes.jar:/Users/viniciuslima/.gradle/caches/transforms-2/files-2.1/7e3faaee4e76d5e7a439b1df1adb04b5/interpolator-1.0.0/jars/classes.jar:/Users/viniciuslima/.gradle/caches/modules-2/files-2.1/androidx.annotation/annotation/1.0.2/2f1d597d48e5309e935ce1212eedf5ae69d3f97/annotation-1.0.2.jar:/Users/viniciuslima/.gradle/caches/modules-2/files-2.1/androidx.constraintlayout/constraintlayout-solver/1.1.3/54abe9ffb22cc9019b0b6fcc10f185cc4e67b34e/constraintlayout-solver-1.1.3.jar:/Users/viniciuslima/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib/1.3.31/11289d20fd95ae219333f3456072be9f081c30cc/kotlin-stdlib-1.3.31.jar:/Users/viniciuslima/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib-common/1.3.31/20c34a04ea25cb1ef0139598bd67c764562cb170/kotlin-stdlib-common-1.3.31.jar:/Users/viniciuslima/.gradle/caches/modules-2/files-2.1/org.jetbrains/annotations/13.0/919f0dfe192fb4e063e7dacadee7f8bb9a2672a9/annotations-13.0.jar:/Users/viniciuslima/.gradle/caches/modules-2/files-2.1/com.squareup.okhttp3/okhttp/3.12.0/b36f4a04584c0fb0d9af2d3401cdff8dacb1ea54/okhttp-3.12.0.jar:/Users/viniciuslima/.gradle/caches/modules-2/files-2.1/com.squareup.okio/okio/1.15.0/bc28b5a964c8f5721eb58ee3f3c47a9bcbf4f4d8/okio-1.15.0.jar:/Users/viniciuslima/.gradle/caches/modules-2/files-2.1/com.google.code.gson/gson/2.8.2/3edcfe49d2c6053a70a2a47e4e1c2f94998a49cf/gson-2.8.2.jar:/Users/viniciuslima/.gradle/caches/modules-2/files-2.1/de.javakaffee/kryo-serializers/0.40/562cb61898302da4e8d3fd141c821edb1bc6b36d/kryo-serializers-0.40.jar:/Users/viniciuslima/.gradle/caches/modules-2/files-2.1/com.esotericsoftware/kryo/4.0.1/5053899c213a6ce50a800d4902c5a9de49fe0098/kryo-4.0.1.jar:/Users/viniciuslima/.gradle/caches/modules-2/files-2.1/com.esotericsoftware/reflectasm/1.11.3/8b102eed2f12412b254946811111ea48bc03a266/reflectasm-1.11.3.jar:/Users/viniciuslima/.gradle/caches/modules-2/files-2.1/org.ow2.asm/asm/5.0.4/da08b8cce7bbf903602a25a3a163ae252435795/asm-5.0.4.jar:/Users/viniciuslima/.gradle/caches/modules-2/files-2.1/com.esotericsoftware/minlog/1.3.0/ff07b5f1b01d2f92bb00a337f9a94873712f0827/minlog-1.3.0.jar:/Users/viniciuslima/.gradle/caches/modules-2/files-2.1/org.objenesis/objenesis/2.5.1/272bab9a4e5994757044d1fc43ce480c8cb907a4/objenesis-2.5.1.jar:/Users/viniciuslima/Library/Android/sdk/platforms/android-28/android.jar:/Users/viniciuslima/Library/Android/sdk/build-tools/28.0.3/core-lambda-stubs.jar" />
           <option name="noStdlib" value="true" />
           <option name="noReflect" value="true" />
           <option name="moduleName" value="app_localDebug" />
@@ -44,7 +44,7 @@
           </option>
           <option name="pluginClasspaths">
             <array>
-              <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-android-extensions/1.3.11/61615dc1b4490a6a1940454da57496356067e488/kotlin-android-extensions-1.3.11.jar" />
+              <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-android-extensions/1.3.31/57bdeb88c9265052448a7a8422ed64ad92e9b262/kotlin-android-extensions-1.3.31.jar" />
             </array>
           </option>
           <option name="errors">
@@ -55,15 +55,17 @@
     </facet>
   </component>
   <component name="NewModuleRootManager" LANGUAGE_LEVEL="JDK_1_8">
-    <output url="file://$MODULE_DIR$/build/intermediates/javac/localDebug/compileLocalDebugJavaWithJavac/classes" />
-    <output-test url="file://$MODULE_DIR$/build/intermediates/javac/localDebugUnitTest/compileLocalDebugUnitTestJavaWithJavac/classes" />
+    <output url="file://$MODULE_DIR$/build/intermediates/javac/localDebug/classes" />
+    <output-test url="file://$MODULE_DIR$/build/intermediates/javac/localDebugUnitTest/classes" />
     <exclude-output />
     <content url="file://$MODULE_DIR$">
-      <sourceFolder url="file://$MODULE_DIR$/build/generated/source/apt/local/debug" isTestSource="false" generated="true" />
+      <sourceFolder url="file://$MODULE_DIR$/build/generated/source/kapt/localDebug" isTestSource="false" generated="true" />
+      <sourceFolder url="file://$MODULE_DIR$/build/generated/ap_generated_sources/localDebug/out" isTestSource="false" generated="true" />
       <sourceFolder url="file://$MODULE_DIR$/build/generated/aidl_source_output_dir/localDebug/compileLocalDebugAidl/out" isTestSource="false" generated="true" />
       <sourceFolder url="file://$MODULE_DIR$/build/generated/source/buildConfig/local/debug" isTestSource="false" generated="true" />
       <sourceFolder url="file://$MODULE_DIR$/build/generated/renderscript_source_output_dir/localDebug/compileLocalDebugRenderscript/out" isTestSource="false" generated="true" />
       <sourceFolder url="file://$MODULE_DIR$/build/generated/data_binding_base_class_source_out/localDebug/dataBindingGenBaseClassesLocalDebug/out" isTestSource="false" generated="true" />
+      <sourceFolder url="file://$MODULE_DIR$/build/generated/source/kaptKotlin/localDebug" isTestSource="false" generated="true" />
       <sourceFolder url="file://$MODULE_DIR$/build/generated/res/rs/local/debug" type="java-resource" />
       <sourceFolder url="file://$MODULE_DIR$/build/generated/res/resValues/local/debug" type="java-resource" />
       <sourceFolder url="file://$MODULE_DIR$/src/localDebug/res" type="java-resource" />
@@ -73,7 +75,8 @@
       <sourceFolder url="file://$MODULE_DIR$/src/localDebug/java" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/src/localDebug/rs" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/src/localDebug/shaders" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/build/generated/source/apt/androidTest/local/debug" isTestSource="true" generated="true" />
+      <sourceFolder url="file://$MODULE_DIR$/build/generated/source/kapt/localDebugAndroidTest" isTestSource="true" generated="true" />
+      <sourceFolder url="file://$MODULE_DIR$/build/generated/ap_generated_sources/localDebugAndroidTest/out" isTestSource="true" generated="true" />
       <sourceFolder url="file://$MODULE_DIR$/build/generated/aidl_source_output_dir/localDebugAndroidTest/compileLocalDebugAndroidTestAidl/out" isTestSource="true" generated="true" />
       <sourceFolder url="file://$MODULE_DIR$/build/generated/source/buildConfig/androidTest/local/debug" isTestSource="true" generated="true" />
       <sourceFolder url="file://$MODULE_DIR$/build/generated/renderscript_source_output_dir/localDebugAndroidTest/compileLocalDebugAndroidTestRenderscript/out" isTestSource="true" generated="true" />
@@ -86,7 +89,8 @@
       <sourceFolder url="file://$MODULE_DIR$/src/androidTestLocalDebug/java" isTestSource="true" />
       <sourceFolder url="file://$MODULE_DIR$/src/androidTestLocalDebug/rs" isTestSource="true" />
       <sourceFolder url="file://$MODULE_DIR$/src/androidTestLocalDebug/shaders" isTestSource="true" />
-      <sourceFolder url="file://$MODULE_DIR$/build/generated/source/apt/test/local/debug" isTestSource="true" generated="true" />
+      <sourceFolder url="file://$MODULE_DIR$/build/generated/source/kapt/localDebugUnitTest" isTestSource="true" generated="true" />
+      <sourceFolder url="file://$MODULE_DIR$/build/generated/ap_generated_sources/localDebugUnitTest/out" isTestSource="true" generated="true" />
       <sourceFolder url="file://$MODULE_DIR$/src/testLocalDebug/res" type="java-test-resource" />
       <sourceFolder url="file://$MODULE_DIR$/src/testLocalDebug/resources" type="java-test-resource" />
       <sourceFolder url="file://$MODULE_DIR$/src/testLocalDebug/assets" type="java-test-resource" />
@@ -159,8 +163,48 @@
       <sourceFolder url="file://$MODULE_DIR$/src/test/shaders" isTestSource="true" />
       <excludeFolder url="file://$MODULE_DIR$/build/generated/not_namespaced_r_class_sources" />
       <excludeFolder url="file://$MODULE_DIR$/build/generated/source/r" />
+      <excludeFolder url="file://$MODULE_DIR$/build/intermediates/annotation_processor_list" />
+      <excludeFolder url="file://$MODULE_DIR$/build/intermediates/apk_list" />
+      <excludeFolder url="file://$MODULE_DIR$/build/intermediates/blame" />
+      <excludeFolder url="file://$MODULE_DIR$/build/intermediates/bundle_manifest" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/check_manifest_result" />
+      <excludeFolder url="file://$MODULE_DIR$/build/intermediates/compatible_screen_manifest" />
+      <excludeFolder url="file://$MODULE_DIR$/build/intermediates/data-binding" />
+      <excludeFolder url="file://$MODULE_DIR$/build/intermediates/data_binding_base_class_log_artifact" />
+      <excludeFolder url="file://$MODULE_DIR$/build/intermediates/data_binding_base_class_logs_dependency_artifacts" />
+      <excludeFolder url="file://$MODULE_DIR$/build/intermediates/data_binding_dependency_artifacts" />
+      <excludeFolder url="file://$MODULE_DIR$/build/intermediates/data_binding_layout_info_type_merge" />
+      <excludeFolder url="file://$MODULE_DIR$/build/intermediates/dex" />
+      <excludeFolder url="file://$MODULE_DIR$/build/intermediates/duplicate_classes_check" />
+      <excludeFolder url="file://$MODULE_DIR$/build/intermediates/external_file_lib_dex_archives" />
+      <excludeFolder url="file://$MODULE_DIR$/build/intermediates/external_libs_dex" />
+      <excludeFolder url="file://$MODULE_DIR$/build/intermediates/feature_data_binding_base_feature_info" />
+      <excludeFolder url="file://$MODULE_DIR$/build/intermediates/incremental" />
+      <excludeFolder url="file://$MODULE_DIR$/build/intermediates/instant_app_manifest" />
+      <excludeFolder url="file://$MODULE_DIR$/build/intermediates/instant_run_merged_manifests" />
+      <excludeFolder url="file://$MODULE_DIR$/build/intermediates/javac" />
+      <excludeFolder url="file://$MODULE_DIR$/build/intermediates/lint_jar" />
+      <excludeFolder url="file://$MODULE_DIR$/build/intermediates/lint_publish_jar" />
+      <excludeFolder url="file://$MODULE_DIR$/build/intermediates/manifest_merge_blame_file" />
+      <excludeFolder url="file://$MODULE_DIR$/build/intermediates/merged_assets" />
+      <excludeFolder url="file://$MODULE_DIR$/build/intermediates/merged_java_res" />
+      <excludeFolder url="file://$MODULE_DIR$/build/intermediates/merged_jni_libs" />
+      <excludeFolder url="file://$MODULE_DIR$/build/intermediates/merged_manifests" />
+      <excludeFolder url="file://$MODULE_DIR$/build/intermediates/merged_native_libs" />
+      <excludeFolder url="file://$MODULE_DIR$/build/intermediates/merged_shaders" />
+      <excludeFolder url="file://$MODULE_DIR$/build/intermediates/metadata_feature_manifest" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/prebuild" />
+      <excludeFolder url="file://$MODULE_DIR$/build/intermediates/processed_res" />
+      <excludeFolder url="file://$MODULE_DIR$/build/intermediates/res" />
+      <excludeFolder url="file://$MODULE_DIR$/build/intermediates/shader_assets" />
+      <excludeFolder url="file://$MODULE_DIR$/build/intermediates/signing_config" />
+      <excludeFolder url="file://$MODULE_DIR$/build/intermediates/stripped_native_libs" />
+      <excludeFolder url="file://$MODULE_DIR$/build/intermediates/symbols" />
+      <excludeFolder url="file://$MODULE_DIR$/build/intermediates/transforms" />
+      <excludeFolder url="file://$MODULE_DIR$/build/intermediates/validate_signing_config" />
+      <excludeFolder url="file://$MODULE_DIR$/build/kotlin" />
+      <excludeFolder url="file://$MODULE_DIR$/build/outputs" />
+      <excludeFolder url="file://$MODULE_DIR$/build/tmp" />
     </content>
     <orderEntry type="jdk" jdkName="Android API 28 Platform" jdkType="Android SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
@@ -176,10 +220,7 @@
     <orderEntry type="library" name="Gradle: androidx.lifecycle:lifecycle-runtime:2.0.0@aar" level="project" />
     <orderEntry type="library" name="Gradle: androidx.lifecycle:lifecycle-livedata-core:2.0.0@aar" level="project" />
     <orderEntry type="library" scope="TEST" name="Gradle: androidx.test:runner:1.1.1@aar" level="project" />
-    <orderEntry type="library" name="Gradle: org.jetbrains.kotlin:kotlin-stdlib-common:1.3.11@jar" level="project" />
     <orderEntry type="library" name="Gradle: androidx.cursoradapter:cursoradapter:1.0.0@aar" level="project" />
-    <orderEntry type="library" name="Gradle: org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.3.11@jar" level="project" />
-    <orderEntry type="library" name="Gradle: org.jetbrains.kotlin:kotlin-stdlib:1.3.11@jar" level="project" />
     <orderEntry type="library" name="Gradle: org.objenesis:objenesis:2.5.1@jar" level="project" />
     <orderEntry type="library" scope="TEST" name="Gradle: com.squareup:javawriter:2.1.1@jar" level="project" />
     <orderEntry type="library" name="Gradle: androidx.customview:customview:1.0.0@aar" level="project" />
@@ -187,30 +228,34 @@
     <orderEntry type="library" name="Gradle: androidx.gridlayout:gridlayout:1.0.0@aar" level="project" />
     <orderEntry type="library" name="Gradle: androidx.asynclayoutinflater:asynclayoutinflater:1.0.0@aar" level="project" />
     <orderEntry type="library" name="Gradle: androidx.vectordrawable:vectordrawable:1.0.1@aar" level="project" />
-    <orderEntry type="library" name="Gradle: androidx.databinding:databinding-runtime:3.5.0-alpha03@aar" level="project" />
     <orderEntry type="library" name="Gradle: org.ow2.asm:asm:5.0.4@jar" level="project" />
     <orderEntry type="library" name="Gradle: androidx.interpolator:interpolator:1.0.0@aar" level="project" />
     <orderEntry type="library" name="Gradle: androidx.fragment:fragment:1.0.0@aar" level="project" />
     <orderEntry type="library" name="Gradle: org.jetbrains:annotations:13.0@jar" level="project" />
+    <orderEntry type="library" name="Gradle: androidx.databinding:databinding-adapters:3.5.0-beta02@aar" level="project" />
     <orderEntry type="library" scope="TEST" name="Gradle: javax.inject:javax.inject:1@jar" level="project" />
     <orderEntry type="library" name="Gradle: androidx.slidingpanelayout:slidingpanelayout:1.0.0@aar" level="project" />
     <orderEntry type="library" scope="TEST" name="Gradle: androidx.test.espresso:espresso-idling-resource:3.1.1@aar" level="project" />
+    <orderEntry type="library" name="Gradle: org.jetbrains.kotlin:kotlin-stdlib-common:1.3.31@jar" level="project" />
     <orderEntry type="library" name="Gradle: de.javakaffee:kryo-serializers:0.40@jar" level="project" />
     <orderEntry type="library" name="Gradle: androidx.coordinatorlayout:coordinatorlayout:1.0.0@aar" level="project" />
     <orderEntry type="library" name="Gradle: com.esotericsoftware:minlog:1.3.0@jar" level="project" />
     <orderEntry type="library" name="Gradle: androidx.arch.core:core-runtime:2.0.0@aar" level="project" />
     <orderEntry type="library" name="Gradle: com.esotericsoftware:kryo:4.0.1@jar" level="project" />
+    <orderEntry type="library" name="Gradle: org.jetbrains.kotlin:kotlin-android-extensions-runtime:1.3.31@jar" level="project" />
     <orderEntry type="library" name="Gradle: com.squareup.okhttp3:okhttp:3.12.0@jar" level="project" />
     <orderEntry type="library" scope="TEST" name="Gradle: net.sf.kxml:kxml2:2.3.0@jar" level="project" />
     <orderEntry type="library" name="Gradle: androidx.swiperefreshlayout:swiperefreshlayout:1.0.0@aar" level="project" />
+    <orderEntry type="library" name="Gradle: org.jetbrains.kotlin:kotlin-stdlib:1.3.31@jar" level="project" />
     <orderEntry type="library" name="Gradle: androidx.viewpager:viewpager:1.0.0@aar" level="project" />
     <orderEntry type="library" name="Gradle: androidx.legacy:legacy-support-core-ui:1.0.0@aar" level="project" />
     <orderEntry type="library" name="Gradle: com.esotericsoftware:reflectasm:1.11.3@jar" level="project" />
     <orderEntry type="library" name="Gradle: androidx.loader:loader:1.0.0@aar" level="project" />
     <orderEntry type="library" name="Gradle: tk.zielony:carbon:0.15.3@aar" level="project" />
     <orderEntry type="library" name="Gradle: androidx.appcompat:appcompat:1.0.2@aar" level="project" />
-    <orderEntry type="library" name="Gradle: androidx.databinding:databinding-common:3.5.0-alpha03@jar" level="project" />
+    <orderEntry type="library" name="Gradle: androidx.databinding:databinding-common:3.5.0-beta02@jar" level="project" />
     <orderEntry type="library" name="Gradle: androidx.lifecycle:lifecycle-livedata:2.0.0@aar" level="project" />
+    <orderEntry type="library" name="Gradle: androidx.annotation:annotation:1.0.2@jar" level="project" />
     <orderEntry type="library" name="Gradle: com.squareup.retrofit2:converter-gson:2.5.0@jar" level="project" />
     <orderEntry type="library" name="Gradle: com.annimon:stream:1.1.9@jar" level="project" />
     <orderEntry type="library" name="Gradle: androidx.constraintlayout:constraintlayout:1.1.3@aar" level="project" />
@@ -224,21 +269,22 @@
     <orderEntry type="library" name="Gradle: androidx.lifecycle:lifecycle-viewmodel:2.0.0@aar" level="project" />
     <orderEntry type="library" name="Gradle: androidx.arch.core:core-common:2.0.0@jar" level="project" />
     <orderEntry type="library" name="Gradle: androidx.transition:transition:1.0.0@aar" level="project" />
+    <orderEntry type="library" name="Gradle: androidx.core:core:1.0.2@aar" level="project" />
     <orderEntry type="library" scope="TEST" name="Gradle: junit:junit:4.12@jar" level="project" />
     <orderEntry type="library" name="Gradle: com.squareup.retrofit2:retrofit:2.5.0@jar" level="project" />
     <orderEntry type="library" scope="TEST" name="Gradle: org.hamcrest:hamcrest-core:1.3@jar" level="project" />
+    <orderEntry type="library" name="Gradle: org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.3.31@jar" level="project" />
     <orderEntry type="library" scope="TEST" name="Gradle: androidx.test:core:1.1.0@aar" level="project" />
-    <orderEntry type="library" name="Gradle: androidx.annotation:annotation:1.0.0@jar" level="project" />
+    <orderEntry type="library" name="Gradle: androidx.core:core-ktx:1.0.2@aar" level="project" />
+    <orderEntry type="library" name="Gradle: androidx.databinding:databinding-runtime:3.5.0-beta02@aar" level="project" />
     <orderEntry type="library" name="Gradle: io.paperdb:paperdb:2.6@aar" level="project" />
     <orderEntry type="library" name="Gradle: com.google.code.gson:gson:2.8.2@jar" level="project" />
     <orderEntry type="library" scope="TEST" name="Gradle: org.hamcrest:hamcrest-integration:1.3@jar" level="project" />
     <orderEntry type="library" scope="TEST" name="Gradle: org.hamcrest:hamcrest-library:1.3@jar" level="project" />
     <orderEntry type="library" name="Gradle: de.greenrobot:androidsvg:1.2.2-beta-1-tweaked-2@jar" level="project" />
-    <orderEntry type="library" name="Gradle: androidx.core:core:1.0.1@aar" level="project" />
     <orderEntry type="library" name="Gradle: com.squareup.okio:okio:1.15.0@jar" level="project" />
     <orderEntry type="library" scope="TEST" name="Gradle: androidx.test.espresso:espresso-core:3.1.1@aar" level="project" />
-    <orderEntry type="library" name="Gradle: androidx.databinding:databinding-adapters:3.5.0-alpha03@aar" level="project" />
-    <orderEntry type="library" name="Gradle: androidx.core:core-ktx:1.0.1@aar" level="project" />
     <orderEntry type="library" name="Gradle: androidx.collection:collection:1.0.0@jar" level="project" />
+    <orderEntry type="module" module-name="widgets" />
   </component>
 </module>

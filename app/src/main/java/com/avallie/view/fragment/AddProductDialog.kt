@@ -55,7 +55,7 @@ class AddProductDialog(private val context: Context, private val product: Produc
 
         btnAddProduct?.setOnClickListener {
             if (hasValidField(quantity) && hasValidField(observations)) {
-                addProduct(SelectedProduct(quantity?.text.toString().toInt(), observations?.text.toString(), product, 0))
+                addProduct(SelectedProduct(quantity?.text.toString().toInt(), observations?.text.toString(), product, 0, ArrayList()))
 
                 (context as MainActivity).updateCartBadge()
 

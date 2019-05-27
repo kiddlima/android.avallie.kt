@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:focusableInTouchMode="true">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="16dp"
+            android:background="@drawable/budget_product_background"
+            android:elevation="3dp"
+            android:translationZ="3dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:id="@+id/budget_detail_supplier_name"
+                fontPath="Demi-bold.otf"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="16dp"
+                android:textColor="@color/grayPrimaryDarker"
+                android:textSize="14sp"
+                app:layout_constraintEnd_toStartOf="@id/budget_detail_product_avaliability"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="Balarotti" />
+
+            <TextView
+                android:id="@+id/budget_detail_product_avaliability"
+                fontPath="Regular.otf"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="16dp"
+                android:textColor="@color/grayPrimaryDark"
+                android:textSize="12sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="Pronta-entrega" />
+
+            <include
+                android:id="@+id/budget_detail_payment_info_container"
+                layout="@layout/double_line_icon_item"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/budget_detail_product_avaliability" />
+
+            <include
+                android:id="@+id/budget_detail_address_info_container"
+                layout="@layout/double_line_icon_item"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/budget_detail_payment_info_container" />
+
+            <View
+                android:id="@+id/separator"
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                android:background="@color/grayLight"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/budget_detail_address_info_container" />
+
+            <ImageView
+                android:id="@+id/total_icon"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_margin="16dp"
+                android:src="@drawable/ic_total"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/separator" />
+
+            <TextView
+                android:id="@+id/total_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:text="@string/total_label"
+                android:textAppearance="@style/AppTheme.Small"
+                app:layout_constraintBottom_toTopOf="@id/budget_detail_final_price"
+                app:layout_constraintStart_toEndOf="@id/total_icon"
+                app:layout_constraintTop_toTopOf="@id/total_icon"
+                app:layout_constraintVertical_chainStyle="packed" />
+
+            <TextView
+                android:id="@+id/budget_detail_final_price"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="@style/AppTheme.Medium"
+                app:layout_constraintBottom_toTopOf="@id/budget_detail_delivery_price"
+                app:layout_constraintStart_toStartOf="@id/total_label"
+                app:layout_constraintTop_toBottomOf="@id/total_label"
+                app:layout_constraintVertical_chainStyle="packed"
+                tools:text="R$ 450,00" />
+
+            <TextView
+                android:id="@+id/budget_detail_total_price"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:textAppearance="@style/AppTheme.Small"
+                app:layout_constraintBottom_toBottomOf="@id/budget_detail_final_price"
+                app:layout_constraintStart_toEndOf="@id/budget_detail_final_price"
+                app:layout_constraintTop_toTopOf="@id/budget_detail_final_price"
+                app:layout_constraintVertical_chainStyle="packed"
+                tools:text="(R$ 490,00)" />
+
+            <TextView
+                android:id="@+id/budget_detail_delivery_price"
+                fontPath="Medium.otf"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="@style/AppTheme.Small"
+                android:textColor="@color/grayPrimaryDark"
+                app:layout_constraintBottom_toTopOf="@id/budget_detail_avallie_discount"
+                app:layout_constraintStart_toStartOf="@id/budget_detail_final_price"
+                app:layout_constraintTop_toBottomOf="@id/budget_detail_final_price"
+                app:layout_constraintVertical_chainStyle="packed"
+                tools:text="+ R$ 75,00 - Frete" />
+
+            <TextView
+                android:id="@+id/budget_detail_avallie_discount"
+                fontPath="Medium.otf"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:textAppearance="@style/AppTheme.Small"
+                android:textColor="@color/colorAccent"
+                app:layout_constraintBottom_toBottomOf="@id/total_icon"
+                app:layout_constraintStart_toStartOf="@id/budget_detail_final_price"
+                app:layout_constraintTop_toBottomOf="@id/budget_detail_delivery_price"
+                app:layout_constraintVertical_chainStyle="packed"
+                tools:text="5% de desconto Avallie" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <LinearLayout
+            android:id="@+id/budget_detail_chat_button"
+            android:layout_width="41dp"
+            android:layout_height="38dp"
+            android:layout_marginEnd="8dp"
+            android:background="@drawable/add_product_background"
+            android:elevation="7dp"
+            android:gravity="center"
+            android:tint="@color/colorPrimaryLight"
+            android:translationZ="7dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:layout_width="14dp"
+                android:layout_height="20dp"
+                android:src="@drawable/ic_arrow_right"
+                android:tint="@android:color/white" />
+
+        </LinearLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</layout>

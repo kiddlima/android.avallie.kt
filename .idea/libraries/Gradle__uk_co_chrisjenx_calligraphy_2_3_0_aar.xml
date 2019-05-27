@@ -1,10 +1,12 @@
 <component name="libraryTable">
   <library name="Gradle: uk.co.chrisjenx:calligraphy:2.3.0@aar">
     <CLASSES>
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/7071972ddb3b0c1a284f2c2b969aecc9/jars/classes.jar!/" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/7071972ddb3b0c1a284f2c2b969aecc9/res" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/616a4b9c629e9c0f1dc91875c2576652/jetified-calligraphy-2.3.0/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/616a4b9c629e9c0f1dc91875c2576652/jetified-calligraphy-2.3.0/res" />
     </CLASSES>
-    <JAVADOC />
+    <JAVADOC>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/uk.co.chrisjenx/calligraphy/2.3.0/775c7415bb896ff97ac6117710335a5d9cd3b5ae/calligraphy-2.3.0-javadoc.jar!/" />
+    </JAVADOC>
     <SOURCES>
       <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/uk.co.chrisjenx/calligraphy/2.3.0/e2637b5ce67253023fcba23a3188ec9af473481a/calligraphy-2.3.0-sources.jar!/" />
     </SOURCES>
