@@ -1,45 +1,48 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-          package="com.avallie">
+    package="com.avallie">
 
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
-    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
-            android:name=".InitApplication"
-            android:allowBackup="true"
-            android:icon="@drawable/logo_avallie_no_text"
-            android:label="@string/app_name"
-            android:supportsRtl="true"
-            android:theme="@style/AppTheme">
-        <activity android:name=".view.BudgetProductDetailActivity"/>
+        android:name=".InitApplication"
+        android:allowBackup="true"
+        android:icon="@drawable/logo_avallie_no_text"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
         <activity
-                android:name=".view.BudgetDetailActivity"
-                android:parentActivityName=".view.MainActivity"
-                android:theme="@style/AppThemePrimary"/>
+            android:name=".view.BudgetProductDetailActivity"
+            android:parentActivityName=".view.BudgetDetailActivity"
+            android:theme="@style/AppThemeFilter" />
         <activity
-                android:name=".view.RegisterActivity"
-                android:theme="@style/AppThemeFilter"/>
+            android:name=".view.BudgetDetailActivity"
+            android:parentActivityName=".view.MainActivity"
+            android:theme="@style/AppThemePrimary" />
         <activity
-                android:name=".view.LoginActivity"
-                android:screenOrientation="portrait"
-                android:theme="@style/AppThemeFilter"
-                android:windowSoftInputMode="adjustPan"/>
+            android:name=".view.RegisterActivity"
+            android:theme="@style/AppThemeFilter" />
         <activity
-                android:name=".view.MainActivity"
-                android:screenOrientation="portrait"
-                android:theme="@style/AppTheme.NoActionBar"
-                android:windowSoftInputMode="adjustResize">
+            android:name=".view.LoginActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppThemeFilter"
+            android:windowSoftInputMode="adjustPan" />
+        <activity
+            android:name=".view.MainActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:windowSoftInputMode="adjustResize">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN"/>
+                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER"/>
+                <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity
-                android:name=".view.FiltersActivity"
-                android:screenOrientation="portrait"
-                android:theme="@style/AppThemeFilter"/>
+            android:name=".view.FiltersActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppThemeFilter" />
     </application>
 
 </manifest>

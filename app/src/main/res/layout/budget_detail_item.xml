@@ -9,17 +9,19 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:focusableInTouchMode="true">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
             android:layout_marginEnd="16dp"
             android:layout_marginBottom="16dp"
-            android:background="@android:color/white"
-            android:elevation="6dp"
-            android:translationZ="8dp"
+            android:background="@drawable/budget_product_background"
+            android:elevation="3dp"
+            android:translationZ="3dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -51,26 +53,23 @@
                 tools:text="Pronta-entrega" />
 
             <include
-                android:id="@+id/budget_detail_address_info_container"
+                android:id="@+id/budget_detail_payment_info_container"
                 layout="@layout/double_line_icon_item"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/budget_detail_product_avaliability"
-                 />
+                app:layout_constraintTop_toBottomOf="@id/budget_detail_product_avaliability" />
 
             <include
-                android:id="@+id/budget_detail_payment_info_container"
+                android:id="@+id/budget_detail_address_info_container"
                 layout="@layout/double_line_icon_item"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/budget_detail_address_info_container"
-                />
+                app:layout_constraintTop_toBottomOf="@id/budget_detail_payment_info_container" />
 
             <View
                 android:id="@+id/separator"
@@ -81,7 +80,7 @@
                 android:background="@color/grayLight"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/budget_detail_payment_info_container" />
+                app:layout_constraintTop_toBottomOf="@id/budget_detail_address_info_container" />
 
             <ImageView
                 android:id="@+id/total_icon"
@@ -118,6 +117,7 @@
                 tools:text="R$ 450,00" />
 
             <TextView
+                android:id="@+id/budget_detail_total_price"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"

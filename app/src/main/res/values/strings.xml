@@ -94,4 +94,10 @@
     <string name="category_label">Categoria</string>
     <string name="budgets">Orçamentos</string>
     <string name="total_label">Total</string>
+
+    <string name="unity_label">%s unidades</string>
+    <string name="payment_type_label">Formas de pagamento</string>
+    <string name="delivery_label">Entrega</string>
+    <string name="loading_avaiable_budgets_label">Carregando orçamentos disponíveis</string>
+    <string name="ops_layout_description">Ocorreu um erro ao realizar sua solicitação</string>
 </resources>
