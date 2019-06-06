@@ -8,7 +8,7 @@ import retrofit2.http.*
 interface Services {
 
     @Headers("Accept: application/json", "Content-Type: application/json")
-    @GET("getAllPhases")
+    @GET("v1/constructionPhase")
     fun getAllPhases(): Call<List<ConstructionPhase>>
 
     @FormUrlEncoded

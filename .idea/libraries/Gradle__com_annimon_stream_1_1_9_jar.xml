@@ -3,7 +3,9 @@
     <CLASSES>
       <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.annimon/stream/1.1.9/b1365da87e980af3277ad4264989a2d9cb37041a/stream-1.1.9.jar!/" />
     </CLASSES>
-    <JAVADOC />
+    <JAVADOC>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.annimon/stream/1.1.9/29c95ebbfab571aa52bd31ee2d0cdb971b6edbef/stream-1.1.9-javadoc.jar!/" />
+    </JAVADOC>
     <SOURCES>
       <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.annimon/stream/1.1.9/190c9826e6f6dd69caa23f7c44a163996675f10b/stream-1.1.9-sources.jar!/" />
     </SOURCES>
