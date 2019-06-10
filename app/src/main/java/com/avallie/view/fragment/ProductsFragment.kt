@@ -65,7 +65,6 @@ class ProductsFragment : Fragment() {
     private fun getProducts() {
         HttpService(context!!).getProducts(
             selectedCategories,
-            productNameSearched,
             object : ConnectionListener<ArrayList<Product>> {
                 override fun onSuccess(response: ArrayList<Product>) {
                     products.clear()
@@ -92,7 +91,7 @@ class ProductsFragment : Fragment() {
 
             categoriesAdapter.notifyDataSetChanged()
 
-            //TODO RE-DO REQUEST
+            getProducts()
         }
 
         v_active_filter_recycler.layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)

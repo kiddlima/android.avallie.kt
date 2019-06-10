@@ -22,9 +22,9 @@ class HttpService(private val context: Context) {
 
                 val responseBody = cast<ArrayList<ConstructionPhase>>(response.body())
 
-                if (responseBody != null){
+                if (responseBody != null) {
 
-                    for(phase in responseBody){
+                    for (phase in responseBody) {
                         phase.parseCategories()
                     }
 
@@ -40,14 +40,23 @@ class HttpService(private val context: Context) {
         })
     }
 
+    fun getProducts(categories: List<String>, connectionListener: ConnectionListener<ArrayList<Product>>) {
 
-    fun getProducts(categories: ArrayList<String>, name: String?, connectionListener: ConnectionListener<ArrayList<Product>>) {
-        requestClient.getProducts(categories, name).enqueue(object : Callback<ArrayList<Product>> {
+        var categoriesPath = ""
+
+        if (categories.isNotEmpty()) {
+            categoriesPath = categories[0]
+            for (i in 1 until categories.size) {
+                categoriesPath = "$categoriesPath, ${categories[i]}"
+            }
+        }
+
+        requestClient.getProducts(categoriesPath).enqueue(object : Callback<ArrayList<Product>> {
             override fun onResponse(call: Call<ArrayList<Product>>, response: Response<ArrayList<Product>>) {
 
                 val responseBody = cast<ArrayList<Product>>(response.body())
 
-                if (responseBody != null){
+                if (responseBody != null) {
                     connectionListener.onSuccess(responseBody)
                 } else {
                     connectionListener.onFail(response.errorBody().toString())
