@@ -1,163 +1,136 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <androidx.appcompat.widget.Toolbar
-        android:id="@+id/toolbar"
-        android:layout_width="0dp"
-        android:layout_height="100dp"
-        android:background="@drawable/toolbar_background"
-        android:elevation="5dp"
-        android:translationZ="5dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+    <data>
 
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/toolbar_content"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="35dp"
-            android:focusable="true"
-            android:focusableInTouchMode="true"
-            android:orientation="horizontal"
-            android:padding="8dp">
+        <import type="android.view.View" />
 
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/search_user"
-                fontPath="Regular.otf"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_marginEnd="16dp"
-                android:background="@android:color/transparent"
-                android:hint="@string/productsFragment_search_products"
-                android:imeOptions="actionSearch|flagNoExtractUi|flagNoFullscreen"
-                android:textColor="@android:color/white"
-                android:textColorHighlight="@android:color/white"
-                android:textColorHint="@android:color/white"
-                android:textCursorDrawable="@drawable/search_view_cursor"
-                app:layout_constraintEnd_toStartOf="@id/v_filter_icon"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+        <import type="com.avallie.model.ScreenState" />
 
-            <ImageView
-                android:id="@+id/v_filter_icon"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@drawable/ic_filter"
-                android:tint="@android:color/white"
-                app:layout_constraintBottom_toBottomOf="@id/search_user"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="@id/search_user" />
+        <variable
+            name="model"
+            type="com.avallie.view.products.ProductsFragment" />
 
-        </androidx.constraintlayout.widget.ConstraintLayout>
+        <variable
+            name="viewModel"
+            type="com.avallie.view.products.ProductsViewModel" />
 
-    </androidx.appcompat.widget.Toolbar>
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_begin="100dp" />
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/v_active_filter_recycler"
-        android:layout_width="0dp"
-        android:layout_height="35dp"
-        android:elevation="6dp"
-        android:translationZ="6dp"
-        app:layout_constraintBottom_toTopOf="@id/guideline"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/v_products_recycler"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginTop="60dp"
-        android:clipToPadding="false"
-        android:focusable="true"
-        android:focusableInTouchMode="true"
-        android:paddingTop="40dp"
-        android:paddingBottom="20dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/v_product_not_found_content"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:visibility="gone"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
-        <ImageView
-            android:id="@+id/v_product_not_found_icon"
-            android:layout_width="90dp"
-            android:layout_height="90dp"
-            android:src="@drawable/ic_not_found_products"
-            android:tint="@color/grayPrimary"
-            app:layout_constraintBottom_toTopOf="@+id/v_product_not_found_title"
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="0dp"
+            android:layout_height="100dp"
+            android:background="@drawable/toolbar_background"
+            android:elevation="5dp"
+            android:translationZ="5dp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_chainStyle="packed" />
+            app:layout_constraintTop_toTopOf="parent">
 
-        <TextView
-            android:id="@+id/v_product_not_found_title"
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/toolbar_content"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="35dp"
+                android:focusable="true"
+                android:focusableInTouchMode="true"
+                android:orientation="horizontal"
+                android:padding="8dp">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/search_user"
+                    fontPath="Regular.otf"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginEnd="16dp"
+                    android:background="@android:color/transparent"
+                    android:hint="@string/productsFragment_search_products"
+                    android:imeOptions="actionSearch|flagNoExtractUi|flagNoFullscreen"
+                    android:textColor="@android:color/white"
+                    android:textColorHighlight="@android:color/white"
+                    android:textColorHint="@android:color/white"
+                    android:textCursorDrawable="@drawable/search_view_cursor"
+                    app:layout_constraintEnd_toStartOf="@id/v_filter_icon"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <ImageView
+                    android:id="@+id/v_filter_icon"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_filter"
+                    android:tint="@android:color/white"
+                    app:layout_constraintBottom_toBottomOf="@id/search_user"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@id/search_user" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.appcompat.widget.Toolbar>
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="40dp"
-            android:text="@string/productNotFound_title"
-            android:textColor="@color/grayPrimaryDark"
-            android:textSize="22sp"
-            android:textStyle="bold"
-            app:layout_constraintBottom_toTopOf="@+id/textView2"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/v_product_not_found_icon" />
+            android:orientation="horizontal"
+            app:layout_constraintGuide_begin="100dp" />
 
-        <TextView
-            android:id="@+id/textView2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/productNotFound_message"
-            android:textColor="@color/grayPrimaryDark"
-            android:textSize="18sp"
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/v_active_filter_recycler"
+            android:layout_width="0dp"
+            android:layout_height="35dp"
+            android:elevation="6dp"
+            android:translationZ="6dp"
+            app:layout_constraintBottom_toTopOf="@id/guideline"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/v_products_recycler"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginTop="60dp"
+            android:clipToPadding="false"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:paddingTop="40dp"
+            android:paddingBottom="20dp"
+            android:visibility="@{viewModel.screenState == ScreenState.Success ? View.VISIBLE : View.GONE}"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/v_product_not_found_title" />
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+        <ProgressBar
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="@{viewModel.screenState == ScreenState.Loading ? View.VISIBLE : View.GONE}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <include
+            layout="@layout/error_container"
+            android:visibility="@{viewModel.screenState == ScreenState.Fail ? View.VISIBLE : View.GONE}"
+            app:description="@{viewModel.errorMessage}"
+            app:onClick="@{() -> viewModel.loadProducts(context)}" />
+
+        <include
+            layout="@layout/no_data_container"
+            android:visibility="@{viewModel.screenState == ScreenState.NoData ? View.VISIBLE : View.GONE}"
+            app:message="@{@string/product_not_found_message}"
+            app:title="@{@string/product_not_found_title}" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
+</layout>
 
-    <ProgressBar
-        android:id="@+id/v_products_progress"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:visibility="gone"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-
-
-    <!--<include-->
-    <!--android:id="@+id/v_products_error_message"-->
-    <!--layout="@layout/error_message"-->
-    <!--android:visibility="gone"/>-->
-
-</androidx.constraintlayout.widget.ConstraintLayout>

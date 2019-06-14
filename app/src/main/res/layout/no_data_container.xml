@@ -1,0 +1,51 @@
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+
+        <variable
+            name="title"
+            type="String" />
+
+        <variable
+            name="message"
+            type="String" />
+
+    </data>
+
+    <LinearLayout
+        android:id="@+id/v_product_not_found_content"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:paddingTop="16dp"
+        android:paddingBottom="16dp">
+
+        <ImageView
+            android:id="@+id/v_product_not_found_icon"
+            android:layout_width="90dp"
+            android:layout_height="90dp"
+            android:src="@drawable/ic_not_found_products"
+            android:tint="@color/grayPrimary" />
+
+        <TextView
+            fontPath="Demi-bold.otf"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="@{title}"
+            android:textColor="@color/grayPrimaryDark"
+            android:textSize="24sp"
+            android:textStyle="bold" />
+
+        <TextView
+            fontPath="Regular.otf"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{message}"
+            android:textColor="@color/grayPrimaryDark"
+            android:textSize="18sp" />
+
+    </LinearLayout>
+
+</layout>

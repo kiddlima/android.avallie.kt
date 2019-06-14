@@ -11,18 +11,18 @@
 
         <variable
             name="model"
-            type="com.avallie.view.FiltersActivity" />
+            type="com.avallie.view.filter.FiltersActivity" />
 
         <variable
             name="viewModel"
-            type="com.avallie.view.viewModel.FilterViewModel" />
+            type="com.avallie.view.filter.FilterViewModel" />
 
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".view.FiltersActivity">
+        tools:context=".view.filter.FiltersActivity">
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/v_categories_recycler"

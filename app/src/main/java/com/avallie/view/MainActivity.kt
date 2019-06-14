@@ -14,7 +14,7 @@ import com.avallie.R
 import com.avallie.helpers.PaperHelper.Companion.getCart
 import com.avallie.view.fragment.BudgetRequestsFragment
 import com.avallie.view.fragment.CartFragment
-import com.avallie.view.fragment.ProductsFragment
+import com.avallie.view.products.ProductsFragment
 import kotlinx.android.synthetic.main.activity_main.*
 import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper
 

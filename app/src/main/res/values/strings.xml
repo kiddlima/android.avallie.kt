@@ -33,8 +33,8 @@
     <string name="emptyCart_select_products_button">Selecionar produtos</string>
     <string name="emptyCart_message">Parece que você ainda não selecionou nenhum produto ainda...</string>
     <string name="emptyCart_title">Seu carrinho está vazio!</string>
-    <string name="productNotFound_title">Nenhum produto encontrado</string>
-    <string name="productNotFound_message">Tente pesquisar por outro nome ;)</string>
+    <string name="product_not_found_title">Nenhum produto encontrado</string>
+    <string name="product_not_found_message">Tente pesquisar por outro nome ;)</string>
     <string name="successContent_title">Solicitação realizada!</string>
     <string name="succesContent_message">Em breve você receberá um email com todas as informações da sua solicitação.
     </string>
@@ -100,4 +100,5 @@
     <string name="delivery_label">Entrega</string>
     <string name="loading_avaiable_budgets_label">Carregando orçamentos disponíveis</string>
     <string name="ops_layout_description">Ocorreu um erro ao realizar sua solicitação</string>
+    <string name="no_product_found_label">Nenhum produto encontrado</string>
 </resources>

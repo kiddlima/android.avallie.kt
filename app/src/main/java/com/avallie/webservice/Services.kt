@@ -11,11 +11,10 @@ interface Services {
     @GET("v1/constructionPhase")
     fun getAllPhases(): Call<List<ConstructionPhase>>
 
-    @FormUrlEncoded
-    @POST("getProducts")
+    @Headers("Accept: application/json", "Content-Type: application/json")
+    @GET("v1/products/{categories}")
     fun getProducts(
-        @Field("categories") categories: ArrayList<String>,
-        @Field("name") name: String?
+        @Path("categories") categories: String
     ): Call<ArrayList<Product>>
 
 

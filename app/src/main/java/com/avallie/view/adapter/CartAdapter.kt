@@ -60,7 +60,7 @@ class CartAdapter(private val context: Context, private val selectedProducts: Ar
 
             holder as CartItemViewHolder
             holder.producName?.text = selectedProduct.name.capitalize()
-            holder.productQuantity?.text = "${selectedProduct.quantity} ${selectedProduct.unity}"
+            holder.productQuantity?.text = "${selectedProduct.quantity} ${selectedProduct.unit}"
         }
     }
 

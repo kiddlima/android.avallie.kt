@@ -12,7 +12,7 @@ import kotlinx.android.synthetic.main.active_filter_item.view.*
 
 typealias OnCategoryDeleted = (category: String) -> Unit
 
-class ActiveFiltersAdapter(private val context: Context, private val categories: ArrayList<String>) :
+class ActiveFiltersAdapter(private val context: Context, private val categories: List<String>) :
     RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
     var onCategoryDeleted: OnCategoryDeleted? = null

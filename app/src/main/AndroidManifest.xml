@@ -40,7 +40,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".view.FiltersActivity"
+            android:name=".view.filter.FiltersActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppThemeFilter" />
     </application>

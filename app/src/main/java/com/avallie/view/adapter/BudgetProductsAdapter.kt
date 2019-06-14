@@ -54,7 +54,7 @@ class BudgetProductsAdapter(private val context: Context, private val products: 
             val product = products[position - 1]
 
             holder.productName.text = product.name
-            holder.productQuantity.text = "${product.quantity} ${product.unity}"
+            holder.productQuantity.text = "${product.quantity} ${product.unit}"
 
             if (product.budgetsAvaiable!! > 0) {
                 holder.productBudgetAvaiable.text = "${product.budgetsAvaiable.toString()} disponíveis"
