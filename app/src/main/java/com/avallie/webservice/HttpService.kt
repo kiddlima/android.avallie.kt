@@ -40,7 +40,7 @@ class HttpService(private val context: Context) {
         })
     }
 
-    fun getProducts(categories: List<String>, connectionListener: ConnectionListener<ArrayList<Product>>) {
+    fun getProducts(categories: List<String>, connectionListener: ConnectionListener<List<Product>>) {
 
         var categoriesPath = ""
 
