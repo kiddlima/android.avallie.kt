@@ -27,8 +27,8 @@ class ProductsAdapter(
             override fun performFiltering(charSequence: CharSequence): FilterResults {
                 val charString = charSequence.toString()
                 val newListProducts = ArrayList<Product>()
-                
-                if (!charString.isEmpty() && charSequence.length >= 3) {
+
+                if (charString.isNotEmpty() && charSequence.length >= 3) {
                     products.forEach {
                         if (it.name.contains(charString, true)) {
                             newListProducts.add(it)
@@ -40,6 +40,7 @@ class ProductsAdapter(
 
                 val filterResults = FilterResults()
                 filterResults.values = newListProducts
+                filterResults.count = newListProducts.size
                 return filterResults
             }
 
@@ -88,19 +89,13 @@ class ProductsAdapter(
 
     inner class ProductViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
-        val backgroundView: View
-        val productName: TextView
-        val productCategorie: TextView
-        val productAddIcon: LinearLayout
-        val productPhaseIcon: ImageView
+        private val backgroundView: View = itemView
+        val productName: TextView = itemView.v_product_name
+        val productCategorie: TextView = itemView.v_product_categorie
+        private val productAddIcon: LinearLayout = itemView.v_product_add_icon
+        val productPhaseIcon: ImageView = itemView.v_product_phase_icon
 
         init {
-            productPhaseIcon = itemView.v_product_phase_icon
-            productName = itemView.v_product_name
-            productCategorie = itemView.v_product_categorie
-            productAddIcon = itemView.v_product_add_icon
-            backgroundView = itemView
-
             itemView.setOnClickListener {
                 onProductClick?.invoke(products[adapterPosition])
             }

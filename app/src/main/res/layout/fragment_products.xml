@@ -126,7 +126,13 @@
 
         <include
             layout="@layout/no_data_container"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:visibility="@{viewModel.screenState == ScreenState.NoData ? View.VISIBLE : View.GONE}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/toolbar"
             app:message="@{@string/product_not_found_message}"
             app:title="@{@string/product_not_found_title}" />
 

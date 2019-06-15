@@ -18,7 +18,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.avallie.databinding.FragmentProductsBinding
 import com.avallie.helpers.PaperHelper.Companion.getPhases
 import com.avallie.model.ConstructionPhase
-import com.avallie.model.ScreenState.Loading
+import com.avallie.model.ScreenState.*
 import com.avallie.view.adapter.ActiveFiltersAdapter
 import com.avallie.view.adapter.ProductsAdapter
 import com.avallie.view.filter.FiltersActivity
@@ -103,7 +103,6 @@ class ProductsFragment : Fragment() {
             LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
     }
 
-
     private fun setProductAdapter() {
         binding.vProductsRecycler.adapter = productsAdapter
         productsAdapter.onProductClick = {
@@ -114,7 +113,14 @@ class ProductsFragment : Fragment() {
 
         binding.searchUser.addTextChangedListener(object : TextWatcher {
             override fun afterTextChanged(s: Editable?) {
-                productsAdapter.filter.filter(binding.searchUser.text)
+                productsAdapter.filter.filter(s) {
+                    if (it == 0) {
+                        viewModel.screenState.value = NoData
+                    } else {
+                        viewModel.screenState.value = Success
+                    }
+                }
+
             }
 
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
