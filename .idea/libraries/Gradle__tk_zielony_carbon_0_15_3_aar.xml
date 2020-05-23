@@ -1,8 +1,8 @@
 <component name="libraryTable">
   <library name="Gradle: tk.zielony:carbon:0.15.3@aar">
     <CLASSES>
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/eed5daefd73efadc9170b37c238afbcb/jetified-carbon-0.15.3/jars/classes.jar!/" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/eed5daefd73efadc9170b37c238afbcb/jetified-carbon-0.15.3/res" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/c185e2e744bd87afc0b68ba240feae23/jetified-carbon-0.15.3/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/c185e2e744bd87afc0b68ba240feae23/jetified-carbon-0.15.3/res" />
     </CLASSES>
     <JAVADOC />
     <SOURCES>

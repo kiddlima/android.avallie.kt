@@ -11,15 +11,15 @@ import com.avallie.R
 
 class ProgressDialog(private val context: Context, private val message: String) {
 
-    val dialog: Dialog by lazy {
+    private val dialog: Dialog by lazy {
         Dialog(context)
     }
 
-    fun show() {
-        dialog.run {
-            requestWindowFeature(Window.FEATURE_NO_TITLE)
-            setContentView(com.avallie.R.layout.progress_dialog)
-            setCancelable(false)
+    init {
+        dialog.let {
+            it.requestWindowFeature(Window.FEATURE_NO_TITLE)
+            it.setContentView(R.layout.progress_dialog)
+            it.setCancelable(false)
         }
 
         val window = dialog.window
@@ -29,7 +29,9 @@ class ProgressDialog(private val context: Context, private val message: String) 
             setLayout(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT)
             findViewById<TextView>(R.id.progress_message)?.text = message
         }
+    }
 
+    fun show() {
         dialog.show()
     }
 

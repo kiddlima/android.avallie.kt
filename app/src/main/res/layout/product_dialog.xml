@@ -99,7 +99,7 @@
 
         </com.google.android.material.textfield.TextInputLayout>
 
-        <Button
+        <carbon.widget.Button
             android:id="@+id/add_selected_product"
             fontPath="Medium.otf"
             android:layout_width="0dp"
@@ -108,14 +108,8 @@
             android:layout_marginTop="48dp"
             android:layout_marginEnd="16dp"
             android:layout_marginBottom="16dp"
-            android:background="@drawable/blue_button_background"
-            android:paddingStart="16dp"
-            android:paddingEnd="16dp"
+            style="@style/PrimaryButton"
             android:text="@string/add_products"
-            android:textAllCaps="true"
-            android:textColor="@android:color/white"
-            android:textSize="16sp"
-            android:translationZ="4dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

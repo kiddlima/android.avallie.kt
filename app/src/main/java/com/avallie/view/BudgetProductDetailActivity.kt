@@ -10,7 +10,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.avallie.databinding.ActivityBudgetProductDetailBinding
 import com.avallie.model.Budget
 import com.avallie.model.ScreenState
-import com.avallie.model.SelectedProduct
+import com.avallie.model.RequestedProduct
 import com.avallie.view.adapter.BudgetsAdapter
 import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper
 
@@ -22,12 +22,12 @@ class BudgetProductDetailActivity : AppCompatActivity() {
 
     var screenState: ScreenState = ScreenState.Loading
 
-    val selectedProduct: SelectedProduct by lazy {
-        intent.getSerializableExtra(SELECTED_PRODUCT) as SelectedProduct
+    val requestedProduct: RequestedProduct by lazy {
+        intent.getSerializableExtra(SELECTED_PRODUCT) as RequestedProduct
     }
 
     val adapter: BudgetsAdapter by lazy {
-        BudgetsAdapter(this, selectedProduct.budgets)
+        BudgetsAdapter(this, requestedProduct.budgets)
     }
 
     private lateinit var binding: ActivityBudgetProductDetailBinding
@@ -61,7 +61,7 @@ class BudgetProductDetailActivity : AppCompatActivity() {
 
     private fun mockBudgets() {
         for (i in 0..4) {
-            selectedProduct.budgets.add(
+            requestedProduct.budgets.add(
                     Budget(
                             "Balarotti",
                             "Em até 12x no cartão sem juros",

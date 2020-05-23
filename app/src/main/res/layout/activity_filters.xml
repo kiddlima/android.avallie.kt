@@ -44,12 +44,11 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
 
-        <Button
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/v_button_filter"
             android:layout_width="70dp"
             android:layout_height="70dp"
             android:layout_marginEnd="20dp"
-            android:layout_marginRight="20dp"
             android:layout_marginBottom="25dp"
             android:background="@drawable/apply_filter_btn_background"
             android:elevation="4dp"

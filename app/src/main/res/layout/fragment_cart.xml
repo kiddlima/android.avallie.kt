@@ -19,7 +19,7 @@
         android:id="@+id/finish_container"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:visibility="gone"
+        android:visibility="visible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -96,9 +96,9 @@
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/confirm_dead_line"
                 fontPath="Regular.otf"
+                android:digits="0123456789/"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:inputType="date"
                 android:textSize="16sp" />
 
         </com.google.android.material.textfield.TextInputLayout>
@@ -154,39 +154,32 @@
 
         <Button
             android:id="@+id/btn_change_address"
+            style="@style/SecondaryOutlineButton"
+            fontPath="Medium.otf"
             android:layout_width="wrap_content"
-            android:layout_height="40dp"
-            android:layout_marginStart="16dp"
-            android:layout_marginEnd="16dp"
+            android:layout_height="wrap_content"
             android:background="@android:color/transparent"
             android:text="@string/change_address"
-            android:textColor="@color/colorAccent"
+            android:textSize="13sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/delivery_address_two"
             app:layout_constraintVertical_chainStyle="packed" />
 
-        <Button
+        <carbon.widget.Button
             android:id="@+id/btn_request_budget"
+            style="@style/PrimaryButton"
             fontPath="Medium.otf"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
+            android:layout_marginStart="24dp"
             android:layout_marginTop="36dp"
-            android:layout_marginEnd="16dp"
-            android:layout_marginBottom="16dp"
-            android:background="@drawable/blue_button_background"
-            android:paddingStart="16dp"
-            android:paddingEnd="16dp"
+            android:layout_marginEnd="24dp"
+            android:layout_marginBottom="24dp"
             android:text="@string/order_budget_request"
-            android:textAllCaps="true"
-            android:textColor="@android:color/white"
-            android:textSize="16sp"
-            android:translationZ="4dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/btn_change_address"
-            app:layout_constraintVertical_bias="1.0" />
+            app:layout_constraintTop_toBottomOf="@id/btn_change_address" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

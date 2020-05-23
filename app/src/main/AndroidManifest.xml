@@ -11,7 +11,11 @@
         android:icon="@drawable/logo_avallie_no_text"
         android:label="@string/app_name"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
+        android:theme="@style/AppTheme"
+        android:usesCleartextTraffic="true">
+        <activity
+            android:name=".view.register.RegisterSuccessActivity"
+            android:theme="@style/AppThemeFilter" />
         <activity
             android:name=".view.BudgetProductDetailActivity"
             android:parentActivityName=".view.BudgetDetailActivity"
@@ -21,7 +25,7 @@
             android:parentActivityName=".view.MainActivity"
             android:theme="@style/AppThemePrimary" />
         <activity
-            android:name=".view.RegisterActivity"
+            android:name=".view.register.RegisterActivity"
             android:theme="@style/AppThemeFilter" />
         <activity
             android:name=".view.LoginActivity"

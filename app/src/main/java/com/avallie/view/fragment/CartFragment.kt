@@ -3,21 +3,32 @@ package com.avallie.view.fragment
 import android.content.DialogInterface
 import android.content.Intent
 import android.os.Bundle
-import android.os.Handler
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.core.content.ContextCompat
+import androidx.core.widget.addTextChangedListener
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.avallie.R
 import com.avallie.helpers.PaperHelper
 import com.avallie.helpers.PaperHelper.Companion.getCart
+import com.avallie.model.request.BudgetRequest
 import com.avallie.view.LoginActivity
 import com.avallie.view.MainActivity
 import com.avallie.view.adapter.CartAdapter
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
+import com.redmadrobot.inputmask.MaskedTextChangedListener
+import kotlinx.android.synthetic.main.activity_budget_detail.*
 import kotlinx.android.synthetic.main.fragment_cart.*
+import kotlinx.android.synthetic.main.fragment_cart.confirm_dead_line
+import kotlinx.android.synthetic.main.fragment_cart.view.*
+import java.text.SimpleDateFormat
+import java.time.LocalDate
+import java.time.format.DateTimeFormatter
+import java.util.*
 
 class CartFragment : BottomSheetDialogFragment() {
 
@@ -35,7 +46,8 @@ class CartFragment : BottomSheetDialogFragment() {
         CartAdapter(context!!, selectedProducts)
     }
 
-    var cartScreen = CartScreen.PRODUCTS
+
+    lateinit var viewModel: CartViewModel
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         return inflater.inflate(R.layout.fragment_cart, container, false)
@@ -44,49 +56,63 @@ class CartFragment : BottomSheetDialogFragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        reloadFragmentView()
+        viewModel = ViewModelProviders.of(this).get(CartViewModel::class.java)
+
+        viewModel.cartScreenState.value = CartScreen.PRODUCTS
+
+
+        confirm_dead_line.run {
+            val listener = MaskedTextChangedListener("[00]{/}[00]{/}[0000]", confirm_dead_line)
+
+            addTextChangedListener(listener)
+            onFocusChangeListener = listener
+        }
+
+        observeViewModel()
     }
 
-    private fun reloadFragmentView() {
-        when (cartScreen) {
-            CartScreen.PRODUCTS -> {
-                cart_recycler.visibility = View.VISIBLE
-                finish_container.visibility = View.GONE
+    private fun observeViewModel() {
+        viewModel.cartScreenState.observe(this, Observer { cartScreen ->
+            when (cartScreen) {
+                CartScreen.PRODUCTS -> {
+                    cart_recycler.visibility = View.VISIBLE
+                    finish_container.visibility = View.GONE
 
-                setCartAdapter()
+                    setCartAdapter()
+                }
+                CartScreen.FINISH -> {
+                    cart_recycler.visibility = View.GONE
+                    finish_container.visibility = View.VISIBLE
+
+                    setFinishInfo()
+                }
+                CartScreen.LOADING -> {
+                    finish_container.visibility = View.GONE
+                    loading_container.visibility = View.VISIBLE
+                    response_container.visibility = View.GONE
+
+                    isCancelable = false
+
+                    requestBudget()
+                }
+                CartScreen.SUCCESS -> {
+                    loading_container.visibility = View.GONE
+                    response_container.visibility = View.VISIBLE
+
+                    isCancelable = true
+
+                    showSuccess()
+                }
+                CartScreen.ERROR -> {
+                    loading_container.visibility = View.GONE
+                    response_container.visibility = View.VISIBLE
+
+                    isCancelable = true
+
+                    showFail("Erro ao se comunicar com o servidor")
+                }
             }
-            CartScreen.FINISH -> {
-                cart_recycler.visibility = View.GONE
-                finish_container.visibility = View.VISIBLE
-
-                setFinishInfo()
-            }
-            CartScreen.LOADING -> {
-                finish_container.visibility = View.GONE
-                loading_container.visibility = View.VISIBLE
-                response_container.visibility = View.GONE
-
-                isCancelable = false
-
-                requestBudget()
-            }
-            CartScreen.SUCCESS -> {
-                loading_container.visibility = View.GONE
-                response_container.visibility = View.VISIBLE
-
-                isCancelable = true
-
-                showSuccess()
-            }
-            CartScreen.ERROR -> {
-                loading_container.visibility = View.GONE
-                response_container.visibility = View.VISIBLE
-
-                isCancelable = true
-
-                showFail("Erro ao se comunicar com o servidor")
-            }
-        }
+        })
     }
 
     private fun setFinishInfo() {
@@ -100,16 +126,14 @@ class CartFragment : BottomSheetDialogFragment() {
 
         btn_request_budget.setOnClickListener {
             if (isFinishScreenValidate()) {
-                cartScreen = CartScreen.LOADING
-                reloadFragmentView()
+                viewModel.cartScreenState.value = CartScreen.LOADING
             } else {
                 Toast.makeText(context!!, getString(R.string.fill_the_fileds), Toast.LENGTH_LONG).show()
             }
         }
 
         back_button_finish.setOnClickListener {
-            cartScreen = CartScreen.PRODUCTS
-            reloadFragmentView()
+            viewModel.cartScreenState.value = CartScreen.PRODUCTS
         }
     }
 
@@ -118,12 +142,21 @@ class CartFragment : BottomSheetDialogFragment() {
     }
 
     private fun requestBudget() {
-        //TODO PERFORM HTTP REQUEST
+        val formatter = SimpleDateFormat("dd/MM/yyyy", Locale.getDefault())
+        var formattedDateString = ""
 
-        Handler().postDelayed({
-            cartScreen = CartScreen.SUCCESS
-            reloadFragmentView()
-        }, 500)
+        formatter.parse(confirm_dead_line.text.toString()).run {
+            formattedDateString = SimpleDateFormat("yyyy-MM-dd", Locale.getDefault()).format(this)
+        }
+
+        val budgetRequest = BudgetRequest(
+            confirm_request_name.text.toString(),
+            formattedDateString,
+            "Av polar, 415",
+            getCart()
+        )
+
+        viewModel.requestBudget(budgetRequest, context!!)
     }
 
     private fun showSuccess() {
@@ -155,8 +188,7 @@ class CartFragment : BottomSheetDialogFragment() {
         btn_response_action.setTextColor(errorColor)
 
         btn_response_action.setOnClickListener {
-            cartScreen = CartScreen.LOADING
-            reloadFragmentView()
+            viewModel.cartScreenState.value = CartScreen.LOADING
         }
     }
 
@@ -175,15 +207,13 @@ class CartFragment : BottomSheetDialogFragment() {
             }
 
             override fun onConfirmProducts() {
-                //TODO CHECK IF IS LOGGED AND DO LOGIC
                 if (false) {
                     activity?.let {
                         val intent = Intent(it, LoginActivity::class.java)
                         it.startActivity(intent)
                     }
                 } else {
-                    cartScreen = CartScreen.FINISH
-                    reloadFragmentView()
+                    viewModel.cartScreenState.value = CartScreen.FINISH
                 }
             }
         })
@@ -191,8 +221,7 @@ class CartFragment : BottomSheetDialogFragment() {
         cart_recycler.layoutManager = LinearLayoutManager(context!!, LinearLayoutManager.VERTICAL, false)
     }
 
-
-    override fun onDismiss(dialog: DialogInterface?) {
+    override fun onDismiss(dialog: DialogInterface) {
         super.onDismiss(dialog)
 
         (activity as MainActivity).updateSelectedItem()

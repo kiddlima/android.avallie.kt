@@ -7,7 +7,6 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
-import com.aurelhubert.ahbottomnavigation.AHBottomNavigation
 import com.aurelhubert.ahbottomnavigation.AHBottomNavigationItem
 import com.aurelhubert.ahbottomnavigation.notification.AHNotification
 import com.avallie.R
@@ -15,6 +14,7 @@ import com.avallie.helpers.PaperHelper.Companion.getCart
 import com.avallie.view.fragment.BudgetRequestsFragment
 import com.avallie.view.fragment.CartFragment
 import com.avallie.view.products.ProductsFragment
+import com.google.firebase.auth.FirebaseAuth
 import kotlinx.android.synthetic.main.activity_main.*
 import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper
 
@@ -26,6 +26,8 @@ class MainActivity : AppCompatActivity() {
     var lastItemSelected: Int? = null
 
     var productsFragment: ProductsFragment? = null
+
+    var auth = FirebaseAuth.getInstance()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -84,26 +86,34 @@ class MainActivity : AppCompatActivity() {
 
             setUseElevation(true)
 
-            setOnTabSelectedListener(object : AHBottomNavigation.OnTabSelectedListener {
-                override fun onTabSelected(position: Int, wasSelected: Boolean): Boolean {
-                    when (position) {
-                        0 -> {
-                            if (!isFragmentVisible(productsFragment)) {
-                                goToProducts()
-                            }
+            setOnTabSelectedListener { position, wasSelected ->
+                when (position) {
+                    0 -> {
+                        if (!isFragmentVisible(productsFragment)) {
+                            goToProducts()
                         }
-                        1 -> openCartSheet()
-                        2 -> openBudgetsSheet()
                     }
-
-                    return true
+                    1 -> openCartSheet()
+                    2 -> openBudgetsSheet()
+                    3 -> openAccount()
                 }
-            })
+
+                true
+            }
 
             currentItem = 0
         }
 
         updateCartBadge()
+    }
+
+    private fun openAccount() {
+        lastItemSelected = 0
+        if (auth.currentUser == null) {
+            startActivity(Intent(this, LoginActivity::class.java))
+        } else {
+            //todo show my account fragment
+        }
     }
 
     fun openBudgetsSheet() {

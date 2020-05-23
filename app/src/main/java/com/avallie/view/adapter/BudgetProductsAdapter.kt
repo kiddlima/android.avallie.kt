@@ -8,12 +8,13 @@ import android.widget.TextView
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.avallie.R
-import com.avallie.model.SelectedProduct
+import com.avallie.model.RequestedProduct
+import com.avallie.model.request.SelectedProduct
 import java.util.*
 
-typealias OnProductSelected = (selectedProduct: SelectedProduct) -> Unit
+typealias OnProductSelected = (requestedProduct: RequestedProduct) -> Unit
 
-class BudgetProductsAdapter(private val context: Context, private val products: ArrayList<SelectedProduct>) :
+class BudgetProductsAdapter(private val context: Context, private val products: MutableList<RequestedProduct>) :
         RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
     private val header = 0
@@ -54,7 +55,7 @@ class BudgetProductsAdapter(private val context: Context, private val products: 
             val product = products[position - 1]
 
             holder.productName.text = product.name
-            holder.productQuantity.text = "${product.quantity} ${product.unit}"
+            holder.productQuantity.text = "${product.amount} ${product.unit}"
 
             if (product.budgetsAvaiable!! > 0) {
                 holder.productBudgetAvaiable.text = "${product.budgetsAvaiable.toString()} disponíveis"
