@@ -14,7 +14,8 @@ import com.avallie.helpers.AppHelper
 import com.avallie.helpers.PaperHelper.Companion.addProduct
 import com.avallie.helpers.PaperHelper.Companion.getPhases
 import com.avallie.model.Product
-import com.avallie.model.SelectedProduct
+import com.avallie.model.RequestedProduct
+import com.avallie.model.request.SelectedProduct
 import com.avallie.view.MainActivity
 import com.google.android.material.textfield.TextInputEditText
 
@@ -31,7 +32,7 @@ class AddProductDialog(private val context: Context, private val product: Produc
 
     fun showDialog() {
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
-        dialog.setContentView(com.avallie.R.layout.product_dialog)
+        dialog.setContentView(R.layout.product_dialog)
         dialog.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
 
         val window = dialog.window
@@ -55,7 +56,7 @@ class AddProductDialog(private val context: Context, private val product: Produc
 
         btnAddProduct?.setOnClickListener {
             if (hasValidField(quantity) && hasValidField(observations)) {
-                addProduct(SelectedProduct(quantity?.text.toString().toInt(), observations?.text.toString(), product, 0, ArrayList()))
+                addProduct(SelectedProduct(quantity?.text.toString().toInt(), observations?.text.toString(), product.id, product))
 
                 (context as MainActivity).updateCartBadge()
 

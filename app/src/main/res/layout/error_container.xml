@@ -74,6 +74,7 @@
 
         <Button
             android:id="@+id/btn_response_action"
+            style="@style/SecondaryOutlineButton"
             android:layout_width="wrap_content"
             android:layout_height="40dp"
             android:layout_marginStart="24dp"
@@ -81,9 +82,7 @@
             android:layout_marginEnd="24dp"
             android:layout_marginBottom="36dp"
             android:onClick="@{onClick}"
-            android:background="@android:color/transparent"
             android:text="@string/try_again"
-            android:textColor="@color/colorError"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

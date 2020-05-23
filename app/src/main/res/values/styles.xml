@@ -1,6 +1,6 @@
 <resources>
     <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+    <style name="AppTheme" parent="Theme.MaterialComponents.Light.DarkActionBar">
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@android:color/white</item>
         <item name="colorPrimaryDark">@color/colorAccentLight</item>
@@ -54,7 +54,7 @@
 
     </style>
 
-    <style name="AppBottomSheetDialogTheme" parent="Theme.Design.Light.BottomSheetDialog">
+    <style name="AppBottomSheetDialogTheme" parent="Theme.MaterialComponents.Light.BottomSheetDialog">
         <item name="bottomSheetStyle">@style/AppModalStyle</item>
     </style>
 
@@ -72,6 +72,29 @@
         <item name="android:textSize">18sp</item>
         <item name="android:textColor">@color/grayPrimaryDark</item>
         <item name="fontPath">Medium.otf</item>
+    </style>
+
+    <style name="SecondaryOutlineButton" parent="Widget.MaterialComponents.Button.OutlinedButton">
+        <item name="android:textColor">@color/colorAccent</item>
+        <item name="rippleColor">@color/colorAccentLight</item>
+        <item name="strokeColor">@color/transparent</item>
+    </style>
+
+    <style name="PrimaryButton" parent="BaseButton">
+        <item name="android:background">@drawable/btn_blue_background</item>
+    </style>
+
+    <style name="SecondaryButton" parent="BaseButton">
+        <item name="android:background">@drawable/btn_green_background</item>
+    </style>
+
+    <style name="BaseButton" parent="Widget.MaterialComponents.Button">
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:translationZ">4dp</item>
+        <item name="android:textAllCaps">true</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:paddingStart">16dp</item>
+        <item name="android:paddingEnd">16dp</item>
     </style>
 
 </resources>

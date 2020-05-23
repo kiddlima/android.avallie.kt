@@ -8,10 +8,11 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.avallie.R
 import com.avallie.model.BudgetRequested
+import com.avallie.model.request.BudgetRequest
 
 typealias OnBudgetSelected = (budget: BudgetRequested) -> Unit
 
-class BudgetRequestsAdapter(private val context: Context, private val budgetsRequested: ArrayList<BudgetRequested>) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
+class BudgetRequestsAdapter(private val context: Context, private val budgetsRequest: MutableList<BudgetRequested>) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
     private val item = 0
     private val header = 1
@@ -32,7 +33,7 @@ class BudgetRequestsAdapter(private val context: Context, private val budgetsReq
     }
 
     override fun getItemCount(): Int {
-        return budgetsRequested.size + 1
+        return budgetsRequest.size + 1
     }
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
@@ -42,18 +43,18 @@ class BudgetRequestsAdapter(private val context: Context, private val budgetsReq
 
                 when (position) {
                     1 -> holder.topLine.visibility = View.GONE
-                    budgetsRequested.size -> holder.bottomLine.visibility = View.GONE
+                    budgetsRequest.size -> holder.bottomLine.visibility = View.GONE
                     else -> {
                         holder.bottomLine.visibility = View.VISIBLE
                         holder.topLine.visibility = View.VISIBLE
                     }
                 }
 
-                val budget = budgetsRequested[position - 1]
+                val budget = budgetsRequest[position - 1]
 
                 holder.requestName.text = budget.budgetName
-                holder.requestDate.text = budget.budgetDate.toString()
-                holder.requestQuantity.text = if (budget.budgetsAvaiable > 1) "${budget.budgetsAvaiable} orçamentos" else "${budget.budgetsAvaiable} orçamento"
+                holder.requestDate.text = budget.budgetDate
+                holder.requestQuantity.text = if (budget.budgetsAvailable > 1) "${budget.budgetsAvailable} orçamentos" else "${budget.budgetsAvailable} orçamento"
 
             }
             else -> {
@@ -77,7 +78,7 @@ class BudgetRequestsAdapter(private val context: Context, private val budgetsReq
 
         init {
             itemView.setOnClickListener {
-                onBudgetSelected?.invoke(budgetsRequested[adapterPosition - 1])
+                onBudgetSelected?.invoke(budgetsRequest[adapterPosition - 1])
             }
         }
     }

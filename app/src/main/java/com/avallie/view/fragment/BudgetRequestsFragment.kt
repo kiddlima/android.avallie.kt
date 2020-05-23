@@ -18,11 +18,10 @@ import com.avallie.view.MainActivity
 import com.avallie.view.adapter.BudgetRequestsAdapter
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import kotlinx.android.synthetic.main.budget_requests_fragment.*
-import java.util.*
 
 class BudgetRequestsFragment : BottomSheetDialogFragment() {
 
-    private val budgetsRequested: ArrayList<BudgetRequested> = ArrayList()
+    private val budgetsRequest: MutableList<BudgetRequested> = mutableListOf()
 
     private lateinit var budgetRequestedAdapter: BudgetRequestsAdapter
 
@@ -67,7 +66,7 @@ class BudgetRequestsFragment : BottomSheetDialogFragment() {
     private fun setBudgetsView() {
         progress_container.visibility = View.GONE
 
-        mockRequests()
+//        mockRequests()
         setAdapter()
     }
 
@@ -101,7 +100,7 @@ class BudgetRequestsFragment : BottomSheetDialogFragment() {
     }
 
     private fun setAdapter() {
-        budgetRequestedAdapter = BudgetRequestsAdapter(context!!, budgetsRequested)
+        budgetRequestedAdapter = BudgetRequestsAdapter(context!!, budgetsRequest)
         budgetRequestedAdapter.onBudgetSelected = {
             activity?.let {
                 val intent = Intent(it, BudgetDetailActivity::class.java)
@@ -113,15 +112,15 @@ class BudgetRequestsFragment : BottomSheetDialogFragment() {
         requests_recycler.layoutManager = LinearLayoutManager(context!!, LinearLayoutManager.VERTICAL, false)
     }
 
-    private fun mockRequests() {
-        for (i in 0..10) {
-            val budgetRequested = BudgetRequested("Orçamento", Date(), 7, null)
+//    private fun mockRequests() {
+//        for (i in 0..10) {
+//            val budgetRequested = BudgetRequest("Orçamento", Date(), 7, null)
+//
+//            budgetsRequest.add(budgetRequested)
+//        }
+//    }
 
-            budgetsRequested.add(budgetRequested)
-        }
-    }
-
-    override fun onDismiss(dialog: DialogInterface?) {
+    override fun onDismiss(dialog: DialogInterface) {
         super.onDismiss(dialog)
 
         (activity as MainActivity).updateSelectedItem()

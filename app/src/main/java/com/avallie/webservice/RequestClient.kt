@@ -3,38 +3,58 @@ package com.avallie.webservice
 import android.content.Context
 import android.net.ConnectivityManager
 import android.net.NetworkInfo
+import com.google.android.gms.tasks.Tasks
+import com.google.firebase.auth.FirebaseAuth
+import com.google.gson.FieldNamingPolicy
+import com.google.gson.GsonBuilder
 import okhttp3.Cache
+import okhttp3.Interceptor
 import okhttp3.OkHttpClient
+import okhttp3.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import java.util.concurrent.TimeUnit
 
-class RequestClient(private val context: Context, private val baseURL: String, private val withCache: Boolean = true) {
+class RequestClient(
+    private val context: Context,
+    private val baseURL: String,
+    private val withCache: Boolean = true
+) {
 
+    private val auth by lazy {
+        FirebaseAuth.getInstance()
+    }
 
     /** Retrofit with GSON converter **/
     val retrofit: Retrofit by lazy {
         Retrofit.Builder().let {
             it.baseUrl(baseURL)
-            it.addConverterFactory(GsonConverterFactory.create())
-            if(withCache) it.client(getCachedOkHttpClient())
+            it.addConverterFactory(getGsonConverterFactory())
             it.build()
         }
     }
 
-
-    /** @return OkHttpClient with cache enabled **/
-    private fun getCachedOkHttpClient(): OkHttpClient {
-        return OkHttpClient.Builder()
-            .cache(Cache(context.cacheDir, getCacheSize()))
-            .addInterceptor { chain ->
-                chain.request().let {
-                    it.newBuilder().header("Cache-Control", getRequestValueCache()).build()
-                    chain.proceed(it)
-                }
-            }
-            .build()
+    private fun getGsonConverterFactory(): GsonConverterFactory {
+        return GsonConverterFactory.create(
+            GsonBuilder().setFieldNamingPolicy(FieldNamingPolicy.LOWER_CASE_WITH_UNDERSCORES).create()
+        )
     }
+
+
+//    /** @return OkHttpClient with cache enabled **/
+//    private fun getOkHttpClient(): OkHttpClient {
+//        return OkHttpClient.Builder()
+//            .cache(Cache(context.cacheDir, getCacheSize()))
+//            .addInterceptor { chain ->
+//                chain.request().let {
+//                    it.newBuilder()
+//                        .header("Authorization", "Bearer $token")
+//                        .build()
+//                    chain.proceed(it)
+//                }
+//            }
+//            .build()
+//    }
 
 
     /**
@@ -46,7 +66,8 @@ class RequestClient(private val context: Context, private val baseURL: String, p
             hasNetwork() -> {
                 "max-age=" + getNormalCacheTime()
 
-            } else -> {
+            }
+            else -> {
                 "only-if-cached, max-stale=" + getNoInternetCacheTime()
             }
         }
@@ -61,7 +82,7 @@ class RequestClient(private val context: Context, private val baseURL: String, p
 
     /** @return time in minutes to retain objects in cache if there is no connection **/
     private fun getNormalCacheTime(): Long {
-        return  TimeUnit.MINUTES.toSeconds(2) // minutes
+        return TimeUnit.MINUTES.toSeconds(2) // minutes
     }
 
 
@@ -79,5 +100,4 @@ class RequestClient(private val context: Context, private val baseURL: String, p
         if (activeNetwork != null && activeNetwork.isConnected) isConnected = true
         return isConnected
     }
-
 }

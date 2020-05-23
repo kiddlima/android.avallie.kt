@@ -27,10 +27,20 @@ open class AppHelper {
             return ""
         }
 
-        fun getSnackbar(context: Context, view: View, message: String): Snackbar{
+        fun getErrorSnackbar(context: Context, view: View, message: String): Snackbar{
             val snackbar = Snackbar.make(view, message, Snackbar.LENGTH_LONG)
 
             snackbar.view.setBackgroundColor(ContextCompat.getColor(context, R.color.colorError))
+
+            snackbar.setActionTextColor(Color.WHITE)
+
+            return snackbar
+        }
+
+        fun getSuccessSnackbar(context: Context, view: View, message: String): Snackbar{
+            val snackbar = Snackbar.make(view, message, Snackbar.LENGTH_LONG)
+
+            snackbar.view.setBackgroundColor(ContextCompat.getColor(context, R.color.colorSuccess))
 
             snackbar.setActionTextColor(Color.WHITE)
 

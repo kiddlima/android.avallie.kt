@@ -8,10 +8,11 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.avallie.R
-import com.avallie.model.SelectedProduct
+import com.avallie.model.RequestedProduct
+import com.avallie.model.request.SelectedProduct
 import kotlinx.android.synthetic.main.btn_confirm_products.view.*
 
-class CartAdapter(private val context: Context, private val selectedProducts: ArrayList<SelectedProduct>) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
+class CartAdapter(private val context: Context, private val requestedProducts: ArrayList<SelectedProduct>) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
     private val HEADER = 0
     private val ITEM = 1
@@ -38,13 +39,13 @@ class CartAdapter(private val context: Context, private val selectedProducts: Ar
     }
 
     override fun getItemCount(): Int {
-        return selectedProducts.size + 2
+        return requestedProducts.size + 2
     }
 
     override fun getItemViewType(position: Int): Int {
         return when (position) {
             0 -> HEADER
-            selectedProducts.size + 1 -> BUTTON
+            requestedProducts.size + 1 -> BUTTON
             else -> ITEM
         }
     }
@@ -53,14 +54,14 @@ class CartAdapter(private val context: Context, private val selectedProducts: Ar
         if (getItemViewType(position) == HEADER) {
 
             holder as CartHeaderViewHolder
-            holder.cartSize?.text = "${selectedProducts.size} produtos selecionados"
+            holder.cartSize?.text = "${requestedProducts.size} produtos selecionados"
 
         } else if (getItemViewType(position) == ITEM) {
-            val selectedProduct = selectedProducts[position - 1]
+            val selectedProduct = requestedProducts[position - 1]
 
             holder as CartItemViewHolder
-            holder.producName?.text = selectedProduct.name.capitalize()
-            holder.productQuantity?.text = "${selectedProduct.quantity} ${selectedProduct.unit}"
+            holder.producName?.text = selectedProduct.product.name.capitalize()
+            holder.productQuantity?.text = "${selectedProduct.amount} ${selectedProduct.product.unit}"
         }
     }
 

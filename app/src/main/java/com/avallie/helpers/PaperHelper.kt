@@ -1,7 +1,8 @@
 package com.avallie.helpers
 
 import com.avallie.model.ConstructionPhase
-import com.avallie.model.SelectedProduct
+import com.avallie.model.RequestedProduct
+import com.avallie.model.request.SelectedProduct
 import io.paperdb.Paper
 
 class PaperHelper {

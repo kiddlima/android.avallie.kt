@@ -23,5 +23,9 @@
 
     <color name="colorError">#E77A4D</color>
 
+    <color name="colorSuccess">#81DB5C</color>
+
     <color name="blackTransparent55">#8C000000</color>
+
+    <color name="transparent">#00000000</color>
 </resources>
