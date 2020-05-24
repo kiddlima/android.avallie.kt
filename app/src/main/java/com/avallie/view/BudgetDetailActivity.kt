@@ -7,8 +7,6 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.avallie.R
 import com.avallie.model.BudgetRequested
-import com.avallie.model.Product
-import com.avallie.model.RequestedProduct
 import com.avallie.view.adapter.BudgetProductsAdapter
 import kotlinx.android.synthetic.main.activity_budget_detail.*
 import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper
@@ -19,29 +17,22 @@ class BudgetDetailActivity : AppCompatActivity() {
         BudgetProductsAdapter(this, budgetDetail.products!!)
     }
 
-    private var budgetDetail: BudgetRequested =
-        BudgetRequested("Materias para banheiro", "12/04/1995", "Av Polar, 415",1, null)
+    private lateinit var budgetDetail: BudgetRequested
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_budget_detail)
 
-        mockProducts()
+        budgetDetail = intent.getSerializableExtra("budget_request") as BudgetRequested
+
+        budget_name.text = budgetDetail.budgetName
+        deadline_detail.text = budgetDetail.budgetDate
+        address_detail.text = budgetDetail.address
+
         setAdapter()
 
         close_detail.setOnClickListener {
             finish()
-        }
-    }
-
-    private fun mockProducts() {
-        budgetDetail.products = ArrayList()
-
-        for (i in 0..4) {
-            val product = Product(2, "Barra de aço", "AÇO", "Espessura e comprimento", "un", false)
-            val selectedProduct = RequestedProduct(2, "Sem correia", product, 10, ArrayList())
-
-            budgetDetail.products?.add(selectedProduct)
         }
     }
 

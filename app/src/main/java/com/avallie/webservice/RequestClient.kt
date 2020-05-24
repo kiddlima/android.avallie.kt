@@ -7,18 +7,26 @@ import com.google.android.gms.tasks.Tasks
 import com.google.firebase.auth.FirebaseAuth
 import com.google.gson.FieldNamingPolicy
 import com.google.gson.GsonBuilder
+import kotlinx.coroutines.runBlocking
+import kotlinx.coroutines.suspendCancellableCoroutine
 import okhttp3.Cache
 import okhttp3.Interceptor
 import okhttp3.OkHttpClient
 import okhttp3.Response
+import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import java.util.concurrent.TimeUnit
+import kotlin.coroutines.resume
+import kotlin.coroutines.suspendCoroutine
+import com.annimon.stream.ComparatorCompat.chain
+import com.google.firebase.auth.GetTokenResult
+
 
 class RequestClient(
     private val context: Context,
     private val baseURL: String,
-    private val withCache: Boolean = true
+    private val authenticated: Boolean
 ) {
 
     private val auth by lazy {
@@ -27,11 +35,18 @@ class RequestClient(
 
     /** Retrofit with GSON converter **/
     val retrofit: Retrofit by lazy {
-        Retrofit.Builder().let {
-            it.baseUrl(baseURL)
-            it.addConverterFactory(getGsonConverterFactory())
-            it.build()
-        }
+        getRetrofitObject()
+    }
+
+
+    private fun getRetrofitObject(): Retrofit{
+        val builder = Retrofit.Builder()
+
+        builder.baseUrl(baseURL)
+        builder.addConverterFactory(getGsonConverterFactory())
+        builder.client(getOkHttpClient())
+
+        return builder.build()
     }
 
     private fun getGsonConverterFactory(): GsonConverterFactory {
@@ -41,21 +56,14 @@ class RequestClient(
     }
 
 
-//    /** @return OkHttpClient with cache enabled **/
-//    private fun getOkHttpClient(): OkHttpClient {
-//        return OkHttpClient.Builder()
-//            .cache(Cache(context.cacheDir, getCacheSize()))
-//            .addInterceptor { chain ->
-//                chain.request().let {
-//                    it.newBuilder()
-//                        .header("Authorization", "Bearer $token")
-//                        .build()
-//                    chain.proceed(it)
-//                }
-//            }
-//            .build()
-//    }
+    /** @return OkHttpClient with cache enabled **/
+    private fun getOkHttpClient(): OkHttpClient {
+        val builder = OkHttpClient.Builder()
 
+        builder.addInterceptor(HeaderInterceptor())
+
+        return builder.build()
+    }
 
     /**
      * @return If there is Internet, get the cache that was stored  getNormalCacheTime() seconds ago.
@@ -99,5 +107,16 @@ class RequestClient(
         val activeNetwork: NetworkInfo? = connectivityManager.activeNetworkInfo
         if (activeNetwork != null && activeNetwork.isConnected) isConnected = true
         return isConnected
+    }
+
+    class HeaderInterceptor : Interceptor {
+        override fun intercept(chain: Interceptor.Chain): Response = chain.run {
+            proceed(
+                request()
+                    .newBuilder()
+                    .addHeader("Authorization", "Bearer")
+                    .build()
+            )
+        }
     }
 }

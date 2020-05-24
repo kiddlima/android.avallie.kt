@@ -54,7 +54,8 @@ class BudgetRequestsAdapter(private val context: Context, private val budgetsReq
 
                 holder.requestName.text = budget.budgetName
                 holder.requestDate.text = budget.budgetDate
-                holder.requestQuantity.text = if (budget.budgetsAvailable > 1) "${budget.budgetsAvailable} orçamentos" else "${budget.budgetsAvailable} orçamento"
+//                holder.requestQuantity.text = if (budget.budgetsAvailable > 1) "${budget.budgetsAvailable} orçamentos" else "${budget.budgetsAvailable} orçamento"
+                holder.requestQuantity.text = if (budget.products?.size!! > 1) "${budget.products?.size} produtos" else "${budget.products?.size} produto"
 
             }
             else -> {

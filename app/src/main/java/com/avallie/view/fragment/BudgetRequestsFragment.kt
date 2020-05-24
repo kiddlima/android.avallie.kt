@@ -10,9 +10,12 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.TextView
 import androidx.constraintlayout.widget.ConstraintLayout
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.avallie.R
 import com.avallie.model.BudgetRequested
+import com.avallie.model.ScreenState
 import com.avallie.view.BudgetDetailActivity
 import com.avallie.view.MainActivity
 import com.avallie.view.adapter.BudgetRequestsAdapter
@@ -25,18 +28,11 @@ class BudgetRequestsFragment : BottomSheetDialogFragment() {
 
     private lateinit var budgetRequestedAdapter: BudgetRequestsAdapter
 
+    lateinit var viewModel: BudgetRequestsViewModel
+
     private var responseContainer: View? = null
     private var btnResponseAction: Button? = null
     private var responseSubTitle: TextView? = null
-
-    enum class RequestsScreen {
-        BUDGETS,
-        LOADING,
-        FAIL,
-        NODATA
-    }
-
-    private var requestsScreen = RequestsScreen.LOADING
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         return inflater.inflate(R.layout.budget_requests_fragment, container, false)
@@ -49,24 +45,24 @@ class BudgetRequestsFragment : BottomSheetDialogFragment() {
         btnResponseAction = view.findViewById(R.id.btn_response_action)
         responseSubTitle = view.findViewById(R.id.response_subtitle)
 
-        reloadBudgetsView()
-    }
+        viewModel = ViewModelProviders.of(this).get(BudgetRequestsViewModel::class.java)
 
-    private fun reloadBudgetsView() {
-        isCancelable = requestsScreen != RequestsScreen.LOADING
+        viewModel.screenState.value = ScreenState.Loading
 
-        when (requestsScreen) {
-            RequestsScreen.BUDGETS -> setBudgetsView()
-            RequestsScreen.LOADING -> setLoadingView()
-            RequestsScreen.FAIL -> setFailView()
-            RequestsScreen.NODATA -> setNoDataView()
-        }
+        viewModel.screenState.observe(this, Observer {
+            isCancelable = it != ScreenState.Loading
+
+            when (it) {
+                ScreenState.Success -> setBudgetsView()
+                ScreenState.Loading -> setLoadingView()
+                ScreenState.Fail -> setFailView()
+                ScreenState.NoData -> setNoDataView()
+            }
+        })
     }
 
     private fun setBudgetsView() {
         progress_container.visibility = View.GONE
-
-//        mockRequests()
         setAdapter()
     }
 
@@ -81,8 +77,8 @@ class BudgetRequestsFragment : BottomSheetDialogFragment() {
         responseContainer?.visibility = View.VISIBLE
         responseSubTitle?.text = "Erro ao carregar solicitações"
         btnResponseAction?.setOnClickListener {
-            requestsScreen = RequestsScreen.LOADING
-            reloadBudgetsView()
+            viewModel.screenState.value = ScreenState.Loading
+
         }
     }
 
@@ -91,19 +87,15 @@ class BudgetRequestsFragment : BottomSheetDialogFragment() {
     }
 
     private fun getBudgetsRequested() {
-        //TODO HTTP REQUEST
-
-        Handler().postDelayed({
-            requestsScreen = RequestsScreen.BUDGETS
-            reloadBudgetsView()
-        }, 500)
+       viewModel.getRequestedBudgets(context!!)
     }
 
     private fun setAdapter() {
-        budgetRequestedAdapter = BudgetRequestsAdapter(context!!, budgetsRequest)
-        budgetRequestedAdapter.onBudgetSelected = {
+        budgetRequestedAdapter = BudgetRequestsAdapter(context!!, viewModel.budgetsRequested.value!!)
+        budgetRequestedAdapter.onBudgetSelected = { budgetRequested ->
             activity?.let {
                 val intent = Intent(it, BudgetDetailActivity::class.java)
+                intent.putExtra("budget_request", budgetRequested)
                 it.startActivity(intent)
             }
         }
@@ -111,14 +103,6 @@ class BudgetRequestsFragment : BottomSheetDialogFragment() {
         requests_recycler.adapter = budgetRequestedAdapter
         requests_recycler.layoutManager = LinearLayoutManager(context!!, LinearLayoutManager.VERTICAL, false)
     }
-
-//    private fun mockRequests() {
-//        for (i in 0..10) {
-//            val budgetRequested = BudgetRequest("Orçamento", Date(), 7, null)
-//
-//            budgetsRequest.add(budgetRequested)
-//        }
-//    }
 
     override fun onDismiss(dialog: DialogInterface) {
         super.onDismiss(dialog)

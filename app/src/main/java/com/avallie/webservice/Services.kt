@@ -8,26 +8,30 @@ import retrofit2.http.*
 interface Services {
 
     @Headers("Accept: application/json", "Content-Type: application/json")
-    @GET("v1/construction-phase")
+    @GET("v1/construction-phases")
     fun getAllPhases(): Call<ApiResponse<List<ConstructionPhase>>>
 
     @Headers("Accept: application/json", "Content-Type: application/json")
-    @GET("v1/products/{categories}")
+    @GET("v1/products")
     fun getProducts(
-        @Path("categories") categories: String
+        @Query("category") categories: MutableList<String>
     ): Call<ApiResponse<ArrayList<Product>>>
 
     @Headers("Accept: application/json", "Content-Type: application/json")
-    @POST("v1/customer")
+    @POST("v1/customers")
     fun registerCustomer(
         @Body customer: Customer
     ): Call<Any>
 
-    @POST("v1/budget-request")
+    @POST("v1/budget-requests")
     fun requestBudget(
         @Header("Authorization") token: String,
         @Body budgetRequest: BudgetRequest
-
     ): Call<ApiResponse<Any>>
+
+    @GET("v1/budget-requests")
+    fun getBudgetsRequested(
+        @Header("Authorization") token: String
+    ): Call<ApiResponse<MutableList<BudgetRequested>>>
 
 }

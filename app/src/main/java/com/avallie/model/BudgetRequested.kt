@@ -1,6 +1,7 @@
 package com.avallie.model
 
 import com.google.gson.annotations.SerializedName
+import java.io.Serializable
 
 class BudgetRequested(
     @SerializedName("name")
@@ -12,4 +13,4 @@ class BudgetRequested(
     val budgetsAvailable: Int,
     @SerializedName("selected_products")
     var products: MutableList<RequestedProduct>?
-)
+): Serializable

@@ -54,15 +54,17 @@ class BudgetProductsAdapter(private val context: Context, private val products: 
 
             val product = products[position - 1]
 
-            holder.productName.text = product.name
-            holder.productQuantity.text = "${product.amount} ${product.unit}"
+            holder.productName.text = product.product.name.capitalize()
+            holder.productQuantity.text = "${product.amount} ${product.product.unit}"
 
-            if (product.budgetsAvaiable!! > 0) {
-                holder.productBudgetAvaiable.text = "${product.budgetsAvaiable.toString()} disponíveis"
-                holder.productBudgetAvaiable.setTextColor(ContextCompat.getColor(context, R.color.colorAccent))
-            } else {
-                holder.productBudgetAvaiable.text = context.getString(R.string.no_avaiable_budgets)
-            }
+            holder.productBudgetAvaiable.visibility = View.GONE
+
+//            if (product.budgetsAvaiable!! > 0) {
+//                holder.productBudgetAvaiable.text = "${product.budgetsAvaiable.toString()} disponíveis"
+//                holder.productBudgetAvaiable.setTextColor(ContextCompat.getColor(context, R.color.colorAccent))
+//            } else {
+//                holder.productBudgetAvaiable.text = context.getString(R.string.no_avaiable_budgets)
+//            }
         }
     }
 
