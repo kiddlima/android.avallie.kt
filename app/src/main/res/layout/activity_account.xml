@@ -1,0 +1,288 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <import type="com.avallie.model.Customer" />
+
+        <import type="com.avallie.model.ScreenState" />
+
+        <variable
+            name="viewModel"
+            type="com.avallie.view.AccountViewModel" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="@{viewModel.screenState == ScreenState.Success ? View.VISIBLE : View.GONE}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:orientation="vertical"
+                android:padding="16dp"
+                tools:context=".view.AccountActivity">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                    <ImageView
+                        android:id="@+id/back_button"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:src="@drawable/ic_arrow_back"
+                        app:layout_constraintBottom_toBottomOf="@id/title"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="@id/title" />
+
+                    <TextView
+                        android:id="@+id/title"
+                        fontPath="Demi-bold.otf"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:text="@string/my_account"
+                        android:textColor="@android:color/black"
+                        android:textSize="32sp"
+                        app:layout_constraintStart_toEndOf="@id/back_button" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <TextView
+                    fontPath="Regular.otf"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="32dp"
+                    android:text="@string/name_label"
+                    android:textColor="@color/grayPrimary"
+                    android:textSize="14sp" />
+
+                <TextView
+                    fontPath="Medium.otf"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@{viewModel.customer.name}"
+                    android:textColor="@color/grayPrimaryDarker"
+                    android:textSize="16sp"
+                    tools:text="Vinicius Braz Barbosa de Lima" />
+
+                <TextView
+                    fontPath="Regular.otf"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:text="@string/cartInfo_email"
+                    android:textColor="@color/grayPrimary"
+                    android:textSize="14sp" />
+
+                <TextView
+                    fontPath="Medium.otf"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@{viewModel.customer.email}"
+                    android:textColor="@color/grayPrimaryDarker"
+                    android:textSize="16sp"
+                    tools:text="kiddlima@gmail.com" />
+
+                <TextView
+                    fontPath="Regular.otf"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:text="@string/cpf"
+                    android:textColor="@color/grayPrimary"
+                    android:textSize="14sp" />
+
+                <TextView
+                    fontPath="Medium.otf"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@{viewModel.customer.cpf}"
+                    android:textColor="@color/grayPrimaryDarker"
+                    android:textSize="16sp"
+                    tools:text="22222222" />
+
+                <TextView
+                    fontPath="Regular.otf"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:text="@string/cartInfo_phone"
+                    android:textColor="@color/grayPrimary"
+                    android:textSize="14sp" />
+
+                <TextView
+                    fontPath="Medium.otf"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@{viewModel.customer.telephone}"
+                    android:textColor="@color/grayPrimaryDarker"
+                    android:textSize="16sp"
+                    tools:text="22222222" />
+
+                <TextView
+                    fontPath="Regular.otf"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:text="@string/company_name"
+                    android:textColor="@color/grayPrimary"
+                    android:textSize="14sp" />
+
+                <TextView
+                    fontPath="Medium.otf"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@{viewModel.customer.companyName}"
+                    android:textColor="@color/grayPrimaryDarker"
+                    android:textSize="16sp"
+                    tools:text="Avallie" />
+
+                <TextView
+                    fontPath="Regular.otf"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:text="@string/cep"
+                    android:textColor="@color/grayPrimary"
+                    android:textSize="14sp" />
+
+                <TextView
+                    fontPath="Medium.otf"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@{viewModel.customer.zipCode}"
+                    android:textColor="@color/grayPrimaryDarker"
+                    android:textSize="16sp"
+                    tools:text="91040550" />
+
+                <TextView
+                    fontPath="Regular.otf"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:text="@string/street"
+                    android:textColor="@color/grayPrimary"
+                    android:textSize="14sp" />
+
+                <TextView
+                    fontPath="Medium.otf"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@{viewModel.customer.street}"
+                    android:textColor="@color/grayPrimaryDarker"
+                    android:textSize="16sp"
+                    tools:text="Av. Polar" />
+
+                <TextView
+                    fontPath="Regular.otf"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:text="@string/cartInfo_number_hint"
+                    android:textColor="@color/grayPrimary"
+                    android:textSize="14sp" />
+
+                <TextView
+                    fontPath="Medium.otf"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@{viewModel.customer.streetNumber}"
+                    android:textColor="@color/grayPrimaryDarker"
+                    android:textSize="16sp"
+                    tools:text="415" />
+
+                <TextView
+                    fontPath="Regular.otf"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:text="@string/cartInfo_city_hint"
+                    android:textColor="@color/grayPrimary"
+                    android:textSize="14sp" />
+
+                <TextView
+                    fontPath="Medium.otf"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@{viewModel.customer.city}"
+                    android:textColor="@color/grayPrimaryDarker"
+                    android:textSize="16sp"
+                    tools:text="Porto Alegre" />
+
+                <TextView
+                    fontPath="Regular.otf"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:text="@string/state"
+                    android:textColor="@color/grayPrimary"
+                    android:textSize="14sp" />
+
+                <TextView
+                    fontPath="Medium.otf"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@{viewModel.customer.state}"
+                    android:textColor="@color/grayPrimaryDarker"
+                    android:textSize="16sp"
+                    tools:text="Rio Grande do Sul" />
+
+                <Button
+                    android:id="@+id/logout_button"
+                    style="@style/SecondaryOutlineButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="32dp"
+                    android:text="@string/logout_label" />
+
+            </LinearLayout>
+
+        </ScrollView>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:visibility="@{viewModel.screenState == ScreenState.Loading ? View.VISIBLE : View.GONE}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ProgressBar
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:indeterminateTint="@color/colorAccent" />
+
+            <TextView
+                fontPath="Medium.otf"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/loading_account_label"
+                android:textSize="18sp" />
+
+        </LinearLayout>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</layout>
+

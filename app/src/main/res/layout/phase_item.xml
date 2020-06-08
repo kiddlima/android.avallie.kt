@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    android:orientation="vertical"
+<LinearLayout android:orientation="vertical"
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="wrap_content"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    xmlns:tools="http://schemas.android.com/tools">
 
     <LinearLayout
         android:id="@+id/v_phase_background"
         android:layout_marginTop="11dp"
         android:layout_marginLeft="25dp"
         android:layout_marginRight="25dp"
-        android:layout_marginBottom="22dp"
+        android:layout_marginBottom="16dp"
         android:gravity="center"
         android:translationZ="4dp"
         android:elevation="4dp"
@@ -26,15 +26,15 @@
 
     </LinearLayout>
 
-    <!--demi bold-->
     <TextView
         android:gravity="center"
         android:id="@+id/v_phase_name"
-        android:textAllCaps="true"
-        android:textSize="13sp"
+        android:textSize="16sp"
         fontPath="Regular.otf"
+        android:textColor="@color/grayPrimaryDarker"
+        tools:text="Fase de obra"
         android:layout_gravity="center"
-        android:layout_width="120dp"
+        android:layout_width="150dp"
         android:layout_height="wrap_content" />
 
 </LinearLayout>

@@ -100,7 +100,7 @@ class ProductsFragment : Fragment() {
         }
 
         binding.vActiveFilterRecycler.layoutManager =
-            LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
+                LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
     }
 
     private fun setProductAdapter() {

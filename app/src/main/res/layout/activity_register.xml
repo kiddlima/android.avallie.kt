@@ -50,17 +50,28 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
+                <ImageButton
+                    android:id="@+id/back_button"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:layout_margin="16dp"
+                    android:background="@color/transparent"
+                    android:src="@drawable/ic_arrow_back"
+                    app:layout_constraintBottom_toBottomOf="@id/register_title"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="@id/register_title" />
+
                 <TextView
                     android:id="@+id/register_title"
                     fontPath="Demi-bold.otf"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="24dp"
-                    android:layout_marginTop="24dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="16dp"
                     android:text="@string/sing_up"
-                    android:textColor="@color/grayPrimaryDark"
-                    android:textSize="24sp"
-                    app:layout_constraintStart_toStartOf="parent"
+                    android:textColor="@android:color/black"
+                    android:textSize="32sp"
+                    app:layout_constraintStart_toEndOf="@id/back_button"
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <TextView
@@ -105,6 +116,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:imeOptions="actionNext"
+                            android:inputType="textPersonName"
                             android:maxLines="1"
                             android:text="@={viewModel.customer.name}" />
 
@@ -126,6 +138,7 @@
                             fontPath="Regular.otf"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:digits="0123456789.-"
                             android:imeOptions="actionNext"
                             android:inputType="number"
                             android:maxLines="1"
@@ -149,6 +162,7 @@
                             fontPath="Regular.otf"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:digits="()0123456789-"
                             android:imeOptions="actionNext"
                             android:inputType="phone"
                             android:maxLines="1"
@@ -188,6 +202,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:imeOptions="actionNext"
+                            android:inputType="textCapWords"
                             android:maxLines="1"
                             android:text="@={viewModel.customer.companyName}" />
 
@@ -224,9 +239,9 @@
                             fontPath="Regular.otf"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:digits="0123456789-"
                             android:imeOptions="actionNext"
                             android:inputType="number"
-                            android:maxLength="8"
                             android:maxLines="1"
                             android:text="@={viewModel.customer.zipCode}" />
 
@@ -249,6 +264,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:imeOptions="actionNext"
+                            android:inputType="textPostalAddress"
                             android:maxLines="1"
                             android:text="@={viewModel.customer.street}" />
 
@@ -295,6 +311,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:imeOptions="actionNext"
+                            android:inputType="textPostalAddress"
                             android:maxLines="1"
                             android:text="@={viewModel.customer.city}" />
 
@@ -317,6 +334,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:imeOptions="actionNext"
+                            android:inputType="textPostalAddress"
                             android:maxLines="1"
                             android:text="@={viewModel.customer.state}" />
 

@@ -15,7 +15,7 @@ import java.util.*
 typealias OnProductSelected = (requestedProduct: RequestedProduct) -> Unit
 
 class BudgetProductsAdapter(private val context: Context, private val products: MutableList<RequestedProduct>) :
-        RecyclerView.Adapter<RecyclerView.ViewHolder>() {
+    RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
     private val header = 0
     private val item = 1
@@ -33,7 +33,6 @@ class BudgetProductsAdapter(private val context: Context, private val products: 
                 BudgetProductViewHolder(view)
             }
         }
-
     }
 
     override fun getItemCount(): Int {
@@ -54,7 +53,7 @@ class BudgetProductsAdapter(private val context: Context, private val products: 
 
             val product = products[position - 1]
 
-            holder.productName.text = product.product.name.capitalize()
+            holder.productName.text = product.product.name.toLowerCase().capitalize()
             holder.productQuantity.text = "${product.amount} ${product.product.unit}"
 
             holder.productBudgetAvaiable.visibility = View.GONE

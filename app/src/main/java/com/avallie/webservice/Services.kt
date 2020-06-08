@@ -34,4 +34,10 @@ interface Services {
         @Header("Authorization") token: String
     ): Call<ApiResponse<MutableList<BudgetRequested>>>
 
+    @GET("v1/customers/me")
+    fun getCustomer(
+        @Header("Authorization") token: String
+    ): Call<ApiResponse<Customer>>
+
+
 }

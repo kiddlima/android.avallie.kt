@@ -26,7 +26,7 @@ class ProductsViewModel : ViewModel() {
         screenState.value = ScreenState.Loading
 
         HttpService(context).getProducts(
-            categories.value!!,
+                categories.value!!.clone() as MutableList<String>,
             object : ConnectionListener<List<Product>> {
                 override fun onSuccess(response: List<Product>) {
                     products.value = emptyList()

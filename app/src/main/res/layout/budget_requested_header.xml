@@ -19,9 +19,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:text="@string/budget_requests"
-        android:textColor="@color/grayPrimaryDark"
-        android:textSize="24sp"
+        android:layout_marginTop="8dp"
+        android:text="@string/budgets"
+        android:textColor="@android:color/black"
+        android:textSize="28sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/chip_bottom_sheet" />

@@ -8,11 +8,11 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.core.content.ContextCompat
-import androidx.core.widget.addTextChangedListener
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.avallie.R
+import com.avallie.helpers.AuthHelper
 import com.avallie.helpers.PaperHelper
 import com.avallie.helpers.PaperHelper.Companion.getCart
 import com.avallie.model.request.BudgetRequest
@@ -21,13 +21,9 @@ import com.avallie.view.MainActivity
 import com.avallie.view.adapter.CartAdapter
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import com.redmadrobot.inputmask.MaskedTextChangedListener
-import kotlinx.android.synthetic.main.activity_budget_detail.*
 import kotlinx.android.synthetic.main.fragment_cart.*
-import kotlinx.android.synthetic.main.fragment_cart.confirm_dead_line
 import kotlinx.android.synthetic.main.fragment_cart.view.*
 import java.text.SimpleDateFormat
-import java.time.LocalDate
-import java.time.format.DateTimeFormatter
 import java.util.*
 
 class CartFragment : BottomSheetDialogFragment() {
@@ -46,7 +42,6 @@ class CartFragment : BottomSheetDialogFragment() {
         CartAdapter(context!!, selectedProducts)
     }
 
-
     lateinit var viewModel: CartViewModel
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
@@ -59,7 +54,6 @@ class CartFragment : BottomSheetDialogFragment() {
         viewModel = ViewModelProviders.of(this).get(CartViewModel::class.java)
 
         viewModel.cartScreenState.value = CartScreen.PRODUCTS
-
 
         confirm_dead_line.run {
             val listener = MaskedTextChangedListener("[00]{/}[00]{/}[0000]", confirm_dead_line)
@@ -101,6 +95,8 @@ class CartFragment : BottomSheetDialogFragment() {
 
                     isCancelable = true
 
+                    PaperHelper.clearCart()
+
                     showSuccess()
                 }
                 CartScreen.ERROR -> {
@@ -115,14 +111,15 @@ class CartFragment : BottomSheetDialogFragment() {
         })
     }
 
-    private fun setFinishInfo() {
-        btn_change_address.setOnClickListener {
-            //TODO GO TO MY ACCOUNT ACTIVITY
-        }
+    private fun isFinishScreenValidate(): Boolean {
+        return !confirm_request_name.text.isNullOrBlank() && !confirm_dead_line.text.isNullOrBlank()
+    }
 
-//      TODO SET ADDRESS INFO
-        delivery_address_one.text = ""
-        delivery_address_two.text = ""
+    private fun setFinishInfo() {
+        val customer = PaperHelper.getCustomer()
+
+        delivery_address_one.text = "${customer?.street}, ${customer?.streetNumber} - ${customer?.zipCode}"
+        delivery_address_two.text = "${customer?.city}, ${customer?.state}"
 
         btn_request_budget.setOnClickListener {
             if (isFinishScreenValidate()) {
@@ -137,10 +134,6 @@ class CartFragment : BottomSheetDialogFragment() {
         }
     }
 
-    private fun isFinishScreenValidate(): Boolean {
-        return !confirm_request_name.text.isNullOrBlank() && !confirm_dead_line.text.isNullOrBlank()
-    }
-
     private fun requestBudget() {
         val formatter = SimpleDateFormat("dd/MM/yyyy", Locale.getDefault())
         var formattedDateString = ""
@@ -150,10 +143,10 @@ class CartFragment : BottomSheetDialogFragment() {
         }
 
         val budgetRequest = BudgetRequest(
-            confirm_request_name.text.toString(),
-            formattedDateString,
-            "Av polar, 415",
-            getCart()
+                confirm_request_name.text.toString(),
+                formattedDateString,
+                "${delivery_address_one.text} ${delivery_address_two.text}",
+                getCart()
         )
 
         viewModel.requestBudget(budgetRequest, context!!)
@@ -162,8 +155,12 @@ class CartFragment : BottomSheetDialogFragment() {
     private fun showSuccess() {
         val accentColor = ContextCompat.getColor(context!!, R.color.colorAccent)
 
-        response_image.setImageDrawable(ContextCompat.getDrawable(context!!, R.drawable.ic_big_check))
-        response_image.setColorFilter(accentColor)
+        animation_view.run {
+            speed = 0.8f
+            playAnimation()
+        }
+
+        response_image.visibility = View.GONE
         btn_response_action.setTextColor(accentColor)
         btn_response_action.text = getString(R.string.follow_request)
 
@@ -171,7 +168,9 @@ class CartFragment : BottomSheetDialogFragment() {
         response_subtitle.text = getString(R.string.request_budget_success)
 
         btn_response_action.setOnClickListener {
-            //TODO GO TO REQUEST DETAIL
+            dismiss()
+
+            (activity as MainActivity).openBudgetsSheet()
         }
     }
 
@@ -207,7 +206,7 @@ class CartFragment : BottomSheetDialogFragment() {
             }
 
             override fun onConfirmProducts() {
-                if (false) {
+                if (!AuthHelper.isLoggedIn()) {
                     activity?.let {
                         val intent = Intent(it, LoginActivity::class.java)
                         it.startActivity(intent)

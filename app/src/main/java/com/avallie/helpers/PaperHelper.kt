@@ -1,6 +1,7 @@
 package com.avallie.helpers
 
 import com.avallie.model.ConstructionPhase
+import com.avallie.model.Customer
 import com.avallie.model.RequestedProduct
 import com.avallie.model.request.SelectedProduct
 import io.paperdb.Paper
@@ -30,8 +31,24 @@ class PaperHelper {
             return Paper.book().read("cart", ArrayList())
         }
 
-        fun updateCart(selectedProducts: ArrayList<SelectedProduct>){
+        fun updateCart(selectedProducts: ArrayList<SelectedProduct>) {
             Paper.book().write("cart", selectedProducts)
+        }
+
+        fun clearCart() {
+            Paper.book().delete("cart")
+        }
+
+        fun saveCustomer(customer: Customer) {
+            Paper.book().write("customer", customer)
+        }
+
+        fun getCustomer(): Customer? {
+            return if (Paper.book().contains("customer")) {
+                Paper.book().read("customer")
+            } else {
+                null
+            }
         }
     }
 

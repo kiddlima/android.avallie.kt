@@ -19,12 +19,11 @@ import com.avallie.model.ScreenState
 import com.avallie.view.BudgetDetailActivity
 import com.avallie.view.MainActivity
 import com.avallie.view.adapter.BudgetRequestsAdapter
+import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import kotlinx.android.synthetic.main.budget_requests_fragment.*
 
 class BudgetRequestsFragment : BottomSheetDialogFragment() {
-
-    private val budgetsRequest: MutableList<BudgetRequested> = mutableListOf()
 
     private lateinit var budgetRequestedAdapter: BudgetRequestsAdapter
 
@@ -87,7 +86,7 @@ class BudgetRequestsFragment : BottomSheetDialogFragment() {
     }
 
     private fun getBudgetsRequested() {
-       viewModel.getRequestedBudgets(context!!)
+        viewModel.getRequestedBudgets(context!!)
     }
 
     private fun setAdapter() {

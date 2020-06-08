@@ -33,6 +33,10 @@
             android:theme="@style/AppThemeFilter"
             android:windowSoftInputMode="adjustPan" />
         <activity
+            android:name=".view.AccountActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppThemeFilter" />
+        <activity
             android:name=".view.MainActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar"

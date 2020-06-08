@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.avallie.R
+import com.avallie.helpers.FormatterHelper
 import com.avallie.model.BudgetRequested
 import com.avallie.model.request.BudgetRequest
 
@@ -53,8 +54,7 @@ class BudgetRequestsAdapter(private val context: Context, private val budgetsReq
                 val budget = budgetsRequest[position - 1]
 
                 holder.requestName.text = budget.budgetName
-                holder.requestDate.text = budget.budgetDate
-//                holder.requestQuantity.text = if (budget.budgetsAvailable > 1) "${budget.budgetsAvailable} orçamentos" else "${budget.budgetsAvailable} orçamento"
+                holder.requestDate.text = FormatterHelper.dateFromServer(budget.budgetDate)
                 holder.requestQuantity.text = if (budget.products?.size!! > 1) "${budget.products?.size} produtos" else "${budget.products?.size} produto"
 
             }

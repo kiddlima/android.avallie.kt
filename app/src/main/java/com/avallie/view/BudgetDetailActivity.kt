@@ -6,6 +6,7 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.avallie.R
+import com.avallie.helpers.FormatterHelper
 import com.avallie.model.BudgetRequested
 import com.avallie.view.adapter.BudgetProductsAdapter
 import kotlinx.android.synthetic.main.activity_budget_detail.*
@@ -26,7 +27,7 @@ class BudgetDetailActivity : AppCompatActivity() {
         budgetDetail = intent.getSerializableExtra("budget_request") as BudgetRequested
 
         budget_name.text = budgetDetail.budgetName
-        deadline_detail.text = budgetDetail.budgetDate
+        deadline_detail.text = FormatterHelper.dateFromServer(budgetDetail.budgetDate)
         address_detail.text = budgetDetail.address
 
         setAdapter()

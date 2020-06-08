@@ -14,7 +14,11 @@ import com.avallie.databinding.ActivityRegisterBinding
 import com.avallie.helpers.AppHelper
 import com.avallie.model.ScreenState
 import com.avallie.view.fragment.ProgressDialog
+import com.redmadrobot.inputmask.MaskedTextChangedListener
 import kotlinx.android.synthetic.main.activity_register.*
+import kotlinx.android.synthetic.main.fragment_cart.*
+import kotlinx.android.synthetic.main.fragment_cart.confirm_dead_line
+import kotlinx.android.synthetic.main.fragment_cart.view.*
 import kotlinx.android.synthetic.main.register_tracking.*
 import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper
 
@@ -36,9 +40,34 @@ class RegisterActivity : AppCompatActivity() {
         viewModel = ViewModelProviders.of(this).get(RegisterViewModel::class.java)
         binding.viewModel = viewModel
 
+        register_cpf.run {
+            val listener = MaskedTextChangedListener("[000]{.}[000]{.}[000]{-}[00]", register_cpf)
+
+            addTextChangedListener(listener)
+            onFocusChangeListener = listener
+        }
+
+        register_phone.run {
+            val listener = MaskedTextChangedListener("{(}[00]{)}[00000]{-}[0000]", register_phone)
+
+            addTextChangedListener(listener)
+            onFocusChangeListener = listener
+        }
+
+        register_cep.run {
+            val listener = MaskedTextChangedListener("[00000]{-}[000]", register_cep)
+
+            addTextChangedListener(listener)
+            onFocusChangeListener = listener
+        }
+
         progressDialog = ProgressDialog(this, getString(R.string.finishing_register))
 
         goToFirstScreen()
+
+        binding.backButton.setOnClickListener {
+            finish()
+        }
 
         viewModel.screenState.observe(this, Observer {
             when (it) {

@@ -67,16 +67,9 @@ class ProductsAdapter(
 
         holder as ProductViewHolder
 
-        holder.productName.text = product.name
-        holder.productCategorie.text = product.category
+        holder.productName.text = product.name.toLowerCase().capitalize()
+        holder.productCategorie.text = product.category.toLowerCase().capitalize()
 
-        holder.productPhaseIcon.setImageResource(
-            context.resources.getIdentifier(
-                "ic_phase_" + getPhaseByCategory(
-                    product.category, phases
-                ), "drawable", context.packageName
-            )
-        )
     }
 
     fun update(newProducts: List<Product>) {
@@ -89,11 +82,8 @@ class ProductsAdapter(
 
     inner class ProductViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
-        private val backgroundView: View = itemView
         val productName: TextView = itemView.v_product_name
         val productCategorie: TextView = itemView.v_product_categorie
-        private val productAddIcon: LinearLayout = itemView.v_product_add_icon
-        val productPhaseIcon: ImageView = itemView.v_product_phase_icon
 
         init {
             itemView.setOnClickListener {

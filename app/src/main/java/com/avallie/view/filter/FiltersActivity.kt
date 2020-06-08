@@ -67,6 +67,10 @@ class FiltersActivity : AppCompatActivity() {
             }
         })
 
+        binding.backButton.setOnClickListener {
+            finish()
+        }
+
         binding.errorContainer.findViewById<Button>(R.id.btn_response_action).setOnClickListener {
             viewModel.screenState.value = ScreenState.Loading
             getPhases()
@@ -131,15 +135,15 @@ class FiltersActivity : AppCompatActivity() {
 
         selectedPhase = phase.name
 
-        phasesAdapter.notifyDataSetChanged()
-
         updateSelectedPhaseInList(phase)
         updateCategoriesAdapter()
+
+        phasesAdapter.notifyDataSetChanged()
     }
 
     private fun updateSelectedPhaseInList(phase: ConstructionPhase) {
         for (constructionPhase in phases) {
-            constructionPhase.selected = phase.id.equals(constructionPhase.id)
+            constructionPhase.selected = phase.name == constructionPhase.name
         }
     }
 
@@ -153,7 +157,7 @@ class FiltersActivity : AppCompatActivity() {
         binding.vCategoriesRecycler.adapter = categoriesAdapter
         categoriesAdapter.onCategoryClicked = { isChecked, category ->
             if (isChecked) {
-                selectedCategories.add(category.name.orEmpty())
+                selectedCategories.add(category.name)
             } else {
                 selectedCategories.remove(category.name)
             }

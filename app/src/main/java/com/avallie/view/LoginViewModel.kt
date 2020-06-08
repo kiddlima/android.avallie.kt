@@ -19,10 +19,17 @@ class LoginViewModel : ViewModel() {
         auth.signInWithEmailAndPassword(email, password)
             .addOnCompleteListener { authResult ->
                 if (authResult.isSuccessful) {
-                    screenState.value = ScreenState.Success
-
                     auth.currentUser?.getIdToken(true)?.addOnCompleteListener {
-                        it.result?.token
+
+                        if (it.result?.claims?.get("role") == "SUPPLIER") {
+                            auth.signOut()
+
+                            screenState.value = ScreenState.Fail
+                            errorMessage.value = "Para ter acesso as suas informações você deve acessar o portal web."
+                        } else {
+                            screenState.value = ScreenState.Success
+                            it.result?.token
+                        }
                     }
 
                 } else {

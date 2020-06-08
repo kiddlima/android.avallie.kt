@@ -10,6 +10,7 @@ import androidx.fragment.app.Fragment
 import com.aurelhubert.ahbottomnavigation.AHBottomNavigationItem
 import com.aurelhubert.ahbottomnavigation.notification.AHNotification
 import com.avallie.R
+import com.avallie.helpers.AuthHelper
 import com.avallie.helpers.PaperHelper.Companion.getCart
 import com.avallie.view.fragment.BudgetRequestsFragment
 import com.avallie.view.fragment.CartFragment
@@ -34,6 +35,13 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         createMenu()
+    }
+
+    override fun onResume() {
+        super.onResume()
+
+        lastItemSelected = 0
+        updateSelectedItem()
     }
 
     private fun goToProducts() {
@@ -109,17 +117,21 @@ class MainActivity : AppCompatActivity() {
 
     private fun openAccount() {
         lastItemSelected = 0
-        if (auth.currentUser == null) {
-            startActivity(Intent(this, LoginActivity::class.java))
+        if (AuthHelper.isLoggedIn()) {
+            startActivity(Intent(this, AccountActivity::class.java))
         } else {
-            //todo show my account fragment
+            startActivity(Intent(this, LoginActivity::class.java))
         }
     }
 
     fun openBudgetsSheet() {
-        val budgetRequestsFragment = BudgetRequestsFragment()
+        if (AuthHelper.isLoggedIn()) {
+            val budgetRequestsFragment = BudgetRequestsFragment()
 
-        budgetRequestsFragment.show(supportFragmentManager, "budgetSheet")
+            budgetRequestsFragment.show(supportFragmentManager, "budgetSheet")
+        } else {
+            startActivity(Intent(this, LoginActivity::class.java))
+        }
     }
 
     fun isFragmentVisible(fragment: Fragment?): Boolean {

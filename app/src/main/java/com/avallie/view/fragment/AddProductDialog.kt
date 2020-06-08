@@ -14,11 +14,9 @@ import com.avallie.helpers.AppHelper
 import com.avallie.helpers.PaperHelper.Companion.addProduct
 import com.avallie.helpers.PaperHelper.Companion.getPhases
 import com.avallie.model.Product
-import com.avallie.model.RequestedProduct
 import com.avallie.model.request.SelectedProduct
 import com.avallie.view.MainActivity
 import com.google.android.material.textfield.TextInputEditText
-
 
 class AddProductDialog(private val context: Context, private val product: Product) {
 
@@ -43,7 +41,7 @@ class AddProductDialog(private val context: Context, private val product: Produc
 
         window.setLayout(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT)
 
-        window.findViewById<TextView>(R.id.product_name)?.text = product.name
+        window.findViewById<TextView>(R.id.product_name)?.text = product.name.toLowerCase().capitalize()
         window.findViewById<TextView>(R.id.product_specs)?.text = product.category
 
         window.findViewById<ImageView>(R.id.phase_icon)?.setImageResource(

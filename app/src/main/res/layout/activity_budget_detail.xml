@@ -24,13 +24,17 @@
             <TextView
                 android:id="@+id/budget_name"
                 fontPath="Demi-bold.otf"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
                 android:layout_marginTop="16dp"
-                android:text="Materias para banheiro"
+                android:layout_marginEnd="16dp"
+                android:ellipsize="end"
+                android:maxLines="1"
                 android:textColor="@android:color/white"
-                android:textSize="24sp"
-                app:layout_constraintStart_toStartOf="parent"
+                android:textSize="28sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/close_detail"
                 app:layout_constraintTop_toTopOf="parent"
                 tools:text="Materiais para banheiro" />
 
@@ -38,11 +42,11 @@
                 android:id="@+id/close_detail"
                 android:layout_width="24dp"
                 android:layout_height="24dp"
-                android:layout_margin="16dp"
-                android:src="@drawable/ic_close"
+                android:src="@drawable/ic_arrow_back"
                 android:tint="@android:color/white"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintBottom_toBottomOf="@id/budget_name"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@id/budget_name" />
 
             <ImageView
                 android:id="@+id/deadline_icon"
@@ -52,7 +56,7 @@
                 android:alpha="0.5"
                 android:src="@drawable/ic_calendar"
                 android:tint="@android:color/white"
-                app:layout_constraintStart_toStartOf="@id/budget_name"
+                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/budget_name" />
 
             <TextView
@@ -119,14 +123,18 @@
             <TextView
                 android:id="@+id/address_detail"
                 fontPath="Medium.otf"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                android:maxLines="2"
                 android:textColor="@android:color/white"
                 android:textSize="13sp"
                 app:layout_constraintBottom_toBottomOf="@id/address_icon"
-                app:layout_constraintStart_toStartOf="@id/address_label"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/address_icon"
                 app:layout_constraintTop_toBottomOf="@id/address_label"
-                tools:text="01/03/2019" />
+                tools:text="Avenida Polar, 415 - 91040550 Porto Alegre, Rio Grande do Sul" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

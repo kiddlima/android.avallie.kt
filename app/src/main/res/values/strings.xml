@@ -92,7 +92,6 @@
     <string name="requested_products">Produtos solicitados</string>
     <string name="no_avaiable_budgets">Nenhum orçamento disponível até agora.</string>
     <string name="category_label">Categoria</string>
-    <string name="budgets">Orçamentos</string>
     <string name="total_label">Total</string>
 
     <string name="unity_label">%s unidades</string>
@@ -106,4 +105,10 @@
     <string name="welcome_to_avallie_label">Bem vindo a Avallie!</string>
     <string name="welcome_text_label">Agora você pode orçar sua obra com diversos fornecedores de maneira muito simples</string>
     <string name="start_label">Começar</string>
+    <string name="my_account">Minha conta</string>
+    <string name="name_label">Nome</string>
+    <string name="state">Estado</string>
+    <string name="logout_label">Sair</string>
+    <string name="loading_account_label">Carregando suas informações</string>
+    <string name="budgets">Orçamentos</string>
 </resources>

@@ -60,7 +60,7 @@ class CartAdapter(private val context: Context, private val requestedProducts: A
             val selectedProduct = requestedProducts[position - 1]
 
             holder as CartItemViewHolder
-            holder.producName?.text = selectedProduct.product.name.capitalize()
+            holder.producName?.text = selectedProduct.product.name.toLowerCase().capitalize()
             holder.productQuantity?.text = "${selectedProduct.amount} ${selectedProduct.product.unit}"
         }
     }

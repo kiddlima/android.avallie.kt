@@ -1,302 +1,321 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                                                   xmlns:app="http://schemas.android.com/apk/res-auto"
-                                                   xmlns:tools="http://schemas.android.com/tools"
-                                                   android:layout_width="match_parent"
-                                                   android:layout_height="wrap_content">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
 
     <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/cart_recycler"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@drawable/infinity_border_top"
-            android:visibility="gone"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"/>
+        android:id="@+id/cart_recycler"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/infinity_border_top"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/finish_container"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:visibility="visible"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
+        android:id="@+id/finish_container"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:visibility="visible">
 
         <View
-                android:id="@+id/chip_bottom_sheet"
-                android:layout_width="35dp"
-                android:layout_height="6dp"
-                android:layout_marginTop="16dp"
-                android:background="@drawable/chip_bottom_sheet"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"/>
+            android:id="@+id/chip_bottom_sheet"
+            android:layout_width="35dp"
+            android:layout_height="6dp"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/chip_bottom_sheet"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <ImageView
-                android:id="@+id/back_button_finish"
-                android:layout_width="24dp"
-                android:layout_height="24dp"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="16dp"
-                android:src="@drawable/ic_arrow_back"
-                android:tint="@color/grayPrimary"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/chip_bottom_sheet"/>
+            android:id="@+id/back_button_finish"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:src="@drawable/ic_arrow_back"
+            android:tint="@android:color/black"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/chip_bottom_sheet" />
 
         <TextView
-                fontPath="Demi-bold.otf"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:text="@string/finish_request"
-                android:textSize="22sp"
-                app:layout_constraintBottom_toBottomOf="@id/back_button_finish"
-                app:layout_constraintStart_toEndOf="@id/back_button_finish"
-                app:layout_constraintTop_toTopOf="@id/back_button_finish"/>
+            fontPath="Demi-bold.otf"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:text="@string/finish_request"
+            android:textColor="@android:color/black"
+            android:textSize="32sp"
+            app:layout_constraintBottom_toBottomOf="@id/back_button_finish"
+            app:layout_constraintStart_toEndOf="@id/back_button_finish"
+            app:layout_constraintTop_toTopOf="@id/back_button_finish" />
 
         <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/request_name_container"
-                fontPath="Regular.otf"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="24dp"
-                android:layout_marginEnd="16dp"
-                android:hint="@string/request_name"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/back_button_finish">
+            android:id="@+id/request_name_container"
+            fontPath="Regular.otf"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginEnd="16dp"
+            android:hint="@string/request_name"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/back_button_finish">
 
             <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/confirm_request_name"
-                    fontPath="Regular.otf"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:inputType="text"
-                    android:textSize="16sp"/>
+                android:id="@+id/confirm_request_name"
+                fontPath="Regular.otf"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:imeOptions="actionNext"
+                android:inputType="text"
+                android:textSize="16sp" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/request_deadline_container"
-                fontPath="Regular.otf"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="4sp"
-                android:layout_marginEnd="16dp"
-                android:hint="@string/cartInfo_deadline_info"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/request_name_container">
+            android:id="@+id/request_deadline_container"
+            fontPath="Regular.otf"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="4dp"
+            android:layout_marginEnd="16dp"
+            android:hint="@string/cartInfo_deadline_info"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/request_name_container">
 
             <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/confirm_dead_line"
-                    fontPath="Regular.otf"
-                    android:digits="0123456789/"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:textSize="16sp"/>
+                android:id="@+id/confirm_dead_line"
+                fontPath="Regular.otf"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:digits="0123456789/"
+                android:imeOptions="actionDone"
+                android:inputType="number"
+                android:textSize="16sp" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
         <TextView
-                android:id="@+id/delivery_address_title"
-                fontPath="Regular.otf"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="36dp"
-                android:layout_marginEnd="16dp"
-                android:text="@string/delivery_address"
-                android:textColor="@color/grayPrimary"
-                android:textSize="12sp"
-                app:layout_constraintBottom_toTopOf="@id/delivery_address_one"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/request_deadline_container"
-                app:layout_constraintVertical_chainStyle="packed"/>
+            android:id="@+id/delivery_address_title"
+            fontPath="Regular.otf"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="36dp"
+            android:layout_marginEnd="16dp"
+            android:text="@string/delivery_address"
+            android:textColor="@color/grayPrimary"
+            android:textSize="12sp"
+            app:layout_constraintBottom_toTopOf="@id/delivery_address_one"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/request_deadline_container"
+            app:layout_constraintVertical_chainStyle="packed" />
 
         <TextView
-                android:id="@+id/delivery_address_one"
-                fontPath="Medium.otf"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="4dp"
-                android:layout_marginEnd="16dp"
-                android:textColor="@color/grayPrimaryDark"
-                android:textSize="14sp"
-                app:layout_constraintBottom_toTopOf="@id/delivery_address_two"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/delivery_address_title"
-                app:layout_constraintVertical_chainStyle="packed"
-                tools:text="Avenidar Polar, 415 - 91040550"/>
+            android:id="@+id/delivery_address_one"
+            fontPath="Medium.otf"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="4dp"
+            android:layout_marginEnd="16dp"
+            android:textColor="@color/grayPrimaryDark"
+            android:textSize="14sp"
+            app:layout_constraintBottom_toTopOf="@id/delivery_address_two"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/delivery_address_title"
+            app:layout_constraintVertical_chainStyle="packed"
+            tools:text="Avenidar Polar, 415 - 91040550" />
 
         <TextView
-                android:id="@+id/delivery_address_two"
-                fontPath="Medium.otf"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginEnd="16dp"
-                android:textColor="@color/grayPrimaryDark"
-                android:textSize="14sp"
-                app:layout_constraintBottom_toTopOf="@id/btn_change_address"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/delivery_address_one"
-                app:layout_constraintVertical_chainStyle="packed"
-                tools:text="Porto Alegre, RS"/>
+            android:id="@+id/delivery_address_two"
+            fontPath="Medium.otf"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:textColor="@color/grayPrimaryDark"
+            android:textSize="14sp"
+            app:layout_constraintBottom_toTopOf="@id/btn_change_address"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/delivery_address_one"
+            app:layout_constraintVertical_chainStyle="packed"
+            tools:text="Porto Alegre, RS" />
 
         <Button
-                android:id="@+id/btn_change_address"
-                style="@style/SecondaryOutlineButton"
-                fontPath="Medium.otf"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="@android:color/transparent"
-                android:text="@string/change_address"
-                android:textSize="13sp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/delivery_address_two"
-                app:layout_constraintVertical_chainStyle="packed"/>
+            android:id="@+id/btn_change_address"
+            style="@style/SecondaryOutlineButton"
+            fontPath="Medium.otf"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@android:color/transparent"
+            android:text="@string/change_address"
+            android:textSize="13sp"
+            android:visibility="gone"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/delivery_address_two"
+            app:layout_constraintVertical_chainStyle="packed" />
 
         <carbon.widget.Button
-                android:id="@+id/btn_request_budget"
-                style="@style/PrimaryButton"
-                fontPath="Medium.otf"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="24dp"
-                android:layout_marginTop="36dp"
-                android:layout_marginEnd="24dp"
-                android:layout_marginBottom="24dp"
-                android:text="@string/order_budget_request"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/btn_change_address"/>
+            android:id="@+id/btn_request_budget"
+            style="@style/PrimaryButton"
+            fontPath="Medium.otf"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="36dp"
+            android:layout_marginEnd="24dp"
+            android:layout_marginBottom="24dp"
+            android:text="@string/order_budget_request"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/btn_change_address" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/loading_container"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:visibility="gone"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
+        android:id="@+id/loading_container"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
         <ProgressBar
-                android:id="@+id/progress"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="60dp"
-                app:layout_constraintBottom_toTopOf="@id/progress_message"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_chainStyle="packed"/>
+            android:id="@+id/progress"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="60dp"
+            android:indeterminateTint="@color/colorAccent"
+            app:layout_constraintBottom_toTopOf="@id/progress_message"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_chainStyle="packed" />
 
         <TextView
-                android:id="@+id/progress_message"
-                fontPath="Medium.otf"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="24dp"
-                android:layout_marginTop="8dp"
-                android:layout_marginEnd="24dp"
-                android:layout_marginBottom="60dp"
-                android:text="@string/waiting_message"
-                android:textColor="@color/grayPrimaryDark"
-                android:textSize="18sp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/progress"
-                app:layout_constraintVertical_chainStyle="packed"/>
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
-    <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/response_container"
-            android:layout_width="0dp"
+            android:id="@+id/progress_message"
+            fontPath="Medium.otf"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:visibility="gone"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="24dp"
+            android:layout_marginBottom="60dp"
+            android:text="@string/waiting_message"
+            android:textColor="@color/grayPrimaryDark"
+            android:textSize="18sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
-
-        <ImageView
-                android:id="@+id/response_image"
-                android:layout_width="75dp"
-                android:layout_height="75dp"
-                android:layout_marginTop="36dp"
-                android:src="@drawable/ic_check"
-                android:tint="@color/colorAccent"
-                app:layout_constraintBottom_toTopOf="@id/response_title"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_chainStyle="packed"/>
-
-        <TextView
-                android:id="@+id/response_title"
-                fontPath="Demi-bold.otf"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="24dp"
-                android:layout_marginTop="8dp"
-                android:layout_marginEnd="24dp"
-                android:text="@string/success_exclamation"
-                android:textAlignment="center"
-                android:textColor="@color/grayPrimaryDark"
-                android:textSize="22sp"
-                app:layout_constraintBottom_toTopOf="@id/response_subtitle"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/response_image"
-                app:layout_constraintVertical_chainStyle="packed"/>
-
-        <TextView
-                android:id="@+id/response_subtitle"
-                fontPath="Medium.otf"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="24dp"
-                android:layout_marginTop="4dp"
-                android:layout_marginEnd="24dp"
-                android:text="@string/request_budget_success"
-                android:textAlignment="center"
-                android:textSize="16sp"
-                app:layout_constraintBottom_toTopOf="@id/btn_response_action"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/response_title"
-                app:layout_constraintVertical_chainStyle="packed"/>
-
-        <Button
-                android:id="@+id/btn_response_action"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="24dp"
-                style="@style/SecondaryOutlineButton"
-                android:text="@string/follow_request"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/response_subtitle"
-                app:layout_constraintVertical_chainStyle="packed"/>
-
+            app:layout_constraintTop_toBottomOf="@id/progress"
+            app:layout_constraintVertical_chainStyle="packed" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <LinearLayout
+        android:id="@+id/response_container"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:visibility="visible">
+
+        <ImageView
+            android:id="@+id/response_image"
+            android:layout_width="105dp"
+            android:layout_height="105dp"
+            android:layout_marginTop="36dp"
+            android:src="@drawable/ic_check"
+            android:tint="@color/colorAccent"
+            android:visibility="gone"
+            app:layout_constraintBottom_toTopOf="@id/response_title"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_chainStyle="packed" />
+
+        <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/animation_view"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_marginTop="32dp"
+            app:layout_constraintBottom_toTopOf="@id/response_title"
+            app:lottie_url="https://assets10.lottiefiles.com/datafiles/jXqHQIXI6oO6V47/data.json" />
+
+        <TextView
+            android:id="@+id/response_title"
+            fontPath="Demi-bold.otf"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="24dp"
+            android:text="@string/success_exclamation"
+            android:textAlignment="center"
+            android:textColor="@android:color/black"
+            android:textSize="28sp"
+            app:layout_constraintBottom_toTopOf="@id/response_subtitle"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/response_image"
+            app:layout_constraintVertical_chainStyle="packed" />
+
+        <TextView
+            android:id="@+id/response_subtitle"
+            fontPath="Medium.otf"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="4dp"
+            android:layout_marginEnd="24dp"
+            android:text="@string/request_budget_success"
+            android:textAlignment="center"
+            android:textSize="16sp"
+            app:layout_constraintBottom_toTopOf="@id/btn_response_action"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/response_title"
+            app:layout_constraintVertical_chainStyle="packed" />
+
+        <Button
+            android:id="@+id/btn_response_action"
+            style="@style/SecondaryOutlineButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="24dp"
+            android:text="@string/follow_request"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/response_subtitle"
+            app:layout_constraintVertical_chainStyle="packed" />
+
+
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 
