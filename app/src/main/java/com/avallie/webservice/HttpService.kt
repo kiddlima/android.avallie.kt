@@ -2,9 +2,12 @@ package com.avallie.webservice
 
 import android.content.Context
 import com.avallie.BuildConfig
+import com.avallie.helpers.PaperHelper
 import com.avallie.model.*
 import com.avallie.model.request.BudgetRequest
+import com.avallie.model.request.NotificationToken
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.iid.FirebaseInstanceId
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -25,8 +28,8 @@ class HttpService(private val context: Context) {
     fun getAllPhases(connectionListener: ConnectionListener<List<ConstructionPhase>>) {
         requestClient.getAllPhases().enqueue(object : Callback<ApiResponse<List<ConstructionPhase>>> {
             override fun onResponse(
-                call: Call<ApiResponse<List<ConstructionPhase>>>,
-                response: Response<ApiResponse<List<ConstructionPhase>>>
+                    call: Call<ApiResponse<List<ConstructionPhase>>>,
+                    response: Response<ApiResponse<List<ConstructionPhase>>>
             ) {
 
                 val responseBody = cast<ApiResponse<ArrayList<ConstructionPhase>>>(response.body())
@@ -56,8 +59,8 @@ class HttpService(private val context: Context) {
 
         requestClient.getProducts(categories).enqueue(object : Callback<ApiResponse<ArrayList<Product>>> {
             override fun onResponse(
-                call: Call<ApiResponse<ArrayList<Product>>>,
-                response: Response<ApiResponse<ArrayList<Product>>>
+                    call: Call<ApiResponse<ArrayList<Product>>>,
+                    response: Response<ApiResponse<ArrayList<Product>>>
             ) {
                 val responseBody = cast<ApiResponse<ArrayList<Product>>>(response.body())
 
@@ -95,34 +98,34 @@ class HttpService(private val context: Context) {
         auth.currentUser?.getIdToken(true)?.addOnCompleteListener {
 
             requestClient.requestBudget("Bearer " + it.result?.token!!, budgetRequest)
-                .enqueue(object : Callback<ApiResponse<Any>> {
-                    override fun onFailure(call: Call<ApiResponse<Any>>, t: Throwable) {
-                        connectionListener.noInternet()
-                    }
+                    .enqueue(object : Callback<ApiResponse<Any>> {
+                        override fun onFailure(call: Call<ApiResponse<Any>>, t: Throwable) {
+                            connectionListener.noInternet()
+                        }
 
-                    override fun onResponse(call: Call<ApiResponse<Any>>, response: Response<ApiResponse<Any>>) {
-                        responseHandler(response, connectionListener)
-                    }
-                })
+                        override fun onResponse(call: Call<ApiResponse<Any>>, response: Response<ApiResponse<Any>>) {
+                            responseHandler(response, connectionListener)
+                        }
+                    })
         }
     }
 
     fun getBudgetsRequested(connectionListener: ConnectionListener<MutableList<BudgetRequested>>) {
         auth.currentUser?.getIdToken(true)?.addOnCompleteListener {
             requestClient.getBudgetsRequested("Bearer " + it.result?.token!!)
-                .enqueue(object : Callback<ApiResponse<MutableList<BudgetRequested>>> {
-                    override fun onFailure(call: Call<ApiResponse<MutableList<BudgetRequested>>>, t: Throwable) {
-                        connectionListener.noInternet()
-                    }
+                    .enqueue(object : Callback<ApiResponse<MutableList<BudgetRequested>>> {
+                        override fun onFailure(call: Call<ApiResponse<MutableList<BudgetRequested>>>, t: Throwable) {
+                            connectionListener.noInternet()
+                        }
 
-                    override fun onResponse(
-                        call: Call<ApiResponse<MutableList<BudgetRequested>>>,
-                        response: Response<ApiResponse<MutableList<BudgetRequested>>>
-                    ) {
-                        responseHandler(response, connectionListener)
-                    }
+                        override fun onResponse(
+                                call: Call<ApiResponse<MutableList<BudgetRequested>>>,
+                                response: Response<ApiResponse<MutableList<BudgetRequested>>>
+                        ) {
+                            responseHandler(response, connectionListener)
+                        }
 
-                })
+                    })
         }
     }
 
@@ -134,18 +137,40 @@ class HttpService(private val context: Context) {
                 }
 
                 override fun onResponse(call: Call<ApiResponse<Customer>>, response: Response<ApiResponse<Customer>>) {
-                    responseHandler(response, connectionListener)
+                    if (response.body() != null && response.isSuccessful) {
+                        PaperHelper.saveCustomer(response.body()!!.data)
+
+                        connectionListener.onSuccess(response.body()!!.data)
+                    } else {
+                        connectionListener.onFail(response.errorBody().toString())
+                    }
                 }
 
             })
         }
     }
 
-    fun <T> responseHandler(response: Response<ApiResponse<T>>, connectionListener: ConnectionListener<T>) {
+    fun setNotificationToken(connectionListener: ConnectionListener<Any>?) {
+        auth.currentUser?.getIdToken(true)?.addOnCompleteListener { authTokenResult ->
+            FirebaseInstanceId.getInstance().instanceId.addOnSuccessListener { instanceId ->
+                requestClient.setNotificationToken("Bearer " + authTokenResult.result?.token!!, NotificationToken(instanceId.token)).enqueue(object : Callback<ApiResponse<Any>> {
+                    override fun onFailure(call: Call<ApiResponse<Any>>, t: Throwable) {
+                        connectionListener?.noInternet()
+                    }
+
+                    override fun onResponse(call: Call<ApiResponse<Any>>, response: Response<ApiResponse<Any>>) {
+                        responseHandler(response, connectionListener)
+                    }
+                })
+            }
+        }
+    }
+
+    fun <T> responseHandler(response: Response<ApiResponse<T>>, connectionListener: ConnectionListener<T>?) {
         if (response.body() != null && response.isSuccessful) {
-            connectionListener.onSuccess(response.body()!!.data)
+            connectionListener?.onSuccess(response.body()!!.data)
         } else {
-            connectionListener.onFail(response.errorBody().toString())
+            connectionListener?.onFail(response.errorBody().toString())
         }
     }
 

@@ -33,8 +33,6 @@ class AccountViewModel : ViewModel() {
             override fun onSuccess(response: Customer) {
                 customer.value = response
 
-                PaperHelper.saveCustomer(customer.value!!)
-
                 screenState.value = ScreenState.Success
             }
 

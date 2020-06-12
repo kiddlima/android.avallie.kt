@@ -8,5 +8,4 @@ class RequestedProduct(
     val product: Product,
     var budgetsAvaiable: Int?,
     var budgets: ArrayList<Budget>
-) : Product(product.id, product.name, product.category, product.specification, product.unit, product.addToCart),
-    Serializable
+) : Serializable

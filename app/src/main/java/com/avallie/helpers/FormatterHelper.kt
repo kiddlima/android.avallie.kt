@@ -15,7 +15,23 @@ class FormatterHelper {
             }
 
             return formattedDateString
+        }
 
+        fun dateToServer(date: String): String {
+            val formatter = SimpleDateFormat("dd/MM/yyyy", Locale.getDefault())
+            var formattedDateString = ""
+
+            formatter.parse(date).run {
+                formattedDateString = SimpleDateFormat("yyyy-MM-dd", Locale.getDefault()).format(this)
+            }
+
+            return formattedDateString
+        }
+
+        fun stringToDate(date: String, pattern: String): Date {
+            val formatter = SimpleDateFormat(pattern, Locale.getDefault())
+
+            return formatter.parse(date)
         }
     }
 

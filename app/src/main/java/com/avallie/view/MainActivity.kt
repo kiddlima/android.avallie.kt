@@ -15,7 +15,10 @@ import com.avallie.helpers.PaperHelper.Companion.getCart
 import com.avallie.view.fragment.BudgetRequestsFragment
 import com.avallie.view.fragment.CartFragment
 import com.avallie.view.products.ProductsFragment
+import com.google.android.gms.tasks.OnSuccessListener
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.iid.FirebaseInstanceId
+import com.google.firebase.iid.InstanceIdResult
 import kotlinx.android.synthetic.main.activity_main.*
 import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper
 
@@ -24,15 +27,15 @@ class MainActivity : AppCompatActivity() {
 
     private var categories: ArrayList<String> = ArrayList()
 
-    var lastItemSelected: Int? = null
+    private var lastItemSelected: Int? = null
 
-    var productsFragment: ProductsFragment? = null
-
-    var auth = FirebaseAuth.getInstance()
+    private var productsFragment: ProductsFragment? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+
 
         createMenu()
     }

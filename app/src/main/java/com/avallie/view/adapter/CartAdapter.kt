@@ -20,49 +20,51 @@ class CartAdapter(private val context: Context, private val requestedProducts: A
 
     interface CartAdapterListener {
         fun onDeleteProduct(position: Int)
-        fun onConfirmProducts()
+//        fun onConfirmProducts()
     }
 
     var cartAdapterListener: CartAdapterListener? = null
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
-        return if (viewType == HEADER) {
-            val view = LayoutInflater.from(context).inflate(R.layout.cart_header, parent, false)
-            CartHeaderViewHolder(view)
-        } else if (viewType == ITEM) {
-            val view = LayoutInflater.from(context).inflate(R.layout.cart_item, parent, false)
-            CartItemViewHolder(view)
-        } else {
-            val view = LayoutInflater.from(context).inflate(R.layout.btn_confirm_products, parent, false)
-            CartButtonViewHolder(view)
-        }
+//        return if (viewType == HEADER) {
+//            val view = LayoutInflater.from(context).inflate(R.layout.cart_header, parent, false)
+//            CartHeaderViewHolder(view)
+//        } else if (viewType == ITEM) {
+        val view = LayoutInflater.from(context).inflate(R.layout.cart_item, parent, false)
+        return CartItemViewHolder(view)
+//        } else {
+//            val view = LayoutInflater.from(context).inflate(R.layout.btn_confirm_products, parent, false)
+//            CartButtonViewHolder(view)
+//        }
     }
 
     override fun getItemCount(): Int {
-        return requestedProducts.size + 2
+//        return requestedProducts.size + 2
+        return requestedProducts.size
     }
 
-    override fun getItemViewType(position: Int): Int {
-        return when (position) {
-            0 -> HEADER
-            requestedProducts.size + 1 -> BUTTON
-            else -> ITEM
-        }
-    }
+//    override fun getItemViewType(position: Int): Int {
+//        return when (position) {
+//            0 -> HEADER
+//            requestedProducts.size + 1 -> BUTTON
+//            else -> ITEM
+//        }
+//    }
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
-        if (getItemViewType(position) == HEADER) {
+//        if (getItemViewType(position) == HEADER) {
 
-            holder as CartHeaderViewHolder
-            holder.cartSize?.text = "${requestedProducts.size} produtos selecionados"
+//            holder as CartHeaderViewHolder
+//            holder.cartSize?.text = "${requestedProducts.size} produtos selecionados"
 
-        } else if (getItemViewType(position) == ITEM) {
-            val selectedProduct = requestedProducts[position - 1]
+//        } else if (getItemViewType(position) == ITEM) {
+//        val selectedProduct = requestedProducts[position - 1]
+        val selectedProduct = requestedProducts[position]
 
-            holder as CartItemViewHolder
-            holder.producName?.text = selectedProduct.product.name.toLowerCase().capitalize()
-            holder.productQuantity?.text = "${selectedProduct.amount} ${selectedProduct.product.unit}"
-        }
+        holder as CartItemViewHolder
+        holder.producName?.text = selectedProduct.product.name.toLowerCase().capitalize()
+        holder.productQuantity?.text = "${selectedProduct.amount} ${selectedProduct.product.unit}"
+//        }
     }
 
     inner class CartItemViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
@@ -95,9 +97,9 @@ class CartAdapter(private val context: Context, private val requestedProducts: A
     inner class CartButtonViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
         init {
-            itemView.btn_confirm_products.setOnClickListener {
-                cartAdapterListener?.onConfirmProducts()
-            }
+//            itemView.btn_confirm_products.setOnClickListener {
+//                cartAdapterListener?.onConfirmProducts()
+//            }
         }
 
     }

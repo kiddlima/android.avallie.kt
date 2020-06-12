@@ -2,6 +2,7 @@ package com.avallie.webservice
 
 import com.avallie.model.*
 import com.avallie.model.request.BudgetRequest
+import com.avallie.model.request.NotificationToken
 import retrofit2.Call
 import retrofit2.http.*
 
@@ -14,30 +15,34 @@ interface Services {
     @Headers("Accept: application/json", "Content-Type: application/json")
     @GET("v1/products")
     fun getProducts(
-        @Query("category") categories: MutableList<String>
+            @Query("category") categories: MutableList<String>
     ): Call<ApiResponse<ArrayList<Product>>>
 
     @Headers("Accept: application/json", "Content-Type: application/json")
     @POST("v1/customers")
     fun registerCustomer(
-        @Body customer: Customer
+            @Body customer: Customer
     ): Call<Any>
 
     @POST("v1/budget-requests")
     fun requestBudget(
-        @Header("Authorization") token: String,
-        @Body budgetRequest: BudgetRequest
+            @Header("Authorization") token: String,
+            @Body budgetRequest: BudgetRequest
     ): Call<ApiResponse<Any>>
 
     @GET("v1/budget-requests")
     fun getBudgetsRequested(
-        @Header("Authorization") token: String
+            @Header("Authorization") token: String
     ): Call<ApiResponse<MutableList<BudgetRequested>>>
 
     @GET("v1/customers/me")
     fun getCustomer(
-        @Header("Authorization") token: String
+            @Header("Authorization") token: String
     ): Call<ApiResponse<Customer>>
 
-
+    @PUT("v1/customers/notification-info")
+    fun setNotificationToken(
+            @Header("Authorization") token: String,
+            @Body body: NotificationToken
+    ): Call<ApiResponse<Any>>
 }

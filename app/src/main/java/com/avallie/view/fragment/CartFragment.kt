@@ -13,6 +13,7 @@ import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.avallie.R
 import com.avallie.helpers.AuthHelper
+import com.avallie.helpers.FormatterHelper.Companion.stringToDate
 import com.avallie.helpers.PaperHelper
 import com.avallie.helpers.PaperHelper.Companion.getCart
 import com.avallie.model.request.BudgetRequest
@@ -69,13 +70,13 @@ class CartFragment : BottomSheetDialogFragment() {
         viewModel.cartScreenState.observe(this, Observer { cartScreen ->
             when (cartScreen) {
                 CartScreen.PRODUCTS -> {
-                    cart_recycler.visibility = View.VISIBLE
+                    cart_container.visibility = View.VISIBLE
                     finish_container.visibility = View.GONE
 
                     setCartAdapter()
                 }
                 CartScreen.FINISH -> {
-                    cart_recycler.visibility = View.GONE
+                    cart_container.visibility = View.GONE
                     finish_container.visibility = View.VISIBLE
 
                     setFinishInfo()
@@ -111,8 +112,29 @@ class CartFragment : BottomSheetDialogFragment() {
         })
     }
 
-    private fun isFinishScreenValidate(): Boolean {
-        return !confirm_request_name.text.isNullOrBlank() && !confirm_dead_line.text.isNullOrBlank()
+    private fun returnsNullIfValid(): String? {
+        if (confirm_request_name.text.isNullOrBlank()
+                || confirm_dead_line.text.isNullOrBlank()) {
+            return "Preencha os camos acima"
+        }
+
+        val month = confirm_dead_line.text?.substring(3, 5)?.toInt()
+        val day = confirm_dead_line.text?.substring(0, 2)?.toInt()
+        val date = stringToDate(confirm_dead_line.text.toString(), "dd/MM/yyyy")
+
+        if (month!! > 12) {
+            return "Mês inválido"
+        }
+
+        if (day!! > 31) {
+            return "Dia inválido"
+        }
+
+        if (date.before(Date())) {
+            return "O prazo de entrega é anterior ao dia atual"
+        }
+
+        return null
     }
 
     private fun setFinishInfo() {
@@ -122,10 +144,12 @@ class CartFragment : BottomSheetDialogFragment() {
         delivery_address_two.text = "${customer?.city}, ${customer?.state}"
 
         btn_request_budget.setOnClickListener {
-            if (isFinishScreenValidate()) {
+            val errorMessage = returnsNullIfValid()
+
+            if (errorMessage == null) {
                 viewModel.cartScreenState.value = CartScreen.LOADING
             } else {
-                Toast.makeText(context!!, getString(R.string.fill_the_fileds), Toast.LENGTH_LONG).show()
+                Toast.makeText(context!!, errorMessage, Toast.LENGTH_LONG).show()
             }
         }
 
@@ -193,26 +217,29 @@ class CartFragment : BottomSheetDialogFragment() {
 
     private fun setCartAdapter() {
         cart_recycler.adapter = cartAdapter
+
+        cart_size.text = "${selectedProducts.size} produtos selecionados"
+
+        btn_confirm_products.setOnClickListener {
+            if (!AuthHelper.isLoggedIn()) {
+                activity?.let {
+                    val intent = Intent(it, LoginActivity::class.java)
+                    it.startActivity(intent)
+                }
+            } else {
+                viewModel.cartScreenState.value = CartScreen.FINISH
+            }
+        }
+
         cartAdapter.cartAdapterListener = (object : CartAdapter.CartAdapterListener {
             override fun onDeleteProduct(position: Int) {
-                selectedProducts.remove(selectedProducts[position - 1])
+                selectedProducts.remove(selectedProducts[position])
                 PaperHelper.updateCart(selectedProducts)
 
                 cartAdapter.notifyDataSetChanged()
 
                 if (selectedProducts.isEmpty()) {
                     dismiss()
-                }
-            }
-
-            override fun onConfirmProducts() {
-                if (!AuthHelper.isLoggedIn()) {
-                    activity?.let {
-                        val intent = Intent(it, LoginActivity::class.java)
-                        it.startActivity(intent)
-                    }
-                } else {
-                    viewModel.cartScreenState.value = CartScreen.FINISH
                 }
             }
         })

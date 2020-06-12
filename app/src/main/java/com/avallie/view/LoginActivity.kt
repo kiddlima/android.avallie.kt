@@ -33,7 +33,7 @@ class LoginActivity : AppCompatActivity() {
         }
 
         btn_login.setOnClickListener {
-            viewModel.login(login_email.text.toString(), login_password.text.toString())
+            viewModel.login(login_email.text.toString(), login_password.text.toString(), this)
         }
 
         create_account.setOnClickListener {

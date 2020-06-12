@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProviders
 import com.avallie.databinding.ActivityAccountBinding
 import com.avallie.helpers.AuthHelper
+import com.avallie.helpers.PaperHelper
 import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper
 
 class AccountActivity : AppCompatActivity() {
@@ -27,11 +28,13 @@ class AccountActivity : AppCompatActivity() {
         binding.viewModel = viewModel
 
         binding.logoutButton.setOnClickListener {
+            PaperHelper.clearCustomer()
+
             AuthHelper.logout()
 
             finish()
         }
-        
+
         binding.backButton.setOnClickListener {
             finish()
         }

@@ -5,7 +5,6 @@ import android.graphics.Color
 import android.util.DisplayMetrics
 import android.view.View
 import androidx.core.content.ContextCompat
-import com.avallie.R
 import com.avallie.model.ConstructionPhase
 import com.google.android.material.snackbar.Snackbar
 
@@ -30,7 +29,7 @@ open class AppHelper {
         fun getErrorSnackbar(context: Context, view: View, message: String): Snackbar{
             val snackbar = Snackbar.make(view, message, Snackbar.LENGTH_LONG)
 
-            snackbar.view.setBackgroundColor(ContextCompat.getColor(context, R.color.colorError))
+            snackbar.view.setBackgroundColor(ContextCompat.getColor(context, com.avallie.R.color.colorError))
 
             snackbar.setActionTextColor(Color.WHITE)
 
@@ -40,7 +39,7 @@ open class AppHelper {
         fun getSuccessSnackbar(context: Context, view: View, message: String): Snackbar{
             val snackbar = Snackbar.make(view, message, Snackbar.LENGTH_LONG)
 
-            snackbar.view.setBackgroundColor(ContextCompat.getColor(context, R.color.colorSuccess))
+            snackbar.view.setBackgroundColor(ContextCompat.getColor(context, com.avallie.R.color.colorSuccess))
 
             snackbar.setActionTextColor(Color.WHITE)
 

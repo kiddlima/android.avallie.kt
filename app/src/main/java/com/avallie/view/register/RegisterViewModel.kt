@@ -17,12 +17,19 @@ class RegisterViewModel : ViewModel() {
     val screenState = MutableLiveData<ScreenState>()
 
     val customer = MutableLiveData<Customer>()
-    
+
     init {
         customer.value = Customer()
     }
 
     fun register(context: Context) {
+        customer.value!!.telephone = customer.value!!.telephone?.replace("-", "")
+        customer.value!!.telephone = customer.value!!.telephone?.replace("(", "")
+        customer.value!!.telephone = customer.value!!.telephone?.replace(")", "")
+        customer.value!!.cpf = customer.value!!.cpf?.replace("-", "")
+        customer.value!!.cpf = customer.value!!.cpf?.replace(".", "")
+        customer.value!!.zipCode = customer.value!!.zipCode?.replace("-", "")
+
         screenState.value = ScreenState.Loading
 
         HttpService(context).registerCustomer(customer.value!!, object : ConnectionListener<Any> {

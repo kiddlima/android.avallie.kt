@@ -50,6 +50,7 @@ class ProductsFragment : Fragment() {
         return binding.root
     }
 
+
     @SuppressLint("ClickableViewAccessibility")
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -100,7 +101,7 @@ class ProductsFragment : Fragment() {
         }
 
         binding.vActiveFilterRecycler.layoutManager =
-                LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
+            LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
     }
 
     private fun setProductAdapter() {

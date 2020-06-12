@@ -50,6 +50,10 @@ class PaperHelper {
                 null
             }
         }
+
+        fun clearCustomer(){
+            Paper.book().delete("customer")
+        }
     }
 
 }

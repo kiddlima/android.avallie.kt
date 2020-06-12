@@ -22,9 +22,7 @@ class BudgetProductDetailActivity : AppCompatActivity() {
 
     var screenState: ScreenState = ScreenState.Loading
 
-    val requestedProduct: RequestedProduct by lazy {
-        intent.getSerializableExtra(SELECTED_PRODUCT) as RequestedProduct
-    }
+    lateinit var requestedProduct: RequestedProduct
 
     val adapter: BudgetsAdapter by lazy {
         BudgetsAdapter(this, requestedProduct.budgets)
@@ -38,6 +36,8 @@ class BudgetProductDetailActivity : AppCompatActivity() {
 
         binding.lifecycleOwner = this
 
+        requestedProduct = intent.getSerializableExtra(SELECTED_PRODUCT) as RequestedProduct
+
         mockBudgets()
         binding.model = this
 
@@ -45,12 +45,7 @@ class BudgetProductDetailActivity : AppCompatActivity() {
 
         recyclerView = binding.budgetsRecycler
 
-        Handler().postDelayed({
-            this.screenState = ScreenState.Fail
-            binding.invalidateAll()
-
-            setAdapter()
-        }, 500)
+        setAdapter()
     }
 
     private fun setAdapter() {
@@ -62,16 +57,16 @@ class BudgetProductDetailActivity : AppCompatActivity() {
     private fun mockBudgets() {
         for (i in 0..4) {
             requestedProduct.budgets.add(
-                    Budget(
-                            "Balarotti",
-                            "Em até 12x no cartão sem juros",
-                            "Em até 10 dias úteis após pagamento",
-                            "Pronta entrega",
-                            2599.0,
-                            2399.0,
-                            0.5,
-                            75.0
-                    )
+                Budget(
+                    "Balarotti",
+                    "Em até 12x no cartão sem juros",
+                    "Em até 10 dias úteis após pagamento",
+                    "Pronta entrega",
+                    2599.0,
+                    2399.0,
+                    0.5,
+                    75.0
+                )
             )
         }
     }
