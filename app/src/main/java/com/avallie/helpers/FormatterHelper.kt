@@ -1,5 +1,6 @@
 package com.avallie.helpers
 
+import java.text.NumberFormat
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -32,6 +33,14 @@ class FormatterHelper {
             val formatter = SimpleDateFormat(pattern, Locale.getDefault())
 
             return formatter.parse(date)
+        }
+
+        fun toCurrency(value: Double): String {
+            val format = NumberFormat.getCurrencyInstance()
+            format.maximumFractionDigits = 0
+            format.currency = Currency.getInstance("BRL")
+
+            return format.format(value)
         }
     }
 

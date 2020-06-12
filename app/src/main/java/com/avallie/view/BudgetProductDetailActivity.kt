@@ -5,6 +5,8 @@ import android.os.Bundle
 import android.os.Handler
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.avallie.databinding.ActivityBudgetProductDetailBinding
@@ -12,6 +14,9 @@ import com.avallie.model.Budget
 import com.avallie.model.ScreenState
 import com.avallie.model.RequestedProduct
 import com.avallie.view.adapter.BudgetsAdapter
+import com.avallie.view.filter.FilterViewModel
+import com.avallie.view.register.BudgetProductDetailViewModel
+import kotlinx.android.synthetic.main.activity_budget_product_detail.*
 import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper
 
 class BudgetProductDetailActivity : AppCompatActivity() {
@@ -20,12 +25,10 @@ class BudgetProductDetailActivity : AppCompatActivity() {
 
     private lateinit var recyclerView: RecyclerView
 
-    var screenState: ScreenState = ScreenState.Loading
-
-    lateinit var requestedProduct: RequestedProduct
+    lateinit var viewModel: BudgetProductDetailViewModel
 
     val adapter: BudgetsAdapter by lazy {
-        BudgetsAdapter(this, requestedProduct.budgets)
+        BudgetsAdapter(this, viewModel.requestedProduct.value!!.budgets)
     }
 
     private lateinit var binding: ActivityBudgetProductDetailBinding
@@ -36,39 +39,32 @@ class BudgetProductDetailActivity : AppCompatActivity() {
 
         binding.lifecycleOwner = this
 
-        requestedProduct = intent.getSerializableExtra(SELECTED_PRODUCT) as RequestedProduct
+        viewModel = ViewModelProviders.of(this).get(BudgetProductDetailViewModel::class.java)
 
-        mockBudgets()
+        viewModel.requestedProduct.value = intent.getSerializableExtra(SELECTED_PRODUCT) as RequestedProduct
+
+        viewModel.getSelectedProductResponses(this)
+
+        viewModel.screenState.observe(this, Observer {
+            if (it == ScreenState.Success) {
+                setAdapter()
+            }
+        })
+
         binding.model = this
+        binding.viewModel = viewModel
 
         setContentView(binding.root)
 
-        recyclerView = binding.budgetsRecycler
+        binding.productDetailHeader.text = viewModel.requestedProduct.value!!.product.name.toLowerCase().capitalize()
 
-        setAdapter()
+        recyclerView = binding.budgetsRecycler
     }
 
     private fun setAdapter() {
         recyclerView.adapter = adapter
         recyclerView.isNestedScrollingEnabled = false
         recyclerView.layoutManager = LinearLayoutManager(this)
-    }
-
-    private fun mockBudgets() {
-        for (i in 0..4) {
-            requestedProduct.budgets.add(
-                Budget(
-                    "Balarotti",
-                    "Em até 12x no cartão sem juros",
-                    "Em até 10 dias úteis após pagamento",
-                    "Pronta entrega",
-                    2599.0,
-                    2399.0,
-                    0.5,
-                    75.0
-                )
-            )
-        }
     }
 
     override fun attachBaseContext(newBase: Context) {

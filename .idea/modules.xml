@@ -2,7 +2,10 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/GitHub-android.avallie.kt.iml" filepath="$PROJECT_DIR$/GitHub-android.avallie.kt.iml" group="android.avallie.kt" />
       <module fileurl="file://$PROJECT_DIR$/android.avallie.kt.iml" filepath="$PROJECT_DIR$/android.avallie.kt.iml" group="android.avallie.kt" />
+      <module fileurl="file://$PROJECT_DIR$/app/android.avallie.kt-app.iml" filepath="$PROJECT_DIR$/app/android.avallie.kt-app.iml" group="android.avallie.kt/app" />
+      <module fileurl="file://$PROJECT_DIR$/widgets/android.avallie.kt-widgets.iml" filepath="$PROJECT_DIR$/widgets/android.avallie.kt-widgets.iml" group="android.avallie.kt/widgets" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" group="android.avallie.kt/app" />
       <module fileurl="file://$PROJECT_DIR$/widgets/widgets.iml" filepath="$PROJECT_DIR$/widgets/widgets.iml" group="android.avallie.kt/widgets" />
     </modules>

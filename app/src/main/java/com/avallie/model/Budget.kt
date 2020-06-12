@@ -1,12 +1,20 @@
 package com.avallie.model
 
+import com.google.gson.annotations.SerializedName
 import java.io.Serializable
 
-class Budget(val supplierName: String,
-             val paymentOption: String,
-             var deliveryOption: String,
-             val productStatus: String,
-             val totalPrice: Double,
-             val finalPrice: Double,
-             val discountPercentage: Double,
-             val shippingPrice: Double): Serializable
+class Budget(
+    @SerializedName("supplier_name")
+    val supplierName: String,
+    @SerializedName("payment_methods")
+    val paymentOption: String,
+    @SerializedName("delivery_specifications")
+    var deliveryOption: String,
+    @SerializedName("product_status")
+    val productStatus: String,
+    @SerializedName("value")
+    val totalPrice: Double,
+    val discountPercentage: Double,
+    @SerializedName("shipping_fee")
+    val shippingPrice: Double
+) : Serializable
