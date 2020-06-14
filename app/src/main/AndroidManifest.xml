@@ -15,17 +15,21 @@
         android:usesCleartextTraffic="true">
         <activity
             android:name=".view.register.RegisterSuccessActivity"
+            android:screenOrientation="portrait"
             android:theme="@style/AppThemeFilter" />
         <activity
             android:name=".view.BudgetProductDetailActivity"
             android:parentActivityName=".view.BudgetDetailActivity"
+            android:screenOrientation="portrait"
             android:theme="@style/AppThemeFilter" />
         <activity
             android:name=".view.BudgetDetailActivity"
             android:parentActivityName=".view.MainActivity"
+            android:screenOrientation="portrait"
             android:theme="@style/AppThemePrimary" />
         <activity
             android:name=".view.register.RegisterActivity"
+            android:screenOrientation="portrait"
             android:theme="@style/AppThemeFilter" />
         <activity
             android:name=".view.LoginActivity"

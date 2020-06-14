@@ -45,7 +45,11 @@ class CartFragment : BottomSheetDialogFragment() {
 
     lateinit var viewModel: CartViewModel
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
         return inflater.inflate(R.layout.fragment_cart, container, false)
     }
 
@@ -114,7 +118,8 @@ class CartFragment : BottomSheetDialogFragment() {
 
     private fun returnsNullIfValid(): String? {
         if (confirm_request_name.text.isNullOrBlank()
-                || confirm_dead_line.text.isNullOrBlank()) {
+            || confirm_dead_line.text.isNullOrBlank()
+        ) {
             return "Preencha os camos acima"
         }
 
@@ -140,7 +145,8 @@ class CartFragment : BottomSheetDialogFragment() {
     private fun setFinishInfo() {
         val customer = PaperHelper.getCustomer()
 
-        delivery_address_one.text = "${customer?.street}, ${customer?.streetNumber} - ${customer?.zipCode}"
+        delivery_address_one.text =
+            "${customer?.street}, ${customer?.streetNumber} - ${customer?.zipCode}"
         delivery_address_two.text = "${customer?.city}, ${customer?.state}"
 
         btn_request_budget.setOnClickListener {
@@ -167,10 +173,10 @@ class CartFragment : BottomSheetDialogFragment() {
         }
 
         val budgetRequest = BudgetRequest(
-                confirm_request_name.text.toString(),
-                formattedDateString,
-                "${delivery_address_one.text} ${delivery_address_two.text}",
-                getCart()
+            confirm_request_name.text.toString(),
+            formattedDateString,
+            "${delivery_address_one.text} ${delivery_address_two.text}",
+            getCart()
         )
 
         viewModel.requestBudget(budgetRequest, context!!)
@@ -194,7 +200,7 @@ class CartFragment : BottomSheetDialogFragment() {
         btn_response_action.setOnClickListener {
             dismiss()
 
-            (activity as MainActivity).openBudgetsSheet()
+            (activity as MainActivity).openBudgetsSheet(viewModel.budgetRequested.value!!.id)
         }
     }
 
@@ -244,7 +250,8 @@ class CartFragment : BottomSheetDialogFragment() {
             }
         })
 
-        cart_recycler.layoutManager = LinearLayoutManager(context!!, LinearLayoutManager.VERTICAL, false)
+        cart_recycler.layoutManager =
+            LinearLayoutManager(context!!, LinearLayoutManager.VERTICAL, false)
     }
 
     override fun onDismiss(dialog: DialogInterface) {

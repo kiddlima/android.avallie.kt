@@ -7,6 +7,8 @@
 
         <import type="com.avallie.model.Customer" />
 
+        <import type="com.avallie.model.ScreenState" />
+
         <import type="com.avallie.view.register.RegisterScreen" />
 
         <variable
@@ -38,6 +40,7 @@
             app:layout_constraintTop_toTopOf="@id/guideline2" />
 
         <ScrollView
+            android:id="@+id/scroll_view"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:fillViewport="true"
@@ -52,10 +55,10 @@
 
                 <ImageButton
                     android:id="@+id/back_button"
-                    android:layout_width="24dp"
-                    android:layout_height="24dp"
-                    android:layout_margin="16dp"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
                     android:background="@color/transparent"
+                    android:padding="16dp"
                     android:src="@drawable/ic_arrow_back"
                     app:layout_constraintBottom_toBottomOf="@id/register_title"
                     app:layout_constraintStart_toStartOf="parent"
@@ -66,7 +69,6 @@
                     fontPath="Demi-bold.otf"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="8dp"
                     android:layout_marginTop="16dp"
                     android:text="@string/sing_up"
                     android:textColor="@android:color/black"
@@ -98,7 +100,8 @@
                     android:visibility="@{viewModel.registerScreen == RegisterScreen.FIRST ? View.VISIBLE : View.GONE}"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="@id/register_subtitle"
-                    app:layout_constraintTop_toBottomOf="@id/register_subtitle">
+                    app:layout_constraintTop_toBottomOf="@id/register_subtitle"
+                    tools:visibility="gone">
 
                     <com.google.android.material.textfield.TextInputLayout
                         android:id="@+id/name_container"
@@ -122,29 +125,51 @@
 
                     </com.google.android.material.textfield.TextInputLayout>
 
-                    <com.google.android.material.textfield.TextInputLayout
+                    <androidx.constraintlayout.widget.ConstraintLayout
                         android:id="@+id/cpf_container"
-                        fontPath="Regular.otf"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="4dp"
-                        android:hint="@string/cpf"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@id/name_container">
 
-                        <com.google.android.material.textfield.TextInputEditText
-                            android:id="@+id/register_cpf"
+                        <com.google.android.material.textfield.TextInputLayout
                             fontPath="Regular.otf"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:digits="0123456789.-"
-                            android:imeOptions="actionNext"
-                            android:inputType="number"
-                            android:maxLines="1"
-                            android:text="@={viewModel.customer.cpf}" />
+                            android:layout_marginTop="4dp"
+                            android:hint="@string/cpf"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent">
 
-                    </com.google.android.material.textfield.TextInputLayout>
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/register_cpf"
+                                fontPath="Regular.otf"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:digits="0123456789.-"
+                                android:imeOptions="actionNext"
+                                android:inputType="number"
+                                android:maxLines="1"
+                                android:paddingEnd="16dp"
+                                android:text="@={viewModel.customer.cpf}" />
+
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                        <ProgressBar
+                            android:layout_width="16dp"
+                            android:layout_height="16dp"
+                            android:layout_marginEnd="8dp"
+                            android:visibility="@{viewModel.validateCpfState == ScreenState.Loading ? View.VISIBLE : View.GONE}"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
 
                     <com.google.android.material.textfield.TextInputLayout
                         android:id="@+id/phone_container"
@@ -184,7 +209,8 @@
                     android:visibility="@{viewModel.registerScreen == RegisterScreen.SECOND ? View.VISIBLE : View.GONE}"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="@id/register_subtitle"
-                    app:layout_constraintTop_toBottomOf="@id/register_subtitle">
+                    app:layout_constraintTop_toBottomOf="@id/register_subtitle"
+                    tools:visibility="gone">
 
                     <com.google.android.material.textfield.TextInputLayout
                         android:id="@+id/company_container"
@@ -355,29 +381,48 @@
                     android:visibility="@{viewModel.registerScreen == RegisterScreen.THIRD ? View.VISIBLE : View.GONE}"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="@id/register_subtitle"
-                    app:layout_constraintTop_toBottomOf="@id/register_subtitle">
+                    app:layout_constraintTop_toBottomOf="@id/register_subtitle"
+                    tools:visibility="visible">
 
-                    <com.google.android.material.textfield.TextInputLayout
+                    <androidx.constraintlayout.widget.ConstraintLayout
                         android:id="@+id/email_container"
-                        fontPath="Regular.otf"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:hint="@string/cartInfo_email"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent">
 
-                        <com.google.android.material.textfield.TextInputEditText
-                            android:id="@+id/register_email"
+                        <com.google.android.material.textfield.TextInputLayout
                             fontPath="Regular.otf"
-                            android:layout_width="match_parent"
+                            android:layout_width="0dp"
                             android:layout_height="wrap_content"
-                            android:imeOptions="actionNext"
-                            android:inputType="textEmailAddress"
-                            android:maxLines="1"
-                            android:text="@={viewModel.customer.email}" />
+                            android:hint="@string/cartInfo_email"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent">
 
-                    </com.google.android.material.textfield.TextInputLayout>
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/register_email"
+                                fontPath="Regular.otf"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:imeOptions="actionNext"
+                                android:inputType="textEmailAddress"
+                                android:maxLines="1"
+                                android:text="@={viewModel.customer.email}" />
+
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                        <ProgressBar
+                            android:layout_width="16dp"
+                            android:layout_height="16dp"
+                            android:layout_marginEnd="8dp"
+                            android:visibility="@{viewModel.validateEmailState == ScreenState.Loading ? View.VISIBLE : View.GONE}"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
 
                     <com.google.android.material.textfield.TextInputLayout
                         android:id="@+id/password_container"

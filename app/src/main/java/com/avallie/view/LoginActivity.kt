@@ -3,9 +3,11 @@ package com.avallie.view
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
+import android.view.inputmethod.InputMethodManager
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
+
 import com.avallie.R
 import com.avallie.helpers.AppHelper.Companion.getErrorSnackbar
 import com.avallie.model.ScreenState
@@ -30,6 +32,11 @@ class LoginActivity : AppCompatActivity() {
 
         back_button.setOnClickListener {
             finish()
+        }
+
+        scroll_view.setOnTouchListener { v, event ->
+            val imm = getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager?
+            imm!!.hideSoftInputFromWindow(currentFocus.windowToken, 0)
         }
 
         btn_login.setOnClickListener {

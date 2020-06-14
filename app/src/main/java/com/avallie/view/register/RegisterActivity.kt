@@ -3,6 +3,8 @@ package com.avallie.view.register
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
+import android.view.View
+import android.view.inputmethod.InputMethodManager
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
@@ -16,9 +18,6 @@ import com.avallie.model.ScreenState
 import com.avallie.view.fragment.ProgressDialog
 import com.redmadrobot.inputmask.MaskedTextChangedListener
 import kotlinx.android.synthetic.main.activity_register.*
-import kotlinx.android.synthetic.main.fragment_cart.*
-import kotlinx.android.synthetic.main.fragment_cart.confirm_dead_line
-import kotlinx.android.synthetic.main.fragment_cart.view.*
 import kotlinx.android.synthetic.main.register_tracking.*
 import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper
 
@@ -40,11 +39,32 @@ class RegisterActivity : AppCompatActivity() {
         viewModel = ViewModelProviders.of(this).get(RegisterViewModel::class.java)
         binding.viewModel = viewModel
 
+        scroll_view.setOnTouchListener { v, event ->
+            val imm = getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager?
+            imm!!.hideSoftInputFromWindow(currentFocus.windowToken, 0)
+        }
+
         register_cpf.run {
             val listener = MaskedTextChangedListener("[000]{.}[000]{.}[000]{-}[00]", register_cpf)
 
             addTextChangedListener(listener)
             onFocusChangeListener = listener
+        }
+
+        register_cpf.onFocusChangeListener = View.OnFocusChangeListener { v, hasFocus ->
+            if (!hasFocus) {
+                register_cpf.error = null
+
+                viewModel.validateCpf(this)
+            }
+        }
+
+        register_email.onFocusChangeListener = View.OnFocusChangeListener { v, hasFocus ->
+            if (!hasFocus) {
+                register_email.error = null
+
+                viewModel.validateEmail(this)
+            }
         }
 
         register_phone.run {
@@ -68,6 +88,26 @@ class RegisterActivity : AppCompatActivity() {
         binding.backButton.setOnClickListener {
             finish()
         }
+
+        viewModel.validCpf.observe(this, Observer {
+            if (!it) {
+                register_cpf.error = "CPF já cadastrado"
+
+                Toast.makeText(this, "CPF já cadastrado", Toast.LENGTH_SHORT).show()
+            } else {
+                register_cpf.error = null
+            }
+        })
+
+        viewModel.validEmail.observe(this, Observer {
+            if (!it) {
+                register_email.error = "Email já cadastrado"
+
+                Toast.makeText(this, "Email já cadastrado", Toast.LENGTH_SHORT).show()
+            } else {
+                register_email.error = null
+            }
+        })
 
         viewModel.screenState.observe(this, Observer {
             when (it) {
@@ -127,7 +167,14 @@ class RegisterActivity : AppCompatActivity() {
     }
 
     private fun isFirstScreenValidate(): Boolean {
-        return !binding.registerName.text.isNullOrBlank() && !binding.registerCpf.text.isNullOrBlank() && !binding.registerPhone.text.isNullOrBlank()
+        return if (viewModel.validCpf.value == null) {
+            viewModel.validateCpf(this)
+
+            false
+        } else {
+            !binding.registerName.text.isNullOrBlank() && !binding.registerCpf.text.isNullOrBlank() && !binding.registerPhone.text.isNullOrBlank() && viewModel.validCpf.value!!
+        }
+
     }
 
     private fun isSecondScreenValidate(): Boolean {
@@ -135,21 +182,29 @@ class RegisterActivity : AppCompatActivity() {
     }
 
     private fun isThirdScreenValidate(): Boolean {
-        return if (!register_password.text.isNullOrBlank() && !register_confirm_password.text.isNullOrBlank()) {
-            if (register_password.text.toString() != register_confirm_password.text.toString()) {
-                showError(getString(R.string.passwords_not_matching))
-                false
-            } else {
-                !register_email.text.isNullOrBlank()
-            }
+        if (viewModel.validEmail.value == null) {
+            viewModel.validateEmail(this)
+
+            return false
         } else {
-            false
+            return if (!register_password.text.isNullOrBlank() && !register_confirm_password.text.isNullOrBlank()) {
+                if (register_password.text.toString() != register_confirm_password.text.toString()) {
+                    showError(getString(R.string.passwords_not_matching))
+                    false
+                } else {
+                    !register_email.text.isNullOrBlank()
+                }
+            } else {
+                false
+            }
         }
     }
 
     private fun goToFirstScreen() {
         viewModel.registerScreen.value = RegisterScreen.FIRST
         register_subtitle.text = getString(R.string.personal_info)
+
+        register_name.requestFocus()
 
         updateTracking()
     }
@@ -158,12 +213,16 @@ class RegisterActivity : AppCompatActivity() {
         viewModel.registerScreen.value = RegisterScreen.SECOND
         register_subtitle.text = getString(R.string.company_info)
 
+        register_company.requestFocus()
+
         updateTracking()
     }
 
     private fun goToThridScreen() {
         viewModel.registerScreen.value = RegisterScreen.THIRD
         register_subtitle.text = getString(R.string.access_info)
+
+        register_email.requestFocus()
 
         updateTracking()
     }

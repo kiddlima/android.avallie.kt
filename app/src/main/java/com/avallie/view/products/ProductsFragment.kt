@@ -23,6 +23,7 @@ import com.avallie.view.adapter.ActiveFiltersAdapter
 import com.avallie.view.adapter.ProductsAdapter
 import com.avallie.view.filter.FiltersActivity
 import com.avallie.view.fragment.AddProductDialog
+import com.avallie.widgets.NoDataContainer
 
 
 class ProductsFragment : Fragment() {
@@ -41,9 +42,18 @@ class ProductsFragment : Fragment() {
 
     lateinit var binding: FragmentProductsBinding
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
 
-        binding = DataBindingUtil.inflate(inflater, com.avallie.R.layout.fragment_products, container, false)
+        binding = DataBindingUtil.inflate(
+            inflater,
+            com.avallie.R.layout.fragment_products,
+            container,
+            false
+        )
         binding.lifecycleOwner = viewLifecycleOwner
         binding.model = this
 
@@ -74,8 +84,13 @@ class ProductsFragment : Fragment() {
             }
         }
 
+        binding.noDataContainer =
+            NoDataContainer("Nenhum produto encontrado", "Tente procurar por outro nome", true)
+
+
         binding.vProductsRecycler.setOnTouchListener { v, event ->
-            val imm = context!!.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager?
+            val imm =
+                context!!.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager?
             imm!!.hideSoftInputFromWindow(v.windowToken, 0)
 
             false
@@ -110,7 +125,8 @@ class ProductsFragment : Fragment() {
             AddProductDialog(context!!, it).showDialog()
         }
 
-        binding.vProductsRecycler.layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
+        binding.vProductsRecycler.layoutManager =
+            LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
 
         binding.searchUser.addTextChangedListener(object : TextWatcher {
             override fun afterTextChanged(s: Editable?) {

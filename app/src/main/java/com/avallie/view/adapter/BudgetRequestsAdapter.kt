@@ -13,7 +13,10 @@ import com.avallie.model.request.BudgetRequest
 
 typealias OnBudgetSelected = (budget: BudgetRequested) -> Unit
 
-class BudgetRequestsAdapter(private val context: Context, private val budgetsRequest: MutableList<BudgetRequested>) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
+class BudgetRequestsAdapter(
+    private val context: Context,
+    private val budgetsRequest: MutableList<BudgetRequested>
+) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
     private val item = 0
     private val header = 1
@@ -23,11 +26,13 @@ class BudgetRequestsAdapter(private val context: Context, private val budgetsReq
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         return when (viewType) {
             item -> {
-                val view = LayoutInflater.from(context).inflate(R.layout.budget_requested_item, parent, false)
+                val view = LayoutInflater.from(context)
+                    .inflate(R.layout.budget_requested_item, parent, false)
                 BudgetRequestedViewHolder(view)
             }
             else -> {
-                val view = LayoutInflater.from(context).inflate(R.layout.budget_requested_header, parent, false)
+                val view = LayoutInflater.from(context)
+                    .inflate(R.layout.budget_requested_header, parent, false)
                 BudgetRequestedHeaderViewHolder(view)
             }
         }
@@ -51,11 +56,17 @@ class BudgetRequestsAdapter(private val context: Context, private val budgetsReq
                     }
                 }
 
+                if (budgetsRequest.size == 1) {
+                    holder.bottomLine.visibility = View.GONE
+                    holder.topLine.visibility = View.GONE
+                }
+
                 val budget = budgetsRequest[position - 1]
 
                 holder.requestName.text = budget.budgetName
                 holder.requestDate.text = FormatterHelper.dateFromServer(budget.budgetDate)
-                holder.requestQuantity.text = if (budget.products?.size!! > 1) "${budget.products?.size} produtos" else "${budget.products?.size} produto"
+                holder.requestQuantity.text =
+                    if (budget.products?.size!! > 1) "${budget.products?.size} produtos" else "${budget.products?.size} produto"
 
             }
             else -> {
@@ -84,7 +95,8 @@ class BudgetRequestsAdapter(private val context: Context, private val budgetsReq
         }
     }
 
-    inner class BudgetRequestedHeaderViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+    inner class BudgetRequestedHeaderViewHolder(itemView: View) :
+        RecyclerView.ViewHolder(itemView) {
 
     }
 }

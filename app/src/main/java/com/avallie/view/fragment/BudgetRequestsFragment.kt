@@ -33,7 +33,11 @@ class BudgetRequestsFragment : BottomSheetDialogFragment() {
     private var btnResponseAction: Button? = null
     private var responseSubTitle: TextView? = null
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
         return inflater.inflate(R.layout.budget_requests_fragment, container, false)
     }
 
@@ -43,6 +47,8 @@ class BudgetRequestsFragment : BottomSheetDialogFragment() {
         responseContainer = view.findViewById<ConstraintLayout>(R.id.response_container)
         btnResponseAction = view.findViewById(R.id.btn_response_action)
         responseSubTitle = view.findViewById(R.id.response_subtitle)
+
+
 
         viewModel = ViewModelProviders.of(this).get(BudgetRequestsViewModel::class.java)
 
@@ -62,6 +68,13 @@ class BudgetRequestsFragment : BottomSheetDialogFragment() {
 
     private fun setBudgetsView() {
         progress_container.visibility = View.GONE
+
+        arguments?.getLong("budget_id")?.run {
+            if (this != -1L) {
+                goToDetail(viewModel.budgetsRequested.value?.single { budgetRequested -> budgetRequested.id == this }!!)
+            }
+        }
+
         setAdapter()
     }
 
@@ -89,18 +102,24 @@ class BudgetRequestsFragment : BottomSheetDialogFragment() {
         viewModel.getRequestedBudgets(context!!)
     }
 
+    private fun goToDetail(budgetRequested: BudgetRequested) {
+        activity?.let {
+            val intent = Intent(it, BudgetDetailActivity::class.java)
+            intent.putExtra("budget_request", budgetRequested)
+            it.startActivity(intent)
+        }
+    }
+
     private fun setAdapter() {
-        budgetRequestedAdapter = BudgetRequestsAdapter(context!!, viewModel.budgetsRequested.value!!)
+        budgetRequestedAdapter =
+            BudgetRequestsAdapter(context!!, viewModel.budgetsRequested.value!!)
         budgetRequestedAdapter.onBudgetSelected = { budgetRequested ->
-            activity?.let {
-                val intent = Intent(it, BudgetDetailActivity::class.java)
-                intent.putExtra("budget_request", budgetRequested)
-                it.startActivity(intent)
-            }
+            goToDetail(budgetRequested)
         }
 
         requests_recycler.adapter = budgetRequestedAdapter
-        requests_recycler.layoutManager = LinearLayoutManager(context!!, LinearLayoutManager.VERTICAL, false)
+        requests_recycler.layoutManager =
+            LinearLayoutManager(context!!, LinearLayoutManager.VERTICAL, false)
     }
 
     override fun onDismiss(dialog: DialogInterface) {

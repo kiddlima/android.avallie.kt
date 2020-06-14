@@ -12,7 +12,8 @@ class FormatterHelper {
             var formattedDateString = ""
 
             formatter.parse(date).run {
-                formattedDateString = SimpleDateFormat("dd/MM/yyyy", Locale.getDefault()).format(this)
+                formattedDateString =
+                    SimpleDateFormat("dd/MM/yyyy", Locale.getDefault()).format(this)
             }
 
             return formattedDateString
@@ -23,7 +24,8 @@ class FormatterHelper {
             var formattedDateString = ""
 
             formatter.parse(date).run {
-                formattedDateString = SimpleDateFormat("yyyy-MM-dd", Locale.getDefault()).format(this)
+                formattedDateString =
+                    SimpleDateFormat("yyyy-MM-dd", Locale.getDefault()).format(this)
             }
 
             return formattedDateString
@@ -36,11 +38,7 @@ class FormatterHelper {
         }
 
         fun toCurrency(value: Double): String {
-            val format = NumberFormat.getCurrencyInstance()
-            format.maximumFractionDigits = 0
-            format.currency = Currency.getInstance("BRL")
-
-            return format.format(value)
+            return NumberFormat.getCurrencyInstance(Locale("pt", "BR")).format(value)
         }
     }
 

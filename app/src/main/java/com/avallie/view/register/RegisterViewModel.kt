@@ -18,16 +18,81 @@ class RegisterViewModel : ViewModel() {
 
     val customer = MutableLiveData<Customer>()
 
+    val validCpf = MutableLiveData<Boolean>()
+    val validEmail = MutableLiveData<Boolean>()
+
+    val validateCpfState = MutableLiveData<ScreenState>()
+    val validateEmailState = MutableLiveData<ScreenState>()
+
     init {
         customer.value = Customer()
+    }
+
+    private fun clearCpf() {
+        customer.value!!.cpf = customer.value!!.cpf?.replace("-", "")
+        customer.value!!.cpf = customer.value!!.cpf?.replace(".", "")
+    }
+
+    fun validateCpf(context: Context) {
+        clearCpf()
+
+        validateCpfState.value = ScreenState.Loading
+
+        HttpService(context).validateCpf(
+            customer.value!!.cpf!!,
+            object : ConnectionListener<Boolean> {
+                override fun onSuccess(response: Boolean) {
+                    validateCpfState.value = ScreenState.Success
+
+                    validCpf.value = response
+                }
+
+                override fun onFail(error: String?) {
+                    validateCpfState.value = ScreenState.Fail
+
+                    validCpf.value = false
+                }
+
+                override fun noInternet() {
+                    validateCpfState.value = ScreenState.Fail
+                    validCpf.value = false
+                }
+
+            })
+    }
+
+    fun validateEmail(context: Context) {
+        validateEmailState.value = ScreenState.Loading
+
+        HttpService(context).validateEmail(
+            customer.value!!.email!!,
+            object : ConnectionListener<Boolean> {
+                override fun onSuccess(response: Boolean) {
+                    validateEmailState.value = ScreenState.Success
+
+                    validEmail.value = response
+                }
+
+                override fun onFail(error: String?) {
+                    validateEmailState.value = ScreenState.Fail
+
+                    validEmail.value = false
+                }
+
+                override fun noInternet() {
+                    validateEmailState.value = ScreenState.Fail
+
+                    validEmail.value = false
+                }
+
+            })
     }
 
     fun register(context: Context) {
         customer.value!!.telephone = customer.value!!.telephone?.replace("-", "")
         customer.value!!.telephone = customer.value!!.telephone?.replace("(", "")
         customer.value!!.telephone = customer.value!!.telephone?.replace(")", "")
-        customer.value!!.cpf = customer.value!!.cpf?.replace("-", "")
-        customer.value!!.cpf = customer.value!!.cpf?.replace(".", "")
+        clearCpf()
         customer.value!!.zipCode = customer.value!!.zipCode?.replace("-", "")
 
         screenState.value = ScreenState.Loading

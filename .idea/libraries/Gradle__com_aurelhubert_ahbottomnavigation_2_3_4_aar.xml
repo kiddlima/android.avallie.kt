@@ -1,11 +1,11 @@
 <component name="libraryTable">
   <library name="Gradle: com.aurelhubert:ahbottomnavigation:2.3.4@aar">
     <ANNOTATIONS>
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/87d73b87a11a5b9a8c4f8a066d149996/ahbottomnavigation-2.3.4/annotations.zip!/" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/b420c3f4a28d0f414eebee965846b87a/jetified-ahbottomnavigation-2.3.4/annotations.zip!/" />
     </ANNOTATIONS>
     <CLASSES>
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/87d73b87a11a5b9a8c4f8a066d149996/ahbottomnavigation-2.3.4/jars/classes.jar!/" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/87d73b87a11a5b9a8c4f8a066d149996/ahbottomnavigation-2.3.4/res" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/b420c3f4a28d0f414eebee965846b87a/jetified-ahbottomnavigation-2.3.4/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/b420c3f4a28d0f414eebee965846b87a/jetified-ahbottomnavigation-2.3.4/res" />
     </CLASSES>
     <JAVADOC>
       <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.aurelhubert/ahbottomnavigation/2.3.4/86083322de83ab9a23a7d5eccc87f3bb60245010/ahbottomnavigation-2.3.4-javadoc.jar!/" />

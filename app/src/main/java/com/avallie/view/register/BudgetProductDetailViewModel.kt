@@ -22,27 +22,31 @@ class BudgetProductDetailViewModel : ViewModel() {
         screenState.value = ScreenState.Loading
 
         HttpService(context).getSelectedProductResponses(
-                requestedProduct.value!!.id.toString(),
-                object : ConnectionListener<MutableList<Budget>> {
-                    override fun onSuccess(response: MutableList<Budget>) {
-                        requestedProduct.value?.run {
+            requestedProduct.value!!.id.toString(),
+            object : ConnectionListener<MutableList<Budget>> {
+                override fun onSuccess(response: MutableList<Budget>) {
+                    requestedProduct.value?.run {
+                        if (response.isEmpty()) {
+                            screenState.value = ScreenState.NoData
+                        } else {
                             this.budgets = response
 
                             screenState.value = ScreenState.Success
                         }
                     }
+                }
 
-                    override fun onFail(error: String?) {
-                        errorMessage.value = error
+                override fun onFail(error: String?) {
+                    errorMessage.value = error
 
-                        screenState.value = ScreenState.Fail
-                    }
+                    screenState.value = ScreenState.Fail
+                }
 
-                    override fun noInternet() {
-                        errorMessage.value = context.getString(R.string.server_error)
+                override fun noInternet() {
+                    errorMessage.value = context.getString(R.string.server_error)
 
-                        screenState.value = ScreenState.Fail
-                    }
-                })
+                    screenState.value = ScreenState.Fail
+                }
+            })
     }
 }

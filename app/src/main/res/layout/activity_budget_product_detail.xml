@@ -11,6 +11,10 @@
         <import type="com.avallie.model.ScreenState" />
 
         <variable
+            name="noDataContainer"
+            type="com.avallie.widgets.NoDataContainer" />
+
+        <variable
             name="model"
             type="com.avallie.view.BudgetProductDetailActivity" />
 
@@ -36,11 +40,11 @@
 
             <ImageView
                 android:id="@+id/back_button"
-                android:layout_width="24dp"
-                android:layout_height="24dp"
-                android:layout_marginStart="16dp"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
                 android:layout_marginTop="18dp"
                 android:onClick="@{model::onBackPressed}"
+                android:padding="12dp"
                 android:src="@drawable/ic_arrow_back"
                 android:tint="@color/grayPrimary"
                 app:layout_constraintStart_toStartOf="parent"
@@ -49,14 +53,17 @@
             <TextView
                 android:id="@+id/product_detail_header"
                 fontPath="Demi-bold.otf"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
                 android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
+                android:ellipsize="end"
                 android:includeFontPadding="false"
+                android:maxLines="1"
                 android:textColor="@android:color/black"
-                android:textSize="28sp"
+                android:textSize="24sp"
                 app:layout_constraintBottom_toTopOf="@id/product_detail_subtitle"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@id/back_button"
                 app:layout_constraintTop_toTopOf="parent"
                 tools:text="Barra de aço" />
@@ -102,10 +109,16 @@
                     android:textAlignment="textStart"
                     android:textColor="@color/grayPrimaryDark"
                     android:textSize="14sp"
+                    android:visibility="@{viewModel.screenState == ScreenState.Success ? View.VISIBLE : View.GONE}"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/separator"
                     tools:text="Barra de aço com acabamento tal nas dimensões 70m x 90m x 2mm na cor preta. " />
+
+                <include
+                    layout="@layout/no_data_container"
+                    android:visibility="@{viewModel.screenState == ScreenState.NoData ? View.VISIBLE : View.GONE}"
+                    app:content="@{noDataContainer}" />
 
                 <TextView
                     android:id="@+id/product_detail_budgets_title"
@@ -115,7 +128,8 @@
                     android:layout_marginStart="16dp"
                     android:text="@string/budgets"
                     android:textColor="@color/grayPrimaryDarker"
-                    android:textSize="18sp" />
+                    android:textSize="18sp"
+                    android:visibility="@{viewModel.screenState == ScreenState.Success ? View.VISIBLE : View.GONE}" />
 
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/budgets_recycler"
@@ -151,12 +165,16 @@
                 </LinearLayout>
 
                 <include
-                    android:id="@+id/ops_layout"
-                    layout="@layout/ops_layout"
+                    layout="@layout/error_container"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:visibility="@{viewModel.screenState == ScreenState.Fail ? View.VISIBLE : View.GONE}"
-                    tools:visibility="gone" />
+                    app:description="@{viewModel.errorMessage}"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:onClick="@{() -> viewModel.getSelectedProductResponses(context)}" />
 
             </LinearLayout>
 

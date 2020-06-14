@@ -26,13 +26,12 @@
                 fontPath="Demi-bold.otf"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
                 android:layout_marginTop="16dp"
                 android:layout_marginEnd="16dp"
                 android:ellipsize="end"
                 android:maxLines="1"
                 android:textColor="@android:color/white"
-                android:textSize="28sp"
+                android:textSize="24sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@id/close_detail"
                 app:layout_constraintTop_toTopOf="parent"
@@ -40,8 +39,9 @@
 
             <ImageView
                 android:id="@+id/close_detail"
-                android:layout_width="24dp"
-                android:layout_height="24dp"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:padding="12dp"
                 android:src="@drawable/ic_arrow_back"
                 android:tint="@android:color/white"
                 app:layout_constraintBottom_toBottomOf="@id/budget_name"
@@ -83,7 +83,6 @@
                 app:layout_constraintStart_toStartOf="@id/deadline_label"
                 app:layout_constraintTop_toBottomOf="@id/deadline_label"
                 tools:text="01/03/2019" />
-
 
             <View
                 android:id="@+id/separator"

@@ -87,7 +87,7 @@ class ProductsAdapter(
 
         init {
             itemView.setOnClickListener {
-                onProductClick?.invoke(products[adapterPosition])
+                onProductClick?.invoke(filteredProducts[adapterPosition])
             }
         }
 

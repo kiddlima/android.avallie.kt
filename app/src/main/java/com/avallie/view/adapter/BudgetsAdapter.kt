@@ -18,7 +18,9 @@ class BudgetsAdapter(private val context: Context, private val budgets: MutableL
     RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
-        return BudgetViewHolder(LayoutInflater.from(context).inflate(R.layout.budget_detail_item, parent, false))
+        return BudgetViewHolder(
+            LayoutInflater.from(context).inflate(R.layout.budget_detail_item, parent, false)
+        )
     }
 
     override fun getItemCount(): Int = budgets.size
@@ -28,7 +30,8 @@ class BudgetsAdapter(private val context: Context, private val budgets: MutableL
 
         val budget = budgets[position]
 
-        val background = if (position % 2 == 0) R.drawable.budget_blue_shape else R.drawable.budget_green_shape
+        val background =
+            if (position % 2 == 0) R.drawable.budget_blue_shape else R.drawable.budget_green_shape
 
         holder.headerContainer.background = ContextCompat.getDrawable(context, background)
 
@@ -36,7 +39,7 @@ class BudgetsAdapter(private val context: Context, private val budgets: MutableL
         holder.totalPrice.text = toCurrency(budget.totalPrice)
         holder.paymentOption.text = budget.paymentOption
         holder.addressOption.text =
-            budget.deliveryOption + "\n Frete: ${toCurrency(budget.shippingPrice)} (já incluso) - ${budget.productStatus}"
+            budget.deliveryOption + "\n Frete: ${toCurrency(budget.shippingPrice)} (não incluso) - ${budget.productStatus}"
     }
 
     inner class BudgetViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
@@ -56,7 +59,8 @@ class BudgetsAdapter(private val context: Context, private val budgets: MutableL
         init {
             paymentContainer.findViewById<TextView>(R.id.first_line).text =
                 context.getString(R.string.payment_type_label)
-            deliveryContainer.findViewById<TextView>(R.id.first_line).text = context.getString(R.string.delivery_label)
+            deliveryContainer.findViewById<TextView>(R.id.first_line).text =
+                context.getString(R.string.delivery_label)
             paymentContainer.findViewById<ImageView>(R.id.icon)
                 .setImageDrawable(ContextCompat.getDrawable(context, R.drawable.ic_credit_cards))
             deliveryContainer.findViewById<ImageView>(R.id.icon)

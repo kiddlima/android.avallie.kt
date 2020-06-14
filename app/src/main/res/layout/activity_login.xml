@@ -9,6 +9,7 @@
     tools:context=".view.LoginActivity">
 
     <ScrollView
+        android:id="@+id/scroll_view"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:fillViewport="true"
@@ -23,11 +24,12 @@
 
             <ImageView
                 android:id="@+id/back_button"
-                android:layout_width="24dp"
-                android:layout_height="24dp"
-                android:layout_margin="16dp"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:layout_margin="4dp"
+                android:padding="12dp"
                 android:src="@drawable/ic_arrow_back"
-                android:tint="@color/grayLight"
+                android:tint="@android:color/black"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 

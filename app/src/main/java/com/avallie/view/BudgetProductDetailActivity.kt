@@ -2,7 +2,6 @@ package com.avallie.view
 
 import android.content.Context
 import android.os.Bundle
-import android.os.Handler
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
@@ -10,13 +9,11 @@ import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.avallie.databinding.ActivityBudgetProductDetailBinding
-import com.avallie.model.Budget
-import com.avallie.model.ScreenState
 import com.avallie.model.RequestedProduct
+import com.avallie.model.ScreenState
 import com.avallie.view.adapter.BudgetsAdapter
-import com.avallie.view.filter.FilterViewModel
 import com.avallie.view.register.BudgetProductDetailViewModel
-import kotlinx.android.synthetic.main.activity_budget_product_detail.*
+import com.avallie.widgets.NoDataContainer
 import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper
 
 class BudgetProductDetailActivity : AppCompatActivity() {
@@ -41,7 +38,8 @@ class BudgetProductDetailActivity : AppCompatActivity() {
 
         viewModel = ViewModelProviders.of(this).get(BudgetProductDetailViewModel::class.java)
 
-        viewModel.requestedProduct.value = intent.getSerializableExtra(SELECTED_PRODUCT) as RequestedProduct
+        viewModel.requestedProduct.value =
+            intent.getSerializableExtra(SELECTED_PRODUCT) as RequestedProduct
 
         viewModel.getSelectedProductResponses(this)
 
@@ -54,9 +52,15 @@ class BudgetProductDetailActivity : AppCompatActivity() {
         binding.model = this
         binding.viewModel = viewModel
 
+        binding.noDataContainer = NoDataContainer(
+            "Nenhum orçamento disponível ainda!",
+            "Enviaremos uma notificação assim que algum fornecedor responder"
+        )
+
         setContentView(binding.root)
 
-        binding.productDetailHeader.text = viewModel.requestedProduct.value!!.product.name.toLowerCase().capitalize()
+        binding.productDetailHeader.text =
+            viewModel.requestedProduct.value!!.product.name.toLowerCase().capitalize()
 
         recyclerView = binding.budgetsRecycler
     }

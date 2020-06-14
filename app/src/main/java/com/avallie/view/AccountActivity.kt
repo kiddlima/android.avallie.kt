@@ -1,6 +1,7 @@
 package com.avallie.view
 
 import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProviders
@@ -31,6 +32,8 @@ class AccountActivity : AppCompatActivity() {
             PaperHelper.clearCustomer()
 
             AuthHelper.logout()
+
+            startActivity(Intent(this, LoginActivity::class.java))
 
             finish()
         }

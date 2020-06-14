@@ -42,8 +42,9 @@
 
                     <ImageView
                         android:id="@+id/back_button"
-                        android:layout_width="24dp"
-                        android:layout_height="24dp"
+                        android:layout_width="48dp"
+                        android:layout_height="48dp"
+                        android:padding="12dp"
                         android:src="@drawable/ic_arrow_back"
                         app:layout_constraintBottom_toBottomOf="@id/title"
                         app:layout_constraintStart_toStartOf="parent"
@@ -54,11 +55,11 @@
                         fontPath="Demi-bold.otf"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="8dp"
                         android:text="@string/my_account"
                         android:textColor="@android:color/black"
                         android:textSize="32sp"
-                        app:layout_constraintStart_toEndOf="@id/back_button" />
+                        app:layout_constraintStart_toEndOf="@id/back_button"
+                        app:layout_constraintTop_toTopOf="parent" />
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
 

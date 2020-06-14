@@ -28,7 +28,7 @@ interface Services {
     fun requestBudget(
         @Header("Authorization") token: String,
         @Body budgetRequest: BudgetRequest
-    ): Call<ApiResponse<Any>>
+    ): Call<ApiResponse<BudgetRequested>>
 
     @GET("v1/budget-requests")
     fun getBudgetsRequested(
@@ -51,4 +51,14 @@ interface Services {
         @Header("Authorization") token: String,
         @Path("selected-product-id") selectedProductId: String
     ): Call<ApiResponse<MutableList<Budget>>>
+
+    @GET("v1/customers/cpf/{cpf}")
+    fun validateCpf(
+        @Path("cpf") cpf: String
+    ): Call<ApiResponse<Boolean>>
+
+    @GET("v1/customers/email/{email}")
+    fun validateEmail(
+        @Path("email") email: String
+    ): Call<ApiResponse<Boolean>>
 }
