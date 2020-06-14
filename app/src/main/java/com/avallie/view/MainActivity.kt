@@ -16,10 +16,6 @@ import com.avallie.model.BudgetNotificationData
 import com.avallie.view.fragment.BudgetRequestsFragment
 import com.avallie.view.fragment.CartFragment
 import com.avallie.view.products.ProductsFragment
-import com.google.android.gms.tasks.OnSuccessListener
-import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.iid.FirebaseInstanceId
-import com.google.firebase.iid.InstanceIdResult
 import kotlinx.android.synthetic.main.activity_main.*
 import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper
 
@@ -31,21 +27,27 @@ class MainActivity : AppCompatActivity() {
 
     private var productsFragment: ProductsFragment? = null
 
-    private var budgetNotificationData: BudgetNotificationData? = null
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        intent.getSerializableExtra("budget_notification_data")?.run {
-            budgetNotificationData = this as BudgetNotificationData
-
-            budgetNotificationData?.run {
-                openBudgetsSheet(this.budgetId)
+        intent.getStringExtra("budgetId")?.let { budgetId ->
+            intent.getStringExtra("selectedProductId")?.let { selectedProductId ->
+                openBudgetsSheet(budgetId.toLong(), selectedProductId.toLong())
             }
         }
 
         createMenu()
+    }
+
+    override fun onNewIntent(intent: Intent?) {
+        super.onNewIntent(intent)
+
+        intent?.getStringExtra("budgetId")?.let { budgetId ->
+            intent.getStringExtra("selectedProductId")?.let { selectedProductId ->
+                openBudgetsSheet(budgetId.toLong(), selectedProductId.toLong())
+            }
+        }
     }
 
     override fun onResume() {
@@ -114,7 +116,7 @@ class MainActivity : AppCompatActivity() {
                         }
                     }
                     1 -> openCartSheet()
-                    2 -> openBudgetsSheet(null)
+                    2 -> openBudgetsSheet(null, null)
                     3 -> openAccount()
                 }
 
@@ -136,17 +138,22 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    fun openBudgetsSheet(budgetId: Long?) {
+    fun openBudgetsSheet(budgetId: Long?, selectedProductId: Long?) {
         if (AuthHelper.isLoggedIn()) {
             val budgetRequestsFragment = BudgetRequestsFragment()
 
             val bundle = Bundle()
 
             if (budgetId != null) {
-
                 bundle.putLong("budget_id", budgetId)
             } else {
                 bundle.putLong("budget_id", -1)
+            }
+
+            if (selectedProductId != null) {
+                bundle.putLong("selected_product_id", selectedProductId)
+            } else {
+                bundle.putLong("selected_product_id", -1)
             }
 
             budgetRequestsFragment.arguments = bundle

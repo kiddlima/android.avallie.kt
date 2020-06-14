@@ -6,138 +6,130 @@
     android:layout_height="match_parent"
     tools:context=".view.BudgetDetailActivity">
 
-    <androidx.appcompat.widget.Toolbar
-        android:id="@+id/toolbar"
-        android:layout_width="0dp"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
         android:layout_height="210dp"
         android:background="@drawable/toolbar_detail_background"
-        android:elevation="5dp"
-        android:translationZ="5dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
+        <TextView
+            android:id="@+id/budget_name"
+            fontPath="Demi-bold.otf"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:textColor="@android:color/white"
+            android:textSize="24sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/close_detail"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Materiais para banheiro" />
 
-            <TextView
-                android:id="@+id/budget_name"
-                fontPath="Demi-bold.otf"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:layout_marginEnd="16dp"
-                android:ellipsize="end"
-                android:maxLines="1"
-                android:textColor="@android:color/white"
-                android:textSize="24sp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@id/close_detail"
-                app:layout_constraintTop_toTopOf="parent"
-                tools:text="Materiais para banheiro" />
+        <ImageView
+            android:id="@+id/close_detail"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:padding="12dp"
+            android:src="@drawable/ic_arrow_back"
+            android:tint="@android:color/white"
+            app:layout_constraintBottom_toBottomOf="@id/budget_name"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/budget_name" />
 
-            <ImageView
-                android:id="@+id/close_detail"
-                android:layout_width="48dp"
-                android:layout_height="48dp"
-                android:padding="12dp"
-                android:src="@drawable/ic_arrow_back"
-                android:tint="@android:color/white"
-                app:layout_constraintBottom_toBottomOf="@id/budget_name"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="@id/budget_name" />
+        <ImageView
+            android:id="@+id/deadline_icon"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:alpha="0.5"
+            android:src="@drawable/ic_calendar"
+            android:tint="@android:color/white"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/budget_name" />
 
-            <ImageView
-                android:id="@+id/deadline_icon"
-                android:layout_width="24dp"
-                android:layout_height="24dp"
-                android:layout_marginTop="16dp"
-                android:alpha="0.5"
-                android:src="@drawable/ic_calendar"
-                android:tint="@android:color/white"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/budget_name" />
+        <TextView
+            android:id="@+id/deadline_label"
+            fontPath="Regular.otf"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:text="@string/cartInfo_deadline_info"
+            android:textColor="#1a5071"
+            android:textSize="12sp"
+            app:layout_constraintBottom_toTopOf="@id/deadline_detail"
+            app:layout_constraintStart_toEndOf="@id/deadline_icon"
+            app:layout_constraintTop_toTopOf="@id/deadline_icon" />
 
-            <TextView
-                android:id="@+id/deadline_label"
-                fontPath="Regular.otf"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:text="@string/cartInfo_deadline_info"
-                android:textColor="#1a5071"
-                android:textSize="12sp"
-                app:layout_constraintBottom_toTopOf="@id/deadline_detail"
-                app:layout_constraintStart_toEndOf="@id/deadline_icon"
-                app:layout_constraintTop_toTopOf="@id/deadline_icon" />
+        <TextView
+            android:id="@+id/deadline_detail"
+            fontPath="Medium.otf"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@android:color/white"
+            android:textSize="13sp"
+            app:layout_constraintBottom_toBottomOf="@id/deadline_icon"
+            app:layout_constraintStart_toStartOf="@id/deadline_label"
+            app:layout_constraintTop_toBottomOf="@id/deadline_label"
+            tools:text="01/03/2019" />
 
-            <TextView
-                android:id="@+id/deadline_detail"
-                fontPath="Medium.otf"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textColor="@android:color/white"
-                android:textSize="13sp"
-                app:layout_constraintBottom_toBottomOf="@id/deadline_icon"
-                app:layout_constraintStart_toStartOf="@id/deadline_label"
-                app:layout_constraintTop_toBottomOf="@id/deadline_label"
-                tools:text="01/03/2019" />
+        <View
+            android:id="@+id/separator"
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_margin="16dp"
+            android:alpha="0.3"
+            android:background="#f3f3f3"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/deadline_icon" />
 
-            <View
-                android:id="@+id/separator"
-                android:layout_width="0dp"
-                android:layout_height="1dp"
-                android:layout_margin="16dp"
-                android:alpha="0.3"
-                android:background="#f3f3f3"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/deadline_icon" />
+        <ImageView
+            android:id="@+id/address_icon"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginTop="16dp"
+            android:alpha="0.5"
+            android:src="@drawable/ic_location"
+            android:tint="@android:color/white"
+            app:layout_constraintStart_toStartOf="@id/deadline_icon"
+            app:layout_constraintTop_toBottomOf="@id/separator" />
 
-            <ImageView
-                android:id="@+id/address_icon"
-                android:layout_width="24dp"
-                android:layout_height="24dp"
-                android:layout_marginTop="16dp"
-                android:alpha="0.5"
-                android:src="@drawable/ic_location"
-                android:tint="@android:color/white"
-                app:layout_constraintStart_toStartOf="@id/deadline_icon"
-                app:layout_constraintTop_toBottomOf="@id/separator" />
+        <TextView
+            android:id="@+id/address_label"
+            fontPath="Regular.otf"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:text="@string/delivery_address"
+            android:textColor="#1a5071"
+            android:textSize="12sp"
+            app:layout_constraintBottom_toTopOf="@id/address_detail"
+            app:layout_constraintStart_toEndOf="@id/address_icon"
+            app:layout_constraintTop_toTopOf="@id/address_icon" />
 
-            <TextView
-                android:id="@+id/address_label"
-                fontPath="Regular.otf"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:text="@string/delivery_address"
-                android:textColor="#1a5071"
-                android:textSize="12sp"
-                app:layout_constraintBottom_toTopOf="@id/address_detail"
-                app:layout_constraintStart_toEndOf="@id/address_icon"
-                app:layout_constraintTop_toTopOf="@id/address_icon" />
+        <TextView
+            android:id="@+id/address_detail"
+            fontPath="Medium.otf"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:maxLines="2"
+            android:textColor="@android:color/white"
+            android:textSize="13sp"
+            app:layout_constraintBottom_toBottomOf="@id/address_icon"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/address_icon"
+            app:layout_constraintTop_toBottomOf="@id/address_label"
+            tools:text="Avenida Polar, 415 - 91040550 Porto Alegre, Rio Grande do Sul" />
 
-            <TextView
-                android:id="@+id/address_detail"
-                fontPath="Medium.otf"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginEnd="16dp"
-                android:maxLines="2"
-                android:textColor="@android:color/white"
-                android:textSize="13sp"
-                app:layout_constraintBottom_toBottomOf="@id/address_icon"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@id/address_icon"
-                app:layout_constraintTop_toBottomOf="@id/address_label"
-                tools:text="Avenida Polar, 415 - 91040550 Porto Alegre, Rio Grande do Sul" />
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
-
-    </androidx.appcompat.widget.Toolbar>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/budget_products_recycler"

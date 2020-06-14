@@ -34,13 +34,8 @@ class MyFirebaseInstanceIDService : FirebaseMessagingService() {
 
         when (getNotificationType(message)) {
             NotificationType.BUDGET_RECEIVED -> {
-                intent.putExtra(
-                    "budget_notification_data",
-                    BudgetNotificationData(
-                        message.data["budgetId"]!!.toLong(),
-                        message.data["selectedProductId"]!!.toLong()
-                    )
-                )
+                intent.putExtra("budgetId", message.data["budgetId"])
+                intent.putExtra("selectedProductId", message.data["selectedProductId"])
             }
             else -> {
 

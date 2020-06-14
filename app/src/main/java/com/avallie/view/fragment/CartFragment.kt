@@ -200,7 +200,7 @@ class CartFragment : BottomSheetDialogFragment() {
         btn_response_action.setOnClickListener {
             dismiss()
 
-            (activity as MainActivity).openBudgetsSheet(viewModel.budgetRequested.value!!.id)
+            (activity as MainActivity).openBudgetsSheet(viewModel.budgetRequested.value!!.id, null)
         }
     }
 

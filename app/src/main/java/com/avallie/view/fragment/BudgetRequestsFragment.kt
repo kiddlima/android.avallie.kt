@@ -17,6 +17,7 @@ import com.avallie.R
 import com.avallie.model.BudgetRequested
 import com.avallie.model.ScreenState
 import com.avallie.view.BudgetDetailActivity
+import com.avallie.view.BudgetProductDetailActivity
 import com.avallie.view.MainActivity
 import com.avallie.view.adapter.BudgetRequestsAdapter
 import com.google.android.material.bottomsheet.BottomSheetBehavior
@@ -48,8 +49,6 @@ class BudgetRequestsFragment : BottomSheetDialogFragment() {
         btnResponseAction = view.findViewById(R.id.btn_response_action)
         responseSubTitle = view.findViewById(R.id.response_subtitle)
 
-
-
         viewModel = ViewModelProviders.of(this).get(BudgetRequestsViewModel::class.java)
 
         viewModel.screenState.value = ScreenState.Loading
@@ -71,7 +70,10 @@ class BudgetRequestsFragment : BottomSheetDialogFragment() {
 
         arguments?.getLong("budget_id")?.run {
             if (this != -1L) {
-                goToDetail(viewModel.budgetsRequested.value?.single { budgetRequested -> budgetRequested.id == this }!!)
+                goToDetail(
+                    viewModel.budgetsRequested.value?.single { budgetRequested -> budgetRequested.id == this }!!,
+                    arguments?.getLong("selected_product_id")
+                )
             }
         }
 
@@ -102,11 +104,20 @@ class BudgetRequestsFragment : BottomSheetDialogFragment() {
         viewModel.getRequestedBudgets(context!!)
     }
 
-    private fun goToDetail(budgetRequested: BudgetRequested) {
-        activity?.let {
-            val intent = Intent(it, BudgetDetailActivity::class.java)
-            intent.putExtra("budget_request", budgetRequested)
-            it.startActivity(intent)
+    private fun goToDetail(budgetRequested: BudgetRequested, selectedProductId: Long?) {
+        if (selectedProductId != null) {
+            startActivity(Intent(activity, BudgetProductDetailActivity::class.java)
+                .putExtra(
+                    "selected-product",
+                    budgetRequested.products!!.single { selectedProduct -> selectedProduct.id == selectedProductId }
+                )
+            )
+        } else {
+            activity?.let {
+                val intent = Intent(it, BudgetDetailActivity::class.java)
+                intent.putExtra("budget_request", budgetRequested)
+                it.startActivity(intent)
+            }
         }
     }
 
@@ -114,7 +125,7 @@ class BudgetRequestsFragment : BottomSheetDialogFragment() {
         budgetRequestedAdapter =
             BudgetRequestsAdapter(context!!, viewModel.budgetsRequested.value!!)
         budgetRequestedAdapter.onBudgetSelected = { budgetRequested ->
-            goToDetail(budgetRequested)
+            goToDetail(budgetRequested, null)
         }
 
         requests_recycler.adapter = budgetRequestedAdapter
