@@ -27,6 +27,7 @@ class AccountActivity : AppCompatActivity() {
         viewModel.getCustomer(this)
 
         binding.viewModel = viewModel
+        binding.activity = this
 
         binding.logoutButton.setOnClickListener {
             PaperHelper.clearCustomer()
@@ -35,10 +36,6 @@ class AccountActivity : AppCompatActivity() {
 
             startActivity(Intent(this, LoginActivity::class.java))
 
-            finish()
-        }
-
-        binding.backButton.setOnClickListener {
             finish()
         }
 

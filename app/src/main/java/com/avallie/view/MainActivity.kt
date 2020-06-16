@@ -140,25 +140,14 @@ class MainActivity : AppCompatActivity() {
 
     fun openBudgetsSheet(budgetId: Long?, selectedProductId: Long?) {
         if (AuthHelper.isLoggedIn()) {
-            val budgetRequestsFragment = BudgetRequestsFragment()
+            intent.putExtra("budget_id", budgetId)
 
-            val bundle = Bundle()
+            startActivity(
+                Intent(this, RequestedBudgetsActivity::class.java)
+                    .putExtra("budget_id", budgetId)
+                    .putExtra("selected_product_id", selectedProductId)
+            )
 
-            if (budgetId != null) {
-                bundle.putLong("budget_id", budgetId)
-            } else {
-                bundle.putLong("budget_id", -1)
-            }
-
-            if (selectedProductId != null) {
-                bundle.putLong("selected_product_id", selectedProductId)
-            } else {
-                bundle.putLong("selected_product_id", -1)
-            }
-
-            budgetRequestsFragment.arguments = bundle
-
-            budgetRequestsFragment.show(supportFragmentManager, "budgetSheet")
         } else {
             startActivity(Intent(this, LoginActivity::class.java))
         }

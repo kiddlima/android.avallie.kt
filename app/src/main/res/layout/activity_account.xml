@@ -13,21 +13,35 @@
             name="viewModel"
             type="com.avallie.view.AccountViewModel" />
 
+        <variable
+            name="activity"
+            type="com.avallie.view.AccountActivity" />
+
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:background="@android:color/white">
+
+        <include
+            android:id="@+id/toolbar"
+            layout="@layout/custom_toolbar"
+            app:backClick="@{() -> activity.finish()}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:title="@{@string/my_account}" />
 
         <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="0dp"
             android:visibility="@{viewModel.screenState == ScreenState.Success ? View.VISIBLE : View.GONE}"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
+            app:layout_constraintTop_toBottomOf="@id/toolbar">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -36,38 +50,10 @@
                 android:padding="16dp"
                 tools:context=".view.AccountActivity">
 
-                <androidx.constraintlayout.widget.ConstraintLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content">
-
-                    <ImageView
-                        android:id="@+id/back_button"
-                        android:layout_width="48dp"
-                        android:layout_height="48dp"
-                        android:padding="12dp"
-                        android:src="@drawable/ic_arrow_back"
-                        app:layout_constraintBottom_toBottomOf="@id/title"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="@id/title" />
-
-                    <TextView
-                        android:id="@+id/title"
-                        fontPath="Demi-bold.otf"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/my_account"
-                        android:textColor="@android:color/black"
-                        android:textSize="32sp"
-                        app:layout_constraintStart_toEndOf="@id/back_button"
-                        app:layout_constraintTop_toTopOf="parent" />
-
-                </androidx.constraintlayout.widget.ConstraintLayout>
-
                 <TextView
                     fontPath="Regular.otf"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="32dp"
                     android:text="@string/name_label"
                     android:textColor="@color/grayPrimary"
                     android:textSize="14sp" />

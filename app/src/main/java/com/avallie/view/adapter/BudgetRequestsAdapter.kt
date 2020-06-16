@@ -9,7 +9,6 @@ import androidx.recyclerview.widget.RecyclerView
 import com.avallie.R
 import com.avallie.helpers.FormatterHelper
 import com.avallie.model.BudgetRequested
-import com.avallie.model.request.BudgetRequest
 
 typealias OnBudgetSelected = (budget: BudgetRequested) -> Unit
 
@@ -18,67 +17,41 @@ class BudgetRequestsAdapter(
     private val budgetsRequest: MutableList<BudgetRequested>
 ) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
-    private val item = 0
-    private val header = 1
-
     var onBudgetSelected: OnBudgetSelected? = null
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
-        return when (viewType) {
-            item -> {
-                val view = LayoutInflater.from(context)
-                    .inflate(R.layout.budget_requested_item, parent, false)
-                BudgetRequestedViewHolder(view)
-            }
-            else -> {
-                val view = LayoutInflater.from(context)
-                    .inflate(R.layout.budget_requested_header, parent, false)
-                BudgetRequestedHeaderViewHolder(view)
-            }
-        }
+        val view = LayoutInflater.from(context)
+            .inflate(R.layout.budget_requested_item, parent, false)
+        return BudgetRequestedViewHolder(view)
     }
 
     override fun getItemCount(): Int {
-        return budgetsRequest.size + 1
+        return budgetsRequest.size
     }
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
-        when (getItemViewType(position)) {
-            item -> {
-                holder as BudgetRequestedViewHolder
+        holder as BudgetRequestedViewHolder
 
-                when (position) {
-                    1 -> holder.topLine.visibility = View.GONE
-                    budgetsRequest.size -> holder.bottomLine.visibility = View.GONE
-                    else -> {
-                        holder.bottomLine.visibility = View.VISIBLE
-                        holder.topLine.visibility = View.VISIBLE
-                    }
-                }
-
-                if (budgetsRequest.size == 1) {
-                    holder.bottomLine.visibility = View.GONE
-                    holder.topLine.visibility = View.GONE
-                }
-
-                val budget = budgetsRequest[position - 1]
-
-                holder.requestName.text = budget.budgetName
-                holder.requestDate.text = FormatterHelper.dateFromServer(budget.budgetDate)
-                holder.requestQuantity.text =
-                    if (budget.products?.size!! > 1) "${budget.products?.size} produtos" else "${budget.products?.size} produto"
-
-            }
+        when (position) {
+            0 -> holder.topLine.visibility = View.GONE
+            budgetsRequest.size - 1 -> holder.bottomLine.visibility = View.GONE
             else -> {
-
+                holder.bottomLine.visibility = View.VISIBLE
+                holder.topLine.visibility = View.VISIBLE
             }
         }
 
+        if (budgetsRequest.size == 1) {
+            holder.bottomLine.visibility = View.GONE
+            holder.topLine.visibility = View.GONE
+        }
 
-    }
+        val budget = budgetsRequest[position]
 
-    override fun getItemViewType(position: Int): Int {
-        return if (position == 0) header else item
+        holder.requestName.text = budget.budgetName
+        holder.requestDate.text = FormatterHelper.dateFromServer(budget.budgetDate)
+        holder.requestQuantity.text =
+            if (budget.products?.size!! > 1) "${budget.products?.size} produtos" else "${budget.products?.size} produto"
     }
 
     inner class BudgetRequestedViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
@@ -95,8 +68,4 @@ class BudgetRequestsAdapter(
         }
     }
 
-    inner class BudgetRequestedHeaderViewHolder(itemView: View) :
-        RecyclerView.ViewHolder(itemView) {
-
-    }
 }

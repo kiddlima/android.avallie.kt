@@ -20,12 +20,15 @@ import com.avallie.model.request.BudgetRequest
 import com.avallie.view.LoginActivity
 import com.avallie.view.MainActivity
 import com.avallie.view.adapter.CartAdapter
+import com.google.android.material.bottomsheet.BottomSheetBehavior
+import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import com.redmadrobot.inputmask.MaskedTextChangedListener
 import kotlinx.android.synthetic.main.fragment_cart.*
 import kotlinx.android.synthetic.main.fragment_cart.view.*
 import java.text.SimpleDateFormat
 import java.util.*
+
 
 class CartFragment : BottomSheetDialogFragment() {
 
@@ -55,6 +58,13 @@ class CartFragment : BottomSheetDialogFragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        dialog!!.setOnShowListener { dialog ->
+            val d = dialog as BottomSheetDialog
+            val bottomSheetInternal =
+                d.findViewById<View>(com.google.android.material.R.id.design_bottom_sheet)
+            BottomSheetBehavior.from(bottomSheetInternal).state = BottomSheetBehavior.STATE_EXPANDED
+        }
 
         viewModel = ViewModelProviders.of(this).get(CartViewModel::class.java)
 

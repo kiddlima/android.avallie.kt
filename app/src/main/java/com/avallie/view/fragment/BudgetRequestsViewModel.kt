@@ -18,10 +18,15 @@ class BudgetRequestsViewModel : ViewModel() {
     val budgetsRequested = MutableLiveData<MutableList<BudgetRequested>>()
 
     fun getRequestedBudgets(context: Context) {
-        HttpService(context).getBudgetsRequested(object : ConnectionListener<MutableList<BudgetRequested>> {
+        HttpService(context).getBudgetsRequested(object :
+            ConnectionListener<MutableList<BudgetRequested>> {
             override fun onSuccess(response: MutableList<BudgetRequested>) {
-                budgetsRequested.value = response
-                screenState.value = ScreenState.Success
+                if (response.isEmpty()) {
+                    screenState.value = ScreenState.NoData
+                } else {
+                    budgetsRequested.value = response
+                    screenState.value = ScreenState.Success
+                }
             }
 
             override fun onFail(error: String?) {
