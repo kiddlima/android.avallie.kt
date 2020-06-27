@@ -198,6 +198,24 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="16dp"
+                    android:text="@string/additional_address_hint"
+                    android:textColor="@color/grayPrimary"
+                    android:textSize="14sp" />
+
+                <TextView
+                    fontPath="Medium.otf"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@{viewModel.customer.additionalAddress}"
+                    android:textColor="@color/grayPrimaryDarker"
+                    android:textSize="16sp"
+                    tools:text="Casa" />
+
+                <TextView
+                    fontPath="Regular.otf"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
                     android:text="@string/cartInfo_city_hint"
                     android:textColor="@color/grayPrimary"
                     android:textSize="14sp" />

@@ -52,6 +52,12 @@ class BudgetProductDetailActivity : AppCompatActivity() {
         binding.model = this
         binding.viewModel = viewModel
 
+        viewModel.requestedProduct.value?.specifications =
+            viewModel.requestedProduct.value?.specifications?.replace(":", ": ")!!
+
+        binding.productDetailDescription.text =
+            viewModel.requestedProduct.value?.specifications?.replace(";", "\n")
+
         binding.noDataContainer = NoDataContainer(
             "Nenhum orçamento disponível ainda!",
             "Enviaremos uma notificação assim que algum fornecedor responder"

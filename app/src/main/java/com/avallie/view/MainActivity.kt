@@ -13,6 +13,9 @@ import com.avallie.R
 import com.avallie.helpers.AuthHelper
 import com.avallie.helpers.PaperHelper.Companion.getCart
 import com.avallie.model.BudgetNotificationData
+import com.avallie.model.Product
+import com.avallie.model.request.SelectedProduct
+import com.avallie.view.addProduct.AddProductFragment
 import com.avallie.view.fragment.BudgetRequestsFragment
 import com.avallie.view.fragment.CartFragment
 import com.avallie.view.products.ProductsFragment
@@ -70,7 +73,7 @@ class MainActivity : AppCompatActivity() {
             .commit()
     }
 
-    private fun openCartSheet() {
+    fun openCartSheet() {
         val cartFragment = CartFragment()
 
         cartFragment.show(supportFragmentManager, "cartSheet")
@@ -151,6 +154,30 @@ class MainActivity : AppCompatActivity() {
         } else {
             startActivity(Intent(this, LoginActivity::class.java))
         }
+    }
+
+    fun openAddProduct(product: Product) {
+        val addProductFragment = AddProductFragment()
+
+        val bundle = Bundle()
+
+        bundle.putSerializable("product", product)
+
+        addProductFragment.arguments = bundle
+
+        addProductFragment.show(supportFragmentManager, "addProduct")
+    }
+
+    fun openAddProduct(product: SelectedProduct) {
+        val addProductFragment = AddProductFragment()
+
+        val bundle = Bundle()
+
+        bundle.putSerializable("selected_product", product)
+
+        addProductFragment.arguments = bundle
+
+        addProductFragment.show(supportFragmentManager, "addProduct")
     }
 
     fun isFragmentVisible(fragment: Fragment?): Boolean {

@@ -19,6 +19,7 @@ import com.avallie.databinding.FragmentProductsBinding
 import com.avallie.helpers.PaperHelper.Companion.getPhases
 import com.avallie.model.ConstructionPhase
 import com.avallie.model.ScreenState.*
+import com.avallie.view.MainActivity
 import com.avallie.view.adapter.ActiveFiltersAdapter
 import com.avallie.view.adapter.ProductsAdapter
 import com.avallie.view.filter.FiltersActivity
@@ -30,9 +31,7 @@ class ProductsFragment : Fragment() {
 
     private var phases: ArrayList<ConstructionPhase> = getPhases()
 
-    private val productsAdapter: ProductsAdapter by lazy {
-        ProductsAdapter(context!!, emptyList(), ArrayList(), phases)
-    }
+    lateinit var productsAdapter: ProductsPagedAdapter
 
     private val categoriesAdapter: ActiveFiltersAdapter by lazy {
         ActiveFiltersAdapter(context!!, viewModel.categories.value!!)
@@ -70,7 +69,7 @@ class ProductsFragment : Fragment() {
 
         viewModel.categories.value = arguments?.getStringArrayList("categories")
 
-        viewModel.loadProducts(context!!)
+        loadProducts()
 
         setObservers()
 
@@ -97,9 +96,16 @@ class ProductsFragment : Fragment() {
         }
     }
 
+    fun loadProducts() {
+        viewModel.loadProducts(
+            context!!,
+            ProductsQuery(0, 20, viewModel.categories.value!!, viewModel.productSearchName.value!!)
+        )
+    }
+
     private fun setObservers() {
-        viewModel.products.observe(this, Observer {
-            productsAdapter.update(it)
+        viewModel.itemPagedList?.observe(this, Observer {
+            productsAdapter.submitList(it)
         })
     }
 
@@ -112,7 +118,9 @@ class ProductsFragment : Fragment() {
 
             categoriesAdapter.notifyDataSetChanged()
 
-            viewModel.loadProducts(context!!)
+            loadProducts()
+
+            setObservers()
         }
 
         binding.vActiveFilterRecycler.layoutManager =
@@ -120,24 +128,30 @@ class ProductsFragment : Fragment() {
     }
 
     private fun setProductAdapter() {
+        productsAdapter = ProductsPagedAdapter(context!!, onProductClick = {
+//            AddProductDialog(context!!, it).showDialog()
+
+            (activity as MainActivity).openAddProduct(it)
+        })
+
         binding.vProductsRecycler.adapter = productsAdapter
-        productsAdapter.onProductClick = {
-            AddProductDialog(context!!, it).showDialog()
-        }
 
         binding.vProductsRecycler.layoutManager =
             LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
 
         binding.searchUser.addTextChangedListener(object : TextWatcher {
-            override fun afterTextChanged(s: Editable?) {
-                productsAdapter.filter.filter(s) {
-                    if (it == 0) {
-                        viewModel.screenState.value = NoData
-                    } else {
-                        viewModel.screenState.value = Success
-                    }
+            override fun afterTextChanged(name: Editable?) {
+                if (name!!.length >= 3) {
+                    viewModel.productSearchName.value = name.toString()
+
+                    loadProducts()
+                } else if (name.isEmpty()) {
+                    viewModel.productSearchName.value = ""
+
+                    loadProducts()
                 }
 
+                setObservers()
             }
 
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {

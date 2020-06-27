@@ -27,6 +27,21 @@ class PaperHelper {
             Paper.book().write("cart", cart)
         }
 
+        fun updateProduct(selectedProduct: SelectedProduct) {
+            val cart = getCart()
+            var oldProductIndex = 0
+
+            cart.forEachIndexed { index, product ->
+                if (product.productId == selectedProduct.productId) {
+                    oldProductIndex = index
+                }
+            }
+
+            cart[oldProductIndex] = selectedProduct
+
+            Paper.book().write("cart", cart)
+        }
+
         fun getCart(): ArrayList<SelectedProduct> {
             return Paper.book().read("cart", ArrayList())
         }
@@ -51,7 +66,7 @@ class PaperHelper {
             }
         }
 
-        fun clearCustomer(){
+        fun clearCustomer() {
             Paper.book().delete("customer")
         }
     }

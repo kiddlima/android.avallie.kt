@@ -35,8 +35,12 @@ class LoginActivity : AppCompatActivity() {
         }
 
         scroll_view.setOnTouchListener { v, event ->
-            val imm = getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager?
-            imm!!.hideSoftInputFromWindow(currentFocus.windowToken, 0)
+            if (currentFocus != null) {
+                val imm = getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager?
+                imm!!.hideSoftInputFromWindow(currentFocus.windowToken, 0)
+            }
+
+            false
         }
 
         btn_login.setOnClickListener {

@@ -17,6 +17,7 @@ import com.avallie.helpers.FormatterHelper.Companion.stringToDate
 import com.avallie.helpers.PaperHelper
 import com.avallie.helpers.PaperHelper.Companion.getCart
 import com.avallie.model.request.BudgetRequest
+import com.avallie.model.request.SelectedProduct
 import com.avallie.view.LoginActivity
 import com.avallie.view.MainActivity
 import com.avallie.view.adapter.CartAdapter
@@ -257,6 +258,12 @@ class CartFragment : BottomSheetDialogFragment() {
                 if (selectedProducts.isEmpty()) {
                     dismiss()
                 }
+            }
+
+            override fun onProductClick(product: SelectedProduct) {
+                dismiss()
+
+                (activity as MainActivity).openAddProduct(product)
             }
         })
 

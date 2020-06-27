@@ -3,6 +3,7 @@ package com.avallie.webservice
 import com.avallie.model.*
 import com.avallie.model.request.BudgetRequest
 import com.avallie.model.request.NotificationToken
+import com.avallie.view.products.ProductsContainerResponse
 import retrofit2.Call
 import retrofit2.http.*
 
@@ -15,8 +16,11 @@ interface Services {
     @Headers("Accept: application/json", "Content-Type: application/json")
     @GET("v1/products")
     fun getProducts(
-        @Query("category") categories: MutableList<String>
-    ): Call<ApiResponse<ArrayList<Product>>>
+        @Query("category") categories: MutableList<String>,
+        @Query("name") name: String,
+        @Query("page") page: Int,
+        @Query("size") size: Int
+    ): Call<ApiResponse<ProductsContainerResponse>>
 
     @Headers("Accept: application/json", "Content-Type: application/json")
     @POST("v1/customers")
@@ -61,4 +65,6 @@ interface Services {
     fun validateEmail(
         @Path("email") email: String
     ): Call<ApiResponse<Boolean>>
+
+
 }

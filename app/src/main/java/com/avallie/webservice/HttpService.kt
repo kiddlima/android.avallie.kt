@@ -6,6 +6,8 @@ import com.avallie.helpers.PaperHelper
 import com.avallie.model.*
 import com.avallie.model.request.BudgetRequest
 import com.avallie.model.request.NotificationToken
+import com.avallie.view.products.ProductsContainerResponse
+import com.avallie.view.products.ProductsQuery
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.iid.FirebaseInstanceId
 import retrofit2.Call
@@ -14,12 +16,11 @@ import retrofit2.Response
 
 class HttpService(private val context: Context) {
 
-    private val requestClient by lazy {
+    protected val requestClient by lazy {
         RequestClient(context, BuildConfig.BASE_URL, false).retrofit.create(Services::class.java)
     }
 
-
-    private val auth by lazy {
+    val auth by lazy {
         FirebaseAuth.getInstance()
     }
 
@@ -58,20 +59,20 @@ class HttpService(private val context: Context) {
     }
 
     fun getProducts(
-        categories: MutableList<String>,
-        connectionListener: ConnectionListener<List<Product>>
+        filter: ProductsQuery,
+        connectionListener: ConnectionListener<ProductsContainerResponse>
     ) {
-        if (categories.size == 1) {
-            categories.add("")
+        if (filter.categories.size == 1) {
+            filter.categories.add("")
         }
 
-        requestClient.getProducts(categories)
-            .enqueue(object : Callback<ApiResponse<ArrayList<Product>>> {
+        requestClient.getProducts(filter.categories, filter.name, filter.page, filter.size)
+            .enqueue(object : Callback<ApiResponse<ProductsContainerResponse>> {
                 override fun onResponse(
-                    call: Call<ApiResponse<ArrayList<Product>>>,
-                    response: Response<ApiResponse<ArrayList<Product>>>
+                    call: Call<ApiResponse<ProductsContainerResponse>>,
+                    response: Response<ApiResponse<ProductsContainerResponse>>
                 ) {
-                    val responseBody = cast<ApiResponse<ArrayList<Product>>>(response.body())
+                    val responseBody = cast<ApiResponse<ProductsContainerResponse>>(response.body())
 
                     if (responseBody != null) {
                         connectionListener.onSuccess(responseBody.data)
@@ -81,7 +82,10 @@ class HttpService(private val context: Context) {
 
                 }
 
-                override fun onFailure(call: Call<ApiResponse<ArrayList<Product>>>, t: Throwable) {
+                override fun onFailure(
+                    call: Call<ApiResponse<ProductsContainerResponse>>,
+                    t: Throwable
+                ) {
                     connectionListener.noInternet()
                 }
             })
@@ -261,7 +265,6 @@ class HttpService(private val context: Context) {
             }
         })
     }
-
 
     fun <T> responseHandler(
         response: Response<ApiResponse<T>>,

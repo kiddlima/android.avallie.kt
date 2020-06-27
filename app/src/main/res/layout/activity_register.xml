@@ -194,6 +194,28 @@
                             android:text="@={viewModel.customer.telephone}" />
 
                     </com.google.android.material.textfield.TextInputLayout>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/company_container"
+                        fontPath="Regular.otf"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/company_name"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/phone_container">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/register_company"
+                            fontPath="Regular.otf"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:imeOptions="actionNext"
+                            android:inputType="textCapWords"
+                            android:maxLines="1"
+                            android:text="@={viewModel.customer.companyName}" />
+
+                    </com.google.android.material.textfield.TextInputLayout>
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
                 <!--SECOND SCREEN-->
@@ -210,68 +232,51 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="@id/register_subtitle"
                     app:layout_constraintTop_toBottomOf="@id/register_subtitle"
-                    tools:visibility="gone">
+                    tools:visibility="visible">
 
-                    <com.google.android.material.textfield.TextInputLayout
-                        android:id="@+id/company_container"
-                        fontPath="Regular.otf"
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/cep_container"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:hint="@string/company_name"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent">
 
-                        <com.google.android.material.textfield.TextInputEditText
-                            android:id="@+id/register_company"
+                        <com.google.android.material.textfield.TextInputLayout
                             fontPath="Regular.otf"
-                            android:layout_width="match_parent"
+                            android:layout_width="0dp"
                             android:layout_height="wrap_content"
-                            android:imeOptions="actionNext"
-                            android:inputType="textCapWords"
-                            android:maxLines="1"
-                            android:text="@={viewModel.customer.companyName}" />
+                            android:layout_marginTop="4dp"
+                            android:hint="@string/cep"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent">
 
-                    </com.google.android.material.textfield.TextInputLayout>
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/register_cep"
+                                fontPath="Regular.otf"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:digits="0123456789-"
+                                android:imeOptions="actionNext"
+                                android:inputType="number"
+                                android:maxLines="1"
+                                android:text="@={viewModel.customer.zipCode}" />
 
+                        </com.google.android.material.textfield.TextInputLayout>
 
-                    <TextView
-                        android:id="@+id/address_title"
-                        fontPath="Medium.otf"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="16dp"
-                        android:text="@string/standar_delivery_address"
-                        android:textColor="@color/grayPrimaryDark"
-                        android:textSize="14sp"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@id/company_container" />
+                        <ProgressBar
+                            android:layout_width="16dp"
+                            android:layout_height="16dp"
+                            android:layout_marginEnd="8dp"
+                            android:visibility="@{viewModel.cepLoading == ScreenState.Loading ? View.VISIBLE : View.GONE}"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            tools:visibility="visible" />
 
-
-                    <com.google.android.material.textfield.TextInputLayout
-                        android:id="@+id/cep_container"
-                        fontPath="Regular.otf"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="4dp"
-                        android:hint="@string/cep"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@id/address_title">
-
-                        <com.google.android.material.textfield.TextInputEditText
-                            android:id="@+id/register_cep"
-                            fontPath="Regular.otf"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:digits="0123456789-"
-                            android:imeOptions="actionNext"
-                            android:inputType="number"
-                            android:maxLines="1"
-                            android:text="@={viewModel.customer.zipCode}" />
-
-                    </com.google.android.material.textfield.TextInputLayout>
+                    </androidx.constraintlayout.widget.ConstraintLayout>
 
                     <com.google.android.material.textfield.TextInputLayout
                         android:id="@+id/street_container"
@@ -321,6 +326,30 @@
                     </com.google.android.material.textfield.TextInputLayout>
 
                     <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/additional_address_container"
+                        fontPath="Regular.otf"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
+                        android:hint="@string/additional_address_hint"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/number_container">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/additional_address"
+                            fontPath="Regular.otf"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:imeOptions="actionNext"
+                            android:inputType="textCapWords"
+                            android:maxLength="10"
+                            android:maxLines="1"
+                            android:text="@={viewModel.customer.additionalAddress}" />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <com.google.android.material.textfield.TextInputLayout
                         android:id="@+id/city_container"
                         fontPath="Regular.otf"
                         android:layout_width="0dp"
@@ -329,7 +358,7 @@
                         android:hint="@string/cartInfo_city_hint"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@id/number_container">
+                        app:layout_constraintTop_toBottomOf="@id/additional_address_container">
 
                         <com.google.android.material.textfield.TextInputEditText
                             android:id="@+id/register_city"
@@ -382,7 +411,7 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="@id/register_subtitle"
                     app:layout_constraintTop_toBottomOf="@id/register_subtitle"
-                    tools:visibility="visible">
+                    tools:visibility="gone">
 
                     <androidx.constraintlayout.widget.ConstraintLayout
                         android:id="@+id/email_container"
@@ -420,7 +449,8 @@
                             android:visibility="@{viewModel.validateEmailState == ScreenState.Loading ? View.VISIBLE : View.GONE}"
                             app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintTop_toTopOf="parent" />
+                            app:layout_constraintTop_toTopOf="parent"
+                            tools:visibility="visible" />
 
                     </androidx.constraintlayout.widget.ConstraintLayout>
 

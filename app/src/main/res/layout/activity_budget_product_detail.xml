@@ -80,12 +80,14 @@
                 tools:text="7 unidades" />
 
             <View
+                android:id="@+id/separator"
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
                 android:background="@color/grayPrimaryUltraLight"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent" />
+
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -105,11 +107,10 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:padding="16dp"
-                    android:text="@{viewModel.requestedProduct.specifications}"
                     android:textAlignment="textStart"
                     android:textColor="@color/grayPrimaryDark"
                     android:textSize="14sp"
-                    android:visibility="@{viewModel.screenState == ScreenState.Success ? View.VISIBLE : View.GONE}"
+                    android:visibility="visible"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/separator"

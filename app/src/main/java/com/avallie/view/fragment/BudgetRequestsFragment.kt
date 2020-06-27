@@ -125,7 +125,7 @@ class BudgetRequestsFragment : BottomSheetDialogFragment() {
         budgetRequestedAdapter =
             BudgetRequestsAdapter(context!!, viewModel.budgetsRequested.value!!)
         budgetRequestedAdapter.onBudgetSelected = { budgetRequested ->
-            goToDetail(budgetRequested, null)
+            goToDetail(budgetRequested, -1L)
         }
 
         requests_recycler.adapter = budgetRequestedAdapter

@@ -106,6 +106,7 @@
             android:focusable="true"
             android:focusableInTouchMode="true"
             android:paddingTop="40dp"
+            android:background="#f7f7f7"
             android:paddingBottom="20dp"
             android:visibility="@{viewModel.screenState == ScreenState.Success ? View.VISIBLE : View.GONE}"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -132,7 +133,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:onClick="@{() -> viewModel.loadProducts(context)}" />
+            app:onClick="@{() -> model.loadProducts()}" />
 
         <include
             layout="@layout/no_data_container"

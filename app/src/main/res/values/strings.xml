@@ -112,4 +112,8 @@
     <string name="logout_label">Sair</string>
     <string name="loading_account_label">Carregando suas informações</string>
     <string name="budgets">Orçamentos</string>
+    <string name="additional_address_hint">Complemento</string>
+    <string name="cep_error">Erro ao consultar CEP</string>
+    <string name="preference_brand_label">Marca de preferência</string>
+    <string name="update_product">Atualizar produto</string>
 </resources>

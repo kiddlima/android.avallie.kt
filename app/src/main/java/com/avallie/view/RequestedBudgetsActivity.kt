@@ -46,7 +46,7 @@ class RequestedBudgetsActivity : AppCompatActivity() {
 
         binding.noData = NoDataContainer(
             "Você não realizou nenhum orçamento ainda",
-            "Selecione os produtos que deseja e faça o seu primeiro orçamento agora mesmo!"
+            "`"
         )
 
         binding.failLayout.visibility = View.GONE
@@ -97,7 +97,7 @@ class RequestedBudgetsActivity : AppCompatActivity() {
         budgetRequestedAdapter =
             BudgetRequestsAdapter(this, viewModel.budgetsRequested.value!!)
         budgetRequestedAdapter.onBudgetSelected = { budgetRequested ->
-            goToDetail(budgetRequested, null)
+            goToDetail(budgetRequested, -1L)
         }
 
         requests_recycler.adapter = budgetRequestedAdapter

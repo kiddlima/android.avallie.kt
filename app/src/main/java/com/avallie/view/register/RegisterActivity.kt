@@ -39,11 +39,6 @@ class RegisterActivity : AppCompatActivity() {
         viewModel = ViewModelProviders.of(this).get(RegisterViewModel::class.java)
         binding.viewModel = viewModel
 
-        scroll_view.setOnTouchListener { v, event ->
-            val imm = getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager?
-            imm!!.hideSoftInputFromWindow(currentFocus.windowToken, 0)
-        }
-
         register_cpf.run {
             val listener = MaskedTextChangedListener("[000]{.}[000]{.}[000]{-}[00]", register_cpf)
 
@@ -52,15 +47,27 @@ class RegisterActivity : AppCompatActivity() {
         }
 
         register_cpf.onFocusChangeListener = View.OnFocusChangeListener { v, hasFocus ->
-            if (!hasFocus) {
+            if (!hasFocus && register_cpf.text!!.isNotEmpty()) {
                 register_cpf.error = null
 
                 viewModel.validateCpf(this)
             }
         }
 
+        viewModel.cepLoading.observe(this, Observer {
+            if (it == ScreenState.Success) {
+                viewModel.customer.value?.run {
+                    binding.registerStreet.setText(street)
+                    binding.registerState.setText(state)
+                    binding.registerCity.setText(city)
+                }
+            } else if (it == ScreenState.Fail) {
+                showError("Erro ao consultar CEP")
+            }
+        })
+
         register_email.onFocusChangeListener = View.OnFocusChangeListener { v, hasFocus ->
-            if (!hasFocus) {
+            if (!hasFocus && register_email.text!!.isNotEmpty()) {
                 register_email.error = null
 
                 viewModel.validateEmail(this)
@@ -79,6 +86,12 @@ class RegisterActivity : AppCompatActivity() {
 
             addTextChangedListener(listener)
             onFocusChangeListener = listener
+        }
+
+        register_cep.onFocusChangeListener = View.OnFocusChangeListener { v, hasFocus ->
+            if (!hasFocus && register_cep.text!!.isNotEmpty()) {
+                viewModel.getCepInfo(this)
+            }
         }
 
         progressDialog = ProgressDialog(this, getString(R.string.finishing_register))
@@ -178,7 +191,7 @@ class RegisterActivity : AppCompatActivity() {
     }
 
     private fun isSecondScreenValidate(): Boolean {
-        return !register_company.text.isNullOrBlank() && !register_cep.text.isNullOrBlank() && !register_street.text.isNullOrBlank() && !register_number.text.isNullOrBlank() && !register_city.text.isNullOrBlank() && !register_state.text.isNullOrBlank()
+        return !register_cep.text.isNullOrBlank() && !register_street.text.isNullOrBlank() && !register_number.text.isNullOrBlank() && !register_city.text.isNullOrBlank() && !register_state.text.isNullOrBlank()
     }
 
     private fun isThirdScreenValidate(): Boolean {

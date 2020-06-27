@@ -5,7 +5,9 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.avallie.R
 import com.avallie.model.Customer
+import com.avallie.model.OfficialAddress
 import com.avallie.model.ScreenState
+import com.avallie.webservice.CepHttp
 import com.avallie.webservice.ConnectionListener
 import com.avallie.webservice.HttpService
 
@@ -23,6 +25,8 @@ class RegisterViewModel : ViewModel() {
 
     val validateCpfState = MutableLiveData<ScreenState>()
     val validateEmailState = MutableLiveData<ScreenState>()
+
+    val cepLoading = MutableLiveData<ScreenState>()
 
     init {
         customer.value = Customer()
@@ -58,6 +62,32 @@ class RegisterViewModel : ViewModel() {
                     validCpf.value = false
                 }
 
+            })
+    }
+
+    fun getCepInfo(context: Context) {
+        cepLoading.value = ScreenState.Loading
+
+        CepHttp(context).getCepInfo(
+            customer.value?.zipCode?.replace("-", "")!!,
+            object : ConnectionListener<OfficialAddress> {
+                override fun onSuccess(response: OfficialAddress) {
+                    customer.value?.run {
+                        city = response.localidade
+                        state = response.uf
+                        street = response.logradouro
+                    }
+
+                    cepLoading.value = ScreenState.Success
+                }
+
+                override fun onFail(error: String?) {
+                    cepLoading.value = ScreenState.Fail
+                }
+
+                override fun noInternet() {
+                    cepLoading.value = ScreenState.Fail
+                }
             })
     }
 

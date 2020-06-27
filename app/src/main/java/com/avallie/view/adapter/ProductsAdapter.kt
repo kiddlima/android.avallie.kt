@@ -11,7 +11,6 @@ import com.avallie.model.ConstructionPhase
 import com.avallie.model.Product
 import kotlinx.android.synthetic.main.product_item.view.*
 
-
 typealias OnProductClick = (product: Product) -> Unit
 
 class ProductsAdapter(

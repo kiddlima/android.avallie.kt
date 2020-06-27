@@ -2,6 +2,7 @@ package com.avallie.model.request
 
 import com.avallie.model.Product
 import com.google.gson.annotations.SerializedName
+import java.io.Serializable
 
 class SelectedProduct(
     @SerializedName("amount")
@@ -11,4 +12,4 @@ class SelectedProduct(
     @SerializedName("product_id")
     val productId: Long,
     val product: Product
-)
+) : Serializable

@@ -12,7 +12,10 @@ import com.avallie.model.RequestedProduct
 import com.avallie.model.request.SelectedProduct
 import kotlinx.android.synthetic.main.btn_confirm_products.view.*
 
-class CartAdapter(private val context: Context, private val requestedProducts: ArrayList<SelectedProduct>) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
+class CartAdapter(
+    private val context: Context,
+    private val requestedProducts: ArrayList<SelectedProduct>
+) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
     private val HEADER = 0
     private val ITEM = 1
@@ -20,6 +23,7 @@ class CartAdapter(private val context: Context, private val requestedProducts: A
 
     interface CartAdapterListener {
         fun onDeleteProduct(position: Int)
+        fun onProductClick(product: SelectedProduct)
 //        fun onConfirmProducts()
     }
 
@@ -80,6 +84,10 @@ class CartAdapter(private val context: Context, private val requestedProducts: A
 
             deleteProduct?.setOnClickListener {
                 cartAdapterListener?.onDeleteProduct(adapterPosition)
+            }
+
+            itemView.setOnClickListener {
+                cartAdapterListener?.onProductClick(requestedProducts[adapterPosition])
             }
         }
     }

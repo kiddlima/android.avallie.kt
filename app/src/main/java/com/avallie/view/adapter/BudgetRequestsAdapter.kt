@@ -63,7 +63,7 @@ class BudgetRequestsAdapter(
 
         init {
             itemView.setOnClickListener {
-                onBudgetSelected?.invoke(budgetsRequest[adapterPosition - 1])
+                onBudgetSelected?.invoke(budgetsRequest[adapterPosition])
             }
         }
     }

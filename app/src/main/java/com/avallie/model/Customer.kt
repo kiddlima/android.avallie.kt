@@ -17,4 +17,6 @@ class Customer {
     var zipCode: String? = null
     @SerializedName("company_name")
     var companyName: String? = null
+    @SerializedName("additional_address")
+    var additionalAddress: String? = null
 }
