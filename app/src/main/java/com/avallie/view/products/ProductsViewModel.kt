@@ -26,8 +26,6 @@ class ProductsViewModel : ViewModel() {
 
     var itemPagedList: LiveData<PagedList<Product>>? = null
 
-    private var hadProducts: Boolean = false
-
     init {
         categories.value?.clear()
         productSearchName.value = ""
@@ -35,25 +33,18 @@ class ProductsViewModel : ViewModel() {
     }
 
     fun loadProducts(context: Context, filter: ProductsQuery) {
-        hadProducts = false
-
         screenState.value = ScreenState.Loading
         filter.categories = ArrayList(filter.categories)
-
-        liveDataSource?.value?.invalidate()
-        itemPagedList = null
 
         val productsSourceFactory = ProductsSourceFactory(
             HttpService(context),
             filter,
             object : ConnectionListener<ProductsContainerResponse> {
                 override fun onSuccess(response: ProductsContainerResponse) {
-                    hadProducts = response.content.isNotEmpty()
-
-                    if (hadProducts) {
-                        screenState.value = ScreenState.Success
-                    } else if (response.content.isEmpty()) {
+                    if (response.totalElements == 0) {
                         screenState.value = ScreenState.NoData
+                    } else {
+                        screenState.value = ScreenState.Success
                     }
                 }
 

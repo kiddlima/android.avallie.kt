@@ -15,6 +15,8 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import androidx.recyclerview.widget.SimpleItemAnimator
 import com.avallie.databinding.FragmentProductsBinding
 import com.avallie.helpers.PaperHelper.Companion.getPhases
 import com.avallie.model.ConstructionPhase
@@ -26,10 +28,7 @@ import com.avallie.view.filter.FiltersActivity
 import com.avallie.view.fragment.AddProductDialog
 import com.avallie.widgets.NoDataContainer
 
-
 class ProductsFragment : Fragment() {
-
-    private var phases: ArrayList<ConstructionPhase> = getPhases()
 
     lateinit var productsAdapter: ProductsPagedAdapter
 
@@ -59,7 +58,6 @@ class ProductsFragment : Fragment() {
         return binding.root
     }
 
-
     @SuppressLint("ClickableViewAccessibility")
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -69,12 +67,12 @@ class ProductsFragment : Fragment() {
 
         viewModel.categories.value = arguments?.getStringArrayList("categories")
 
+        setCategoriesAdapter()
+        setProductAdapter()
+
         loadProducts()
 
         setObservers()
-
-        setCategoriesAdapter()
-        setProductAdapter()
 
         binding.vFilterIcon.setOnClickListener {
             Intent(context!!, FiltersActivity::class.java).run {
@@ -97,6 +95,8 @@ class ProductsFragment : Fragment() {
     }
 
     fun loadProducts() {
+        productsAdapter.submitList(null)
+
         viewModel.loadProducts(
             context!!,
             ProductsQuery(0, 20, viewModel.categories.value!!, viewModel.productSearchName.value!!)
@@ -128,9 +128,9 @@ class ProductsFragment : Fragment() {
     }
 
     private fun setProductAdapter() {
-        productsAdapter = ProductsPagedAdapter(context!!, onProductClick = {
-//            AddProductDialog(context!!, it).showDialog()
+        binding.vProductsRecycler.itemAnimator = null
 
+        productsAdapter = ProductsPagedAdapter(context!!, onProductClick = {
             (activity as MainActivity).openAddProduct(it)
         })
 
@@ -164,6 +164,5 @@ class ProductsFragment : Fragment() {
 
         })
     }
-
-
 }
+

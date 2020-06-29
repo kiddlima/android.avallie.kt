@@ -12,22 +12,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c46817aa-1036-444d-a895-f03247a72630" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/assetWizardSettings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_paging_paging_common_2_1_2_jar.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_paging_paging_runtime_2_1_2_aar.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/avallie/model/OfficialAddress.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/avallie/model/Spec.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/avallie/view/addProduct/AddProductFragment.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/avallie/view/products/ProductsContainerResponse.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/avallie/view/products/ProductsDataSource.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/avallie/view/products/ProductsPagedAdapter.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/avallie/view/products/ProductsQuery.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/avallie/view/products/ProductsSourceFactory.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/avallie/webservice/CepHttp.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/avallie/webservice/CustomerServices.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/ic_baseline_add_24.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/add_product_edittext.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/add_product_fragment.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/6.1.1/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.1.1/executionHistory/executionHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/6.1.1/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.1.1/executionHistory/executionHistory.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/6.1.1/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.1.1/fileHashes/fileHashes.bin" afterDir="false" />
@@ -38,38 +22,17 @@
       <change beforePath="$PROJECT_DIR$/.gradle/6.1.1/javaCompile/javaCompile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.1.1/javaCompile/javaCompile.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/6.1.1/javaCompile/taskHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.1.1/javaCompile/taskHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/checksums/checksums.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/checksums/checksums.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules/app/app.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/app/app.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/app/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/avallie/helpers/PaperHelper.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/avallie/helpers/PaperHelper.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/avallie/model/Customer.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/avallie/model/Customer.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/avallie/model/request/SelectedProduct.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/avallie/model/request/SelectedProduct.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/avallie/view/BudgetProductDetailActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/avallie/view/BudgetProductDetailActivity.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/avallie/view/LoginActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/avallie/view/LoginActivity.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/avallie/view/MainActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/avallie/view/MainActivity.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/avallie/view/RequestedBudgetsActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/avallie/view/RequestedBudgetsActivity.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/avallie/view/adapter/BudgetRequestsAdapter.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/avallie/view/adapter/BudgetRequestsAdapter.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/avallie/view/adapter/CartAdapter.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/avallie/view/adapter/CartAdapter.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/avallie/view/adapter/ProductsAdapter.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/avallie/view/adapter/ProductsAdapter.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/avallie/view/fragment/BudgetRequestsFragment.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/avallie/view/fragment/BudgetRequestsFragment.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/avallie/view/fragment/CartFragment.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/avallie/view/fragment/CartFragment.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/avallie/view/addProduct/AddProductFragment.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/avallie/view/addProduct/AddProductFragment.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/avallie/view/products/ProductsFragment.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/avallie/view/products/ProductsFragment.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/avallie/view/products/ProductsPagedAdapter.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/avallie/view/products/ProductsPagedAdapter.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/avallie/view/products/ProductsViewModel.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/avallie/view/products/ProductsViewModel.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/avallie/view/register/RegisterActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/avallie/view/register/RegisterActivity.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/avallie/view/register/RegisterViewModel.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/avallie/view/register/RegisterViewModel.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/avallie/webservice/HttpService.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/avallie/webservice/HttpService.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/avallie/webservice/Services.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/avallie/webservice/Services.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_account.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_account.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_budget_product_detail.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_budget_product_detail.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_register.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_register.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_requested_budgets.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_requested_budgets.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/cart_item.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/cart_item.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/add_product_fragment.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/add_product_fragment.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_products.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_products.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/product_item.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/product_item.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/res/values/styles.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values/styles.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -118,7 +81,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="SHOW_ALL_PROCESSES" value="false" />
     <property name="android.sdk.path" value="$USER_HOME$/Library/Android/sdk" />
-    <property name="memory.settings.postsync.last.time.stamp" value="1593212974696" />
+    <property name="memory.settings.postsync.last.time.stamp" value="1593393319517" />
     <property name="settings.editor.selected.configurable" value="preferences.sourceCode.XML" />
   </component>
   <component name="RecentsManager">
@@ -203,11 +166,11 @@
     <servers />
   </component>
   <component name="WindowStateProjectService">
-    <state x="695" y="323" key="#com.intellij.ide.util.MemberChooser" timestamp="1593218630788">
+    <state x="695" y="323" key="#com.intellij.ide.util.MemberChooser" timestamp="1593398500482">
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
     <state x="637" y="-997" key="#com.intellij.ide.util.MemberChooser/-422.-1440.2560.1440/0.0.1680.1050@-422.-1440.2560.1440" timestamp="1592956777897" />
-    <state x="695" y="323" key="#com.intellij.ide.util.MemberChooser/0.0.1680.1050@0.0.1680.1050" timestamp="1593218630788" />
+    <state x="695" y="323" key="#com.intellij.ide.util.MemberChooser/0.0.1680.1050@0.0.1680.1050" timestamp="1593398500482" />
     <state x="631" y="314" width="851" height="677" key="#xdebugger.evaluate" timestamp="1592174914579">
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
@@ -231,78 +194,78 @@
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
     <state width="580" height="466" key="DebuggerActiveHint/0.0.1680.1050@0.0.1680.1050" timestamp="1593217275157" />
-    <state width="1638" height="260" key="GridCell.Tab.0.bottom" timestamp="1593276500557">
+    <state width="1638" height="260" key="GridCell.Tab.0.bottom" timestamp="1593401708008">
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
     <state width="2518" height="518" key="GridCell.Tab.0.bottom/-422.-1440.2560.1440/0.0.1680.1050@-422.-1440.2560.1440" timestamp="1592953982742" />
     <state width="1638" height="363" key="GridCell.Tab.0.bottom/-422.-1440.2560.1440/0.0.1680.1050@0.0.1680.1050" timestamp="1592606968674" />
     <state width="2518" height="519" key="GridCell.Tab.0.bottom/-422.-1440.2560.1440/0.23.1680.1027@-422.-1440.2560.1440" timestamp="1592114970491" />
     <state width="2518" height="711" key="GridCell.Tab.0.bottom/-422.-1440.2560.1440/0.23.1680.982@-422.-1440.2560.1440" timestamp="1592954066042" />
-    <state width="1638" height="260" key="GridCell.Tab.0.bottom/0.0.1680.1050@0.0.1680.1050" timestamp="1593276500557" />
-    <state width="1638" height="260" key="GridCell.Tab.0.bottom/0.23.1680.982@0.23.1680.982" timestamp="1593276191007" />
-    <state width="1638" height="260" key="GridCell.Tab.0.center" timestamp="1593276500556">
+    <state width="1638" height="260" key="GridCell.Tab.0.bottom/0.0.1680.1050@0.0.1680.1050" timestamp="1593401708008" />
+    <state width="1638" height="260" key="GridCell.Tab.0.bottom/0.23.1680.982@0.23.1680.982" timestamp="1593401190279" />
+    <state width="1638" height="260" key="GridCell.Tab.0.center" timestamp="1593401708007">
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
     <state width="2518" height="518" key="GridCell.Tab.0.center/-422.-1440.2560.1440/0.0.1680.1050@-422.-1440.2560.1440" timestamp="1592953982741" />
     <state width="1638" height="363" key="GridCell.Tab.0.center/-422.-1440.2560.1440/0.0.1680.1050@0.0.1680.1050" timestamp="1592606968672" />
     <state width="2518" height="519" key="GridCell.Tab.0.center/-422.-1440.2560.1440/0.23.1680.1027@-422.-1440.2560.1440" timestamp="1592114970489" />
     <state width="2518" height="711" key="GridCell.Tab.0.center/-422.-1440.2560.1440/0.23.1680.982@-422.-1440.2560.1440" timestamp="1592954066040" />
-    <state width="1638" height="260" key="GridCell.Tab.0.center/0.0.1680.1050@0.0.1680.1050" timestamp="1593276500556" />
-    <state width="1638" height="260" key="GridCell.Tab.0.center/0.23.1680.982@0.23.1680.982" timestamp="1593276191006" />
-    <state width="1638" height="260" key="GridCell.Tab.0.left" timestamp="1593276500556">
+    <state width="1638" height="260" key="GridCell.Tab.0.center/0.0.1680.1050@0.0.1680.1050" timestamp="1593401708007" />
+    <state width="1638" height="260" key="GridCell.Tab.0.center/0.23.1680.982@0.23.1680.982" timestamp="1593401190278" />
+    <state width="1638" height="260" key="GridCell.Tab.0.left" timestamp="1593401708007">
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
     <state width="2518" height="518" key="GridCell.Tab.0.left/-422.-1440.2560.1440/0.0.1680.1050@-422.-1440.2560.1440" timestamp="1592953982740" />
     <state width="1638" height="363" key="GridCell.Tab.0.left/-422.-1440.2560.1440/0.0.1680.1050@0.0.1680.1050" timestamp="1592606968671" />
     <state width="2518" height="519" key="GridCell.Tab.0.left/-422.-1440.2560.1440/0.23.1680.1027@-422.-1440.2560.1440" timestamp="1592114970488" />
     <state width="2518" height="711" key="GridCell.Tab.0.left/-422.-1440.2560.1440/0.23.1680.982@-422.-1440.2560.1440" timestamp="1592954066039" />
-    <state width="1638" height="260" key="GridCell.Tab.0.left/0.0.1680.1050@0.0.1680.1050" timestamp="1593276500556" />
-    <state width="1638" height="260" key="GridCell.Tab.0.left/0.23.1680.982@0.23.1680.982" timestamp="1593276191006" />
-    <state width="1638" height="260" key="GridCell.Tab.0.right" timestamp="1593276500556">
+    <state width="1638" height="260" key="GridCell.Tab.0.left/0.0.1680.1050@0.0.1680.1050" timestamp="1593401708007" />
+    <state width="1638" height="260" key="GridCell.Tab.0.left/0.23.1680.982@0.23.1680.982" timestamp="1593401190277" />
+    <state width="1638" height="260" key="GridCell.Tab.0.right" timestamp="1593401708008">
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
     <state width="2518" height="518" key="GridCell.Tab.0.right/-422.-1440.2560.1440/0.0.1680.1050@-422.-1440.2560.1440" timestamp="1592953982741" />
     <state width="1638" height="363" key="GridCell.Tab.0.right/-422.-1440.2560.1440/0.0.1680.1050@0.0.1680.1050" timestamp="1592606968673" />
     <state width="2518" height="519" key="GridCell.Tab.0.right/-422.-1440.2560.1440/0.23.1680.1027@-422.-1440.2560.1440" timestamp="1592114970490" />
     <state width="2518" height="711" key="GridCell.Tab.0.right/-422.-1440.2560.1440/0.23.1680.982@-422.-1440.2560.1440" timestamp="1592954066041" />
-    <state width="1638" height="260" key="GridCell.Tab.0.right/0.0.1680.1050@0.0.1680.1050" timestamp="1593276500556" />
-    <state width="1638" height="260" key="GridCell.Tab.0.right/0.23.1680.982@0.23.1680.982" timestamp="1593276191007" />
-    <state width="1638" height="260" key="GridCell.Tab.1.bottom" timestamp="1593276500558">
+    <state width="1638" height="260" key="GridCell.Tab.0.right/0.0.1680.1050@0.0.1680.1050" timestamp="1593401708008" />
+    <state width="1638" height="260" key="GridCell.Tab.0.right/0.23.1680.982@0.23.1680.982" timestamp="1593401190278" />
+    <state width="1638" height="260" key="GridCell.Tab.1.bottom" timestamp="1593401708010">
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
     <state width="2518" height="518" key="GridCell.Tab.1.bottom/-422.-1440.2560.1440/0.0.1680.1050@-422.-1440.2560.1440" timestamp="1592953982748" />
     <state width="1638" height="363" key="GridCell.Tab.1.bottom/-422.-1440.2560.1440/0.0.1680.1050@0.0.1680.1050" timestamp="1592606968678" />
     <state width="2518" height="519" key="GridCell.Tab.1.bottom/-422.-1440.2560.1440/0.23.1680.1027@-422.-1440.2560.1440" timestamp="1592114970494" />
     <state width="2518" height="519" key="GridCell.Tab.1.bottom/-422.-1440.2560.1440/0.23.1680.982@-422.-1440.2560.1440" timestamp="1592118204108" />
-    <state width="1638" height="260" key="GridCell.Tab.1.bottom/0.0.1680.1050@0.0.1680.1050" timestamp="1593276500558" />
-    <state width="1638" height="260" key="GridCell.Tab.1.bottom/0.23.1680.982@0.23.1680.982" timestamp="1593276306449" />
-    <state width="1638" height="260" key="GridCell.Tab.1.center" timestamp="1593276500558">
+    <state width="1638" height="260" key="GridCell.Tab.1.bottom/0.0.1680.1050@0.0.1680.1050" timestamp="1593401708010" />
+    <state width="1638" height="260" key="GridCell.Tab.1.bottom/0.23.1680.982@0.23.1680.982" timestamp="1593401190281" />
+    <state width="1638" height="260" key="GridCell.Tab.1.center" timestamp="1593401708009">
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
     <state width="2518" height="518" key="GridCell.Tab.1.center/-422.-1440.2560.1440/0.0.1680.1050@-422.-1440.2560.1440" timestamp="1592953982743" />
     <state width="1638" height="363" key="GridCell.Tab.1.center/-422.-1440.2560.1440/0.0.1680.1050@0.0.1680.1050" timestamp="1592606968677" />
     <state width="2518" height="519" key="GridCell.Tab.1.center/-422.-1440.2560.1440/0.23.1680.1027@-422.-1440.2560.1440" timestamp="1592114970493" />
     <state width="2518" height="519" key="GridCell.Tab.1.center/-422.-1440.2560.1440/0.23.1680.982@-422.-1440.2560.1440" timestamp="1592118204101" />
-    <state width="1638" height="260" key="GridCell.Tab.1.center/0.0.1680.1050@0.0.1680.1050" timestamp="1593276500558" />
-    <state width="1638" height="260" key="GridCell.Tab.1.center/0.23.1680.982@0.23.1680.982" timestamp="1593276306448" />
-    <state width="1638" height="260" key="GridCell.Tab.1.left" timestamp="1593276500557">
+    <state width="1638" height="260" key="GridCell.Tab.1.center/0.0.1680.1050@0.0.1680.1050" timestamp="1593401708009" />
+    <state width="1638" height="260" key="GridCell.Tab.1.center/0.23.1680.982@0.23.1680.982" timestamp="1593401190280" />
+    <state width="1638" height="260" key="GridCell.Tab.1.left" timestamp="1593401708009">
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
     <state width="2518" height="518" key="GridCell.Tab.1.left/-422.-1440.2560.1440/0.0.1680.1050@-422.-1440.2560.1440" timestamp="1592953982742" />
     <state width="1638" height="363" key="GridCell.Tab.1.left/-422.-1440.2560.1440/0.0.1680.1050@0.0.1680.1050" timestamp="1592606968676" />
     <state width="2518" height="519" key="GridCell.Tab.1.left/-422.-1440.2560.1440/0.23.1680.1027@-422.-1440.2560.1440" timestamp="1592114970492" />
     <state width="2518" height="519" key="GridCell.Tab.1.left/-422.-1440.2560.1440/0.23.1680.982@-422.-1440.2560.1440" timestamp="1592118204099" />
-    <state width="1638" height="260" key="GridCell.Tab.1.left/0.0.1680.1050@0.0.1680.1050" timestamp="1593276500557" />
-    <state width="1638" height="260" key="GridCell.Tab.1.left/0.23.1680.982@0.23.1680.982" timestamp="1593276306448" />
-    <state width="1638" height="260" key="GridCell.Tab.1.right" timestamp="1593276500558">
+    <state width="1638" height="260" key="GridCell.Tab.1.left/0.0.1680.1050@0.0.1680.1050" timestamp="1593401708009" />
+    <state width="1638" height="260" key="GridCell.Tab.1.left/0.23.1680.982@0.23.1680.982" timestamp="1593401190279" />
+    <state width="1638" height="260" key="GridCell.Tab.1.right" timestamp="1593401708010">
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
     <state width="2518" height="518" key="GridCell.Tab.1.right/-422.-1440.2560.1440/0.0.1680.1050@-422.-1440.2560.1440" timestamp="1592953982744" />
     <state width="1638" height="363" key="GridCell.Tab.1.right/-422.-1440.2560.1440/0.0.1680.1050@0.0.1680.1050" timestamp="1592606968678" />
     <state width="2518" height="519" key="GridCell.Tab.1.right/-422.-1440.2560.1440/0.23.1680.1027@-422.-1440.2560.1440" timestamp="1592114970494" />
     <state width="2518" height="519" key="GridCell.Tab.1.right/-422.-1440.2560.1440/0.23.1680.982@-422.-1440.2560.1440" timestamp="1592118204107" />
-    <state width="1638" height="260" key="GridCell.Tab.1.right/0.0.1680.1050@0.0.1680.1050" timestamp="1593276500558" />
-    <state width="1638" height="260" key="GridCell.Tab.1.right/0.23.1680.982@0.23.1680.982" timestamp="1593276306449" />
+    <state width="1638" height="260" key="GridCell.Tab.1.right/0.0.1680.1050@0.0.1680.1050" timestamp="1593401708010" />
+    <state width="1638" height="260" key="GridCell.Tab.1.right/0.23.1680.982@0.23.1680.982" timestamp="1593401190280" />
     <state x="513" y="262" key="SettingsEditor" timestamp="1593280547404">
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
@@ -313,27 +276,27 @@
     </state>
     <state x="458" y="-980" key="Vcs.Push.Dialog.v2/-422.-1440.2560.1440/0.0.1680.1050@-422.-1440.2560.1440" timestamp="1592112980549" />
     <state x="578" y="335" key="Vcs.Push.Dialog.v2/0.0.1680.1050@0.0.1680.1050" timestamp="1592175675949" />
-    <state x="623" y="399" key="com.intellij.ide.util.TipDialog" timestamp="1593287598713">
+    <state x="623" y="399" key="com.intellij.ide.util.TipDialog" timestamp="1593400587754">
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
     <state x="528" y="-888" key="com.intellij.ide.util.TipDialog/-422.-1440.2560.1440/0.0.1680.1050@-422.-1440.2560.1440" timestamp="1592110438421" />
     <state x="528" y="-888" key="com.intellij.ide.util.TipDialog/-422.-1440.2560.1440/0.23.1680.982@-422.-1440.2560.1440" timestamp="1592112752376" />
-    <state x="623" y="399" key="com.intellij.ide.util.TipDialog/0.0.1680.1050@0.0.1680.1050" timestamp="1593287598713" />
+    <state x="623" y="399" key="com.intellij.ide.util.TipDialog/0.0.1680.1050@0.0.1680.1050" timestamp="1593400587754" />
     <state x="623" y="399" key="com.intellij.ide.util.TipDialog/0.23.1680.982@0.23.1680.982" timestamp="1593275327659" />
     <state x="620" y="449" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1593038566999">
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
     <state x="620" y="449" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1680.1050@0.0.1680.1050" timestamp="1593038566999" />
-    <state x="420" y="53" width="995" height="901" key="find.popup" timestamp="1593219439280">
+    <state x="420" y="53" width="995" height="901" key="find.popup" timestamp="1593399743146">
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
     <state x="510" y="-963" width="695" height="486" key="find.popup/-422.-1440.2560.1440/0.0.1680.1050@-422.-1440.2560.1440" timestamp="1592115943079" />
-    <state x="420" y="53" width="995" height="901" key="find.popup/0.0.1680.1050@0.0.1680.1050" timestamp="1593219439280" />
-    <state x="620" y="279" width="670" height="493" key="search.everywhere.popup" timestamp="1593039135807">
+    <state x="420" y="53" width="995" height="901" key="find.popup/0.0.1680.1050@0.0.1680.1050" timestamp="1593399743146" />
+    <state x="620" y="279" width="670" height="493" key="search.everywhere.popup" timestamp="1593393592193">
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
     <state x="523" y="-1058" width="670" height="676" key="search.everywhere.popup/-422.-1440.2560.1440/0.0.1680.1050@-422.-1440.2560.1440" timestamp="1592111649026" />
-    <state x="620" y="279" width="670" height="493" key="search.everywhere.popup/0.0.1680.1050@0.0.1680.1050" timestamp="1593039135807" />
+    <state x="620" y="279" width="670" height="493" key="search.everywhere.popup/0.0.1680.1050@0.0.1680.1050" timestamp="1593393592193" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -427,11 +390,6 @@
           <url>file://$PROJECT_DIR$/app/src/main/java/com/avallie/view/register/RegisterViewModel.kt</url>
           <line>74</line>
           <option name="timeStamp" value="55" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="kotlin-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/avallie/view/addProduct/AddProductFragment.kt</url>
-          <line>194</line>
-          <option name="timeStamp" value="67" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

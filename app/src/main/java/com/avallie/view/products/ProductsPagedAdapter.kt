@@ -10,12 +10,14 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.avallie.R
 import com.avallie.model.Product
-import com.avallie.view.adapter.ProductsAdapter
 import kotlinx.android.synthetic.main.product_item.view.*
 
 typealias OnProductClick = (product: Product) -> Unit
 
-class ProductsPagedAdapter(private val context: Context, private val onProductClick: OnProductClick) : PagedListAdapter<Product, RecyclerView.ViewHolder>(object : DiffUtil.ItemCallback<Product>() {
+class ProductsPagedAdapter(
+    private val context: Context,
+    private val onProductClick: OnProductClick
+) : PagedListAdapter<Product, RecyclerView.ViewHolder>(object : DiffUtil.ItemCallback<Product>() {
     override fun areItemsTheSame(oldItem: Product, newItem: Product): Boolean {
         return oldItem == newItem
     }
@@ -26,8 +28,14 @@ class ProductsPagedAdapter(private val context: Context, private val onProductCl
 
 }) {
 
+    init {
+
+    }
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
-        return ProductViewHolder(LayoutInflater.from(context).inflate(R.layout.product_item, parent, false))
+        return ProductViewHolder(
+            LayoutInflater.from(context).inflate(R.layout.product_item, parent, false)
+        )
     }
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {

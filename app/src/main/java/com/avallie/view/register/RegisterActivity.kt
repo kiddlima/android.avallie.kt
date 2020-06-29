@@ -104,9 +104,9 @@ class RegisterActivity : AppCompatActivity() {
 
         viewModel.validCpf.observe(this, Observer {
             if (!it) {
-                register_cpf.error = "CPF já cadastrado"
+                register_cpf.error = "CPF inválido ou cadastrado"
 
-                Toast.makeText(this, "CPF já cadastrado", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, "CPF inválido ou cadastrado", Toast.LENGTH_SHORT).show()
             } else {
                 register_cpf.error = null
             }
@@ -114,9 +114,9 @@ class RegisterActivity : AppCompatActivity() {
 
         viewModel.validEmail.observe(this, Observer {
             if (!it) {
-                register_email.error = "Email já cadastrado"
+                register_email.error = "Email inválido ou já cadastrado"
 
-                Toast.makeText(this, "Email já cadastrado", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, "Email inválido ou já cadastrado", Toast.LENGTH_SHORT).show()
             } else {
                 register_email.error = null
             }

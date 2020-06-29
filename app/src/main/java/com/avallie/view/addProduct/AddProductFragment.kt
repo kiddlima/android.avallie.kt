@@ -1,13 +1,18 @@
 package com.avallie.view.addProduct
 
+import android.app.Activity
+import android.content.Context
 import android.content.DialogInterface
 import android.os.Bundle
 import android.text.InputType
 import android.view.LayoutInflater
+import android.view.MotionEvent
 import android.view.View
 import android.view.ViewGroup
 import android.view.inputmethod.EditorInfo
+import android.view.inputmethod.InputMethodManager
 import android.widget.EditText
+import android.widget.Toast
 import androidx.fragment.app.DialogFragment
 import com.avallie.R
 import com.avallie.helpers.PaperHelper
@@ -20,6 +25,7 @@ import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import com.google.android.material.textfield.TextInputLayout
 import kotlinx.android.synthetic.main.add_product_fragment.*
+
 
 class AddProductFragment : BottomSheetDialogFragment() {
 
@@ -104,11 +110,15 @@ class AddProductFragment : BottomSheetDialogFragment() {
         inputs.last().editText!!.setMultiLineCapSentencesAndDoneAction()
 
         add_product.setOnClickListener {
-            saveProduct()
+            if (!amount.text.isNullOrBlank()) {
+                saveProduct()
 
-            (activity as MainActivity).updateCartBadge()
+                (activity as MainActivity).updateCartBadge()
 
-            dismiss()
+                dismiss()
+            } else {
+                Toast.makeText(context, "Informe a quantidade do produto", Toast.LENGTH_LONG).show()
+            }
         }
 
     }
