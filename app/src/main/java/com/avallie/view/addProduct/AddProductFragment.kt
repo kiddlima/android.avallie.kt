@@ -1,16 +1,12 @@
 package com.avallie.view.addProduct
 
-import android.app.Activity
-import android.content.Context
 import android.content.DialogInterface
 import android.os.Bundle
 import android.text.InputType
 import android.view.LayoutInflater
-import android.view.MotionEvent
 import android.view.View
 import android.view.ViewGroup
 import android.view.inputmethod.EditorInfo
-import android.view.inputmethod.InputMethodManager
 import android.widget.EditText
 import android.widget.Toast
 import androidx.fragment.app.DialogFragment
@@ -24,7 +20,11 @@ import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import com.google.android.material.textfield.TextInputLayout
+import com.redmadrobot.inputmask.MaskedTextChangedListener
+import kotlinx.android.synthetic.main.activity_register.*
 import kotlinx.android.synthetic.main.add_product_fragment.*
+import java.lang.Exception
+import java.lang.NumberFormatException
 
 
 class AddProductFragment : BottomSheetDialogFragment() {
@@ -75,6 +75,7 @@ class AddProductFragment : BottomSheetDialogFragment() {
             add_product_name.text = selectedProduct!!.product.name.toLowerCase().capitalize()
             amount_container.hint = "Quantidade (${selectedProduct?.product!!.unit})"
             amount.setText(selectedProduct?.amount.toString())
+            brand.setText(selectedProduct?.brand)
             add_product.text = getString(R.string.update_product)
         }
 
@@ -111,11 +112,16 @@ class AddProductFragment : BottomSheetDialogFragment() {
 
         add_product.setOnClickListener {
             if (!amount.text.isNullOrBlank()) {
-                saveProduct()
+                try {
+                    saveProduct()
 
-                (activity as MainActivity).updateCartBadge()
+                    (activity as MainActivity).updateCartBadge()
 
-                dismiss()
+                    dismiss()
+                } catch (e: NumberFormatException) {
+                    Toast.makeText(context, "Número inválido para quantidade", Toast.LENGTH_LONG)
+                        .show()
+                }
             } else {
                 Toast.makeText(context, "Informe a quantidade do produto", Toast.LENGTH_LONG).show()
             }
@@ -145,18 +151,20 @@ class AddProductFragment : BottomSheetDialogFragment() {
         if (product != null) {
             PaperHelper.addProduct(
                 SelectedProduct(
-                    amount?.text.toString().toInt(),
+                    amount?.text.toString().toDouble(),
                     getFormattedSpecs(),
                     product!!.id,
+                    brand.text.toString(),
                     product!!
                 )
             )
         } else {
             PaperHelper.updateProduct(
                 SelectedProduct(
-                    amount?.text.toString().toInt(),
+                    amount?.text.toString().toDouble(),
                     getFormattedSpecs(),
                     selectedProduct?.product?.id!!,
+                    brand.text.toString(),
                     selectedProduct?.product!!
                 )
             )

@@ -67,22 +67,22 @@ class AddProductDialog(private val context: Context, private val product: Produc
                 )
         )
 
-        btnAddProduct?.setOnClickListener {
-            if (hasValidField(quantity) && hasValidField(observations)) {
-                addProduct(
-                        SelectedProduct(
-                                quantity?.text.toString().toInt(),
-                                observations?.text.toString(),
-                                product.id,
-                                product
-                        )
-                )
-
-                (context as MainActivity).updateCartBadge()
-
-                dialog.dismiss()
-            }
-        }
+//        btnAddProduct?.setOnClickListener {
+//            if (hasValidField(quantity) && hasValidField(observations)) {
+//                addProduct(
+//                        SelectedProduct(
+//                                quantity?.text.toString().toInt(),
+//                                observations?.text.toString(),
+//                                product.id,
+//                                product
+//                        )
+//                )
+//
+//                (context as MainActivity).updateCartBadge()
+//
+//                dialog.dismiss()
+//            }
+//        }
 
         dialog.show()
     }

@@ -4,7 +4,6 @@ import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
-import android.view.inputmethod.InputMethodManager
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
@@ -109,6 +108,14 @@ class RegisterActivity : AppCompatActivity() {
                 Toast.makeText(this, "CPF inválido ou cadastrado", Toast.LENGTH_SHORT).show()
             } else {
                 register_cpf.error = null
+
+                if (viewModel.fromNextClickedCpf!!) {
+                    if (isFirstScreenValidate()) {
+                        goToSecondScreen()
+                    } else {
+                        showError(getString(R.string.fill_the_fileds))
+                    }
+                }
             }
         })
 
@@ -118,6 +125,14 @@ class RegisterActivity : AppCompatActivity() {
 
                 Toast.makeText(this, "Email inválido ou já cadastrado", Toast.LENGTH_SHORT).show()
             } else {
+                if (viewModel.fromNextClickedEmail!!) {
+                    if (isThirdScreenValidate()) {
+                        finishRegister()
+                    } else {
+                        showError(getString(R.string.fill_the_fileds))
+                    }
+                }
+
                 register_email.error = null
             }
         })
@@ -140,9 +155,17 @@ class RegisterActivity : AppCompatActivity() {
             when (viewModel.registerScreen.value) {
                 RegisterScreen.FIRST -> {
                     if (isFirstScreenValidate()) {
-                        goToSecondScreen()
+                        if (register_cpf.isFocused) {
+                            viewModel.validateCpf(this, true)
+                        } else {
+                            goToSecondScreen()
+                        }
                     } else {
-                        showError(getString(R.string.fill_the_fileds))
+                        if (register_cpf.isFocused && !register_cpf.text.isNullOrBlank()) {
+                            viewModel.validateCpf(this, true)
+                        } else {
+                            showError(getString(R.string.fill_the_fileds))
+                        }
                     }
                 }
                 RegisterScreen.SECOND -> {
@@ -154,7 +177,11 @@ class RegisterActivity : AppCompatActivity() {
                 }
                 else -> {
                     if (isThirdScreenValidate()) {
-                        finishRegister()
+                        if (register_email.isFocused) {
+                            viewModel.validateEmail(this, true)
+                        } else {
+                            finishRegister()
+                        }
                     } else {
                         showError(getString(R.string.fill_the_fileds))
                     }
@@ -180,14 +207,19 @@ class RegisterActivity : AppCompatActivity() {
     }
 
     private fun isFirstScreenValidate(): Boolean {
-        return if (viewModel.validCpf.value == null) {
-            viewModel.validateCpf(this)
-
-            false
+        if (binding.registerCpf.text.isNullOrBlank()) {
+            return false
         } else {
-            !binding.registerName.text.isNullOrBlank() && !binding.registerCpf.text.isNullOrBlank() && !binding.registerPhone.text.isNullOrBlank() && viewModel.validCpf.value!!
-        }
+            if (viewModel.validCpf.value == null) {
+                viewModel.validateCpf(this)
 
+                return false
+            } else {
+                return !binding.registerName.text.isNullOrBlank() && !binding.registerCpf.text.isNullOrBlank() && (!binding.registerPhone.text!!.equals(
+                    "("
+                ) && !binding.registerPhone.text.isNullOrBlank()) && viewModel.validCpf.value!!
+            }
+        }
     }
 
     private fun isSecondScreenValidate(): Boolean {
@@ -195,6 +227,10 @@ class RegisterActivity : AppCompatActivity() {
     }
 
     private fun isThirdScreenValidate(): Boolean {
+        if (binding.registerEmail.text.isNullOrBlank()) {
+            return false
+        }
+
         if (viewModel.validEmail.value == null) {
             viewModel.validateEmail(this)
 

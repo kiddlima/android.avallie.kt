@@ -4,6 +4,7 @@ import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.view.inputmethod.InputMethodManager
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
@@ -44,7 +45,12 @@ class LoginActivity : AppCompatActivity() {
         }
 
         btn_login.setOnClickListener {
-            viewModel.login(login_email.text.toString(), login_password.text.toString(), this)
+            if (login_email.text.isNullOrBlank() || login_password.text.isNullOrBlank()) {
+                Toast.makeText(this, "Preencha as informações de login", Toast.LENGTH_SHORT).show()
+            } else {
+                viewModel.login(login_email.text.toString(), login_password.text.toString(), this)
+            }
+
         }
 
         create_account.setOnClickListener {

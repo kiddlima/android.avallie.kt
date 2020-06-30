@@ -28,6 +28,9 @@ class RegisterViewModel : ViewModel() {
 
     val cepLoading = MutableLiveData<ScreenState>()
 
+    var fromNextClickedCpf: Boolean? = false
+    var fromNextClickedEmail: Boolean? = false
+
     init {
         customer.value = Customer()
     }
@@ -37,8 +40,10 @@ class RegisterViewModel : ViewModel() {
         customer.value!!.cpf = customer.value!!.cpf?.replace(".", "")
     }
 
-    fun validateCpf(context: Context) {
+    fun validateCpf(context: Context, fromNextClicked: Boolean? = false) {
         clearCpf()
+
+        this.fromNextClickedCpf = fromNextClicked
 
         validateCpfState.value = ScreenState.Loading
 
@@ -91,8 +96,10 @@ class RegisterViewModel : ViewModel() {
             })
     }
 
-    fun validateEmail(context: Context) {
+    fun validateEmail(context: Context, fromNextClickedEmail: Boolean? = false) {
         validateEmailState.value = ScreenState.Loading
+        
+        this.fromNextClickedEmail = fromNextClickedEmail
 
         HttpService(context).validateEmail(
             customer.value!!.email!!,
