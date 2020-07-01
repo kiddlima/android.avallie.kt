@@ -116,4 +116,6 @@
     <string name="cep_error">Erro ao consultar CEP</string>
     <string name="preference_brand_label">Marca de preferência</string>
     <string name="update_product">Atualizar produto</string>
+    <string name="confirm_add_product_title">Você não preenchou todas as especificações!</string>
+    <string name="confirm_add_product_description">É importante detalher ao máximo o seu produto para que o fornecedor consiga orçar seu pedido. Deseja continuar mesmo assim?</string>
 </resources>

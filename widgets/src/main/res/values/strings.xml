@@ -1,4 +1,6 @@
 <resources>
     <string name="app_name">widgets</string>
     <string name="no_connection">Sem conexão com a internet</string>
+    <string name="yes">Sim</string>
+    <string name="no">Não</string>
 </resources>

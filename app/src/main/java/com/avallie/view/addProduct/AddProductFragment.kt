@@ -11,11 +11,13 @@ import android.widget.EditText
 import android.widget.Toast
 import androidx.fragment.app.DialogFragment
 import com.avallie.R
+import com.avallie.generated.callback.OnClickListener
 import com.avallie.helpers.PaperHelper
 import com.avallie.model.Product
 import com.avallie.model.Spec
 import com.avallie.model.request.SelectedProduct
 import com.avallie.view.MainActivity
+import com.avallie.widgets.SelectionDialog
 import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
@@ -112,21 +114,45 @@ class AddProductFragment : BottomSheetDialogFragment() {
 
         add_product.setOnClickListener {
             if (!amount.text.isNullOrBlank()) {
-                try {
-                    saveProduct()
+                if (haveAnyEmptySpecs()) {
+                    SelectionDialog(context!!,
+                        getString(R.string.confirm_add_product_title),
+                        getString(
+                            R.string.confirm_add_product_description
+                        ),
+                        View.OnClickListener {
+                            try {
+                                saveProduct()
 
-                    (activity as MainActivity).updateCartBadge()
+                                (activity as MainActivity).updateCartBadge()
 
-                    dismiss()
-                } catch (e: NumberFormatException) {
-                    Toast.makeText(context, "Número inválido para quantidade", Toast.LENGTH_LONG)
-                        .show()
+                                dismiss()
+                            } catch (e: NumberFormatException) {
+                                Toast.makeText(
+                                    context,
+                                    "Número inválido para quantidade",
+                                    Toast.LENGTH_LONG
+                                )
+                                    .show()
+                            }
+                        }
+                    ).show()
                 }
             } else {
                 Toast.makeText(context, "Informe a quantidade do produto", Toast.LENGTH_LONG).show()
             }
         }
 
+    }
+
+    private fun haveAnyEmptySpecs(): Boolean {
+        for (input in inputs) {
+            if (input.editText?.text.isNullOrBlank()) {
+                return true
+            }
+        }
+
+        return false
     }
 
     private fun EditText.setMultiLineCapSentencesAndDoneAction() {
