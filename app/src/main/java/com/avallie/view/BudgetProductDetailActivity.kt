@@ -9,6 +9,7 @@ import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.avallie.databinding.ActivityBudgetProductDetailBinding
+import com.avallie.helpers.SpecHelper
 import com.avallie.model.RequestedProduct
 import com.avallie.model.ScreenState
 import com.avallie.view.adapter.BudgetsAdapter
@@ -55,12 +56,10 @@ class BudgetProductDetailActivity : AppCompatActivity() {
         viewModel.requestedProduct.value?.specifications =
             viewModel.requestedProduct.value?.specifications?.replace(":", ": ")!!
 
+
         viewModel.requestedProduct.value?.run {
-            binding.productDetailDescription.text =
-                "${if (brand != null) "$brand\n" else ""}${viewModel.requestedProduct.value?.specifications?.replace(
-                    ";",
-                    "\n"
-                )}"
+            binding.productDetailDescription.text = formatProductDescription(this)
+
         }
 
         binding.noDataContainer = NoDataContainer(
@@ -75,6 +74,15 @@ class BudgetProductDetailActivity : AppCompatActivity() {
 
         recyclerView = binding.budgetsRecycler
     }
+
+    private fun formatProductDescription(requestedProduct: RequestedProduct): String {
+        val specs = SpecHelper.createSpecs(viewModel.requestedProduct.value?.specifications!!)
+
+        val specsString = SpecHelper.formattedSpecsString(specs)
+
+        return "${if (requestedProduct.brand != null) "Marca de preferência: ${requestedProduct.brand}\n" else ""}${specsString}"
+    }
+
 
     private fun setAdapter() {
         recyclerView.adapter = adapter

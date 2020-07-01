@@ -22,46 +22,47 @@ class LoginViewModel : ViewModel() {
         screenState.value = ScreenState.Loading
 
         auth.signInWithEmailAndPassword(email, password)
-                .addOnCompleteListener { authResult ->
-                    if (authResult.isSuccessful) {
-                        auth.currentUser?.getIdToken(true)?.addOnCompleteListener {
+            .addOnCompleteListener { authResult ->
+                if (authResult.isSuccessful) {
+                    auth.currentUser?.getIdToken(false)?.addOnCompleteListener {
 
-                            if (it.result?.claims?.get("role") == "SUPPLIER") {
-                                auth.signOut()
+                        if (it.result?.claims?.get("role") == "SUPPLIER") {
+                            auth.signOut()
 
-                                screenState.value = ScreenState.Fail
-                                errorMessage.value = "Para ter acesso as suas informações você deve acessar o portal web."
-                            } else {
-                                HttpService(context).setNotificationToken(null)
-                                
-                                HttpService(context).getCustomer(object : ConnectionListener<Customer> {
-                                    override fun onSuccess(response: Customer) {
-                                        screenState.value = ScreenState.Success
-                                    }
+                            screenState.value = ScreenState.Fail
+                            errorMessage.value =
+                                "Para ter acesso as suas informações você deve acessar o portal web."
+                        } else {
+                            HttpService(context).setNotificationToken(null)
 
-                                    override fun onFail(error: String?) {
-                                        errorMessage.value = "Falha ao recuperar dados cadastrais"
+                            HttpService(context).getCustomer(object : ConnectionListener<Customer> {
+                                override fun onSuccess(response: Customer) {
+                                    screenState.value = ScreenState.Success
+                                }
 
-                                        screenState.value = ScreenState.Fail
-                                    }
+                                override fun onFail(error: String?) {
+                                    errorMessage.value = "Falha ao recuperar dados cadastrais"
 
-                                    override fun noInternet() {
-                                        errorMessage.value = "Sem conexão com a internet"
+                                    screenState.value = ScreenState.Fail
+                                }
 
-                                        screenState.value = ScreenState.Fail
-                                    }
+                                override fun noInternet() {
+                                    errorMessage.value = "Sem conexão com a internet"
 
-                                })
+                                    screenState.value = ScreenState.Fail
+                                }
+
+                            })
 
 
-                            }
                         }
-
-                    } else {
-                        errorMessage.value = "Usuário ou senha incorretos"
-
-                        screenState.value = ScreenState.Fail
                     }
+
+                } else {
+                    errorMessage.value = "Usuário ou senha incorretos"
+
+                    screenState.value = ScreenState.Fail
                 }
+            }
     }
 }

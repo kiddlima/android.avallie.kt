@@ -154,7 +154,7 @@ class AddProductFragment : BottomSheetDialogFragment() {
                     amount?.text.toString().toDouble(),
                     getFormattedSpecs(),
                     product!!.id,
-                    brand.text.toString(),
+                    if (!brand.text.isNullOrEmpty()) brand.text.toString() else null,
                     product!!
                 )
             )
@@ -164,7 +164,7 @@ class AddProductFragment : BottomSheetDialogFragment() {
                     amount?.text.toString().toDouble(),
                     getFormattedSpecs(),
                     selectedProduct?.product?.id!!,
-                    brand.text.toString(),
+                    if (!brand.text.isNullOrEmpty()) brand.text.toString() else null,
                     selectedProduct?.product!!
                 )
             )

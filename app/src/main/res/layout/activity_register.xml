@@ -135,6 +135,7 @@
 
                         <com.google.android.material.textfield.TextInputLayout
                             fontPath="Regular.otf"
+                            android:id="@+id/cpf_input_layout"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="4dp"
@@ -422,6 +423,7 @@
                         app:layout_constraintTop_toTopOf="parent">
 
                         <com.google.android.material.textfield.TextInputLayout
+                            android:id="@+id/email_input_layout"
                             fontPath="Regular.otf"
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"

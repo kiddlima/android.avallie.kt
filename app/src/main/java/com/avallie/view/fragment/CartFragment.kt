@@ -11,6 +11,7 @@ import androidx.core.content.ContextCompat
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.airbnb.lottie.RenderMode
 import com.avallie.R
 import com.avallie.helpers.AuthHelper
 import com.avallie.helpers.FormatterHelper.Companion.stringToDate
@@ -196,8 +197,11 @@ class CartFragment : BottomSheetDialogFragment() {
     private fun showSuccess() {
         val accentColor = ContextCompat.getColor(context!!, R.color.colorAccent)
 
+        animation_view.visibility = View.VISIBLE
+
         animation_view.run {
             speed = 0.8f
+            setRenderMode(RenderMode.SOFTWARE)
             playAnimation()
         }
 
@@ -218,6 +222,8 @@ class CartFragment : BottomSheetDialogFragment() {
     private fun showFail(errorMessage: String) {
         val errorColor = ContextCompat.getColor(context!!, R.color.colorError)
 
+        response_image.visibility = View.VISIBLE
+        animation_view.visibility = View.GONE
         response_image.setImageDrawable(ContextCompat.getDrawable(context!!, R.drawable.ic_warning))
         response_image.setColorFilter(errorColor)
 
@@ -235,7 +241,8 @@ class CartFragment : BottomSheetDialogFragment() {
     private fun setCartAdapter() {
         cart_recycler.adapter = cartAdapter
 
-        cart_size.text = "${selectedProducts.size} produtos selecionados"
+        cart_size.text =
+            "${selectedProducts.size} produtos ${if (selectedProducts.size == 1) "selecionado" else "selecionados"}"
 
         btn_confirm_products.setOnClickListener {
             if (!AuthHelper.isLoggedIn()) {
@@ -252,6 +259,9 @@ class CartFragment : BottomSheetDialogFragment() {
             override fun onDeleteProduct(position: Int) {
                 selectedProducts.remove(selectedProducts[position])
                 PaperHelper.updateCart(selectedProducts)
+
+                cart_size.text =
+                    "${selectedProducts.size} produtos ${if (selectedProducts.size == 1) "selecionado" else "selecionados"}"
 
                 cartAdapter.notifyDataSetChanged()
 

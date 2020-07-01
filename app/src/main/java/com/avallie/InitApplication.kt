@@ -7,8 +7,6 @@ import com.google.firebase.iid.InstanceIdResult
 import com.google.android.gms.tasks.OnSuccessListener
 import com.google.firebase.iid.FirebaseInstanceId
 
-
-
 class InitApplication : Application() {
 
     override fun onCreate() {
@@ -22,7 +20,5 @@ class InitApplication : Application() {
                 .setFontAttrId(R.attr.fontPath)
                 .build()
         )
-
-
     }
 }

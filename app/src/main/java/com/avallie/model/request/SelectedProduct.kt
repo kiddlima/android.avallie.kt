@@ -11,6 +11,6 @@ class SelectedProduct(
     var specifications: String,
     @SerializedName("product_id")
     val productId: Long,
-    val brand: String,
+    val brand: String?,
     val product: Product
 ) : Serializable

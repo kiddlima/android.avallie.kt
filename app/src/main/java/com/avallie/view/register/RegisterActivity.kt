@@ -3,10 +3,13 @@ package com.avallie.view.register
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
+import android.text.Editable
+import android.text.TextWatcher
 import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
+import androidx.core.widget.doOnTextChanged
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
@@ -47,7 +50,7 @@ class RegisterActivity : AppCompatActivity() {
 
         register_cpf.onFocusChangeListener = View.OnFocusChangeListener { v, hasFocus ->
             if (!hasFocus && register_cpf.text!!.isNotEmpty()) {
-                register_cpf.error = null
+                cpf_input_layout.error = null
 
                 viewModel.validateCpf(this)
             }
@@ -67,7 +70,7 @@ class RegisterActivity : AppCompatActivity() {
 
         register_email.onFocusChangeListener = View.OnFocusChangeListener { v, hasFocus ->
             if (!hasFocus && register_email.text!!.isNotEmpty()) {
-                register_email.error = null
+                binding.emailInputLayout.error = null
 
                 viewModel.validateEmail(this)
             }
@@ -80,6 +83,19 @@ class RegisterActivity : AppCompatActivity() {
             onFocusChangeListener = listener
         }
 
+        register_phone.addTextChangedListener(object : TextWatcher {
+            override fun afterTextChanged(s: Editable?) {
+
+            }
+
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
+
+            }
+
+            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+                binding.phoneContainer.error = null
+            }
+        })
         register_cep.run {
             val listener = MaskedTextChangedListener("[00000]{-}[000]", register_cep)
 
@@ -103,11 +119,11 @@ class RegisterActivity : AppCompatActivity() {
 
         viewModel.validCpf.observe(this, Observer {
             if (!it) {
-                register_cpf.error = "CPF inválido ou cadastrado"
+                cpf_input_layout.error = "CPF inválido ou cadastrado"
 
                 Toast.makeText(this, "CPF inválido ou cadastrado", Toast.LENGTH_SHORT).show()
             } else {
-                register_cpf.error = null
+                cpf_input_layout.error = null
 
                 if (viewModel.fromNextClickedCpf!!) {
                     if (isFirstScreenValidate()) {
@@ -121,7 +137,7 @@ class RegisterActivity : AppCompatActivity() {
 
         viewModel.validEmail.observe(this, Observer {
             if (!it) {
-                register_email.error = "Email inválido ou já cadastrado"
+                email_input_layout.error = "Email inválido ou já cadastrado"
 
                 Toast.makeText(this, "Email inválido ou já cadastrado", Toast.LENGTH_SHORT).show()
             } else {
@@ -133,7 +149,7 @@ class RegisterActivity : AppCompatActivity() {
                     }
                 }
 
-                register_email.error = null
+                email_input_layout.error = null
             }
         })
 
@@ -207,6 +223,12 @@ class RegisterActivity : AppCompatActivity() {
     }
 
     private fun isFirstScreenValidate(): Boolean {
+        if (!binding.registerPhone.text?.matches(Regex("^1\\d\\d(\\d\\d)?\$|^0800 ?\\d{3} ?\\d{4}\$|^(\\(0?([1-9a-zA-Z][0-9a-zA-Z])?[1-9]\\d\\) ?|0?([1-9a-zA-Z][0-9a-zA-Z])?[1-9]\\d[ .-]?)?(9|9[ .-])?[2-9]\\d{3}[ .-]?\\d{4}\$"))!!) {
+            binding.phoneContainer.error = "Telefone inválido"
+
+            return false
+        }
+
         if (binding.registerCpf.text.isNullOrBlank()) {
             return false
         } else {
