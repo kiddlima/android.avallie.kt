@@ -121,29 +121,35 @@ class AddProductFragment : BottomSheetDialogFragment() {
                             R.string.confirm_add_product_description
                         ),
                         View.OnClickListener {
-                            try {
-                                saveProduct()
-
-                                (activity as MainActivity).updateCartBadge()
-
-                                dismiss()
-                            } catch (e: NumberFormatException) {
-                                Toast.makeText(
-                                    context,
-                                    "Número inválido para quantidade",
-                                    Toast.LENGTH_LONG
-                                )
-                                    .show()
-                            }
+                            addProduct()
                         }
                     ).show()
+                } else {
+                    addProduct()
                 }
             } else {
                 Toast.makeText(context, "Informe a quantidade do produto", Toast.LENGTH_LONG).show()
             }
         }
-
     }
+
+    private fun addProduct() {
+        try {
+            saveProduct()
+
+            (activity as MainActivity).updateCartBadge()
+
+            dismiss()
+        } catch (e: NumberFormatException) {
+            Toast.makeText(
+                context,
+                "Número inválido para quantidade",
+                Toast.LENGTH_LONG
+            )
+                .show()
+        }
+    }
+
 
     private fun haveAnyEmptySpecs(): Boolean {
         for (input in inputs) {
