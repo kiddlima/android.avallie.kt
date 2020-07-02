@@ -11,10 +11,17 @@ import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.avallie.R
+import com.avallie.helpers.FormatterHelper.Companion.dateFromServer
 import com.avallie.helpers.FormatterHelper.Companion.toCurrency
 import com.avallie.model.Budget
 
-class BudgetsAdapter(private val context: Context, private val budgets: MutableList<Budget>) :
+typealias OnBudgetClicked = (budget: Budget) -> Unit
+
+class BudgetsAdapter(
+    private val context: Context,
+    private val budgets: MutableList<Budget>,
+    private val onBudgetClicked: OnBudgetClicked
+) :
     RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
@@ -35,7 +42,7 @@ class BudgetsAdapter(private val context: Context, private val budgets: MutableL
 
         holder.headerContainer.background = ContextCompat.getDrawable(context, background)
 
-        holder.supplierName.text = budget.supplierName
+        holder.supplierName.text = budget.supplier.name
         holder.totalPrice.text = toCurrency(budget.totalPrice)
         holder.paymentOption.text = budget.paymentOption
         holder.addressOption.text =
@@ -65,6 +72,10 @@ class BudgetsAdapter(private val context: Context, private val budgets: MutableL
                 .setImageDrawable(ContextCompat.getDrawable(context, R.drawable.ic_credit_cards))
             deliveryContainer.findViewById<ImageView>(R.id.icon)
                 .setImageDrawable(ContextCompat.getDrawable(context, R.drawable.ic_delivery))
+
+            itemView.setOnClickListener {
+                onBudgetClicked.invoke(budgets[adapterPosition])
+            }
         }
     }
 }

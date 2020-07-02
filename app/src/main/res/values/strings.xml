@@ -95,7 +95,7 @@
     <string name="category_label">Categoria</string>
     <string name="total_label">Total</string>
 
-    <string name="unity_label">%s unidades</string>
+    <string name="unity_label">%s %s</string>
     <string name="payment_type_label">Formas de pagamento</string>
     <string name="delivery_label">Entrega</string>
     <string name="loading_avaiable_budgets_label">Carregando orçamentos disponíveis</string>

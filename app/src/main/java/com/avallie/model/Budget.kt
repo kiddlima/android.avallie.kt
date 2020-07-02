@@ -4,8 +4,8 @@ import com.google.gson.annotations.SerializedName
 import java.io.Serializable
 
 class Budget(
-    @SerializedName("supplier_name")
-    val supplierName: String,
+    @SerializedName("supplier")
+    val supplier: Supplier,
     @SerializedName("payment_methods")
     val paymentOption: String,
     @SerializedName("delivery_specifications")
