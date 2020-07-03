@@ -66,5 +66,10 @@ interface Services {
         @Path("email") email: String
     ): Call<ApiResponse<Boolean>>
 
+    @DELETE("v1/customers/notification-info")
+    fun deleteTokenNotification(
+        @Header("Authorization") token: String
+    ): Call<ApiResponse<Boolean>>
+
 
 }

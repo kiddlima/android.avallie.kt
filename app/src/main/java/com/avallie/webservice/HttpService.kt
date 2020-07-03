@@ -266,6 +266,26 @@ class HttpService(private val context: Context) {
         })
     }
 
+    fun deleteTokenNotification(){
+        auth.currentUser?.getIdToken(true)?.addOnSuccessListener { authTokenResult ->
+            requestClient.deleteTokenNotification("Bearer " + authTokenResult.token).enqueue(object: Callback<ApiResponse<Boolean>> {
+                override fun onFailure(call: Call<ApiResponse<Boolean>>, t: Throwable) {
+                    println()
+                }
+
+                override fun onResponse(
+                    call: Call<ApiResponse<Boolean>>,
+                    response: Response<ApiResponse<Boolean>>
+                ) {
+                    println(response)
+                }
+
+            })
+        }
+
+    }
+
+
     fun <T> responseHandler(
         response: Response<ApiResponse<T>>,
         connectionListener: ConnectionListener<T>?

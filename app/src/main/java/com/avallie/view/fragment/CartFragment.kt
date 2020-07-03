@@ -135,6 +135,10 @@ class CartFragment : BottomSheetDialogFragment() {
             return "Preencha os camos acima"
         }
 
+        if (confirm_dead_line.text!!.length != 10) {
+            return "Data máxima de entrega inválida"
+        }
+
         val month = confirm_dead_line.text?.substring(3, 5)?.toInt()
         val day = confirm_dead_line.text?.substring(0, 2)?.toInt()
         val date = stringToDate(confirm_dead_line.text.toString(), "dd/MM/yyyy")
@@ -177,21 +181,26 @@ class CartFragment : BottomSheetDialogFragment() {
     }
 
     private fun requestBudget() {
-        val formatter = SimpleDateFormat("dd/MM/yyyy", Locale.getDefault())
-        var formattedDateString = ""
+        try {
+            val formatter = SimpleDateFormat("dd/MM/yyyy", Locale.getDefault())
+            var formattedDateString = ""
 
-        formatter.parse(confirm_dead_line.text.toString()).run {
-            formattedDateString = SimpleDateFormat("yyyy-MM-dd", Locale.getDefault()).format(this)
+            formatter.parse(confirm_dead_line.text.toString()).run {
+                formattedDateString =
+                    SimpleDateFormat("yyyy-MM-dd", Locale.getDefault()).format(this)
+            }
+
+            val budgetRequest = BudgetRequest(
+                confirm_request_name.text.toString(),
+                formattedDateString,
+                "${delivery_address_one.text} ${delivery_address_two.text}",
+                getCart()
+            )
+
+            viewModel.requestBudget(budgetRequest, context!!)
+        } catch (e: Exception) {
+            showFail("Data de entrega máxima inválida")
         }
-
-        val budgetRequest = BudgetRequest(
-            confirm_request_name.text.toString(),
-            formattedDateString,
-            "${delivery_address_one.text} ${delivery_address_two.text}",
-            getCart()
-        )
-
-        viewModel.requestBudget(budgetRequest, context!!)
     }
 
     private fun showSuccess() {

@@ -118,4 +118,7 @@
     <string name="update_product">Atualizar produto</string>
     <string name="confirm_add_product_title">Você não preenchou todas as especificações!</string>
     <string name="confirm_add_product_description">É importante detalher ao máximo o seu produto para que o fornecedor consiga orçar seu pedido. Deseja continuar mesmo assim?</string>
+    <string name="request_name_hint">Ex: Reforma da casa</string>
+    <string name="request_deadline_hint">Ex: 12/04/2020</string>
+    <string name="max_date_hint">Data máxima de entrega</string>
 </resources>

@@ -28,6 +28,10 @@ class AccountViewModel : ViewModel() {
         }
     }
 
+    fun deleteNotificationToken(context: Context){
+        HttpService(context).deleteTokenNotification()
+    }
+
     fun getCustomer(context: Context) {
         HttpService(context).getCustomer(object : ConnectionListener<Customer> {
             override fun onSuccess(response: Customer) {

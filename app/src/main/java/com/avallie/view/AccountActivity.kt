@@ -32,6 +32,8 @@ class AccountActivity : AppCompatActivity() {
         binding.logoutButton.setOnClickListener {
             PaperHelper.clearCustomer()
 
+            viewModel.deleteNotificationToken(this)
+
             AuthHelper.logout()
 
             startActivity(Intent(this, LoginActivity::class.java))
