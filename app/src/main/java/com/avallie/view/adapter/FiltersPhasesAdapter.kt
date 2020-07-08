@@ -33,7 +33,7 @@ class FiltersPhasesAdapter(private val context: Context, private val phases: Arr
 
         val constructionPhase = phases[position]
 
-        holder.phaseName.text = constructionPhase.name
+        holder.phaseName.text = constructionPhase.name?.toLowerCase()?.capitalize()
 
         holder.phaseBackground.setBackgroundResource(
             if (constructionPhase.selected)
@@ -65,19 +65,11 @@ class FiltersPhasesAdapter(private val context: Context, private val phases: Arr
         val phaseName = itemView.v_phase_name
         val phaseBackground = itemView.v_phase_background
 
-
         init {
             itemView.setOnClickListener {
                 itemClickListener?.invoke(phases[adapterPosition])
             }
         }
-
-
-//        fun onClickListener(listener :(View) -> Unit){
-//            itemView.setOnClickListener {
-//                listener(it)
-//            }
-//        }
     }
 
 }

@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="firstLine"
+            type="String" />
+
+        <variable
+            name="secondLine"
+            type="String" />
+
+        <variable
+            name="drawable"
+            type="String" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:background="@android:color/white">
+
+        <ImageView
+            android:id="@+id/icon"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_margin="16dp"
+            android:src="@{drawable}"
+            android:tint="@color/grayPrimary"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/first_line"
+            fontPath="Regular.otf"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:includeFontPadding="false"
+            android:text="@{firstLine}"
+            android:textColor="@color/grayPrimaryDark"
+            android:textSize="12sp"
+            app:layout_constraintBottom_toTopOf="@id/second_line"
+            app:layout_constraintStart_toEndOf="@id/icon"
+            app:layout_constraintTop_toTopOf="@id/icon"
+            app:layout_constraintVertical_chainStyle="packed"
+            tools:text="First line" />
+
+        <TextView
+            android:id="@+id/second_line"
+            fontPath="Medium.otf"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:includeFontPadding="false"
+            android:textColor="@color/grayPrimaryDarker"
+            android:textSize="12sp"
+            app:layout_constraintBottom_toBottomOf="@id/icon"
+            app:layout_constraintStart_toEndOf="@id/icon"
+            app:layout_constraintTop_toBottomOf="@id/first_line"
+            app:layout_constraintVertical_chainStyle="packed"
+            tools:text="Second line" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

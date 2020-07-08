@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">widgets</string>
+    <string name="no_connection">Sem conexão com a internet</string>
+    <string name="yes">Sim</string>
+    <string name="no">Não</string>
+    <string name="supplier_info_dialog_description">Entre em contato com o fornecedor para realizar sua compra.</string>
+</resources>

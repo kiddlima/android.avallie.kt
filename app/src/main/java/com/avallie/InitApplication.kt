@@ -11,6 +11,8 @@ class InitApplication : Application() {
 
         Paper.init(this)
 
+
+
         CalligraphyConfig.initDefault(
             CalligraphyConfig.Builder()
                 .setDefaultFontPath("fonts/Regular.otf")

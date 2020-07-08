@@ -3,39 +3,67 @@ package com.avallie.webservice
 import android.content.Context
 import android.net.ConnectivityManager
 import android.net.NetworkInfo
+import com.google.android.gms.tasks.Tasks
+import com.google.firebase.auth.FirebaseAuth
+import com.google.gson.FieldNamingPolicy
+import com.google.gson.GsonBuilder
+import kotlinx.coroutines.runBlocking
+import kotlinx.coroutines.suspendCancellableCoroutine
 import okhttp3.Cache
+import okhttp3.Interceptor
 import okhttp3.OkHttpClient
+import okhttp3.Response
+import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import java.util.concurrent.TimeUnit
+import kotlin.coroutines.resume
+import kotlin.coroutines.suspendCoroutine
+import com.annimon.stream.ComparatorCompat.chain
+import com.google.firebase.auth.GetTokenResult
 
-class RequestClient(private val context: Context, private val baseURL: String, private val withCache: Boolean = true) {
 
+class RequestClient(
+    private val context: Context,
+    private val baseURL: String,
+    private val authenticated: Boolean
+) {
+
+    private val auth by lazy {
+        FirebaseAuth.getInstance()
+    }
 
     /** Retrofit with GSON converter **/
     val retrofit: Retrofit by lazy {
-        Retrofit.Builder().let {
-            it.baseUrl(baseURL)
-            it.addConverterFactory(GsonConverterFactory.create())
-            if(withCache) it.client(getCachedOkHttpClient())
-            it.build()
-        }
+        getRetrofitObject()
+    }
+
+
+    private fun getRetrofitObject(): Retrofit{
+        val builder = Retrofit.Builder()
+
+        builder.baseUrl(baseURL)
+        builder.addConverterFactory(getGsonConverterFactory())
+        builder.client(getOkHttpClient())
+
+        return builder.build()
+    }
+
+    private fun getGsonConverterFactory(): GsonConverterFactory {
+        return GsonConverterFactory.create(
+            GsonBuilder().setFieldNamingPolicy(FieldNamingPolicy.LOWER_CASE_WITH_UNDERSCORES).create()
+        )
     }
 
 
     /** @return OkHttpClient with cache enabled **/
-    private fun getCachedOkHttpClient(): OkHttpClient {
-        return OkHttpClient.Builder()
-            .cache(Cache(context.cacheDir, getCacheSize()))
-            .addInterceptor { chain ->
-                chain.request().let {
-                    it.newBuilder().header("Cache-Control", getRequestValueCache()).build()
-                    chain.proceed(it)
-                }
-            }
-            .build()
-    }
+    private fun getOkHttpClient(): OkHttpClient {
+        val builder = OkHttpClient.Builder()
 
+        builder.addInterceptor(HeaderInterceptor())
+
+        return builder.build()
+    }
 
     /**
      * @return If there is Internet, get the cache that was stored  getNormalCacheTime() seconds ago.
@@ -46,7 +74,8 @@ class RequestClient(private val context: Context, private val baseURL: String, p
             hasNetwork() -> {
                 "max-age=" + getNormalCacheTime()
 
-            } else -> {
+            }
+            else -> {
                 "only-if-cached, max-stale=" + getNoInternetCacheTime()
             }
         }
@@ -61,7 +90,7 @@ class RequestClient(private val context: Context, private val baseURL: String, p
 
     /** @return time in minutes to retain objects in cache if there is no connection **/
     private fun getNormalCacheTime(): Long {
-        return  TimeUnit.MINUTES.toSeconds(2) // minutes
+        return TimeUnit.MINUTES.toSeconds(2) // minutes
     }
 
 
@@ -80,4 +109,14 @@ class RequestClient(private val context: Context, private val baseURL: String, p
         return isConnected
     }
 
+    class HeaderInterceptor : Interceptor {
+        override fun intercept(chain: Interceptor.Chain): Response = chain.run {
+            proceed(
+                request()
+                    .newBuilder()
+                    .addHeader("Authorization", "Bearer")
+                    .build()
+            )
+        }
+    }
 }

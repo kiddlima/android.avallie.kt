@@ -1,6 +1,6 @@
 <resources>
     <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+    <style name="AppTheme" parent="Theme.MaterialComponents.Light.DarkActionBar">
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@android:color/white</item>
         <item name="colorPrimaryDark">@color/colorAccentLight</item>
@@ -11,13 +11,24 @@
     <style name="AppTheme.NoActionBar" parent="AppTheme">
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
+        <item name="bottomSheetDialogTheme">@style/AppBottomSheetDialogTheme</item>
     </style>
 
-    <style name="AppThemeFilter"  parent="AppTheme.NoActionBar">
+    <style name="DialogStyle" parent="Theme.MaterialComponents.Light.BottomSheetDialog">
+        <item name="android:windowIsFloating">false</item>
+        <item name="android:statusBarColor">@android:color/transparent</item>
+        <item name="android:windowSoftInputMode">adjustResize</item>
+        <item name="bottomSheetStyle">@style/AppModalStyle</item>
+    </style>
+
+    <style name="AppThemeFilter" parent="AppTheme.NoActionBar">
         <item name="colorPrimaryDark">@color/grayLight</item>
     </style>
 
-    <!-- Full screen mode without actionbar -->
+    <style name="AppThemePrimary" parent="AppTheme.NoActionBar">
+        <item name="colorPrimaryDark">#5C99D0</item>
+    </style>
+
     <style name="AppTheme.FullScreen" parent="AppTheme.NoActionBar">
         <item name="android:windowFullscreen">true</item>
     </style>
@@ -26,6 +37,73 @@
         <item name="android:textColor">@android:color/white</item>
         <item name="android:textColorHint">@android:color/white</item>
         <item name="android:textCursorDrawable">@drawable/search_view_cursor</item>
+    </style>
+
+    <style name="AppTheme.TextErrorAppearance" parent="TextAppearance.Design.Error">
+        <!-- Error message appearance here -->
+        <item name="android:textColor">#ff0000</item>
+        <item name="android:textSize">20sp</item>
+    </style>
+
+    <style name="FullScreenDialogStyle" parent="Theme.AppCompat.Dialog">
+        <item name="android:windowNoTitle">true</item>
+
+        <item name="android:windowFullscreen">false</item>
+
+        <item name="android:windowIsFloating">false</item>
+
+        <item name="android:windowCloseOnTouchOutside">true</item>
+
+        <item name="colorControlNormal">@color/grayPrimary</item>
+        <item name="colorControlActivated">@color/grayPrimary</item>
+
+        <item name="android:windowBackground">@android:color/transparent</item>
+
+    </style>
+
+    <style name="AppBottomSheetDialogTheme" parent="Theme.MaterialComponents.Light.BottomSheetDialog">
+        <item name="bottomSheetStyle">@style/AppModalStyle</item>
+    </style>
+
+    <style name="AppModalStyle" parent="Widget.Design.BottomSheet.Modal">
+        <item name="android:background">@drawable/infinity_border_top</item>
+    </style>
+
+    <style name="AppTheme.Small">
+        <item name="android:textSize">12sp</item>
+        <item name="android:textColor">@color/grayLight</item>
+        <item name="fontPath">Regular.otf</item>
+    </style>
+
+    <style name="AppTheme.Medium">
+        <item name="android:textSize">18sp</item>
+        <item name="android:textColor">@color/grayPrimaryDark</item>
+        <item name="fontPath">Medium.otf</item>
+    </style>
+
+    <style name="SecondaryOutlineButton" parent="Widget.MaterialComponents.Button.OutlinedButton">
+        <item name="android:textColor">@color/colorAccent</item>
+        <item name="rippleColor">@color/colorAccentLight</item>
+        <item name="strokeColor">@color/transparent</item>
+    </style>
+
+    <style name="PrimaryButton" parent="BaseButton">
+        <item name="android:background">@drawable/btn_blue_background</item>
+        <item name="paddingStart">16dp</item>
+        <item name="paddingEnd">16dp</item>
+    </style>
+
+    <style name="SecondaryButton" parent="BaseButton">
+        <item name="android:background">@drawable/btn_green_background</item>
+    </style>
+
+    <style name="BaseButton" parent="Widget.MaterialComponents.Button">
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:translationZ">4dp</item>
+        <item name="android:textAllCaps">true</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:paddingStart">16dp</item>
+        <item name="android:paddingEnd">16dp</item>
     </style>
 
 </resources>

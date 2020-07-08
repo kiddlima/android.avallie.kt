@@ -42,7 +42,7 @@ class CategoriesAdapter(private val context: Context, private val categories: Ar
             getItemViewType(position) == ITEM -> {
                 val categoryViewHolder = holder as CategoryViewHolder
 
-                categoryViewHolder.categoryName.text = categories[position - 1].name
+                categoryViewHolder.categoryName.text = categories[position - 1].name.toLowerCase().capitalize()
                 categoryViewHolder.categoryName.isChecked = selectedCategories.contains(categories[position - 1].name)
             }
             getItemViewType(position) == HEADER -> (holder as HeaderViewHolder).selectedPhase.text = selectedPhase
@@ -51,7 +51,7 @@ class CategoriesAdapter(private val context: Context, private val categories: Ar
 
                 categoryViewHolder.view.setPadding(0, 0, 0, AppHelper.dpToPx(70, context))
 
-                categoryViewHolder.categoryName.text = categories[position - 1].name
+                categoryViewHolder.categoryName.text = categories[position - 1].name.toLowerCase().capitalize()
                 categoryViewHolder.categoryName.isChecked = selectedCategories.contains(categories[position - 1].name)
             }
         }

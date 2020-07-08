@@ -1,32 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    android:orientation="vertical"
-    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="wrap_content"
-    android:layout_height="wrap_content">
+<LinearLayout android:orientation="vertical"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    xmlns:tools="http://schemas.android.com/tools">
 
     <TextView
         android:id="@+id/label_categorias"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="19dp"
-        android:layout_marginStart="19dp"
-        android:layout_marginTop="6dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
         android:text="@string/filter_categories"
         fontPath="Demi-bold.otf"
-        android:textColor="@color/grayPrimaryDark"
-        android:textSize="32sp"
-        android:textStyle="bold"/>
-
+        android:textColor="@android:color/black"
+        android:textSize="24sp" />
 
     <TextView
         android:id="@+id/v_selected_phase"
         android:textColor="@color/grayLight"
-        android:textAllCaps="true"
-        android:textSize="15sp"
+        android:textSize="16sp"
         fontPath="Medium.otf"
-        android:layout_marginLeft="19dp"
-        android:layout_marginStart="19dp"
-        android:text="Categoria selecionada"
+        android:layout_marginStart="16dp"
+        tools:text="Categoria selecionada"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
 
