@@ -53,8 +53,6 @@ class LoginViewModel : ViewModel() {
                                 }
 
                             })
-
-
                         }
                     }
 

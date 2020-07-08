@@ -72,8 +72,6 @@ class ProductsFragment : Fragment() {
 
         loadProducts()
 
-        setObservers()
-
         binding.vFilterIcon.setOnClickListener {
             Intent(context!!, FiltersActivity::class.java).run {
                 putExtra("categories", viewModel.categories.value)
@@ -101,6 +99,8 @@ class ProductsFragment : Fragment() {
             context!!,
             ProductsQuery(0, 20, viewModel.categories.value!!, viewModel.productSearchName.value!!)
         )
+
+        setObservers()
     }
 
     private fun setObservers() {
@@ -119,8 +119,6 @@ class ProductsFragment : Fragment() {
             categoriesAdapter.notifyDataSetChanged()
 
             loadProducts()
-
-            setObservers()
         }
 
         binding.vActiveFilterRecycler.layoutManager =
@@ -150,8 +148,6 @@ class ProductsFragment : Fragment() {
 
                     loadProducts()
                 }
-
-                setObservers()
             }
 
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {

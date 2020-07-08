@@ -43,7 +43,7 @@ android {
             buildConfigField "String", "BASE_URL", "\"http://hml-api-avallie.herokuapp.com/api/\""
         }
         prod {
-            buildConfigField "String", "BASE_URL", "\"http://api-avallie.herokuapp.com/api/\""
+            buildConfigField "String", "BASE_URL", "\"http://hml-api-avallie.herokuapp.com/api/\""
         }
     }
 }

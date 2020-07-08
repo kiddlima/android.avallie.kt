@@ -11,7 +11,6 @@ import android.widget.EditText
 import android.widget.Toast
 import androidx.fragment.app.DialogFragment
 import com.avallie.R
-import com.avallie.generated.callback.OnClickListener
 import com.avallie.helpers.PaperHelper
 import com.avallie.model.Product
 import com.avallie.model.Spec
@@ -22,11 +21,7 @@ import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import com.google.android.material.textfield.TextInputLayout
-import com.redmadrobot.inputmask.MaskedTextChangedListener
-import kotlinx.android.synthetic.main.activity_register.*
 import kotlinx.android.synthetic.main.add_product_fragment.*
-import java.lang.Exception
-import java.lang.NumberFormatException
 
 
 class AddProductFragment : BottomSheetDialogFragment() {
