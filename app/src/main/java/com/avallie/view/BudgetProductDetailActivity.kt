@@ -142,7 +142,6 @@ class BudgetProductDetailActivity : AppCompatActivity() {
 
         viewModel.requestedProduct.value?.run {
             binding.productDetailDescription.text = formatProductDescription(this)
-
         }
 
         binding.noDataContainer = NoDataContainer(
