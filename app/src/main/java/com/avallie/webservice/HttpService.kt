@@ -17,7 +17,7 @@ import retrofit2.Response
 class HttpService(private val context: Context) {
 
     protected val requestClient by lazy {
-        RequestClient(context, BuildConfig.BASE_URL, false).retrofit.create(Services::class.java)
+        RequestClient(context, BuildConfig.BASE_URL, certificated = true, authenticated = false).retrofit.create(Services::class.java)
     }
 
     val auth by lazy {

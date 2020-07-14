@@ -29,6 +29,7 @@ import javax.net.ssl.X509TrustManager
 class RequestClient(
     private val context: Context,
     private val baseURL: String,
+    private val certificated: Boolean,
     private val authenticated: Boolean
 ) {
 
@@ -43,10 +44,12 @@ class RequestClient(
 
     private val okHttpClient: OkHttpClient.Builder = getOkHttpClient()
 
-    private fun getRetrofitObject(): Retrofit{
+    private fun getRetrofitObject(): Retrofit {
         val builder = Retrofit.Builder()
 
-        initSSL(context)
+        if (certificated) {
+            initSSL(context)
+        }
 
         builder.baseUrl(baseURL)
         builder.addConverterFactory(getGsonConverterFactory())
@@ -57,7 +60,8 @@ class RequestClient(
 
     private fun getGsonConverterFactory(): GsonConverterFactory {
         return GsonConverterFactory.create(
-            GsonBuilder().setFieldNamingPolicy(FieldNamingPolicy.LOWER_CASE_WITH_UNDERSCORES).create()
+            GsonBuilder().setFieldNamingPolicy(FieldNamingPolicy.LOWER_CASE_WITH_UNDERSCORES)
+                .create()
         )
     }
 
@@ -173,7 +177,8 @@ class RequestClient(
     /** @return true if is connected to a network (doesn't mean necessarily that the device has internet connection) **/
     private fun hasNetwork(): Boolean {
         var isConnected = false
-        val connectivityManager = context.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
+        val connectivityManager =
+            context.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
         val activeNetwork: NetworkInfo? = connectivityManager.activeNetworkInfo
         if (activeNetwork != null && activeNetwork.isConnected) isConnected = true
         return isConnected

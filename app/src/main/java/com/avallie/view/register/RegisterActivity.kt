@@ -198,8 +198,6 @@ class RegisterActivity : AppCompatActivity() {
                         } else {
                             finishRegister()
                         }
-                    } else {
-                        showError(getString(R.string.fill_the_fileds))
                     }
                 }
             }
@@ -259,6 +257,11 @@ class RegisterActivity : AppCompatActivity() {
             return false
         } else {
             return if (!register_password.text.isNullOrBlank() && !register_confirm_password.text.isNullOrBlank()) {
+                if (register_password.text?.length!! < 6){
+                    showError("A senha deve 6 ou mais caracteres.")
+                    return false
+                }
+
                 if (register_password.text.toString() != register_confirm_password.text.toString()) {
                     showError(getString(R.string.passwords_not_matching))
                     false
@@ -266,6 +269,7 @@ class RegisterActivity : AppCompatActivity() {
                     !register_email.text.isNullOrBlank()
                 }
             } else {
+                showError("Preencha os campos acima")
                 false
             }
         }

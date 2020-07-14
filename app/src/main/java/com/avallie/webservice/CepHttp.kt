@@ -13,7 +13,8 @@ class CepHttp(private val context: Context) {
         RequestClient(
             context,
             "https://viacep.com.br/",
-            false
+            certificated = false,
+            authenticated = false
         ).retrofit.create(CustomerServices::class.java)
     }
 
