@@ -59,12 +59,12 @@
     <output-test url="file://$MODULE_DIR$/../../../app/build/intermediates/javac/hmlDebugUnitTest/classes" />
     <exclude-output />
     <content url="file://$MODULE_DIR$/../../../app">
+      <sourceFolder url="file://$MODULE_DIR$/../../../app/build/generated/source/kapt/hmlDebug" isTestSource="false" generated="true" />
+      <sourceFolder url="file://$MODULE_DIR$/../../../app/build/generated/ap_generated_sources/hmlDebug/out" isTestSource="false" generated="true" />
+      <sourceFolder url="file://$MODULE_DIR$/../../../app/build/generated/aidl_source_output_dir/hmlDebug/out" isTestSource="false" generated="true" />
       <sourceFolder url="file://$MODULE_DIR$/../../../app/build/generated/source/buildConfig/hml/debug" isTestSource="false" generated="true" />
       <sourceFolder url="file://$MODULE_DIR$/../../../app/build/generated/renderscript_source_output_dir/hmlDebug/out" isTestSource="false" generated="true" />
       <sourceFolder url="file://$MODULE_DIR$/../../../app/build/generated/source/kaptKotlin/hmlDebug" isTestSource="false" generated="true" />
-      <sourceFolder url="file://$MODULE_DIR$/../../../app/build/generated/aidl_source_output_dir/hmlDebug/out" isTestSource="false" generated="true" />
-      <sourceFolder url="file://$MODULE_DIR$/../../../app/build/generated/source/kapt/hmlDebug" isTestSource="false" generated="true" />
-      <sourceFolder url="file://$MODULE_DIR$/../../../app/build/generated/ap_generated_sources/hmlDebug/out" isTestSource="false" generated="true" />
       <sourceFolder url="file://$MODULE_DIR$/../../../app/build/generated/res/google-services/hml/debug" type="java-resource" generated="true" />
       <sourceFolder url="file://$MODULE_DIR$/../../../app/build/generated/res/rs/hml/debug" type="java-resource" generated="true" />
       <sourceFolder url="file://$MODULE_DIR$/../../../app/src/hmlDebug/res" type="java-resource" />
@@ -74,12 +74,12 @@
       <sourceFolder url="file://$MODULE_DIR$/../../../app/src/hmlDebug/java" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/../../../app/src/hmlDebug/rs" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/../../../app/src/hmlDebug/shaders" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/../../../app/build/generated/source/buildConfig/androidTest/hml/debug" isTestSource="true" generated="true" />
+      <sourceFolder url="file://$MODULE_DIR$/../../../app/build/generated/source/kapt/hmlDebugAndroidTest" isTestSource="true" generated="true" />
       <sourceFolder url="file://$MODULE_DIR$/../../../app/build/generated/ap_generated_sources/hmlDebugAndroidTest/out" isTestSource="true" generated="true" />
       <sourceFolder url="file://$MODULE_DIR$/../../../app/build/generated/aidl_source_output_dir/hmlDebugAndroidTest/out" isTestSource="true" generated="true" />
-      <sourceFolder url="file://$MODULE_DIR$/../../../app/build/generated/source/kaptKotlin/hmlDebugAndroidTest" isTestSource="true" generated="true" />
-      <sourceFolder url="file://$MODULE_DIR$/../../../app/build/generated/source/kapt/hmlDebugAndroidTest" isTestSource="true" generated="true" />
+      <sourceFolder url="file://$MODULE_DIR$/../../../app/build/generated/source/buildConfig/androidTest/hml/debug" isTestSource="true" generated="true" />
       <sourceFolder url="file://$MODULE_DIR$/../../../app/build/generated/renderscript_source_output_dir/hmlDebugAndroidTest/out" isTestSource="true" generated="true" />
+      <sourceFolder url="file://$MODULE_DIR$/../../../app/build/generated/source/kaptKotlin/hmlDebugAndroidTest" isTestSource="true" generated="true" />
       <sourceFolder url="file://$MODULE_DIR$/../../../app/build/generated/res/rs/androidTest/hml/debug" type="java-test-resource" generated="true" />
       <sourceFolder url="file://$MODULE_DIR$/../../../app/src/androidTestHmlDebug/res" type="java-test-resource" />
       <sourceFolder url="file://$MODULE_DIR$/../../../app/src/androidTestHmlDebug/resources" type="java-test-resource" />
@@ -88,8 +88,8 @@
       <sourceFolder url="file://$MODULE_DIR$/../../../app/src/androidTestHmlDebug/java" isTestSource="true" />
       <sourceFolder url="file://$MODULE_DIR$/../../../app/src/androidTestHmlDebug/rs" isTestSource="true" />
       <sourceFolder url="file://$MODULE_DIR$/../../../app/src/androidTestHmlDebug/shaders" isTestSource="true" />
-      <sourceFolder url="file://$MODULE_DIR$/../../../app/build/generated/ap_generated_sources/hmlDebugUnitTest/out" isTestSource="true" generated="true" />
       <sourceFolder url="file://$MODULE_DIR$/../../../app/build/generated/source/kapt/hmlDebugUnitTest" isTestSource="true" generated="true" />
+      <sourceFolder url="file://$MODULE_DIR$/../../../app/build/generated/ap_generated_sources/hmlDebugUnitTest/out" isTestSource="true" generated="true" />
       <sourceFolder url="file://$MODULE_DIR$/../../../app/build/generated/source/kaptKotlin/hmlDebugUnitTest" isTestSource="true" generated="true" />
       <sourceFolder url="file://$MODULE_DIR$/../../../app/src/testHmlDebug/res" type="java-test-resource" />
       <sourceFolder url="file://$MODULE_DIR$/../../../app/src/testHmlDebug/resources" type="java-test-resource" />
@@ -168,26 +168,26 @@
     <orderEntry type="module-library">
       <library name="Gradle: kaptGeneratedClasses">
         <CLASSES>
-          <root url="file://$MODULE_DIR$/../../../app/build/tmp/kapt3/classes/prodRelease" />
-          <root url="file://$MODULE_DIR$/../../../app/build/tmp/kapt3/classes/local_deviceDebugAndroidTest" />
-          <root url="file://$MODULE_DIR$/../../../app/build/tmp/kapt3/classes/localDebug" />
-          <root url="file://$MODULE_DIR$/../../../app/build/tmp/kapt3/classes/hmlReleaseUnitTest" />
-          <root url="file://$MODULE_DIR$/../../../app/build/tmp/kapt3/classes/localRelease" />
-          <root url="file://$MODULE_DIR$/../../../app/build/tmp/kapt3/classes/hmlDebugUnitTest" />
           <root url="file://$MODULE_DIR$/../../../app/build/tmp/kapt3/classes/hmlDebugAndroidTest" />
-          <root url="file://$MODULE_DIR$/../../../app/build/tmp/kapt3/classes/local_deviceReleaseUnitTest" />
-          <root url="file://$MODULE_DIR$/../../../app/build/tmp/kapt3/classes/local_deviceDebugUnitTest" />
           <root url="file://$MODULE_DIR$/../../../app/build/tmp/kapt3/classes/hmlDebug" />
-          <root url="file://$MODULE_DIR$/../../../app/build/tmp/kapt3/classes/prodDebugUnitTest" />
-          <root url="file://$MODULE_DIR$/../../../app/build/tmp/kapt3/classes/prodReleaseUnitTest" />
-          <root url="file://$MODULE_DIR$/../../../app/build/tmp/kapt3/classes/localDebugAndroidTest" />
-          <root url="file://$MODULE_DIR$/../../../app/build/tmp/kapt3/classes/localDebugUnitTest" />
-          <root url="file://$MODULE_DIR$/../../../app/build/tmp/kapt3/classes/localReleaseUnitTest" />
-          <root url="file://$MODULE_DIR$/../../../app/build/tmp/kapt3/classes/prodDebugAndroidTest" />
-          <root url="file://$MODULE_DIR$/../../../app/build/tmp/kapt3/classes/local_deviceDebug" />
-          <root url="file://$MODULE_DIR$/../../../app/build/tmp/kapt3/classes/prodDebug" />
+          <root url="file://$MODULE_DIR$/../../../app/build/tmp/kapt3/classes/hmlDebugUnitTest" />
           <root url="file://$MODULE_DIR$/../../../app/build/tmp/kapt3/classes/hmlRelease" />
+          <root url="file://$MODULE_DIR$/../../../app/build/tmp/kapt3/classes/hmlReleaseUnitTest" />
+          <root url="file://$MODULE_DIR$/../../../app/build/tmp/kapt3/classes/localDebugAndroidTest" />
+          <root url="file://$MODULE_DIR$/../../../app/build/tmp/kapt3/classes/localDebug" />
+          <root url="file://$MODULE_DIR$/../../../app/build/tmp/kapt3/classes/localDebugUnitTest" />
+          <root url="file://$MODULE_DIR$/../../../app/build/tmp/kapt3/classes/localRelease" />
+          <root url="file://$MODULE_DIR$/../../../app/build/tmp/kapt3/classes/localReleaseUnitTest" />
+          <root url="file://$MODULE_DIR$/../../../app/build/tmp/kapt3/classes/local_deviceDebugAndroidTest" />
+          <root url="file://$MODULE_DIR$/../../../app/build/tmp/kapt3/classes/local_deviceDebug" />
+          <root url="file://$MODULE_DIR$/../../../app/build/tmp/kapt3/classes/local_deviceDebugUnitTest" />
           <root url="file://$MODULE_DIR$/../../../app/build/tmp/kapt3/classes/local_deviceRelease" />
+          <root url="file://$MODULE_DIR$/../../../app/build/tmp/kapt3/classes/local_deviceReleaseUnitTest" />
+          <root url="file://$MODULE_DIR$/../../../app/build/tmp/kapt3/classes/prodDebugAndroidTest" />
+          <root url="file://$MODULE_DIR$/../../../app/build/tmp/kapt3/classes/prodDebug" />
+          <root url="file://$MODULE_DIR$/../../../app/build/tmp/kapt3/classes/prodDebugUnitTest" />
+          <root url="file://$MODULE_DIR$/../../../app/build/tmp/kapt3/classes/prodRelease" />
+          <root url="file://$MODULE_DIR$/../../../app/build/tmp/kapt3/classes/prodReleaseUnitTest" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
