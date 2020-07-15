@@ -6,27 +6,25 @@ import android.content.Intent
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
+import android.view.KeyEvent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.inputmethod.EditorInfo
 import android.view.inputmethod.InputMethodManager
+import android.widget.TextView
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
-import androidx.recyclerview.widget.SimpleItemAnimator
 import com.avallie.databinding.FragmentProductsBinding
-import com.avallie.helpers.PaperHelper.Companion.getPhases
-import com.avallie.model.ConstructionPhase
-import com.avallie.model.ScreenState.*
+import com.avallie.model.ScreenState.Loading
 import com.avallie.view.MainActivity
 import com.avallie.view.adapter.ActiveFiltersAdapter
-import com.avallie.view.adapter.ProductsAdapter
 import com.avallie.view.filter.FiltersActivity
-import com.avallie.view.fragment.AddProductDialog
 import com.avallie.widgets.NoDataContainer
+
 
 class ProductsFragment : Fragment() {
 
@@ -79,17 +77,27 @@ class ProductsFragment : Fragment() {
             }
         }
 
+        binding.searchUser.setOnEditorActionListener { v, actionId, event ->
+            loadProducts()
+            hideKeyboard()
+            true
+        }
+
         binding.noDataContainer =
             NoDataContainer("Nenhum produto encontrado", "Tente procurar por outro nome", true)
 
 
         binding.vProductsRecycler.setOnTouchListener { v, event ->
-            val imm =
-                context!!.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager?
-            imm!!.hideSoftInputFromWindow(v.windowToken, 0)
+            hideKeyboard()
 
             false
         }
+    }
+
+    private fun hideKeyboard() {
+        val imm =
+            context!!.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager?
+        imm!!.hideSoftInputFromWindow(view?.windowToken, 0)
     }
 
     fun loadProducts() {

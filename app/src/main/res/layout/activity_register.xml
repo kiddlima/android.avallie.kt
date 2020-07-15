@@ -134,8 +134,8 @@
                         app:layout_constraintTop_toBottomOf="@id/name_container">
 
                         <com.google.android.material.textfield.TextInputLayout
-                            fontPath="Regular.otf"
                             android:id="@+id/cpf_input_layout"
+                            fontPath="Regular.otf"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="4dp"
@@ -211,7 +211,7 @@
                             fontPath="Regular.otf"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:imeOptions="actionNext"
+                            android:imeOptions="actionDone"
                             android:inputType="textCapWords"
                             android:maxLines="1"
                             android:text="@={viewModel.customer.companyName}" />
@@ -235,7 +235,6 @@
                     app:layout_constraintTop_toBottomOf="@id/register_subtitle"
                     tools:visibility="visible">
 
-
                     <androidx.constraintlayout.widget.ConstraintLayout
                         android:id="@+id/cep_container"
                         android:layout_width="0dp"
@@ -245,6 +244,7 @@
                         app:layout_constraintTop_toTopOf="parent">
 
                         <com.google.android.material.textfield.TextInputLayout
+                            android:id="@+id/cep_inputlayout"
                             fontPath="Regular.otf"
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
@@ -389,7 +389,7 @@
                             fontPath="Regular.otf"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:imeOptions="actionNext"
+                            android:imeOptions="actionDone"
                             android:inputType="textPostalAddress"
                             android:maxLines="1"
                             android:text="@={viewModel.customer.state}" />
@@ -502,13 +502,13 @@
                     </com.google.android.material.textfield.TextInputLayout>
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
-                <Button
+                <carbon.widget.Button
                     android:id="@+id/btn_next"
+                    style="@style/SecondaryButton"
                     fontPath="Medium.otf"
                     android:layout_width="150dp"
                     android:layout_height="44dp"
                     android:layout_marginBottom="20dp"
-                    android:background="@{viewModel.registerScreen == RegisterScreen.THIRD ? @drawable/btn_blue_background : @drawable/btn_green_background}"
                     android:elevation="4dp"
                     android:text="@{viewModel.registerScreen == RegisterScreen.THIRD ? @string/register : @string/next}"
                     android:textAllCaps="true"
