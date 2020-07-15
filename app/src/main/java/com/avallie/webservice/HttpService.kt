@@ -101,7 +101,7 @@ class HttpService(private val context: Context) {
                 if (response.body() != null && response.isSuccessful) {
                     connectionListener.onSuccess(response.body()!!)
                 } else {
-                    connectionListener.onFail(response.errorBody().toString())
+                    connectionListener.onFail("Ocorreu um erro ao realizar cadastro. Tente novamente.")
                 }
             }
         })

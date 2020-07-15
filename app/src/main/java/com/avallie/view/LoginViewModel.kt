@@ -3,6 +3,7 @@ package com.avallie.view
 import android.content.Context
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.avallie.helpers.AuthHelper
 import com.avallie.model.Customer
 import com.avallie.model.ScreenState
 import com.avallie.webservice.ConnectionListener
@@ -43,11 +44,15 @@ class LoginViewModel : ViewModel() {
                                 override fun onFail(error: String?) {
                                     errorMessage.value = "Falha ao recuperar dados cadastrais"
 
+                                    AuthHelper.logout()
+
                                     screenState.value = ScreenState.Fail
                                 }
 
                                 override fun noInternet() {
                                     errorMessage.value = "Sem conexão com a internet"
+
+                                    AuthHelper.logout()
 
                                     screenState.value = ScreenState.Fail
                                 }

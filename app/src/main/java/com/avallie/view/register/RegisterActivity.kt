@@ -6,10 +6,10 @@ import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
 import android.view.View
+import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
-import androidx.core.widget.doOnTextChanged
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
@@ -18,6 +18,7 @@ import com.avallie.databinding.ActivityRegisterBinding
 import com.avallie.helpers.AppHelper
 import com.avallie.model.ScreenState
 import com.avallie.view.fragment.ProgressDialog
+import com.google.android.material.textfield.TextInputLayout
 import com.redmadrobot.inputmask.MaskedTextChangedListener
 import kotlinx.android.synthetic.main.activity_register.*
 import kotlinx.android.synthetic.main.register_tracking.*
@@ -41,6 +42,62 @@ class RegisterActivity : AppCompatActivity() {
         viewModel = ViewModelProviders.of(this).get(RegisterViewModel::class.java)
         binding.viewModel = viewModel
 
+        binding.registerName.addTextChangedListener(clearError(binding.nameContainer))
+        binding.registerCpf.addTextChangedListener(clearError(binding.cpfInputLayout))
+        binding.registerPhone.addTextChangedListener(clearError(binding.phoneContainer))
+        binding.registerCep.addTextChangedListener(clearError(binding.cepInputlayout))
+        binding.registerNumber.addTextChangedListener(clearError(binding.numberContainer))
+        binding.registerStreet.addTextChangedListener(clearError(binding.streetContainer))
+        binding.registerCity.addTextChangedListener(clearError(binding.cityContainer))
+        binding.registerState.addTextChangedListener(clearError(binding.stateContainer))
+        binding.registerEmail.addTextChangedListener(clearError(binding.emailInputLayout))
+
+        disableEditText(binding.registerStreet)
+        disableEditText(binding.registerCity)
+        disableEditText(binding.registerState)
+
+        binding.registerConfirmPassword.addTextChangedListener(object : TextWatcher {
+            override fun afterTextChanged(s: Editable?) {
+
+            }
+
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
+
+            }
+
+            override fun onTextChanged(
+                confirmPassword: CharSequence?,
+                start: Int,
+                before: Int,
+                count: Int
+            ) {
+                validateSamePassword()
+            }
+        })
+
+        binding.registerPassword.addTextChangedListener(object : TextWatcher {
+            override fun afterTextChanged(s: Editable?) {
+
+            }
+
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
+
+            }
+
+            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+                if (s?.length!! < 6) {
+                    binding.passwordContainer.error = "A senha deve ter 6 ou mais caracteres."
+                } else {
+                    binding.passwordContainer.error = null
+
+                    if (binding.registerConfirmPassword.text?.isNotEmpty()!!) {
+                        validateSamePassword()
+                    }
+                }
+            }
+        })
+
+
         register_cpf.run {
             val listener = MaskedTextChangedListener("[000]{.}[000]{.}[000]{-}[00]", register_cpf)
 
@@ -62,6 +119,10 @@ class RegisterActivity : AppCompatActivity() {
                     binding.registerStreet.setText(street)
                     binding.registerState.setText(state)
                     binding.registerCity.setText(city)
+
+                    enableEditText(binding.registerStreet)
+                    enableEditText(binding.registerCity)
+                    enableEditText(binding.registerState)
                 }
             } else if (it == ScreenState.Fail) {
                 showError("Erro ao consultar CEP")
@@ -83,7 +144,14 @@ class RegisterActivity : AppCompatActivity() {
             onFocusChangeListener = listener
         }
 
-        register_phone.addTextChangedListener(object : TextWatcher {
+        register_cep.run {
+            val listener = MaskedTextChangedListener("[00000]{-}[000]", register_cep)
+
+            addTextChangedListener(listener)
+            onFocusChangeListener = listener
+        }
+
+        binding.registerCep.addTextChangedListener(object : TextWatcher {
             override fun afterTextChanged(s: Editable?) {
 
             }
@@ -93,21 +161,13 @@ class RegisterActivity : AppCompatActivity() {
             }
 
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
-                binding.phoneContainer.error = null
+                if (s?.length!! == 9) {
+                    if (register_cep.text!!.isNotEmpty()) {
+                        viewModel.getCepInfo(this@RegisterActivity)
+                    }
+                }
             }
         })
-        register_cep.run {
-            val listener = MaskedTextChangedListener("[00000]{-}[000]", register_cep)
-
-            addTextChangedListener(listener)
-            onFocusChangeListener = listener
-        }
-
-        register_cep.onFocusChangeListener = View.OnFocusChangeListener { v, hasFocus ->
-            if (!hasFocus && register_cep.text!!.isNotEmpty()) {
-                viewModel.getCepInfo(this)
-            }
-        }
 
         progressDialog = ProgressDialog(this, getString(R.string.finishing_register))
 
@@ -120,16 +180,12 @@ class RegisterActivity : AppCompatActivity() {
         viewModel.validCpf.observe(this, Observer {
             if (!it) {
                 cpf_input_layout.error = "CPF inválido ou cadastrado"
-
-                Toast.makeText(this, "CPF inválido ou cadastrado", Toast.LENGTH_SHORT).show()
             } else {
                 cpf_input_layout.error = null
 
                 if (viewModel.fromNextClickedCpf!!) {
                     if (isFirstScreenValidate()) {
                         goToSecondScreen()
-                    } else {
-                        showError(getString(R.string.fill_the_fileds))
                     }
                 }
             }
@@ -138,14 +194,10 @@ class RegisterActivity : AppCompatActivity() {
         viewModel.validEmail.observe(this, Observer {
             if (!it) {
                 email_input_layout.error = "Email inválido ou já cadastrado"
-
-                Toast.makeText(this, "Email inválido ou já cadastrado", Toast.LENGTH_SHORT).show()
             } else {
                 if (viewModel.fromNextClickedEmail!!) {
                     if (isThirdScreenValidate()) {
                         finishRegister()
-                    } else {
-                        showError(getString(R.string.fill_the_fileds))
                     }
                 }
 
@@ -179,16 +231,12 @@ class RegisterActivity : AppCompatActivity() {
                     } else {
                         if (register_cpf.isFocused && !register_cpf.text.isNullOrBlank()) {
                             viewModel.validateCpf(this, true)
-                        } else {
-                            showError(getString(R.string.fill_the_fileds))
                         }
                     }
                 }
                 RegisterScreen.SECOND -> {
                     if (isSecondScreenValidate()) {
                         goToThridScreen()
-                    } else {
-                        showError(getString(R.string.fill_the_fileds))
                     }
                 }
                 else -> {
@@ -220,59 +268,145 @@ class RegisterActivity : AppCompatActivity() {
         }
     }
 
+    private fun disableEditText(editText: EditText) {
+        editText.isEnabled = false
+        editText.isFocusable = false
+        editText.isFocusableInTouchMode = false
+    }
+
+    private fun enableEditText(editText: EditText) {
+        editText.isFocusableInTouchMode = true
+        editText.isFocusable = true
+        editText.isEnabled = true
+    }
+
+    private fun validateSamePassword() {
+        if (binding.registerConfirmPassword.text.toString() == binding.registerPassword.text.toString()) {
+            binding.confirmPasswordContainer.error = null
+        } else {
+            binding.confirmPasswordContainer.error = "Senhas diferentes"
+        }
+    }
+
+
+    private fun clearError(textInputLayout: TextInputLayout): TextWatcher {
+        return object : TextWatcher {
+            override fun afterTextChanged(s: Editable?) {
+
+            }
+
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
+
+            }
+
+            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+                textInputLayout.error = null
+            }
+        }
+    }
+
     private fun isFirstScreenValidate(): Boolean {
+        var valid = true
+
         if (!binding.registerPhone.text?.matches(Regex("^1\\d\\d(\\d\\d)?\$|^0800 ?\\d{3} ?\\d{4}\$|^(\\(0?([1-9a-zA-Z][0-9a-zA-Z])?[1-9]\\d\\) ?|0?([1-9a-zA-Z][0-9a-zA-Z])?[1-9]\\d[ .-]?)?(9|9[ .-])?[2-9]\\d{3}[ .-]?\\d{4}\$"))!!) {
             binding.phoneContainer.error = "Telefone inválido"
 
-            return false
+            valid = false
         }
 
         if (binding.registerCpf.text.isNullOrBlank()) {
-            return false
+            binding.cpfInputLayout.error = "CPF obrigatório"
+
+            valid = false
         } else {
             if (viewModel.validCpf.value == null) {
                 viewModel.validateCpf(this)
 
-                return false
-            } else {
-                return !binding.registerName.text.isNullOrBlank() && !binding.registerCpf.text.isNullOrBlank() && (!binding.registerPhone.text!!.equals(
-                    "("
-                ) && !binding.registerPhone.text.isNullOrBlank()) && viewModel.validCpf.value!!
+                valid = false
             }
         }
+
+        if (binding.registerName.text.isNullOrBlank()) {
+            binding.nameContainer.error = "Nome obrigatório"
+
+            valid = false
+        }
+
+        return valid
     }
 
+
     private fun isSecondScreenValidate(): Boolean {
-        return !register_cep.text.isNullOrBlank() && !register_street.text.isNullOrBlank() && !register_number.text.isNullOrBlank() && !register_city.text.isNullOrBlank() && !register_state.text.isNullOrBlank()
+        var valid = true
+
+        if (binding.registerCep.text.isNullOrBlank()) {
+            binding.cepInputlayout.error = "CEP obrigatório"
+
+            valid = false
+        }
+
+        if (binding.registerStreet.text.isNullOrBlank()) {
+            binding.streetContainer.error = "Rua obrigatório"
+
+            valid = false
+        }
+
+        if (binding.registerNumber.text.isNullOrBlank()) {
+            binding.numberContainer.error = "Número obrigatório"
+
+            valid = false
+        }
+
+        if (binding.registerCity.text.isNullOrBlank()) {
+            binding.cityContainer.error = "Cidade obrigatório"
+
+            valid = false
+        }
+
+        if (binding.registerState.text.isNullOrBlank()) {
+            binding.stateContainer.error = "Estado obrigatório"
+
+            valid = false
+        }
+
+        return valid
     }
 
     private fun isThirdScreenValidate(): Boolean {
+        var valid = true
+
         if (binding.registerEmail.text.isNullOrBlank()) {
-            return false
-        }
+            binding.emailInputLayout.error = "Email obrigatório"
 
-        if (viewModel.validEmail.value == null) {
-            viewModel.validateEmail(this)
-
-            return false
+            valid = false
         } else {
-            return if (!register_password.text.isNullOrBlank() && !register_confirm_password.text.isNullOrBlank()) {
-                if (register_password.text?.length!! < 6){
-                    showError("A senha deve 6 ou mais caracteres.")
-                    return false
-                }
+            if (viewModel.validEmail.value == null) {
+                viewModel.validateEmail(this)
 
-                if (register_password.text.toString() != register_confirm_password.text.toString()) {
-                    showError(getString(R.string.passwords_not_matching))
-                    false
-                } else {
-                    !register_email.text.isNullOrBlank()
-                }
+                valid = false
             } else {
-                showError("Preencha os campos acima")
-                false
+                if (!viewModel.validEmail.value!!) {
+                    valid = false
+                }
             }
         }
+
+        if (!register_password.text.isNullOrBlank() && !register_confirm_password.text.isNullOrBlank()) {
+            if (register_password.text?.length!! < 6) {
+                binding.passwordContainer.error = "A senha deve ter 6 ou mais caracteres."
+                valid = false
+            }
+
+            if (register_password.text.toString() != register_confirm_password.text.toString()) {
+                binding.confirmPasswordContainer.error = "As senhas não são iguais"
+                valid = false
+            }
+        } else {
+            binding.passwordContainer.error = "Senha obrigatório"
+            valid = false
+        }
+
+        return valid
     }
 
     private fun goToFirstScreen() {
