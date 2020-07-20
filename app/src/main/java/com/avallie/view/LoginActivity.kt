@@ -72,6 +72,8 @@ class LoginActivity : AppCompatActivity() {
             Intent(this, RegisterActivity::class.java).run {
                 startActivity(this)
             }
+
+            finish()
         }
 
         viewModel.errorMessage.observe(this, Observer {

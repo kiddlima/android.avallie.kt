@@ -3,6 +3,7 @@ package com.avallie.view
 import android.content.Context
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.avallie.R
 import com.avallie.helpers.AuthHelper
 import com.avallie.model.Customer
 import com.avallie.model.ScreenState
@@ -22,50 +23,22 @@ class LoginViewModel : ViewModel() {
 
         screenState.value = ScreenState.Loading
 
-        auth.signInWithEmailAndPassword(email, password)
-            .addOnCompleteListener { authResult ->
-                if (authResult.isSuccessful) {
-                    auth.currentUser?.getIdToken(false)?.addOnCompleteListener {
-
-                        if (it.result?.claims?.get("role") == "SUPPLIER") {
-                            auth.signOut()
-
-                            screenState.value = ScreenState.Fail
-                            errorMessage.value =
-                                "Para ter acesso as suas informações você deve acessar o portal web."
-                        } else {
-                            HttpService(context).setNotificationToken(null)
-
-                            HttpService(context).getCustomer(object : ConnectionListener<Customer> {
-                                override fun onSuccess(response: Customer) {
-                                    screenState.value = ScreenState.Success
-                                }
-
-                                override fun onFail(error: String?) {
-                                    errorMessage.value = "Falha ao recuperar dados cadastrais"
-
-                                    AuthHelper.logout()
-
-                                    screenState.value = ScreenState.Fail
-                                }
-
-                                override fun noInternet() {
-                                    errorMessage.value = "Sem conexão com a internet"
-
-                                    AuthHelper.logout()
-
-                                    screenState.value = ScreenState.Fail
-                                }
-
-                            })
-                        }
-                    }
-
-                } else {
-                    errorMessage.value = "Usuário ou senha incorretos"
-
-                    screenState.value = ScreenState.Fail
-                }
+        AuthHelper.login(email, password, context, object : ConnectionListener<String> {
+            override fun onSuccess(response: String) {
+                screenState.value = ScreenState.Success
             }
+
+            override fun onFail(error: String?) {
+                errorMessage.value = error
+
+                screenState.value = ScreenState.Fail
+            }
+
+            override fun noInternet() {
+                errorMessage.value = context.getString(R.string.server_error)
+
+                screenState.value = ScreenState.Fail
+            }
+        })
     }
 }

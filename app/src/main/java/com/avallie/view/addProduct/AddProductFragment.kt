@@ -23,7 +23,6 @@ import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import com.google.android.material.textfield.TextInputLayout
 import kotlinx.android.synthetic.main.add_product_fragment.*
 
-
 class AddProductFragment : BottomSheetDialogFragment() {
 
     var specsList = mutableListOf<Spec>()
@@ -130,11 +129,18 @@ class AddProductFragment : BottomSheetDialogFragment() {
 
     private fun addProduct() {
         try {
-            saveProduct()
+            if (saveProduct()) {
+                (activity as MainActivity).updateCartBadge()
 
-            (activity as MainActivity).updateCartBadge()
-
-            dismiss()
+                dismiss()
+            } else {
+                Toast.makeText(
+                    context,
+                    "Quantidade deve ser maior que zero",
+                    Toast.LENGTH_LONG
+                )
+                    .show()
+            }
         } catch (e: NumberFormatException) {
             Toast.makeText(
                 context,
@@ -144,7 +150,6 @@ class AddProductFragment : BottomSheetDialogFragment() {
                 .show()
         }
     }
-
 
     private fun haveAnyEmptySpecs(): Boolean {
         for (input in inputs) {
@@ -174,7 +179,11 @@ class AddProductFragment : BottomSheetDialogFragment() {
         specs_container.addView(inputContainer)
     }
 
-    private fun saveProduct() {
+    private fun saveProduct(): Boolean {
+        if (amount.text.toString().toDouble() == 0.0) {
+            return false
+        }
+
         if (product != null) {
             PaperHelper.addProduct(
                 SelectedProduct(
@@ -196,6 +205,8 @@ class AddProductFragment : BottomSheetDialogFragment() {
                 )
             )
         }
+
+        return true
     }
 
     override fun onDismiss(dialog: DialogInterface) {

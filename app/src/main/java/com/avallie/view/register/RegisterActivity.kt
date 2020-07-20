@@ -153,7 +153,11 @@ class RegisterActivity : AppCompatActivity() {
 
         binding.registerCep.addTextChangedListener(object : TextWatcher {
             override fun afterTextChanged(s: Editable?) {
-
+                if (s?.length!! == 9) {
+                    if (register_cep.text!!.isNotEmpty()) {
+                        viewModel.getCepInfo(this@RegisterActivity)
+                    }
+                }
             }
 
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
@@ -161,11 +165,7 @@ class RegisterActivity : AppCompatActivity() {
             }
 
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
-                if (s?.length!! == 9) {
-                    if (register_cep.text!!.isNotEmpty()) {
-                        viewModel.getCepInfo(this@RegisterActivity)
-                    }
-                }
+
             }
         })
 

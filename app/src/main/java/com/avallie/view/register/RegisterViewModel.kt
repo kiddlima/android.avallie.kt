@@ -4,6 +4,7 @@ import android.content.Context
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.avallie.R
+import com.avallie.helpers.AuthHelper
 import com.avallie.model.Customer
 import com.avallie.model.OfficialAddress
 import com.avallie.model.ScreenState
@@ -136,7 +137,7 @@ class RegisterViewModel : ViewModel() {
 
         HttpService(context).registerCustomer(customer.value!!, object : ConnectionListener<Any> {
             override fun onSuccess(response: Any) {
-                screenState.value = ScreenState.Success
+                login(context)
             }
 
             override fun onFail(error: String?) {
@@ -147,6 +148,22 @@ class RegisterViewModel : ViewModel() {
             override fun noInternet() {
                 errorMessage.value = context.resources.getString(R.string.no_connection)
                 screenState.value = ScreenState.Fail
+            }
+        })
+    }
+
+    fun login(context: Context){
+        AuthHelper.login(customer.value?.email!!, customer.value?.password!!, context, object: ConnectionListener<String> {
+            override fun onSuccess(response: String) {
+                screenState.value = ScreenState.Success
+            }
+
+            override fun onFail(error: String?) {
+                screenState.value = ScreenState.Success
+            }
+
+            override fun noInternet() {
+                screenState.value = ScreenState.Success
             }
         })
     }
