@@ -57,6 +57,7 @@ dependencies {
     implementation "androidx.paging:paging-runtime:2.1.2"
 
     implementation 'com.google.firebase:firebase-auth:19.3.1'
+    implementation 'com.google.android.gms:play-services-auth:18.0.0'
     implementation 'com.google.firebase:firebase-messaging:20.2.0'
     implementation 'com.google.firebase:firebase-perf:19.0.7'
 
@@ -81,6 +82,8 @@ dependencies {
     implementation 'com.squareup.okhttp3:logging-interceptor:3.8.0'
 
     implementation 'com.airbnb.android:lottie:3.4.1'
+
+    implementation 'com.shobhitpuri.custombuttons:google-signin:1.1.0'
 
     api 'tk.zielony:carbon:0.15.3'
 

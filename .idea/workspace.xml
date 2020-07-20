@@ -11,7 +11,22 @@
     <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="Show only selected application" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c46817aa-1036-444d-a895-f03247a72630" name="Default Changelist" comment="" />
+    <list default="true" id="c46817aa-1036-444d-a895-f03247a72630" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_google_android_gms_play_services_auth_18_0_0_aar.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_google_android_gms_play_services_auth_api_phone_17_0_0_aar.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_google_android_gms_play_services_auth_base_17_0_0_aar.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_shobhitpuri_custombuttons_google_signin_1_1_0_aar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/cache.properties" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/cache.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_google_android_gms_play_services_basement_17_0_0_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_google_android_gms_play_services_basement_17_1_1_aar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules/app/app.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/app/app.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/app/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/avallie/view/LoginActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/avallie/view/LoginActivity.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/avallie/view/LoginViewModel.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/avallie/view/LoginViewModel.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_login.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_login.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -72,7 +87,7 @@
     <property name="SHOW_ALL_PROCESSES" value="false" />
     <property name="ScreenshotViewer.SavePath" value="$PROJECT_DIR$" />
     <property name="android.sdk.path" value="$USER_HOME$/Library/Android/sdk" />
-    <property name="memory.settings.postsync.last.time.stamp" value="1594853980572" />
+    <property name="memory.settings.postsync.last.time.stamp" value="1595210244570" />
     <property name="settings.editor.selected.configurable" value="configurable.group.build" />
   </component>
   <component name="RecentsManager">
@@ -188,10 +203,10 @@
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
     <state x="428" y="287" key="AndroidCreateResourceFileDialog/0.0.1680.1050@0.0.1680.1050" timestamp="1593718485530" />
-    <state x="695" y="339" key="AndroidCreateXmlResourceDialog" timestamp="1593747541413">
+    <state x="695" y="339" key="AndroidCreateXmlResourceDialog" timestamp="1594861400639">
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
-    <state x="695" y="339" key="AndroidCreateXmlResourceDialog/0.0.1680.1050@0.0.1680.1050" timestamp="1593747541413" />
+    <state x="695" y="339" key="AndroidCreateXmlResourceDialog/0.0.1680.1050@0.0.1680.1050" timestamp="1594861400639" />
     <state x="714" y="-948" key="AndroidProcessChooserDialog" timestamp="1594684728353">
       <screen x="-422" y="-1440" width="2560" height="1440" />
     </state>
@@ -308,14 +323,14 @@
     </state>
     <state x="100" y="100" width="1480" height="850" key="com.android.tools.idea.avdmanager.AvdListDialog/0.0.1680.1050@0.0.1680.1050" timestamp="1593625320395" />
     <state x="100" y="100" width="1480" height="850" key="com.android.tools.idea.avdmanager.AvdListDialog/0.23.1680.982@0.23.1680.982" timestamp="1593631069075" />
-    <state x="623" y="399" key="com.intellij.ide.util.TipDialog" timestamp="1594769557600">
-      <screen x="0" y="0" width="1680" height="1050" />
+    <state x="623" y="399" key="com.intellij.ide.util.TipDialog" timestamp="1595210241357">
+      <screen x="0" y="23" width="1680" height="982" />
     </state>
     <state x="528" y="-888" key="com.intellij.ide.util.TipDialog/-422.-1440.2560.1440/0.0.1680.1050@-422.-1440.2560.1440" timestamp="1592110438421" />
     <state x="623" y="399" key="com.intellij.ide.util.TipDialog/-422.-1440.2560.1440/0.0.1680.1050@0.0.1680.1050" timestamp="1593555571294" />
     <state x="528" y="-888" key="com.intellij.ide.util.TipDialog/-422.-1440.2560.1440/0.23.1680.982@-422.-1440.2560.1440" timestamp="1594684314686" />
     <state x="623" y="399" key="com.intellij.ide.util.TipDialog/0.0.1680.1050@0.0.1680.1050" timestamp="1594769557600" />
-    <state x="623" y="399" key="com.intellij.ide.util.TipDialog/0.23.1680.982@0.23.1680.982" timestamp="1594754192977" />
+    <state x="623" y="399" key="com.intellij.ide.util.TipDialog/0.23.1680.982@0.23.1680.982" timestamp="1595210241357" />
     <state x="620" y="449" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1593038566999">
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
@@ -378,12 +393,12 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="kotlin-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/avallie/view/LoginViewModel.kt</url>
-          <line>64</line>
+          <line>72</line>
           <option name="timeStamp" value="111" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="kotlin-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/avallie/view/LoginActivity.kt</url>
-          <line>98</line>
+          <line>102</line>
           <option name="timeStamp" value="115" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="kotlin-line">
@@ -398,12 +413,12 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="kotlin-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/avallie/view/LoginViewModel.kt</url>
-          <line>24</line>
+          <line>32</line>
           <option name="timeStamp" value="119" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="kotlin-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/avallie/view/LoginViewModel.kt</url>
-          <line>26</line>
+          <line>34</line>
           <option name="timeStamp" value="120" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="kotlin-line">

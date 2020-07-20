@@ -8,6 +8,7 @@ import com.avallie.model.Customer
 import com.avallie.model.ScreenState
 import com.avallie.webservice.ConnectionListener
 import com.avallie.webservice.HttpService
+import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.firebase.auth.FirebaseAuth
 import javax.xml.transform.Templates
 
@@ -16,6 +17,13 @@ class LoginViewModel : ViewModel() {
     private lateinit var auth: FirebaseAuth
     val screenState = MutableLiveData<ScreenState>()
     val errorMessage = MutableLiveData<String>()
+
+    fun loginWithGoogle() {
+        val gso = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
+            .requestIdToken(getString(R.string.default_web_client_id))
+            .requestEmail()
+            .build()
+    }
 
     fun login(email: String, password: String, context: Context) {
         auth = FirebaseAuth.getInstance()

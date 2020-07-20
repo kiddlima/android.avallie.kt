@@ -46,6 +46,10 @@ class LoginActivity : AppCompatActivity() {
             false
         }
 
+        btn_google.setOnClickListener {
+
+        }
+
         btn_login.setOnClickListener {
             if (login_email.text.isNullOrBlank() || login_password.text.isNullOrBlank()) {
                 Toast.makeText(this, "Preencha as informações de login", Toast.LENGTH_SHORT).show()

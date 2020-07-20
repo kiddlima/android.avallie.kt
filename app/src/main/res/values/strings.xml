@@ -121,4 +121,5 @@
     <string name="request_name_hint">Ex: Reforma da casa</string>
     <string name="request_deadline_hint">Ex: 12/04/2020</string>
     <string name="max_date_hint">Data máxima de entrega</string>
+    <string name="sign_in_google">Entrar com Google</string>
 </resources>
