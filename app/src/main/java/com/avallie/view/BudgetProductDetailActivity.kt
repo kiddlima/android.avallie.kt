@@ -172,7 +172,13 @@ class BudgetProductDetailActivity : AppCompatActivity() {
 
         val specsString = SpecHelper.formattedSpecsString(specs)
 
-        return "${if (requestedProduct.brand != null) "Marca de preferência: ${requestedProduct.brand}\n" else ""}${specsString}"
+        val formattedString = "${if (requestedProduct.brand != null) "Marca de preferência: ${requestedProduct.brand}\n" else ""}${specsString}"
+
+        if (requestedProduct.extraInformation != null) {
+            return "$formattedString\n Informações extras: ${requestedProduct.extraInformation}"
+        }
+
+        return formattedString
     }
 
 

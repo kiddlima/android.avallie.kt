@@ -12,5 +12,7 @@ class SelectedProduct(
     @SerializedName("product_id")
     val productId: Long,
     val brand: String?,
+    @SerializedName("extra_information")
+    val extraInformation: String?,
     val product: Product
 ) : Serializable

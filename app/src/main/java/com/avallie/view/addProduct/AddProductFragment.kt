@@ -72,6 +72,7 @@ class AddProductFragment : BottomSheetDialogFragment() {
             amount_container.hint = "Quantidade (${selectedProduct?.product!!.unit})"
             amount.setText(selectedProduct?.amount.toString())
             brand.setText(selectedProduct?.brand)
+            extra_info.setText(selectedProduct?.extraInformation)
             add_product.text = getString(R.string.update_product)
         }
 
@@ -191,6 +192,7 @@ class AddProductFragment : BottomSheetDialogFragment() {
                     getFormattedSpecs(),
                     product!!.id,
                     if (!brand.text.isNullOrEmpty()) brand.text.toString() else null,
+                    if (!extra_info.text.isNullOrEmpty()) extra_info.text.toString() else null,
                     product!!
                 )
             )
@@ -201,6 +203,7 @@ class AddProductFragment : BottomSheetDialogFragment() {
                     getFormattedSpecs(),
                     selectedProduct?.product?.id!!,
                     if (!brand.text.isNullOrEmpty()) brand.text.toString() else null,
+                    if (!extra_info.text.isNullOrEmpty()) extra_info.text.toString() else null,
                     selectedProduct?.product!!
                 )
             )

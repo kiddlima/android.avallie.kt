@@ -1,1 +1,20 @@
-[{"outputType":{"type":"APK"},"apkData":{"type":"MAIN","splits":[],"versionCode":1,"versionName":"1.0","enabled":true,"outputFile":"app-hml-release.apk","fullName":"hmlRelease","baseName":"hml-release","dirName":""},"path":"app-hml-release.apk","properties":{}}]
+{
+  "version": 1,
+  "artifactType": {
+    "type": "APK",
+    "kind": "Directory"
+  },
+  "applicationId": "com.avallie",
+  "variantName": "hmlRelease",
+  "elements": [
+    {
+      "type": "SINGLE",
+      "filters": [],
+      "properties": [],
+      "versionCode": 4,
+      "versionName": "4",
+      "enabled": true,
+      "outputFile": "app-hml-release.apk"
+    }
+  ]
+}
