@@ -19,6 +19,8 @@
     <color name="grayPrimaryDark">#606060</color>
     <color name="grayPrimaryDarker">#4f4f4f</color>
 
+    <color name="lightWhite">#6FFFFFFF</color>
+
     <color name="redPrimary">#e94f4f</color>
     <color name="redDark">#af3131</color>
 

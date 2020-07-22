@@ -19,6 +19,7 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.avallie.databinding.FragmentProductsBinding
+import com.avallie.helpers.AppHelper.Companion.hideKeyboard
 import com.avallie.model.ScreenState.Loading
 import com.avallie.view.MainActivity
 import com.avallie.view.adapter.ActiveFiltersAdapter
@@ -79,7 +80,7 @@ class ProductsFragment : Fragment() {
 
         binding.searchUser.setOnEditorActionListener { v, actionId, event ->
             loadProducts()
-            hideKeyboard()
+            hideKeyboard(context!!, view)
             true
         }
 
@@ -88,17 +89,12 @@ class ProductsFragment : Fragment() {
 
 
         binding.vProductsRecycler.setOnTouchListener { v, event ->
-            hideKeyboard()
+            hideKeyboard(context!!, view)
 
             false
         }
     }
 
-    private fun hideKeyboard() {
-        val imm =
-            context!!.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager?
-        imm!!.hideSoftInputFromWindow(view?.windowToken, 0)
-    }
 
     fun loadProducts() {
         productsAdapter.submitList(null)

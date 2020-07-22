@@ -4,6 +4,7 @@ import android.content.Context
 import android.graphics.Color
 import android.util.DisplayMetrics
 import android.view.View
+import android.view.inputmethod.InputMethodManager
 import androidx.core.content.ContextCompat
 import com.avallie.model.ConstructionPhase
 import com.google.android.material.snackbar.Snackbar
@@ -44,6 +45,12 @@ open class AppHelper {
             snackbar.setActionTextColor(Color.WHITE)
 
             return snackbar
+        }
+
+        fun hideKeyboard(context: Context, view: View) {
+            val imm =
+                context.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager?
+            imm!!.hideSoftInputFromWindow(view.windowToken, 0)
         }
     }
 }

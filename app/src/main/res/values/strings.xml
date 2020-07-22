@@ -122,4 +122,12 @@
     <string name="request_deadline_hint">Ex: 12/04/2020</string>
     <string name="max_date_hint">Data máxima de entrega</string>
     <string name="extra_information">Informações extras</string>
+    <string name="search_address_number">Buscar endereço e número</string>
+    <string name="additional_address_help">casa/apto/bloco</string>
+    <string name="confirm_address">Confirmar endereço</string>
+    <string name="multiple_address">Endereços</string>
+    <string name="my_address">Meus endereços</string>
+    <string name="my_delivery_address">Meus endereços de entrega</string>
+    <string name="new_address">Novo endereço</string>
+
 </resources>

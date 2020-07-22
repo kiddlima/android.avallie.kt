@@ -47,205 +47,110 @@
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:orientation="vertical"
-                android:padding="16dp"
                 tools:context=".view.AccountActivity">
 
-                <TextView
-                    fontPath="Regular.otf"
-                    android:layout_width="wrap_content"
+                <LinearLayout
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/name_label"
-                    android:textColor="@color/grayPrimary"
-                    android:textSize="14sp" />
+                    android:layout_margin="16dp"
+                    android:orientation="vertical">
 
-                <TextView
-                    fontPath="Medium.otf"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@{viewModel.customer.name}"
-                    android:textColor="@color/grayPrimaryDarker"
-                    android:textSize="16sp"
-                    tools:text="Vinicius Braz Barbosa de Lima" />
+                    <TextView
+                        fontPath="Regular.otf"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/name_label"
+                        android:textColor="@color/grayPrimary"
+                        android:textSize="14sp" />
 
-                <TextView
-                    fontPath="Regular.otf"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="16dp"
-                    android:text="@string/cartInfo_email"
-                    android:textColor="@color/grayPrimary"
-                    android:textSize="14sp" />
+                    <TextView
+                        fontPath="Medium.otf"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@{viewModel.customer.name}"
+                        android:textColor="@color/grayPrimaryDarker"
+                        android:textSize="16sp"
+                        tools:text="Vinicius Braz Barbosa de Lima" />
 
-                <TextView
-                    fontPath="Medium.otf"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@{viewModel.customer.email}"
-                    android:textColor="@color/grayPrimaryDarker"
-                    android:textSize="16sp"
-                    tools:text="kiddlima@gmail.com" />
+                    <TextView
+                        fontPath="Regular.otf"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
+                        android:text="@string/cartInfo_email"
+                        android:textColor="@color/grayPrimary"
+                        android:textSize="14sp" />
 
-                <TextView
-                    fontPath="Regular.otf"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="16dp"
-                    android:text="@string/cpf"
-                    android:textColor="@color/grayPrimary"
-                    android:textSize="14sp" />
+                    <TextView
+                        fontPath="Medium.otf"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@{viewModel.customer.email}"
+                        android:textColor="@color/grayPrimaryDarker"
+                        android:textSize="16sp"
+                        tools:text="kiddlima@gmail.com" />
 
-                <TextView
-                    fontPath="Medium.otf"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@{viewModel.customer.cpf}"
-                    android:textColor="@color/grayPrimaryDarker"
-                    android:textSize="16sp"
-                    tools:text="22222222" />
+                    <TextView
+                        fontPath="Regular.otf"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
+                        android:text="@string/cpf"
+                        android:textColor="@color/grayPrimary"
+                        android:textSize="14sp" />
 
-                <TextView
-                    fontPath="Regular.otf"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="16dp"
-                    android:text="@string/cartInfo_phone"
-                    android:textColor="@color/grayPrimary"
-                    android:textSize="14sp" />
+                    <TextView
+                        fontPath="Medium.otf"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@{viewModel.customer.cpf}"
+                        android:textColor="@color/grayPrimaryDarker"
+                        android:textSize="16sp"
+                        tools:text="22222222" />
 
-                <TextView
-                    fontPath="Medium.otf"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@{viewModel.customer.telephone}"
-                    android:textColor="@color/grayPrimaryDarker"
-                    android:textSize="16sp"
-                    tools:text="22222222" />
+                    <TextView
+                        fontPath="Regular.otf"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
+                        android:text="@string/cartInfo_phone"
+                        android:textColor="@color/grayPrimary"
+                        android:textSize="14sp" />
 
-                <TextView
-                    fontPath="Regular.otf"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="16dp"
-                    android:text="@string/company_name"
-                    android:textColor="@color/grayPrimary"
-                    android:textSize="14sp" />
+                    <TextView
+                        fontPath="Medium.otf"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@{viewModel.customer.telephone}"
+                        android:textColor="@color/grayPrimaryDarker"
+                        android:textSize="16sp"
+                        tools:text="22222222" />
 
-                <TextView
-                    fontPath="Medium.otf"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@{viewModel.customer.companyName}"
-                    android:textColor="@color/grayPrimaryDarker"
-                    android:textSize="16sp"
-                    tools:text="Avallie" />
+                    <TextView
+                        fontPath="Regular.otf"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
+                        android:text="@string/company_name"
+                        android:textColor="@color/grayPrimary"
+                        android:textSize="14sp"
+                        android:visibility="@{viewModel.customer.companyName != null ? View.VISIBLE : View.GONE}" />
 
-                <TextView
-                    fontPath="Regular.otf"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="16dp"
-                    android:text="@string/cep"
-                    android:textColor="@color/grayPrimary"
-                    android:textSize="14sp" />
+                    <TextView
+                        fontPath="Medium.otf"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@{viewModel.customer.companyName}"
+                        android:textColor="@color/grayPrimaryDarker"
+                        android:textSize="16sp"
+                        android:visibility="@{viewModel.customer.companyName != null ? View.VISIBLE : View.GONE}"
+                        tools:text="Avallie" />
 
-                <TextView
-                    fontPath="Medium.otf"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@{viewModel.customer.zipCode}"
-                    android:textColor="@color/grayPrimaryDarker"
-                    android:textSize="16sp"
-                    tools:text="91040550" />
+                </LinearLayout>
 
-                <TextView
-                    fontPath="Regular.otf"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="16dp"
-                    android:text="@string/street"
-                    android:textColor="@color/grayPrimary"
-                    android:textSize="14sp" />
-
-                <TextView
-                    fontPath="Medium.otf"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@{viewModel.customer.street}"
-                    android:textColor="@color/grayPrimaryDarker"
-                    android:textSize="16sp"
-                    tools:text="Av. Polar" />
-
-                <TextView
-                    fontPath="Regular.otf"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="16dp"
-                    android:text="@string/cartInfo_number_hint"
-                    android:textColor="@color/grayPrimary"
-                    android:textSize="14sp" />
-
-                <TextView
-                    fontPath="Medium.otf"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@{viewModel.customer.streetNumber}"
-                    android:textColor="@color/grayPrimaryDarker"
-                    android:textSize="16sp"
-                    tools:text="415" />
-
-                <TextView
-                    fontPath="Regular.otf"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="16dp"
-                    android:text="@string/additional_address_hint"
-                    android:textColor="@color/grayPrimary"
-                    android:textSize="14sp" />
-
-                <TextView
-                    fontPath="Medium.otf"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@{viewModel.customer.additionalAddress}"
-                    android:textColor="@color/grayPrimaryDarker"
-                    android:textSize="16sp"
-                    tools:text="Casa" />
-
-                <TextView
-                    fontPath="Regular.otf"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="16dp"
-                    android:text="@string/cartInfo_city_hint"
-                    android:textColor="@color/grayPrimary"
-                    android:textSize="14sp" />
-
-                <TextView
-                    fontPath="Medium.otf"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@{viewModel.customer.city}"
-                    android:textColor="@color/grayPrimaryDarker"
-                    android:textSize="16sp"
-                    tools:text="Porto Alegre" />
-
-                <TextView
-                    fontPath="Regular.otf"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="16dp"
-                    android:text="@string/state"
-                    android:textColor="@color/grayPrimary"
-                    android:textSize="14sp" />
-
-                <TextView
-                    fontPath="Medium.otf"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@{viewModel.customer.state}"
-                    android:textColor="@color/grayPrimaryDarker"
-                    android:textSize="16sp"
-                    tools:text="Rio Grande do Sul" />
+                <include
+                    layout="@layout/menu_item"
+                    app:menuComponent="@{activity.addressMenu}" />
 
                 <Button
                     android:id="@+id/logout_button"
