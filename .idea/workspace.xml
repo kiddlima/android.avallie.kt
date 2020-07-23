@@ -13,52 +13,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c46817aa-1036-444d-a895-f03247a72630" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_arch_core_core_runtime_2_1_0_aar.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_lifecycle_lifecycle_livedata_2_1_0_aar.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_lifecycle_lifecycle_livedata_core_2_1_0_aar.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_android_volley_volley_1_1_1_aar.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_google_android_gms_play_services_location_17_0_0_aar.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_google_android_gms_play_services_maps_17_0_0_aar.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_google_android_gms_play_services_places_placereport_17_0_0_aar.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_google_android_libraries_places_places_2_3_0_aar.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_google_code_gson_gson_2_8_5_jar.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/avallie/core/CustomActivity.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/avallie/core/CustomViewModel.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/avallie/view/address/ConfirmAddressBottomSheet.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/avallie/view/address/FindAddressActivity.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/avallie/view/address/FindAddressAdapter.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/avallie/view/address/FindAddressViewModel.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/avallie/view/address/MyAddressActivity.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/avallie/view/address/model/Address.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/avallie/webservice/GoogleMapsHttp.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/avallie/webservice/GoogleMapsServices.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_find_address.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_my_address.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/confirm_address_fragment.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/prediction_layout.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/widgets/src/main/java/com/avallie/widgets/MenuItemComponent.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/widgets/src/main/res/drawable/address_edit_text_bg.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/widgets/src/main/res/drawable/new_primary_button_bg.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/widgets/src/main/res/layout/menu_item.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_lifecycle_lifecycle_extensions_2_0_0_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_lifecycle_lifecycle_extensions_2_1_0_aar.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_lifecycle_lifecycle_process_2_0_0_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_lifecycle_lifecycle_process_2_1_0_aar.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_lifecycle_lifecycle_service_2_0_0_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_lifecycle_lifecycle_service_2_1_0_aar.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_google_code_gson_gson_2_8_2_jar.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules/app/app.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/app/app.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules/widgets/widgets.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/widgets/widgets.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/app/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/avallie/helpers/AppHelper.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/avallie/helpers/AppHelper.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/avallie/view/AccountActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/avallie/view/AccountActivity.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/avallie/view/MainActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/avallie/view/MainActivity.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/avallie/view/products/ProductsFragment.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/avallie/view/products/ProductsFragment.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/ic_arrow_right.xml" beforeDir="false" afterPath="$PROJECT_DIR$/widgets/src/main/res/drawable/ic_arrow_right.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_account.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_account.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/widgets/src/main/res/values/colors.xml" beforeDir="false" afterPath="$PROJECT_DIR$/widgets/src/main/res/values/colors.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/widgets/src/main/res/values/styles.xml" beforeDir="false" afterPath="$PROJECT_DIR$/widgets/src/main/res/values/styles.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/avallie/view/address/ConfirmAddressBottomSheet.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/avallie/view/address/ConfirmAddressBottomSheet.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/avallie/view/address/model/Address.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/avallie/view/address/model/Address.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -330,7 +287,7 @@
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
     <state width="650" height="466" key="DebuggerActiveHint/0.0.1680.1050@0.0.1680.1050" timestamp="1595440177279" />
-    <state width="1638" height="581" key="GridCell.Tab.0.bottom" timestamp="1595443345759">
+    <state width="1638" height="581" key="GridCell.Tab.0.bottom" timestamp="1595451142139">
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
     <state width="2518" height="504" key="GridCell.Tab.0.bottom/-422.-1417.2560.1417/0.23.1680.982@-422.-1417.2560.1417" timestamp="1594170153197" />
@@ -339,10 +296,10 @@
     <state width="1638" height="499" key="GridCell.Tab.0.bottom/-422.-1440.2560.1440/0.0.1680.1050@0.0.1680.1050" timestamp="1593475453387" />
     <state width="2518" height="503" key="GridCell.Tab.0.bottom/-422.-1440.2560.1440/0.23.1680.1027@-422.-1440.2560.1440" timestamp="1594685333809" />
     <state width="2518" height="501" key="GridCell.Tab.0.bottom/-422.-1440.2560.1440/0.23.1680.982@-422.-1440.2560.1440" timestamp="1595381610354" />
-    <state width="1638" height="581" key="GridCell.Tab.0.bottom/0.0.1680.1050@0.0.1680.1050" timestamp="1595443345759" />
+    <state width="1638" height="581" key="GridCell.Tab.0.bottom/0.0.1680.1050@0.0.1680.1050" timestamp="1595451142139" />
     <state width="1638" height="501" key="GridCell.Tab.0.bottom/0.23.1680.982@0.23.1680.982" timestamp="1595440702073" />
     <state width="1638" height="501" key="GridCell.Tab.0.bottom/0.23.1680.983@0.23.1680.983" timestamp="1595429607932" />
-    <state width="1638" height="581" key="GridCell.Tab.0.center" timestamp="1595443345758">
+    <state width="1638" height="581" key="GridCell.Tab.0.center" timestamp="1595451142137">
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
     <state width="2518" height="504" key="GridCell.Tab.0.center/-422.-1417.2560.1417/0.23.1680.982@-422.-1417.2560.1417" timestamp="1594170153196" />
@@ -351,10 +308,10 @@
     <state width="1638" height="499" key="GridCell.Tab.0.center/-422.-1440.2560.1440/0.0.1680.1050@0.0.1680.1050" timestamp="1593475453385" />
     <state width="2518" height="503" key="GridCell.Tab.0.center/-422.-1440.2560.1440/0.23.1680.1027@-422.-1440.2560.1440" timestamp="1594685333808" />
     <state width="2518" height="501" key="GridCell.Tab.0.center/-422.-1440.2560.1440/0.23.1680.982@-422.-1440.2560.1440" timestamp="1595381610351" />
-    <state width="1638" height="581" key="GridCell.Tab.0.center/0.0.1680.1050@0.0.1680.1050" timestamp="1595443345758" />
+    <state width="1638" height="581" key="GridCell.Tab.0.center/0.0.1680.1050@0.0.1680.1050" timestamp="1595451142137" />
     <state width="1638" height="501" key="GridCell.Tab.0.center/0.23.1680.982@0.23.1680.982" timestamp="1595440702073" />
     <state width="1638" height="501" key="GridCell.Tab.0.center/0.23.1680.983@0.23.1680.983" timestamp="1595429607931" />
-    <state width="1638" height="581" key="GridCell.Tab.0.left" timestamp="1595443345757">
+    <state width="1638" height="581" key="GridCell.Tab.0.left" timestamp="1595451142136">
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
     <state width="2518" height="504" key="GridCell.Tab.0.left/-422.-1417.2560.1417/0.23.1680.982@-422.-1417.2560.1417" timestamp="1594170153195" />
@@ -363,10 +320,10 @@
     <state width="1638" height="499" key="GridCell.Tab.0.left/-422.-1440.2560.1440/0.0.1680.1050@0.0.1680.1050" timestamp="1593475453384" />
     <state width="2518" height="503" key="GridCell.Tab.0.left/-422.-1440.2560.1440/0.23.1680.1027@-422.-1440.2560.1440" timestamp="1594685333807" />
     <state width="2518" height="501" key="GridCell.Tab.0.left/-422.-1440.2560.1440/0.23.1680.982@-422.-1440.2560.1440" timestamp="1595381610351" />
-    <state width="1638" height="581" key="GridCell.Tab.0.left/0.0.1680.1050@0.0.1680.1050" timestamp="1595443345757" />
+    <state width="1638" height="581" key="GridCell.Tab.0.left/0.0.1680.1050@0.0.1680.1050" timestamp="1595451142136" />
     <state width="1638" height="501" key="GridCell.Tab.0.left/0.23.1680.982@0.23.1680.982" timestamp="1595440702072" />
     <state width="1638" height="501" key="GridCell.Tab.0.left/0.23.1680.983@0.23.1680.983" timestamp="1595429607930" />
-    <state width="1638" height="581" key="GridCell.Tab.0.right" timestamp="1595443345759">
+    <state width="1638" height="581" key="GridCell.Tab.0.right" timestamp="1595451142138">
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
     <state width="2518" height="504" key="GridCell.Tab.0.right/-422.-1417.2560.1417/0.23.1680.982@-422.-1417.2560.1417" timestamp="1594170153196" />
@@ -375,7 +332,7 @@
     <state width="1638" height="499" key="GridCell.Tab.0.right/-422.-1440.2560.1440/0.0.1680.1050@0.0.1680.1050" timestamp="1593475453386" />
     <state width="2518" height="503" key="GridCell.Tab.0.right/-422.-1440.2560.1440/0.23.1680.1027@-422.-1440.2560.1440" timestamp="1594685333808" />
     <state width="2518" height="501" key="GridCell.Tab.0.right/-422.-1440.2560.1440/0.23.1680.982@-422.-1440.2560.1440" timestamp="1595381610354" />
-    <state width="1638" height="581" key="GridCell.Tab.0.right/0.0.1680.1050@0.0.1680.1050" timestamp="1595443345759" />
+    <state width="1638" height="581" key="GridCell.Tab.0.right/0.0.1680.1050@0.0.1680.1050" timestamp="1595451142138" />
     <state width="1638" height="501" key="GridCell.Tab.0.right/0.23.1680.982@0.23.1680.982" timestamp="1595440702073" />
     <state width="1638" height="501" key="GridCell.Tab.0.right/0.23.1680.983@0.23.1680.983" timestamp="1595429607931" />
     <state width="1638" height="501" key="GridCell.Tab.1.bottom" timestamp="1595440702075">

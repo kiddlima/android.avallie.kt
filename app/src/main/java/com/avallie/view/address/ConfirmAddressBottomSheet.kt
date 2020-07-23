@@ -30,11 +30,13 @@ class ConfirmAddressBottomSheet : BottomSheetDialogFragment() {
 
         address.run {
             if (hasNumber()) {
-                address_title.text = "$street, $streetNumber\n$district, $state - $country "
+                address_title.text =
+                    "$street, $streetNumber\n${if (district != null) "$district, " else ""}$state - $country "
 
                 number_container.visibility = View.GONE
             } else {
-                address_title.text = "$street\n$district, $state - $country "
+                address_title.text =
+                    "$street\n${if (district != null) "$district, " else ""}$state - $country "
             }
         }
 

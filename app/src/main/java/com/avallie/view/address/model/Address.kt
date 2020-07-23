@@ -39,7 +39,7 @@ class Address(
     var streetNumber: String? = null
     var additionalAddress: String? = null
     lateinit var state: String
-    lateinit var district: String
+    var district: String? = null
     lateinit var country: String
     lateinit var city: String
     lateinit var postalCode: String
