@@ -161,10 +161,6 @@ class CartFragment : BottomSheetDialogFragment() {
     private fun setFinishInfo() {
         val customer = PaperHelper.getCustomer()
 
-        delivery_address_one.text =
-            "${customer?.street}, ${customer?.streetNumber} - ${customer?.zipCode}"
-        delivery_address_two.text = "${customer?.city}, ${customer?.state}"
-
         btn_request_budget.setOnClickListener {
             val errorMessage = returnsNullIfValid()
 

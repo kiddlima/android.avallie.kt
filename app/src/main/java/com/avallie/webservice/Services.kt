@@ -3,6 +3,7 @@ package com.avallie.webservice
 import com.avallie.model.*
 import com.avallie.model.request.BudgetRequest
 import com.avallie.model.request.NotificationToken
+import com.avallie.view.address.model.Address
 import com.avallie.view.products.ProductsContainerResponse
 import retrofit2.Call
 import retrofit2.http.*
@@ -71,5 +72,9 @@ interface Services {
         @Header("Authorization") token: String
     ): Call<ApiResponse<Boolean>>
 
-
+    @POST("v1/customers/address")
+    fun addAddress(
+        @Header("Authorization") token: String,
+        @Body body: Address
+    ): Call<ApiResponse<Address>>
 }

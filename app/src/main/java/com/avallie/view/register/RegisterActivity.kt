@@ -45,16 +45,7 @@ class RegisterActivity : AppCompatActivity() {
         binding.registerName.addTextChangedListener(clearError(binding.nameContainer))
         binding.registerCpf.addTextChangedListener(clearError(binding.cpfInputLayout))
         binding.registerPhone.addTextChangedListener(clearError(binding.phoneContainer))
-        binding.registerCep.addTextChangedListener(clearError(binding.cepInputlayout))
-        binding.registerNumber.addTextChangedListener(clearError(binding.numberContainer))
-        binding.registerStreet.addTextChangedListener(clearError(binding.streetContainer))
-        binding.registerCity.addTextChangedListener(clearError(binding.cityContainer))
-        binding.registerState.addTextChangedListener(clearError(binding.stateContainer))
         binding.registerEmail.addTextChangedListener(clearError(binding.emailInputLayout))
-
-        disableEditText(binding.registerStreet)
-        disableEditText(binding.registerCity)
-        disableEditText(binding.registerState)
 
         binding.registerConfirmPassword.addTextChangedListener(object : TextWatcher {
             override fun afterTextChanged(s: Editable?) {
@@ -113,22 +104,7 @@ class RegisterActivity : AppCompatActivity() {
             }
         }
 
-        viewModel.cepLoading.observe(this, Observer {
-            if (it == ScreenState.Success) {
-                viewModel.customer.value?.run {
-                    binding.registerStreet.setText(street)
-                    binding.registerState.setText(state)
-                    binding.registerCity.setText(city)
-
-                    enableEditText(binding.registerStreet)
-                    enableEditText(binding.registerCity)
-                    enableEditText(binding.registerState)
-                }
-            } else if (it == ScreenState.Fail) {
-                showError("Erro ao consultar CEP")
-            }
-        })
-
+//
         register_email.onFocusChangeListener = View.OnFocusChangeListener { v, hasFocus ->
             if (!hasFocus && register_email.text!!.isNotEmpty()) {
                 binding.emailInputLayout.error = null
@@ -143,31 +119,6 @@ class RegisterActivity : AppCompatActivity() {
             addTextChangedListener(listener)
             onFocusChangeListener = listener
         }
-
-        register_cep.run {
-            val listener = MaskedTextChangedListener("[00000]{-}[000]", register_cep)
-
-            addTextChangedListener(listener)
-            onFocusChangeListener = listener
-        }
-
-        binding.registerCep.addTextChangedListener(object : TextWatcher {
-            override fun afterTextChanged(s: Editable?) {
-                if (s?.length!! == 9) {
-                    if (register_cep.text!!.isNotEmpty()) {
-                        viewModel.getCepInfo(this@RegisterActivity)
-                    }
-                }
-            }
-
-            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
-
-            }
-
-            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
-
-            }
-        })
 
         progressDialog = ProgressDialog(this, getString(R.string.finishing_register))
 
@@ -235,11 +186,6 @@ class RegisterActivity : AppCompatActivity() {
                     }
                 }
                 RegisterScreen.SECOND -> {
-                    if (isSecondScreenValidate()) {
-                        goToThridScreen()
-                    }
-                }
-                else -> {
                     if (isThirdScreenValidate()) {
                         if (register_email.isFocused) {
                             viewModel.validateEmail(this, true)
@@ -247,6 +193,9 @@ class RegisterActivity : AppCompatActivity() {
                             finishRegister()
                         }
                     }
+                }
+                else -> {
+
                 }
             }
         }
@@ -262,7 +211,7 @@ class RegisterActivity : AppCompatActivity() {
         }
 
         thrid_step_circle.setOnClickListener {
-            if (isThirdScreenValidate() || (isFirstScreenValidate() && isSecondScreenValidate())) {
+            if (isThirdScreenValidate() || isFirstScreenValidate()) {
                 goToThridScreen()
             }
         }
@@ -335,42 +284,6 @@ class RegisterActivity : AppCompatActivity() {
         return valid
     }
 
-
-    private fun isSecondScreenValidate(): Boolean {
-        var valid = true
-
-        if (binding.registerCep.text.isNullOrBlank()) {
-            binding.cepInputlayout.error = "CEP obrigatório"
-
-            valid = false
-        }
-
-        if (binding.registerStreet.text.isNullOrBlank()) {
-            binding.streetContainer.error = "Rua obrigatório"
-
-            valid = false
-        }
-
-        if (binding.registerNumber.text.isNullOrBlank()) {
-            binding.numberContainer.error = "Número obrigatório"
-
-            valid = false
-        }
-
-        if (binding.registerCity.text.isNullOrBlank()) {
-            binding.cityContainer.error = "Cidade obrigatório"
-
-            valid = false
-        }
-
-        if (binding.registerState.text.isNullOrBlank()) {
-            binding.stateContainer.error = "Estado obrigatório"
-
-            valid = false
-        }
-
-        return valid
-    }
 
     private fun isThirdScreenValidate(): Boolean {
         var valid = true

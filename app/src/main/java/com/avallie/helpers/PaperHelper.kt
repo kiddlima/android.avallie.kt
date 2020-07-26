@@ -4,6 +4,8 @@ import com.avallie.model.ConstructionPhase
 import com.avallie.model.Customer
 import com.avallie.model.RequestedProduct
 import com.avallie.model.request.SelectedProduct
+import com.avallie.view.address.model.Address
+import io.paperdb.Book
 import io.paperdb.Paper
 
 class PaperHelper {
@@ -68,6 +70,14 @@ class PaperHelper {
 
         fun clearCustomer() {
             Paper.book().delete("customer")
+        }
+
+        fun getDefaultAddress(): Address?{
+            return Paper.book().read("default-address")
+        }
+
+        fun setDefaultAddress(address: Address) {
+            Paper.book().write("default-address", address)
         }
     }
 

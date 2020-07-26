@@ -1,17 +1,61 @@
 package com.avallie.view.address.model
 
 import com.google.android.libraries.places.api.model.Place
+import com.google.gson.annotations.Expose
+import com.google.gson.annotations.SerializedName
 import java.io.Serializable
 
 class Address(
     place: Place
 ) : Serializable {
 
+    @SerializedName("id")
+    var id: String? = null
+
+    @SerializedName("place_id")
+    var placeId: String? = null
+
+    @SerializedName("street")
+    lateinit var street: String
+
+    @SerializedName("street_number")
+    var streetNumber: Int? = null
+
+    @SerializedName("additional_address")
+    var additionalAddress: String? = null
+
+    @SerializedName("state")
+    lateinit var state: String
+
+    @SerializedName("district")
+    var district: String? = null
+
+    @SerializedName("country")
+    lateinit var country: String
+
+    @SerializedName("city")
+    lateinit var city: String
+
+    @SerializedName("postal_code")
+    lateinit var postalCode: String
+
+    @SerializedName("latitude")
+    var latitude: Double = 0.0
+
+    @SerializedName("longitude")
+    var longitude: Double = 0.0
+
+    fun hasNumber(): Boolean {
+        return streetNumber != null
+    }
+
     init {
         place.latLng?.run {
             this@Address.latitude = latitude
             this@Address.longitude = longitude
         }
+
+        placeId = place.id
 
         place.addressComponents?.let {
             for (addressComponent in it.asList()) {
@@ -26,28 +70,13 @@ class Address(
                             if (addressComponent.shortName != null) addressComponent.shortName!! else addressComponent.name
                         "postal_code" -> this@Address.postalCode = addressComponent.name
                         "street_number" -> this@Address.streetNumber =
-                            addressComponent.name
+                            addressComponent.name.toInt()
                         "sublocality_level_1" -> this@Address.district =
                             addressComponent.name
                     }
                 }
             }
         }
-    }
-
-    lateinit var street: String
-    var streetNumber: String? = null
-    var additionalAddress: String? = null
-    lateinit var state: String
-    var district: String? = null
-    lateinit var country: String
-    lateinit var city: String
-    lateinit var postalCode: String
-    var latitude: Double = 0.0
-    var longitude: Double = 0.0
-
-    fun hasNumber(): Boolean {
-        return streetNumber != null
     }
 
 }

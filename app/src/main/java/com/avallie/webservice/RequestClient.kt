@@ -53,15 +53,18 @@ class RequestClient(
 
         builder.baseUrl(baseURL)
         builder.addConverterFactory(getGsonConverterFactory())
+
         builder.client(okHttpClient.build())
 
         return builder.build()
     }
 
     private fun getGsonConverterFactory(): GsonConverterFactory {
+        val gsonBuilder = GsonBuilder()
+        gsonBuilder.setFieldNamingPolicy(FieldNamingPolicy.LOWER_CASE_WITH_UNDERSCORES)
+
         return GsonConverterFactory.create(
-            GsonBuilder().setFieldNamingPolicy(FieldNamingPolicy.LOWER_CASE_WITH_UNDERSCORES)
-                .create()
+            gsonBuilder.create()
         )
     }
 

@@ -6,6 +6,7 @@ import com.avallie.helpers.PaperHelper
 import com.avallie.model.*
 import com.avallie.model.request.BudgetRequest
 import com.avallie.model.request.NotificationToken
+import com.avallie.view.address.model.Address
 import com.avallie.view.products.ProductsContainerResponse
 import com.avallie.view.products.ProductsQuery
 import com.google.firebase.auth.FirebaseAuth
@@ -17,7 +18,12 @@ import retrofit2.Response
 class HttpService(private val context: Context) {
 
     protected val requestClient by lazy {
-        RequestClient(context, BuildConfig.BASE_URL, certificated = true, authenticated = false).retrofit.create(Services::class.java)
+        RequestClient(
+            context,
+            BuildConfig.BASE_URL,
+            certificated = true,
+            authenticated = false
+        ).retrofit.create(Services::class.java)
     }
 
     val auth by lazy {
@@ -266,25 +272,41 @@ class HttpService(private val context: Context) {
         })
     }
 
-    fun deleteTokenNotification(){
+    fun deleteTokenNotification() {
         auth.currentUser?.getIdToken(true)?.addOnSuccessListener { authTokenResult ->
-            requestClient.deleteTokenNotification("Bearer " + authTokenResult.token).enqueue(object: Callback<ApiResponse<Boolean>> {
-                override fun onFailure(call: Call<ApiResponse<Boolean>>, t: Throwable) {
-                    println()
-                }
+            requestClient.deleteTokenNotification("Bearer " + authTokenResult.token)
+                .enqueue(object : Callback<ApiResponse<Boolean>> {
+                    override fun onFailure(call: Call<ApiResponse<Boolean>>, t: Throwable) {
+                        println()
+                    }
 
-                override fun onResponse(
-                    call: Call<ApiResponse<Boolean>>,
-                    response: Response<ApiResponse<Boolean>>
-                ) {
-                    println(response)
-                }
-
-            })
+                    override fun onResponse(
+                        call: Call<ApiResponse<Boolean>>,
+                        response: Response<ApiResponse<Boolean>>
+                    ) {
+                        println(response)
+                    }
+                })
         }
-
     }
 
+    fun addAddress(address: Address, connectionListener: ConnectionListener<Address>) {
+        auth.currentUser?.getIdToken(true)?.addOnSuccessListener { authTokenResult ->
+            requestClient.addAddress("Bearer ${authTokenResult.token}", address)
+                .enqueue(object : Callback<ApiResponse<Address>> {
+                    override fun onFailure(call: Call<ApiResponse<Address>>, t: Throwable) {
+                        connectionListener.noInternet()
+                    }
+
+                    override fun onResponse(
+                        call: Call<ApiResponse<Address>>,
+                        response: Response<ApiResponse<Address>>
+                    ) {
+                        responseHandler(response, connectionListener)
+                    }
+                })
+        }
+    }
 
     fun <T> responseHandler(
         response: Response<ApiResponse<T>>,

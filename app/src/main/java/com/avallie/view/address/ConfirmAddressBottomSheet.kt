@@ -6,8 +6,12 @@ import android.text.TextWatcher
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import com.avallie.R
+import com.avallie.helpers.PaperHelper
 import com.avallie.view.address.model.Address
+import com.avallie.webservice.ConnectionListener
+import com.avallie.webservice.HttpService
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import kotlinx.android.synthetic.main.confirm_address_fragment.*
 
@@ -60,20 +64,56 @@ class ConfirmAddressBottomSheet : BottomSheetDialogFragment() {
                 if (number_container.editText?.text.isNullOrEmpty()) {
                     number_container.error = "Informe o número"
                 } else {
+                    address.streetNumber = number_container.editText?.text.toString().toInt()
+                    address.additionalAddress =
+                        additional_address_container.editText?.text.toString()
+
                     confirmAddress()
                 }
             } else {
+                address.additionalAddress = additional_address_container.editText?.text.toString()
+
                 confirmAddress()
             }
         }
     }
 
     private fun confirmAddress() {
-        address.streetNumber = number_container.editText?.text.toString()
-        address.additionalAddress = additional_address_container.editText?.text.toString()
+        setLoading()
 
-        //TODO register new address on api
+        HttpService(context!!).addAddress(address, object : ConnectionListener<Address> {
+            override fun onSuccess(response: Address) {
+                PaperHelper.setDefaultAddress(response)
 
-        activity?.finish()
+                activity?.setResult(0)
+                activity?.finish()
+            }
+
+            override fun onFail(error: String?) {
+                Toast.makeText(context, error, Toast.LENGTH_SHORT).show()
+
+                removeLoading()
+            }
+
+            override fun noInternet() {
+                Toast.makeText(context, getString(R.string.server_error), Toast.LENGTH_SHORT).show()
+
+                removeLoading()
+            }
+        })
+    }
+
+    private fun setLoading() {
+        confirm_address_button.isEnabled = false
+        confirm_address_button.text = ""
+
+        progress_bar.visibility = View.VISIBLE
+    }
+
+    private fun removeLoading() {
+        confirm_address_button.isEnabled = true
+        confirm_address_button.text = getString(R.string.confirm_address)
+
+        progress_bar.visibility = View.GONE
     }
 }

@@ -14,8 +14,19 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
+        <ImageView
+            android:id="@+id/add_address_button"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:elevation="8dp"
+            android:padding="8dp"
+            android:src="@drawable/ic_add_gray"
+            app:layout_constraintBottom_toBottomOf="@id/toolbar_container"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
         <include
-            android:id="@+id/toolbar"
+            android:id="@+id/toolbar_container"
             layout="@layout/custom_toolbar"
             app:backClick="@{() -> activity.finish()}"
             app:layout_constraintEnd_toEndOf="parent"
@@ -23,27 +34,16 @@
             app:layout_constraintTop_toTopOf="parent"
             app:title="@{@string/my_address}" />
 
-        <TextView
-            android:id="@+id/address_search_view"
-            fontPath="Regular.otf"
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/address_recycler"
             android:layout_width="0dp"
-            android:layout_height="56dp"
-            android:layout_margin="16dp"
-            android:background="@drawable/address_edit_text_bg"
-            android:drawableStart="@drawable/ic_search"
-            android:drawablePadding="8dp"
-            android:drawableTint="@color/grayPrimary"
-            android:gravity="center_vertical"
-            android:hint="@string/search_address_number"
-            android:imeOptions="actionSearch"
-            android:inputType="text"
-            android:paddingStart="16dp"
-            android:paddingEnd="8dp"
-            android:paddingBottom="4dp"
-            android:textSize="16sp"
+            android:layout_height="0dp"
+            android:paddingBottom="16dp"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/toolbar" />
+            app:layout_constraintTop_toBottomOf="@id/toolbar_container" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

@@ -27,8 +27,6 @@ class RegisterViewModel : ViewModel() {
     val validateCpfState = MutableLiveData<ScreenState>()
     val validateEmailState = MutableLiveData<ScreenState>()
 
-    val cepLoading = MutableLiveData<ScreenState>()
-
     var fromNextClickedCpf: Boolean? = false
     var fromNextClickedEmail: Boolean? = false
 
@@ -71,32 +69,6 @@ class RegisterViewModel : ViewModel() {
             })
     }
 
-    fun getCepInfo(context: Context) {
-        cepLoading.value = ScreenState.Loading
-
-        CepHttp(context).getCepInfo(
-            customer.value?.zipCode?.replace("-", "")!!,
-            object : ConnectionListener<OfficialAddress> {
-                override fun onSuccess(response: OfficialAddress) {
-                    customer.value?.run {
-                        city = response.localidade
-                        state = response.uf
-                        street = response.logradouro
-                    }
-
-                    cepLoading.value = ScreenState.Success
-                }
-
-                override fun onFail(error: String?) {
-                    cepLoading.value = ScreenState.Fail
-                }
-
-                override fun noInternet() {
-                    cepLoading.value = ScreenState.Fail
-                }
-            })
-    }
-
     fun validateEmail(context: Context, fromNextClickedEmail: Boolean? = false) {
         validateEmailState.value = ScreenState.Loading
         
@@ -131,7 +103,6 @@ class RegisterViewModel : ViewModel() {
         customer.value!!.telephone = customer.value!!.telephone?.replace("(", "")
         customer.value!!.telephone = customer.value!!.telephone?.replace(")", "")
         clearCpf()
-        customer.value!!.zipCode = customer.value!!.zipCode?.replace("-", "")
 
         screenState.value = ScreenState.Loading
 

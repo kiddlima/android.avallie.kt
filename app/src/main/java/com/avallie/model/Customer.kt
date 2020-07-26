@@ -1,5 +1,6 @@
 package com.avallie.model
 
+import com.avallie.view.address.model.Address
 import com.google.gson.annotations.SerializedName
 
 class Customer {
@@ -8,15 +9,8 @@ class Customer {
     var name: String? = null
     var password: String? = null
     var telephone: String? = null
-    var city: String? = null
-    var state: String? = null
-    var street: String? = null
-    @SerializedName("street_number")
-    var streetNumber: String? = null
-    @SerializedName("zip_code")
-    var zipCode: String? = null
+    var addresses: MutableList<Address>? = null
+
     @SerializedName("company_name")
     var companyName: String? = null
-    @SerializedName("additional_address")
-    var additionalAddress: String? = null
 }
