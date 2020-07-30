@@ -7,11 +7,15 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProviders
 import com.avallie.R
 import com.avallie.helpers.PaperHelper
+import com.avallie.model.ScreenState
 import com.avallie.view.address.model.Address
 import com.avallie.webservice.ConnectionListener
 import com.avallie.webservice.HttpService
+import com.google.android.libraries.places.api.model.AutocompletePrediction
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import kotlinx.android.synthetic.main.confirm_address_fragment.*
 
@@ -20,6 +24,10 @@ class ConfirmAddressBottomSheet : BottomSheetDialogFragment() {
     private val address by lazy {
         arguments?.getSerializable("address") as Address
     }
+
+    lateinit var viewModel: FindAddressViewModel
+
+    var hadNumber: Boolean = false
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -42,7 +50,11 @@ class ConfirmAddressBottomSheet : BottomSheetDialogFragment() {
                 address_title.text =
                     "$street\n${if (district != null) "$district, " else ""}$state - $country "
             }
+
+            hadNumber = hasNumber()
         }
+
+        viewModel = ViewModelProviders.of(this).get(FindAddressViewModel::class.java)
 
         number_container.editText?.addTextChangedListener(object : TextWatcher {
             override fun afterTextChanged(s: Editable?) {
@@ -81,11 +93,42 @@ class ConfirmAddressBottomSheet : BottomSheetDialogFragment() {
     private fun confirmAddress() {
         setLoading()
 
+        if (address.additionalAddress?.isEmpty()!!) {
+            address.additionalAddress = null
+        }
+
+        if (hadNumber) {
+            sendAddress()
+        } else {
+            viewModel.searchPlaces(
+                "${address.street} ${address.streetNumber} ${address.city} ${address.state} ${address.country}",
+                context!!,
+                object : FindAddressViewModel.OnPredictionSearch {
+                    override fun onFind(prediction: AutocompletePrediction) {
+                        viewModel.findPlace(
+                            prediction.placeId,
+                            context!!,
+                            object : FindAddressViewModel.OnPlaceSearch {
+                                override fun onFind(address: Address) {
+                                    this@ConfirmAddressBottomSheet.address.postalCode =
+                                        address.postalCode
+
+
+                                    sendAddress()
+                                }
+                            })
+                    }
+                }
+            )
+        }
+    }
+
+    private fun sendAddress() {
         HttpService(context!!).addAddress(address, object : ConnectionListener<Address> {
             override fun onSuccess(response: Address) {
                 PaperHelper.setDefaultAddress(response)
 
-                activity?.setResult(0)
+                activity?.setResult(1)
                 activity?.finish()
             }
 

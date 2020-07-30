@@ -17,7 +17,9 @@ import com.avallie.R
 import com.avallie.core.CustomActivity
 import com.avallie.databinding.ActivityMyAddressBinding
 import com.avallie.helpers.PaperHelper
+import com.avallie.model.ScreenState
 import com.avallie.view.address.model.Address
+
 
 class MyAddressActivity : CustomActivity() {
 
@@ -25,7 +27,7 @@ class MyAddressActivity : CustomActivity() {
 
     lateinit var viewModel: MyAddressViewModel
 
-    private lateinit var defaultAddress: Address
+    private var defaultAddress: Address? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -40,10 +42,16 @@ class MyAddressActivity : CustomActivity() {
         viewModel.getCustomer(this)
 
         viewModel.mState.observe(this, Observer {
-            addDefaultAddressToList(false)
+            if (it == ScreenState.Success) {
+                addDefaultAddressToList(false)
+            }
         })
 
+        addDefaultAddressToList(false)
+
         binding.activity = this
+        binding.viewModel = viewModel
+        binding.lifecycleOwner = this
 
         setContentView(binding.root)
     }
@@ -51,21 +59,36 @@ class MyAddressActivity : CustomActivity() {
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
 
-        addDefaultAddressToList(true)
+        if (resultCode == 1) {
+            addDefaultAddressToList(true)
+        }
     }
 
     private fun addDefaultAddressToList(fromRegister: Boolean) {
-        defaultAddress = PaperHelper.getDefaultAddress()!!
+        defaultAddress = PaperHelper.getDefaultAddress()
 
         if (viewModel.customer?.addresses.isNullOrEmpty()) {
             viewModel.customer?.addresses = mutableListOf()
         }
 
         if (fromRegister) {
-            viewModel.customer?.addresses?.add(defaultAddress)
+            viewModel.customer?.addresses?.add(defaultAddress!!)
         }
 
-        viewModel.customer?.addresses?.sortBy { defaultAddress.id }
+        var defaultAddressIndex: Int? = null
+
+        viewModel.customer?.addresses!!.forEachIndexed { index, address ->
+            if (address.id == defaultAddress?.id) {
+                defaultAddressIndex = index
+            }
+        }
+
+        defaultAddressIndex?.run {
+            viewModel.customer?.addresses?.removeAt(this)
+            viewModel.customer?.addresses?.add(0, defaultAddress!!)
+        }.runCatching {
+            PaperHelper.setDefaultAddress(viewModel.customer?.addresses!![0])
+        }
 
         binding.addressRecycler.layoutManager = LinearLayoutManager(this)
         binding.addressRecycler.adapter = AddressAdapter()
@@ -126,6 +149,14 @@ class MyAddressActivity : CustomActivity() {
             var secondLine: TextView = itemView.findViewById(R.id.second_text)
             var mapIcon: ImageView = itemView.findViewById(R.id.map_icon)
             var view = itemView
+
+            init {
+                itemView.setOnClickListener {
+                    PaperHelper.setDefaultAddress(viewModel.customer?.addresses!![adapterPosition])
+
+                    finish()
+                }
+            }
         }
 
     }

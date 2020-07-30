@@ -1,6 +1,7 @@
 package com.avallie.view.address
 
 import android.content.Context
+import android.gesture.Prediction
 import androidx.lifecycle.MutableLiveData
 import com.avallie.core.CustomViewModel
 import com.avallie.model.ScreenState
@@ -17,15 +18,23 @@ import com.google.android.libraries.places.api.net.FindAutocompletePredictionsRe
 
 class FindAddressViewModel : CustomViewModel() {
 
-    var predictions = MutableLiveData<MutableList<AutocompletePrediction>>()
-
     private val token = AutocompleteSessionToken.newInstance()
+
+    var predictions = MutableLiveData<MutableList<AutocompletePrediction>>()
 
     interface OnPlaceSearch {
         fun onFind(address: Address)
     }
 
-    fun searchPlaces(query: String, context: Context) {
+    interface OnPredictionSearch {
+        fun onFind(prediction: AutocompletePrediction)
+    }
+
+    fun searchPlaces(
+        query: String,
+        context: Context,
+        onPredictionSearch: OnPredictionSearch? = null
+    ) {
         mState.value = ScreenState.Loading
 
         val placesClient = Places.createClient(context)
@@ -45,6 +54,8 @@ class FindAddressViewModel : CustomViewModel() {
                 this.predictions.value!!.addAll(response.autocompletePredictions)
 
                 mState.value = ScreenState.Success
+
+                onPredictionSearch?.onFind(this.predictions.value!![0])
 
             }.addOnFailureListener {
                 mState.value = ScreenState.Fail

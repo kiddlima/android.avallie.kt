@@ -69,10 +69,11 @@ class PaperHelper {
         }
 
         fun clearCustomer() {
+            Paper.book().delete("default-address")
             Paper.book().delete("customer")
         }
 
-        fun getDefaultAddress(): Address?{
+        fun getDefaultAddress(): Address? {
             return Paper.book().read("default-address")
         }
 

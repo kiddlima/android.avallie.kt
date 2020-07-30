@@ -15,6 +15,8 @@ class MyAddressViewModel : CustomViewModel() {
     }
 
     fun getCustomer(context: Context) {
+        mState.value = ScreenState.Loading
+
         HttpService(context).getCustomer(object : ConnectionListener<Customer> {
             override fun onSuccess(response: Customer) {
                 mState.value = ScreenState.Success
