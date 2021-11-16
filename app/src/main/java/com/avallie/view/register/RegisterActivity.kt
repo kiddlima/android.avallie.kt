@@ -6,7 +6,6 @@ import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
 import android.view.View
-import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
@@ -128,20 +127,6 @@ class RegisterActivity : AppCompatActivity() {
             finish()
         }
 
-        viewModel.validCpf.observe(this, Observer {
-            if (!it) {
-                cpf_input_layout.error = "CPF inválido ou cadastrado"
-            } else {
-                cpf_input_layout.error = null
-
-                if (viewModel.fromNextClickedCpf!!) {
-                    if (isFirstScreenValidate()) {
-                        goToSecondScreen()
-                    }
-                }
-            }
-        })
-
         viewModel.validEmail.observe(this, Observer {
             if (!it) {
                 email_input_layout.error = "Email inválido ou já cadastrado"
@@ -185,17 +170,10 @@ class RegisterActivity : AppCompatActivity() {
                         }
                     }
                 }
-                RegisterScreen.SECOND -> {
-                    if (isThirdScreenValidate()) {
-                        if (register_email.isFocused) {
-                            viewModel.validateEmail(this, true)
-                        } else {
-                            finishRegister()
-                        }
-                    }
-                }
                 else -> {
-
+                    if (isThirdScreenValidate()) {
+                        finishRegister()
+                    }
                 }
             }
         }
@@ -204,29 +182,11 @@ class RegisterActivity : AppCompatActivity() {
             goToFirstScreen()
         }
 
-        second_step_circle.setOnClickListener {
-            if (isFirstScreenValidate()) {
+        thrid_step_circle.setOnClickListener {
+            if (isThirdScreenValidate() || isFirstScreenValidate()) {
                 goToSecondScreen()
             }
         }
-
-        thrid_step_circle.setOnClickListener {
-            if (isThirdScreenValidate() || isFirstScreenValidate()) {
-                goToThridScreen()
-            }
-        }
-    }
-
-    private fun disableEditText(editText: EditText) {
-        editText.isEnabled = false
-        editText.isFocusable = false
-        editText.isFocusableInTouchMode = false
-    }
-
-    private fun enableEditText(editText: EditText) {
-        editText.isFocusableInTouchMode = true
-        editText.isFocusable = true
-        editText.isEnabled = true
     }
 
     private fun validateSamePassword() {
@@ -332,15 +292,6 @@ class RegisterActivity : AppCompatActivity() {
     }
 
     private fun goToSecondScreen() {
-        viewModel.registerScreen.value = RegisterScreen.SECOND
-        register_subtitle.text = getString(R.string.company_info)
-
-        register_company.requestFocus()
-
-        updateTracking()
-    }
-
-    private fun goToThridScreen() {
         viewModel.registerScreen.value = RegisterScreen.THIRD
         register_subtitle.text = getString(R.string.access_info)
 
@@ -358,23 +309,14 @@ class RegisterActivity : AppCompatActivity() {
         when (viewModel.registerScreen.value) {
             RegisterScreen.FIRST -> {
                 first_step_line.setBackgroundColor(grayColor)
-                second_step_line.setBackgroundColor(grayColor)
 
                 thrid_step_circle.background = grayDrawable
-                second_step_circle.background = grayDrawable
                 first_step_circle.background = accentDrawable
             }
-            RegisterScreen.SECOND -> {
-                first_step_line.setBackgroundColor(accentColor)
-                second_step_line.setBackgroundColor(grayColor)
 
-                thrid_step_circle.background = grayDrawable
-                second_step_circle.background = accentDrawable
-
-            }
             else -> {
+                first_step_line.setBackgroundColor(accentColor)
                 thrid_step_circle.background = accentDrawable
-                second_step_line.setBackgroundColor(accentColor)
             }
         }
     }
