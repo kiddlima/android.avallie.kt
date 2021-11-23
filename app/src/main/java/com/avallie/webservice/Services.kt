@@ -3,7 +3,7 @@ package com.avallie.webservice
 import com.avallie.model.*
 import com.avallie.model.request.BudgetRequest
 import com.avallie.model.request.NotificationToken
-import com.avallie.view.address.model.Address
+import com.avallie.view.newAddress.model.Address
 import com.avallie.view.products.ProductsContainerResponse
 import retrofit2.Call
 import retrofit2.http.*

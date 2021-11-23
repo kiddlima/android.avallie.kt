@@ -6,7 +6,7 @@ import com.avallie.helpers.PaperHelper
 import com.avallie.model.*
 import com.avallie.model.request.BudgetRequest
 import com.avallie.model.request.NotificationToken
-import com.avallie.view.address.model.Address
+import com.avallie.view.newAddress.model.Address
 import com.avallie.view.products.ProductsContainerResponse
 import com.avallie.view.products.ProductsQuery
 import com.google.firebase.auth.FirebaseAuth

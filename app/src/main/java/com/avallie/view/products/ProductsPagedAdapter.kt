@@ -28,10 +28,6 @@ class ProductsPagedAdapter(
 
 }) {
 
-    init {
-
-    }
-
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         return ProductViewHolder(
             LayoutInflater.from(context).inflate(R.layout.product_item, parent, false)

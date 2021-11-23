@@ -9,11 +9,11 @@
 
         <variable
             name="activity"
-            type="com.avallie.view.address.MyAddressActivity" />
+            type="com.avallie.view.newAddress.MyAddressActivity" />
 
         <variable
             name="viewModel"
-            type="com.avallie.view.address.MyAddressViewModel" />
+            type="com.avallie.view.newAddress.MyAddressViewModel" />
 
     </data>
 

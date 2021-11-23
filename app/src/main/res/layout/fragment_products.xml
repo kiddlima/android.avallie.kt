@@ -138,6 +138,7 @@
             app:onClick="@{() -> model.loadProducts()}" />
 
         <include
+            android:id="@+id/no_data_layout"
             layout="@layout/no_data_container"
             android:layout_width="match_parent"
             android:layout_height="match_parent"

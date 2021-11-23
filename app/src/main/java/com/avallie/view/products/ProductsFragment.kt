@@ -32,7 +32,7 @@ class ProductsFragment : Fragment() {
     lateinit var productsAdapter: ProductsPagedAdapter
 
     private val categoriesAdapter: ActiveFiltersAdapter by lazy {
-        ActiveFiltersAdapter(context!!, viewModel.categories.value!!)
+        ActiveFiltersAdapter(requireContext(), viewModel.categories.value!!)
     }
 
     lateinit var viewModel: ProductsViewModel
@@ -89,7 +89,7 @@ class ProductsFragment : Fragment() {
 
 
         binding.vProductsRecycler.setOnTouchListener { v, event ->
-            hideKeyboard(context!!, view)
+            hideKeyboard(requireContext(), view)
 
             false
         }
@@ -100,7 +100,7 @@ class ProductsFragment : Fragment() {
         productsAdapter.submitList(null)
 
         viewModel.loadProducts(
-            context!!,
+            requireContext(),
             ProductsQuery(0, 20, viewModel.categories.value!!, viewModel.productSearchName.value!!)
         )
 
@@ -108,7 +108,7 @@ class ProductsFragment : Fragment() {
     }
 
     private fun setObservers() {
-        viewModel.itemPagedList?.observe(this, Observer {
+        viewModel.itemPagedList?.observe(viewLifecycleOwner, Observer {
             productsAdapter.submitList(it)
         })
     }
@@ -132,7 +132,7 @@ class ProductsFragment : Fragment() {
     private fun setProductAdapter() {
         binding.vProductsRecycler.itemAnimator = null
 
-        productsAdapter = ProductsPagedAdapter(context!!, onProductClick = {
+        productsAdapter = ProductsPagedAdapter(requireContext(), onProductClick = {
             (activity as MainActivity).openAddProduct(it)
         })
 

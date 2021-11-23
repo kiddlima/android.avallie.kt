@@ -2,9 +2,9 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/android.avallie.kt.iml" filepath="$PROJECT_DIR$/.idea/modules/android.avallie.kt.iml" group="android.avallie.kt" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/app.iml" group="android.avallie.kt/app" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/widgets/widgets.iml" filepath="$PROJECT_DIR$/.idea/modules/widgets/widgets.iml" group="android.avallie.kt/widgets" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/android.avallie.kt.iml" filepath="$PROJECT_DIR$/.idea/modules/android.avallie.kt.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/android.avallie.kt.app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/android.avallie.kt.app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/widgets/android.avallie.kt.widgets.iml" filepath="$PROJECT_DIR$/.idea/modules/widgets/android.avallie.kt.widgets.iml" />
     </modules>
   </component>
 </project>

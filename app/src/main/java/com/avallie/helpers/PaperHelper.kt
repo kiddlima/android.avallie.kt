@@ -2,10 +2,8 @@ package com.avallie.helpers
 
 import com.avallie.model.ConstructionPhase
 import com.avallie.model.Customer
-import com.avallie.model.RequestedProduct
 import com.avallie.model.request.SelectedProduct
-import com.avallie.view.address.model.Address
-import io.paperdb.Book
+import com.avallie.view.newAddress.model.Address
 import io.paperdb.Paper
 
 class PaperHelper {

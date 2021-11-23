@@ -1,8 +1,11 @@
 <component name="libraryTable">
   <library name="Gradle: tk.zielony:carbon:0.15.3@aar">
     <CLASSES>
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/6e95c4ec90a3508dee816e25fac8cc6d/jetified-carbon-0.15.3/jars/classes.jar!/" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/6e95c4ec90a3508dee816e25fac8cc6d/jetified-carbon-0.15.3/res" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/a1487440a93beff55eb5c16ba6e9759a/jetified-carbon-0.15.3/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/a1487440a93beff55eb5c16ba6e9759a/jetified-carbon-0.15.3/res" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/8a4f96c35822dc4fca47f3f9931b8fd6/jetified-carbon-0.15.3/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/8a4f96c35822dc4fca47f3f9931b8fd6/jetified-carbon-0.15.3/AndroidManifest.xml" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/8a4f96c35822dc4fca47f3f9931b8fd6/jetified-carbon-0.15.3/res" />
     </CLASSES>
     <JAVADOC />
     <SOURCES>

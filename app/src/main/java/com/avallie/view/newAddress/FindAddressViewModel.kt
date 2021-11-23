@@ -1,7 +1,6 @@
 package com.avallie.view.newAddress
 
 import android.content.Context
-import android.gesture.Prediction
 import androidx.lifecycle.MutableLiveData
 import com.avallie.core.CustomViewModel
 import com.avallie.model.ScreenState

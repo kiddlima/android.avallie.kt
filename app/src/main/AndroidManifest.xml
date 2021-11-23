@@ -16,12 +16,12 @@
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
         <activity
-            android:name=".view.address.FindAddressActivity"
+            android:name=".view.newAddress.FindAddressActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppThemeFilter" />
 
         <activity
-            android:name=".view.address.MyAddressActivity"
+            android:name=".view.newAddress.MyAddressActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppThemeFilter" />
         <activity

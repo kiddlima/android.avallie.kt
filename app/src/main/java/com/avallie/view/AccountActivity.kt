@@ -11,7 +11,7 @@ import com.avallie.R
 import com.avallie.databinding.ActivityAccountBinding
 import com.avallie.helpers.AuthHelper
 import com.avallie.helpers.PaperHelper
-import com.avallie.view.address.MyAddressActivity
+import com.avallie.view.newAddress.MyAddressActivity
 import com.avallie.widgets.MenuItemComponent
 import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper
 

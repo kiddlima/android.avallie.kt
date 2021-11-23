@@ -1,6 +1,6 @@
 package com.avallie.model
 
-import com.avallie.view.address.model.Address
+import com.avallie.view.newAddress.model.Address
 import com.google.gson.annotations.SerializedName
 
 class Customer {

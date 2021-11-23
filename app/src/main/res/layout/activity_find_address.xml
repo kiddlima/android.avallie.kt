@@ -11,11 +11,11 @@
 
         <variable
             name="viewModel"
-            type="com.avallie.view.address.FindAddressViewModel" />
+            type="com.avallie.view.newAddress.FindAddressViewModel" />
 
         <variable
             name="activity"
-            type="com.avallie.view.address.FindAddressActivity" />
+            type="com.avallie.view.newAddress.FindAddressActivity" />
 
     </data>
 
@@ -25,7 +25,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@android:color/white"
-        tools:context=".view.address.FindAddressActivity">
+        tools:context=".view.newAddress.FindAddressActivity">
 
         <include
             android:id="@+id/toolbar"

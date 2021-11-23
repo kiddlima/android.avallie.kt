@@ -1,7 +1,6 @@
 package com.avallie.view.newAddress.model
 
 import com.google.android.libraries.places.api.model.Place
-import com.google.gson.annotations.Expose
 import com.google.gson.annotations.SerializedName
 import java.io.Serializable
 
